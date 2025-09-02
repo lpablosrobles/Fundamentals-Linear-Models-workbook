@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: public
+#  output-dir: docs
 
 execute: 
   freeze: auto
@@ -9,7 +9,7 @@ lang: en
 
 
 book:
-  title: "Statistics: Fundamentals of Linear Models 2025-2026: Workbook"
+  title: "Fundamentals of Linear Models 2025-2026: Workbook"
   reader-mode: true
   
   page-footer: 
@@ -32,20 +32,23 @@ book:
       chapters: 
         - intro_to_r.qmd
         - using_libraries.qmd
-        - tidyverse_intro.qmd
         - read_data.qmd
+        - using_notebooks.qmd
         
     - part: Workgroup2.qmd
       chapters: 
-        - read_data.qmd
+        - tidyverse_intro.qmd
+        - data_organization.qmd
         - data_visualization.qmd
+        - descriptive_stats.qmd
         
     - part: Workgroup3.qmd
-      chapters: 
-        - intro_to_r.qmd
-        - using_libraries.qmd
+      chapters:
         - tidyverse_intro.qmd
-        - read_data.qmd
+        - data_organization.qmd
+        - data_visualization.qmd
+        - descriptive_stats.qmd
+
         
     - part: Workgroup4.qmd
       chapters: 

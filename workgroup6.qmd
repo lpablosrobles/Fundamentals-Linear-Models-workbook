@@ -1,4 +1,4 @@
 ---
-title: "Workgroup 1: Introduction to R"
+title: "Workgroup 6: Multiple Regression with R II"
 author: "Leticia Pablos Robles"
 ---
