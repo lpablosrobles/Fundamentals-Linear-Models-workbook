@@ -20,7 +20,7 @@ book:
   
   cover-image: images/Stats_Ling_Cover_1ed.jpg
   favicon: images/Stats_Ling_Cover_1ed.jpg
-  date: "31/08/2025"
+  date: "08/30/2025"
   
   chapters:
     - index.qmd

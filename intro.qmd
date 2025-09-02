@@ -6,11 +6,6 @@ See @knuth84 for additional discussion of literate programming.
 
 ## What would you learn in this course
 
-R 
-
-```{r}
-1 + 1
-```
 
 
 
