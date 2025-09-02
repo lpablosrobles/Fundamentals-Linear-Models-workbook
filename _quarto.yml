@@ -92,12 +92,12 @@ format:
     author-meta: "Dr. Leticia Pablos Robles"
     callout-apperance: simple
     
-  pdf:
-    titlepage-pdf:
-      coverpage: true
-      documentclass: scrreprt
-      
-  epub:
-    cover-image: images/Stats_Ling_Cover_1ed.jpg
+  # pdf:
+  #   titlepage-pdf:
+  #     coverpage: true
+  #     documentclass: scrreprt
+  #     
+  # epub:
+  #   cover-image: images/Stats_Ling_Cover_1ed.jpg
 editor: visual
 
