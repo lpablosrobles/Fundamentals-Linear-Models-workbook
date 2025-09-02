@@ -1,0 +1,22 @@
+---
+title: "intro_to_r"
+author: "Leticia Pablos Robles"
+---
+
+# The R language {#sec-the-r-language}
+
+# RStudio Environment {#sec-rstudio-environment}
+
+# R basics {#sec-r-basics}
+
+## Variables {#sec-variables}
+
+## Operators
+
+## Loops
+
+## Data types
+
+### Lists
+
+### Dataframes

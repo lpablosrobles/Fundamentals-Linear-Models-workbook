@@ -1,0 +1,7 @@
+# Welcome {.unnumbered}
+
+This is the Workbook for the ***Statistics in Linguistics*** Course
+
+This Workbook was designed as a companion to the Workgroup lectures and aims to provide you with basics of Statistical computing using the R language programming, an explanation of the exercises we will follow during the class as well as the assignments to be performed after the lecture.
+
+Answers to the exercises will be provided in XXX after the due date of each of the assignments.

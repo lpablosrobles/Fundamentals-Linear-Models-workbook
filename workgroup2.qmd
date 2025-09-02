@@ -1,0 +1,122 @@
+---
+title: "Workgroup 2: Data Exploration with R"
+author: "Leticia Pablos Robles"
+---
+
+# 🧠 Learning Objectives
+
+By the end of this lesson, you will be able to:
+
+-   Import and explore datasets.
+-   Use basic functions and create simple plots.
+
+# 📂 Dataset loading and importing in R
+
+## Using data from a package
+```{r}
+library(languageR)
+
+```
+
+
+## Importing data from a text file
+```{r}
+#data <- read.csv("yourfile.csv")  # Load a CSV file  
+#head(data)                        # View the first few rows 
+```
+
+
+``` r
+
+```
+
+## Importing data from an Excel file
+
+# Dataset exploration
+
+## Understanding data structure
+
+## Defining factors
+
+# Data organization and transformation
+
+## Sorting, filtering, merging
+
+## Data transformation
+
+## Using *tidyverse* library
+
+# 📝 Exercises
+
+## Explore a Built-in Dataset
+
+-Load the library called ***languageR**,* using the following command *.* In the languageR library, there are some sample datasets that we will use for future workgroups.
+
+``` r
+```
+
+`{r} # load required libraries library(languageR) library(tidyverse)}`
+
+From the *languageR* library we will use a sample dataframe called *spanishMeta*. This dataset is based on a more general dataset called *spanish* also included in the library, from *Spassova, M. S. (2006) Las marcas sintacticas de atribucion forense de autoria de textos escritos en espanol, Masters thesis, Institut Universitari de Linguistica Aplicada, Universitat Pompeu Fabra, Barcelona*
+
+### Display dataframe
+
+To view the contents of a dataset we can simply write the name of the dataset in the console
+
+`{r} spanishMeta}`
+
+If we have a lot of data, the console display will be very long. Then you can use the *head()* function to only see the first few rows of the dataset
+
+`{r} head(spanishMeta)}`
+
+By default the function shows the first 6 rows of the dataset. if you look at the options of the function using *help(head)*, you can see that there is a parameter (called argument in the vocabulary of R) *n* that can be used to indicate the number of rows to show. For the exercise, to show 4 rows, you can use:
+
+`{r} head(spanishMeta, n=4)}`
+
+### Extract column names
+
+There a number of functions that allow to inspect data sets: \* *str()*: provides a brief description of the data set variables and contents \* *names()*: lists the names of the variables \* *summary()*: gives basic summary statistics for every variable (we will explore this in the next assignment) \* *head()*: shows the first rows of the dataset (as we saw above) \* *tail()*: shows the last rows of the dataset
+
+In the assignment it was asked to list the names of the variables in the dataset. The easiest way is to use the *names()* function
+
+`{r} names(spanishMeta)}`
+
+### Extract vector
+
+Accessing the variables of a dataset is possible using the *\$* operator. So for example, to list the contents of the *PubDate*
+
+`{r} spanishMeta$PubDate}`
+
+In the exercise it was asked to take this information and include it in a variable called *PublicationDate*. Using the above notation this is simply done as
+
+`{r} PublicationDate<-spanishMeta$PubDate PublicationDate}`
+
+### Sort a vector
+
+You can sort the vector using the *sort()* function as below.
+
+`{r} sort(PublicationDate)}`
+
+`{r} sort(PublicationDate,decreasing = TRUE)}`
+
+Finally, there are many functions available to work, modify, and access dataframes. As an example let's see how we could select a part of the dataframe based on a criteria. If we want to select the entries that were published before 1980 for example, we can do the following
+
+`{r} spanishMeta[spanishMeta$PubDate<1980,]}`
+
+You can also use the *subset()* function to make a selection
+
+`{r} subset(spanishMeta, PubDate<1980)}`
+
+For all the operations above you can also use pipes:
+
+`{r} library(dplyr)}`
+
+`{r} PublicationDate %>% sort}`
+
+`{r} PublicationDate %>% sort(decreasing = TRUE)}`
+
+`{r} spanishMeta %>% filter(PubDate<1980)}`
+
+For self-study and exploration look at [this website](https://www.statmethods.net/management/index.html) to get information on basic manipulation of dataframes.
+
+## 
