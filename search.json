@@ -40,112 +40,272 @@
     ]
   },
   {
+    "objectID": "Workgroup1.html",
+    "href": "Workgroup1.html",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "",
+    "text": "🧠 Learning Objectives\nIn this session we will familiarize with the basics on the R computing language and the RStudio environment.\nBy the end of this lesson, you will be able to:",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#what-is-r",
+    "href": "Workgroup1.html#what-is-r",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "🛠️ What is R?",
+    "text": "🛠️ What is R?\nR is a programming language designed for statistical computing and graphics. It is widely used among statisticians, data analysts, and researchers. To work with the programming language, the R interpreter needs to be installed. You can download it from the R homepage, which is:\n\nhttp://cran.r-project.org/\n\nThere are versions available for Windows, Mac and Linux (several distributions). Select the current version (version 4.5.1 at the start of this course) and install it in your personal computer if you want to use it at home.\nR installation includes a basic interface environment with a Console to enter commands and write scripts that can be launched using the R.exe or R.app.",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#section",
+    "href": "Workgroup1.html#section",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "",
+    "text": "This interface is nonetheless quite limited and it is not normally used for data analysis and script development. You can use this language through lots of different applications and environments (e.g. VSCode, JupyterLabs, etc..) . For this course we will introduce the most commonly use development environment for R: RStudio.",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#what-is-rstudio",
+    "href": "Workgroup1.html#what-is-rstudio",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "💻 What is RStudio?",
+    "text": "💻 What is RStudio?\nRStudio is an Integrated Development Environment (IDE) for R, that makes coding in R and management of data analysis projects easier.\nRStudio is a product developed by a company called posit, but that provides a free, open source RStudio Desktop version that can be downloaded here:\n\nhttps://posit.co/download/rstudio-desktop/\n\nAs with R, there are versions available for Windows, Mac and several Linux distributions.\nOnce we launch RStudio, you can distinguish four different areas:\n\nConsole: Where R code is executed, you can type commands and see their output.\nSource: Where you write and save scripts, Notebooks.\nEnvironments: Includes tabs to inspect variables and inspect the command history as well as access tutorials.\nFiles/Plots/Packages/Help/Viewer: Includes tabs for file navigation, plotting, package management, and help.\n\n\n\nRStudio Environment (extracted from RStudio User Guide)\n\nWe will familiarize with the interface during the exercises in the Workgroup sessions, but you can find a full description and information the following resources provided in the Posit website:\n\nRStudio IDE User Guide",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#using-r-and-rstudio-on-the-web",
+    "href": "Workgroup1.html#using-r-and-rstudio-on-the-web",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "🌐Using R and RStudio on the web",
+    "text": "🌐Using R and RStudio on the web\nIf you don’t want to install in your own computer, you can use the Posit Cloud environment. that provides a Cloud Free option. This is the approach we will use in this course, so that you can access your work from anywhere.\nAll assignments will be performed in Posit Cloud where I can follow your progress and assist in case of issues.\n\n📝 Exercise1: Connect to Posit Cloud {#sec-📝-exercise1}\nIn order to use Posit Cloud you need to register for this course following the link below.\nhttps://posit.cloud/spaces/681791/join?access_code=Da9RyPvqyx7Jymq_aHZpKYwBuJJ-45h5bjS1Y7tq\nYou will be directed to the following page. Select the sign-up option and create your account.\n\n\nPosit Cloud Sign-in page\n\nOnce you sign-in you should see the course project as in the image below:\n\n\n\n\nOpen it and explore the RStudio interface.",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#commands-and-operators",
+    "href": "Workgroup1.html#commands-and-operators",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "Commands and operators",
+    "text": "Commands and operators\nR\n&gt;\nThat’s the command prompt. When you see this, it means that R is waiting patiently for you to do something!\nOne of the easiest things you can do with R is use it as a simple calculator, so it’s a good place to start. For instance, try typing 10 + 20, and hitting enter.1 When you do this, you’ve entered a command, and R will “execute” that command. What you see on screen now will be this:\n&gt; 10 + 20\n[1] 30\nNot a lot of surprises in this extract. But there’s a few things worth talking about, even with such a simple example. Firstly, it’s important that you understand how to read the extract. In this example, what I typed was the 10 + 20 part. I didn’t type the &gt; symbol: that’s just the R command prompt and isn’t part of the actual command. And neither did I type the [1] 30 part. That’s what R printed out in response to my command.\nSecondly, it’s important to understand how the output is formatted. Obviously, the correct answer to the sum 10 + 20 is 30, and not surprisingly R has printed that out as part of its response. But it’s also printed out this [1] part, which probably doesn’t make a lot of sense to you right now. You’re going to see that a lot. I’ll talk about what this means in a bit more detail later on, but for now you can think of [1] 30 as if R were saying “the answer to the 1st question you asked is 30”. That’s not quite the truth, but it’s close enough for now. And in any case it’s not really very interesting at the moment: we only asked R to calculate one thing, so obviously there’s only one answer printed on the screen. Later on this will change, and the [1] part will start to make a bit more sense. For now, I just don’t want you to get confused or concerned by it.",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#variables",
+    "href": "Workgroup1.html#variables",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "Variables",
+    "text": "Variables\n# This is a comment \nx &lt;- 5       # Assign 5 to variable x \ny &lt;- 10      # Assign 10 to variable y \nz &lt;- x + y   # Add x and y \nprint(z)     # Print the result",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#functions",
+    "href": "Workgroup1.html#functions",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "Functions",
+    "text": "Functions",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#loops-and-conditional-statements",
+    "href": "Workgroup1.html#loops-and-conditional-statements",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "Loops and conditional statements",
+    "text": "Loops and conditional statements",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#data-types",
+    "href": "Workgroup1.html#data-types",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "Data types",
+    "text": "Data types\nBasic types\nVectors and lists\nDataframes and tibbles",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#install-and-use-a-package",
+    "href": "Workgroup1.html#install-and-use-a-package",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "Install and Use a Package",
+    "text": "Install and Use a Package\ninstall.packages(\"dplyr\")\nlibrary(dplyr)\nmtcars %&gt;% filter(cyl == 6) %&gt;% summarise(avg_mpg = mean(mpg))",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#basic-calculations",
+    "href": "Workgroup1.html#basic-calculations",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "1. Basic Calculations",
+    "text": "1. Basic Calculations\nOpen RStudio and type the following in the console:\n\nAdd 15 and 27\nMultiply 6 by 9\nDivide 100 by 4",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#create-variables",
+    "href": "Workgroup1.html#create-variables",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "2. Create Variables",
+    "text": "2. Create Variables\na &lt;- 12 \nb &lt;- 8 \nc &lt;- a * b \nprint(c) \nTry changing the values of a and b and re-run the code.",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#create-a-dataframe",
+    "href": "Workgroup1.html#create-a-dataframe",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "3. Create a dataframe",
+    "text": "3. Create a dataframe\nCreate a dataframe coming up with a sample data of your own (possibly made up) including 4 columns and 6 rows: one column with a factor with two levels, another column with a factor with 3 levels and two columns with numeric values.\nYou can create a dataframe in several ways, but below you see an example on the steps to create a dataframe based on on vectors.\nCreate individual variables with vectors including the values\n\nNounAnimacy&lt;-c(\"animate\",\"inanimate\",\"inanimate\",\"animate\",\"animate\",\"animate\")\nNounAnimacy\n\n[1] \"animate\"   \"inanimate\" \"inanimate\" \"animate\"   \"animate\"   \"animate\"  \n\n\nNounGender&lt;-c(\"feminine\",\"masculine\",\"neuter\",\"masculine\",\"feminine\",\"feminine\")\nNounGender\n\nNounGender&lt;-c(\"feminine\",\"masculine\",\"neuter\",\"masculine\",\"feminine\",\"feminine\")\nNounGender\n\n[1] \"feminine\"  \"masculine\" \"neuter\"    \"masculine\" \"feminine\"  \"feminine\" \n\n\n\nNounLength&lt;-c(6,7,4,5,8,6)\nNounLength\n\n[1] 6 7 4 5 8 6\n\nNounFrequency&lt;-c(638,799,390,569,567,665)\nNounFrequency\n\n[1] 638 799 390 569 567 665\n\n\nAs you can see from the output above, data in the variables NounAnimacy and NounGender are considered as words, or literal strings. The next step is to indicate they are factors.\n\nNounAnimacy&lt;-as.factor(NounAnimacy)\nNounAnimacy\n\n[1] animate   inanimate inanimate animate   animate   animate  \nLevels: animate inanimate\n\nNounGender&lt;-as.factor(NounGender)\nNounGender\n\n[1] feminine  masculine neuter    masculine feminine  feminine \nLevels: feminine masculine neuter\n\n\nAs you can see by the output produced, now the variables are considered as factors, and Levels indicate the unique values that the predictor takes.\nWith the variables above, we can now create a dataframe.\n\nDataexample&lt;-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency)\nDataexample\n\n  NounAnimacy NounGender NounLength NounFrequency\n1     animate   feminine          6           638\n2   inanimate  masculine          7           799\n3   inanimate     neuter          4           390\n4     animate  masculine          5           569\n5     animate   feminine          8           567\n6     animate   feminine          6           665",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#reading-material",
+    "href": "Workgroup1.html#reading-material",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "Reading material",
+    "text": "Reading material\n\n\nBasics on R programming:\n\nChapter 1, Introduction to R, from Bodo Winter’s book.\nSections 2 to 8 on R basic Tutorial by UMC Utrecht\n\n\n\nA good starters reference for R is the book “R for Data Science” (Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for data science. ” O’Reilly Media, Inc.”.). The book is available online freely at:\n-   [Hands On Programming with R](https://rstudio-education.github.io/hopr/)\n\n-   [R for Data Science](https://r4ds.hadley.nz/)\n\n\nDataframes:\n\nExamples of dataframes usage\nYouTube Video by DataCamp:\n\n\n\nhttps://www.youtube.com/watch?v=9f2g7RN5N0I\nhttps://youtu.be/Nh6tSD4i4qs?feature=shared\n\nExtended information on usage of dataframes and management with tidyverse and pipes\n\nhttps://datacarpentry.org/R-ecology-lesson/how-r-thinks-about-data.html\nhttps://datacarpentry.org/R-ecology-lesson/working-with-data.html",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Workgroup1.html#footnotes",
+    "href": "Workgroup1.html#footnotes",
+    "title": "Workgroup 1: Introduction to R and RStudio",
+    "section": "",
+    "text": "Seriously. If you’re in a position to do so, open up R and start typing. The simple act of typing it rather than “just reading” makes a big difference. It makes the concepts more concrete, and it ties the abstract ideas (programming and statistics) to the actual context in which you need to use them. Statistics is something you do, not just something you read about in a textbook.↩︎",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio"
+    ]
+  },
+  {
     "objectID": "intro_to_r.html",
     "href": "intro_to_r.html",
-    "title": "1  Introduction to the R language",
+    "title": "\n1  Introduction to the R language\n",
     "section": "",
     "text": "2 ✍️ R Syntax",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#commands-and-operators",
     "href": "intro_to_r.html#commands-and-operators",
-    "title": "1  Introduction to the R language",
-    "section": "2.1 Commands and operators",
+    "title": "\n1  Introduction to the R language\n",
+    "section": "\n2.1 Commands and operators",
     "text": "2.1 Commands and operators\nR\n&gt;\nThat’s the command prompt. When you see this, it means that R is waiting patiently for you to do something!\nOne of the easiest things you can do with R is use it as a simple calculator, so it’s a good place to start. For instance, try typing 10 + 20, and hitting enter.1 When you do this, you’ve entered a command, and R will “execute” that command. What you see on screen now will be this:\n&gt; 10 + 20\n[1] 30\nNot a lot of surprises in this extract. But there’s a few things worth talking about, even with such a simple example. Firstly, it’s important that you understand how to read the extract. In this example, what I typed was the 10 + 20 part. I didn’t type the &gt; symbol: that’s just the R command prompt and isn’t part of the actual command. And neither did I type the [1] 30 part. That’s what R printed out in response to my command.\nSecondly, it’s important to understand how the output is formatted. Obviously, the correct answer to the sum 10 + 20 is 30, and not surprisingly R has printed that out as part of its response. But it’s also printed out this [1] part, which probably doesn’t make a lot of sense to you right now. You’re going to see that a lot. I’ll talk about what this means in a bit more detail later on, but for now you can think of [1] 30 as if R were saying “the answer to the 1st question you asked is 30”. That’s not quite the truth, but it’s close enough for now. And in any case it’s not really very interesting at the moment: we only asked R to calculate one thing, so obviously there’s only one answer printed on the screen. Later on this will change, and the [1] part will start to make a bit more sense. For now, I just don’t want you to get confused or concerned by it.",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#variables",
     "href": "intro_to_r.html#variables",
-    "title": "1  Introduction to the R language",
-    "section": "2.2 Variables",
+    "title": "\n1  Introduction to the R language\n",
+    "section": "\n2.2 Variables",
     "text": "2.2 Variables\n# This is a comment \nx &lt;- 5       # Assign 5 to variable x \ny &lt;- 10      # Assign 10 to variable y \nz &lt;- x + y   # Add x and y \nprint(z)     # Print the result",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#functions",
     "href": "intro_to_r.html#functions",
-    "title": "1  Introduction to the R language",
-    "section": "2.3 Functions",
+    "title": "\n1  Introduction to the R language\n",
+    "section": "\n2.3 Functions",
     "text": "2.3 Functions\nFunctions perform tasks in R. They take in inputs called arguments and return outputs. You can either manually specify a function’s arguments or use the function’s default values.\n\nFor example, the function seq() in R generates a sequence of numbers. If you just run seq() it will return the value 1. That doesn’t seem very useful! This is because the default arguments are set as seq(from = 1, to = 1). Thus, if you don’t pass in different values for from and to to change this behavior, R just assumes all you want is the number 1. You can change the argument values by updating the values after the = sign. If we try out seq(from = 2, to = 5) we get the result 2 3 4 5 that we might expect.\nWe’ll work with functions a lot throughout this book and you’ll get lots of practice in understanding their behaviors. To further assist you in understanding when a function is mentioned in the book, we’ll also include the () after them as we did with seq() above.",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#loops-and-conditional-statements",
     "href": "intro_to_r.html#loops-and-conditional-statements",
-    "title": "1  Introduction to the R language",
-    "section": "2.4 Loops and conditional statements",
+    "title": "\n1  Introduction to the R language\n",
+    "section": "\n2.4 Loops and conditional statements",
     "text": "2.4 Loops and conditional statements",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#data-types",
     "href": "intro_to_r.html#data-types",
-    "title": "1  Introduction to the R language",
-    "section": "2.5 Data types",
-    "text": "2.5 Data types\n\n2.5.1 Basic types\n\n\n2.5.2 Vectors and lists\nVectors are a groups of values built using the combine function, c().\nFor example, c(6, 11, 13, 31, 90, 92) creates a six element series of positive integer values\n\n\n2.5.3 Dataframes and tibbles\nDataframes can be thought of as sets of data organized in a spreadsheet format in rows and columns.",
+    "title": "\n1  Introduction to the R language\n",
+    "section": "\n2.5 Data types",
+    "text": "2.5 Data types\n\n2.5.1 Basic types\n\n2.5.2 Vectors and lists\nVectors are a groups of values built using the combine function, c().\nFor example, c(6, 11, 13, 31, 90, 92) creates a six element series of positive integer values\n\n2.5.3 Dataframes and tibbles\nDataframes can be thought of as sets of data organized in a spreadsheet format in rows and columns.",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#basic-calculations",
     "href": "intro_to_r.html#basic-calculations",
-    "title": "1  Introduction to the R language",
-    "section": "5.1 1. Basic Calculations",
+    "title": "\n1  Introduction to the R language\n",
+    "section": "\n5.1 1. Basic Calculations",
     "text": "5.1 1. Basic Calculations\nOpen RStudio and type the following in the console:\n\nAdd 15 and 27\nMultiply 6 by 9\nDivide 100 by 4",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#create-variables",
     "href": "intro_to_r.html#create-variables",
-    "title": "1  Introduction to the R language",
-    "section": "5.2 2. Create Variables",
+    "title": "\n1  Introduction to the R language\n",
+    "section": "\n5.2 2. Create Variables",
     "text": "5.2 2. Create Variables\na &lt;- 12 \nb &lt;- 8 \nc &lt;- a * b \nprint(c) \nTry changing the values of a and b and re-run the code.",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#create-a-dataframe",
     "href": "intro_to_r.html#create-a-dataframe",
-    "title": "1  Introduction to the R language",
-    "section": "5.3 3. Create a dataframe",
+    "title": "\n1  Introduction to the R language\n",
+    "section": "\n5.3 3. Create a dataframe",
     "text": "5.3 3. Create a dataframe\nCreate a dataframe coming up with a sample data of your own (possibly made up) including 4 columns and 6 rows: one column with a factor with two levels, another column with a factor with 3 levels and two columns with numeric values.\nYou can create a dataframe in several ways, but below you see an example on the steps to create a dataframe based on on vectors.\nCreate individual variables with vectors including the values\n\nNounAnimacy&lt;-c(\"animate\",\"inanimate\",\"inanimate\",\"animate\",\"animate\",\"animate\")\nNounAnimacy\n\n[1] \"animate\"   \"inanimate\" \"inanimate\" \"animate\"   \"animate\"   \"animate\"  \n\n\nNounGender&lt;-c(\"feminine\",\"masculine\",\"neuter\",\"masculine\",\"feminine\",\"feminine\")\nNounGender\n\nNounGender&lt;-c(\"feminine\",\"masculine\",\"neuter\",\"masculine\",\"feminine\",\"feminine\")\nNounGender\n\n[1] \"feminine\"  \"masculine\" \"neuter\"    \"masculine\" \"feminine\"  \"feminine\" \n\n\n\nNounLength&lt;-c(6,7,4,5,8,6)\nNounLength\n\n[1] 6 7 4 5 8 6\n\nNounFrequency&lt;-c(638,799,390,569,567,665)\nNounFrequency\n\n[1] 638 799 390 569 567 665\n\n\nAs you can see from the output above, data in the variables NounAnimacy and NounGender are considered as words, or literal strings. The next step is to indicate they are factors.\n\nNounAnimacy&lt;-as.factor(NounAnimacy)\nNounAnimacy\n\n[1] animate   inanimate inanimate animate   animate   animate  \nLevels: animate inanimate\n\nNounGender&lt;-as.factor(NounGender)\nNounGender\n\n[1] feminine  masculine neuter    masculine feminine  feminine \nLevels: feminine masculine neuter\n\n\nAs you can see by the output produced, now the variables are considered as factors, and Levels indicate the unique values that the predictor takes.\nWith the variables above, we can now create a dataframe.\n\nDataexample&lt;-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency)\nDataexample\n\n  NounAnimacy NounGender NounLength NounFrequency\n1     animate   feminine          6           638\n2   inanimate  masculine          7           799\n3   inanimate     neuter          4           390\n4     animate  masculine          5           569\n5     animate   feminine          8           567\n6     animate   feminine          6           665",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#footnotes",
     "href": "intro_to_r.html#footnotes",
-    "title": "1  Introduction to the R language",
+    "title": "\n1  Introduction to the R language\n",
     "section": "",
     "text": "Seriously. If you’re in a position to do so, open up R and start typing. The simple act of typing it rather than “just reading” makes a big difference. It makes the concepts more concrete, and it ties the abstract ideas (programming and statistics) to the actual context in which you need to use them. Statistics is something you do, not just something you read about in a textbook.↩︎",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
     ]
   },
@@ -156,7 +316,7 @@
     "section": "",
     "text": "2.1",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Libraries and Packages</span>"
     ]
   },
@@ -167,7 +327,7 @@
     "section": "3.1 Install and Use a Package",
     "text": "3.1 Install and Use a Package\nPackages have to be installed and loaded before using them.\nWe install packages only once\ninstall.packages(\"dplyr\") \nlibrary(dplyr) mtcars %&gt;% filter(cyl == 6) %&gt;% summarise(avg_mpg = mean(mpg))",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Libraries and Packages</span>"
     ]
   },
@@ -178,7 +338,7 @@
     "section": "3.2 ",
     "text": "3.2",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Libraries and Packages</span>"
     ]
   },
@@ -189,7 +349,7 @@
     "section": "3.3 Using RStudio help",
     "text": "3.3 Using RStudio help",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Libraries and Packages</span>"
     ]
   },
@@ -200,7 +360,7 @@
     "section": "",
     "text": "4 The R language",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>intro_to_r</span>"
     ]
   },
@@ -211,7 +371,7 @@
     "section": "6.1 Variables",
     "text": "6.1 Variables",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>intro_to_r</span>"
     ]
   },
@@ -222,7 +382,7 @@
     "section": "6.2 Operators",
     "text": "6.2 Operators",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>intro_to_r</span>"
     ]
   },
@@ -233,7 +393,7 @@
     "section": "6.3 Loops",
     "text": "6.3 Loops",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>intro_to_r</span>"
     ]
   },
@@ -244,30 +404,130 @@
     "section": "6.4 Data types",
     "text": "6.4 Data types\n\n6.4.1 Lists\n\n\n6.4.2 Dataframes",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>intro_to_r</span>"
     ]
   },
   {
     "objectID": "using_notebooks.html",
     "href": "using_notebooks.html",
-    "title": "4  Using Notebooks and R Markdown",
+    "title": "\n4  Using Notebooks and R Markdown\n",
     "section": "",
     "text": "4.1 Quarto\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Using Notebooks and R Markdown</span>"
     ]
   },
   {
     "objectID": "using_notebooks.html#running-code",
     "href": "using_notebooks.html#running-code",
-    "title": "4  Using Notebooks and R Markdown",
-    "section": "4.2 Running Code",
+    "title": "\n4  Using Notebooks and R Markdown\n",
+    "section": "\n4.2 Running Code",
     "text": "4.2 Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed).",
     "crumbs": [
-      "Workgroup1.qmd",
+      "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Using Notebooks and R Markdown</span>"
+    ]
+  },
+  {
+    "objectID": "Workgroup2.html",
+    "href": "Workgroup2.html",
+    "title": "Workgroup 2: Data Exploration with R",
+    "section": "",
+    "text": "🧠 Learning Objectives\nBy the end of this lesson, you will be able to:",
+    "crumbs": [
+      "Workgroup 2: Data Exploration with R"
+    ]
+  },
+  {
+    "objectID": "Workgroup2.html#using-data-from-a-package",
+    "href": "Workgroup2.html#using-data-from-a-package",
+    "title": "Workgroup 2: Data Exploration with R",
+    "section": "Using data from a package",
+    "text": "Using data from a package\n\nlibrary(languageR)\n\nWarning: package 'languageR' was built under R version 4.4.1",
+    "crumbs": [
+      "Workgroup 2: Data Exploration with R"
+    ]
+  },
+  {
+    "objectID": "Workgroup2.html#importing-data-from-a-text-file",
+    "href": "Workgroup2.html#importing-data-from-a-text-file",
+    "title": "Workgroup 2: Data Exploration with R",
+    "section": "Importing data from a text file",
+    "text": "Importing data from a text file\n\n#data &lt;- read.csv(\"yourfile.csv\")  # Load a CSV file  \n#head(data)                        # View the first few rows",
+    "crumbs": [
+      "Workgroup 2: Data Exploration with R"
+    ]
+  },
+  {
+    "objectID": "Workgroup2.html#importing-data-from-an-excel-file",
+    "href": "Workgroup2.html#importing-data-from-an-excel-file",
+    "title": "Workgroup 2: Data Exploration with R",
+    "section": "Importing data from an Excel file",
+    "text": "Importing data from an Excel file",
+    "crumbs": [
+      "Workgroup 2: Data Exploration with R"
+    ]
+  },
+  {
+    "objectID": "Workgroup2.html#understanding-data-structure",
+    "href": "Workgroup2.html#understanding-data-structure",
+    "title": "Workgroup 2: Data Exploration with R",
+    "section": "Understanding data structure",
+    "text": "Understanding data structure",
+    "crumbs": [
+      "Workgroup 2: Data Exploration with R"
+    ]
+  },
+  {
+    "objectID": "Workgroup2.html#defining-factors",
+    "href": "Workgroup2.html#defining-factors",
+    "title": "Workgroup 2: Data Exploration with R",
+    "section": "Defining factors",
+    "text": "Defining factors",
+    "crumbs": [
+      "Workgroup 2: Data Exploration with R"
+    ]
+  },
+  {
+    "objectID": "Workgroup2.html#using-tidyverse-library",
+    "href": "Workgroup2.html#using-tidyverse-library",
+    "title": "Workgroup 2: Data Exploration with R",
+    "section": "Using tidyverse library",
+    "text": "Using tidyverse library",
+    "crumbs": [
+      "Workgroup 2: Data Exploration with R"
+    ]
+  },
+  {
+    "objectID": "Workgroup2.html#sorting-filtering-merging",
+    "href": "Workgroup2.html#sorting-filtering-merging",
+    "title": "Workgroup 2: Data Exploration with R",
+    "section": "Sorting, filtering, merging",
+    "text": "Sorting, filtering, merging",
+    "crumbs": [
+      "Workgroup 2: Data Exploration with R"
+    ]
+  },
+  {
+    "objectID": "Workgroup2.html#data-transformation",
+    "href": "Workgroup2.html#data-transformation",
+    "title": "Workgroup 2: Data Exploration with R",
+    "section": "Data transformation",
+    "text": "Data transformation",
+    "crumbs": [
+      "Workgroup 2: Data Exploration with R"
+    ]
+  },
+  {
+    "objectID": "Workgroup2.html#explore-a-built-in-dataset",
+    "href": "Workgroup2.html#explore-a-built-in-dataset",
+    "title": "Workgroup 2: Data Exploration with R",
+    "section": "Explore a Built-in Dataset",
+    "text": "Explore a Built-in Dataset\n-Load the library called languageR, using the following command . In the languageR library, there are some sample datasets that we will use for future workgroups.\n\n# load required libraries\nlibrary(languageR)\nlibrary(tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.4.3\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nFrom the languageR library we will use a sample dataframe called spanishMeta. This dataset is based on a more general dataset called spanish also included in the library, from Spassova, M. S. (2006) Las marcas sintacticas de atribucion forense de autoria de textos escritos en espanol, Masters thesis, Institut Universitari de Linguistica Aplicada, Universitat Pompeu Fabra, Barcelona\nDisplay dataframe\nTo view the contents of a dataset we can simply write the name of the dataset in the console\n\n  spanishMeta\n\n   Author YearOfBirth  TextName PubDate Nwords    FullName\n1       C        1916 X14458gll    1983   2972        Cela\n2       C        1916 X14459gll    1951   3040        Cela\n3       C        1916 X14460gll    1956   3066        Cela\n4       C        1916 X14461gll    1948   3044        Cela\n5       C        1916 X14462gll    1942   3053        Cela\n6       M        1943 X14463gll    1986   3013     Mendoza\n7       M        1943 X14464gll    1992   3049     Mendoza\n8       M        1943 X14465gll    1989   3042     Mendoza\n9       M        1943 X14466gll    1982   3039     Mendoza\n10      M        1943 X14467gll    2002   3045     Mendoza\n11      V        1936 X14472gll    1965   3037 VargasLLosa\n12      V        1936 X14473gll    1963   3067 VargasLLosa\n13      V        1936 X14474gll    1977   3020 VargasLLosa\n14      V        1936 X14475gll    1987   3016 VargasLLosa\n15      V        1936 X14476gll    1981   3054 VargasLLosa\n\n\nIf we have a lot of data, the console display will be very long. Then you can use the head() function to only see the first few rows of the dataset\n\nhead(spanishMeta)\n\n  Author YearOfBirth  TextName PubDate Nwords FullName\n1      C        1916 X14458gll    1983   2972     Cela\n2      C        1916 X14459gll    1951   3040     Cela\n3      C        1916 X14460gll    1956   3066     Cela\n4      C        1916 X14461gll    1948   3044     Cela\n5      C        1916 X14462gll    1942   3053     Cela\n6      M        1943 X14463gll    1986   3013  Mendoza\n\n\nBy default the function shows the first 6 rows of the dataset. if you look at the options of the function using help(head), you can see that there is a parameter (called argument in the vocabulary of R) n that can be used to indicate the number of rows to show. For the exercise, to show 4 rows, you can use:\n\nhead(spanishMeta, n=4)\n\n  Author YearOfBirth  TextName PubDate Nwords FullName\n1      C        1916 X14458gll    1983   2972     Cela\n2      C        1916 X14459gll    1951   3040     Cela\n3      C        1916 X14460gll    1956   3066     Cela\n4      C        1916 X14461gll    1948   3044     Cela\n\n\nExtract column names\nThere a number of functions that allow to inspect data sets: * str(): provides a brief description of the data set variables and contents * names(): lists the names of the variables * summary(): gives basic summary statistics for every variable (we will explore this in the next assignment) * head(): shows the first rows of the dataset (as we saw above) * tail(): shows the last rows of the dataset\nIn the assignment it was asked to list the names of the variables in the dataset. The easiest way is to use the names() function\n\nnames(spanishMeta)\n\n[1] \"Author\"      \"YearOfBirth\" \"TextName\"    \"PubDate\"     \"Nwords\"     \n[6] \"FullName\"   \n\n\nExtract vector\nAccessing the variables of a dataset is possible using the $ operator. So for example, to list the contents of the PubDate\n\nspanishMeta$PubDate\n\n [1] 1983 1951 1956 1948 1942 1986 1992 1989 1982 2002 1965 1963 1977 1987 1981\n\n\nIn the exercise it was asked to take this information and include it in a variable called PublicationDate. Using the above notation this is simply done as\n\nPublicationDate&lt;-spanishMeta$PubDate \nPublicationDate\n\n [1] 1983 1951 1956 1948 1942 1986 1992 1989 1982 2002 1965 1963 1977 1987 1981\n\n\nSort a vector\nYou can sort the vector using the sort() function as below.\n\nsort(PublicationDate)\n\n [1] 1942 1948 1951 1956 1963 1965 1977 1981 1982 1983 1986 1987 1989 1992 2002\n\n\n\nsort(PublicationDate,decreasing = TRUE)\n\n [1] 2002 1992 1989 1987 1986 1983 1982 1981 1977 1965 1963 1956 1951 1948 1942\n\n\nFinally, there are many functions available to work, modify, and access dataframes. As an example let’s see how we could select a part of the dataframe based on a criteria. If we want to select the entries that were published before 1980 for example, we can do the following\n\nspanishMeta[spanishMeta$PubDate&lt;1980,]\n\n   Author YearOfBirth  TextName PubDate Nwords    FullName\n2       C        1916 X14459gll    1951   3040        Cela\n3       C        1916 X14460gll    1956   3066        Cela\n4       C        1916 X14461gll    1948   3044        Cela\n5       C        1916 X14462gll    1942   3053        Cela\n11      V        1936 X14472gll    1965   3037 VargasLLosa\n12      V        1936 X14473gll    1963   3067 VargasLLosa\n13      V        1936 X14474gll    1977   3020 VargasLLosa\n\n\nYou can also use the subset() function to make a selection\n\nsubset(spanishMeta, PubDate&lt;1980)\n\n   Author YearOfBirth  TextName PubDate Nwords    FullName\n2       C        1916 X14459gll    1951   3040        Cela\n3       C        1916 X14460gll    1956   3066        Cela\n4       C        1916 X14461gll    1948   3044        Cela\n5       C        1916 X14462gll    1942   3053        Cela\n11      V        1936 X14472gll    1965   3037 VargasLLosa\n12      V        1936 X14473gll    1963   3067 VargasLLosa\n13      V        1936 X14474gll    1977   3020 VargasLLosa\n\n\nFor all the operations above you can also use pipes:\n\nlibrary(dplyr)\n\n\nPublicationDate %&gt;% sort\n\n [1] 1942 1948 1951 1956 1963 1965 1977 1981 1982 1983 1986 1987 1989 1992 2002\n\n\n\nPublicationDate %&gt;% sort(decreasing = TRUE)\n\n [1] 2002 1992 1989 1987 1986 1983 1982 1981 1977 1965 1963 1956 1951 1948 1942\n\n\n\nspanishMeta %&gt;% filter(PubDate&lt;1980)\n\n   Author YearOfBirth  TextName PubDate Nwords    FullName\n2       C        1916 X14459gll    1951   3040        Cela\n3       C        1916 X14460gll    1956   3066        Cela\n4       C        1916 X14461gll    1948   3044        Cela\n5       C        1916 X14462gll    1942   3053        Cela\n11      V        1936 X14472gll    1965   3037 VargasLLosa\n12      V        1936 X14473gll    1963   3067 VargasLLosa\n13      V        1936 X14474gll    1977   3020 VargasLLosa\n\n\nFor self-study and exploration look at this website to get information on basic manipulation of dataframes.",
+    "crumbs": [
+      "Workgroup 2: Data Exploration with R"
     ]
   },
   {
@@ -277,7 +537,7 @@
     "section": "",
     "text": "6 The R language",
     "crumbs": [
-      "Workgroup2.qmd",
+      "Workgroup 2: Data Exploration with R",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>intro_to_r</span>"
     ]
   },
@@ -288,7 +548,7 @@
     "section": "8.1 Variables",
     "text": "8.1 Variables",
     "crumbs": [
-      "Workgroup2.qmd",
+      "Workgroup 2: Data Exploration with R",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>intro_to_r</span>"
     ]
   },
@@ -299,7 +559,7 @@
     "section": "8.2 Operators",
     "text": "8.2 Operators",
     "crumbs": [
-      "Workgroup2.qmd",
+      "Workgroup 2: Data Exploration with R",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>intro_to_r</span>"
     ]
   },
@@ -310,7 +570,7 @@
     "section": "8.3 Loops",
     "text": "8.3 Loops",
     "crumbs": [
-      "Workgroup2.qmd",
+      "Workgroup 2: Data Exploration with R",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>intro_to_r</span>"
     ]
   },
@@ -321,80 +581,100 @@
     "section": "8.4 Data types",
     "text": "8.4 Data types\n\n8.4.1 Lists\n\n\n8.4.2 Dataframes",
     "crumbs": [
-      "Workgroup2.qmd",
+      "Workgroup 2: Data Exploration with R",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>intro_to_r</span>"
     ]
   },
   {
     "objectID": "data_organization.html",
     "href": "data_organization.html",
-    "title": "6  Data Organization and Transformation",
+    "title": "\n6  Data Organization and Transformation\n",
     "section": "",
     "text": "6.1 Quarto\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.",
     "crumbs": [
-      "Workgroup2.qmd",
+      "Workgroup 2: Data Exploration with R",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Organization and Transformation</span>"
     ]
   },
   {
     "objectID": "data_organization.html#running-code",
     "href": "data_organization.html#running-code",
-    "title": "6  Data Organization and Transformation",
-    "section": "6.2 Running Code",
+    "title": "\n6  Data Organization and Transformation\n",
+    "section": "\n6.2 Running Code",
     "text": "6.2 Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed).",
     "crumbs": [
-      "Workgroup2.qmd",
+      "Workgroup 2: Data Exploration with R",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Organization and Transformation</span>"
     ]
   },
   {
     "objectID": "data_visualization.html",
     "href": "data_visualization.html",
-    "title": "7  Data visualization",
+    "title": "\n7  Data visualization\n",
     "section": "",
     "text": "7.1 Quarto\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.",
     "crumbs": [
-      "Workgroup2.qmd",
+      "Workgroup 2: Data Exploration with R",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualization</span>"
     ]
   },
   {
     "objectID": "data_visualization.html#running-code",
     "href": "data_visualization.html#running-code",
-    "title": "7  Data visualization",
-    "section": "7.2 Running Code",
+    "title": "\n7  Data visualization\n",
+    "section": "\n7.2 Running Code",
     "text": "7.2 Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed).",
     "crumbs": [
-      "Workgroup2.qmd",
+      "Workgroup 2: Data Exploration with R",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualization</span>"
     ]
   },
   {
     "objectID": "descriptive_stats.html",
     "href": "descriptive_stats.html",
-    "title": "8  Descriptive Statistics",
+    "title": "\n8  Descriptive Statistics\n",
     "section": "",
     "text": "8.1 Quarto\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.",
     "crumbs": [
-      "Workgroup2.qmd",
+      "Workgroup 2: Data Exploration with R",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Descriptive Statistics</span>"
     ]
   },
   {
     "objectID": "descriptive_stats.html#running-code",
     "href": "descriptive_stats.html#running-code",
-    "title": "8  Descriptive Statistics",
-    "section": "8.2 Running Code",
+    "title": "\n8  Descriptive Statistics\n",
+    "section": "\n8.2 Running Code",
     "text": "8.2 Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed).",
     "crumbs": [
-      "Workgroup2.qmd",
+      "Workgroup 2: Data Exploration with R",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Descriptive Statistics</span>"
+    ]
+  },
+  {
+    "objectID": "Workgroup3.html",
+    "href": "Workgroup3.html",
+    "title": "Workgroup 3: Data exploration with R (II)",
+    "section": "",
+    "text": "📊Data visualization in R: introduction to ggplot",
+    "crumbs": [
+      "Workgroup 3: Data exploration with R (II)"
+    ]
+  },
+  {
+    "objectID": "Workgroup3.html#basic-plotting",
+    "href": "Workgroup3.html#basic-plotting",
+    "title": "Workgroup 3: Data exploration with R (II)",
+    "section": "Basic Plotting",
+    "text": "Basic Plotting\n\nNote on ggplot2: The intention of this example was to show the power of ggplot2 to produce graphs of all types. It is beyond the scope of this course to learn how to use it and you are not expected to know it for the exams. For the interested readers there are several books and resources on the topic:\n\n\nR Graphics Cookbook by Winston Chang\nggplot2: Elegant Graphics for Data Analysis by Hadley Wickham",
+    "crumbs": [
+      "Workgroup 3: Data exploration with R (II)"
     ]
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "29  Summary",
+    "title": "\n29  Summary\n",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
     "crumbs": [

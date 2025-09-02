@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.42">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
-
-<title>Introduction – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Workgroup 2: Data Exploration with R – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,28 +18,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
-
+</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -51,8 +61,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Workgroup1.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./tidyverse_intro.html" rel="next">
+<link href="./using_notebooks.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -62,8 +72,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -90,33 +99,24 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
         <div class="sidebar-tools-main">
@@ -135,7 +135,7 @@ div.csl-indent {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -143,7 +143,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -155,8 +155,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to the R language</span></span></a>
@@ -181,17 +181,17 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./Workgroup2.html" class="sidebar-item-text sidebar-link">
+            <a href="./Workgroup2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Workgroup 2: Data Exploration with R</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
@@ -216,7 +216,7 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup3.html" class="sidebar-item-text sidebar-link">
@@ -225,8 +225,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
@@ -251,7 +251,7 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup4.html" class="sidebar-item-text sidebar-link">
@@ -260,8 +260,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to the R language</span></span></a>
@@ -286,7 +286,7 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup5.html" class="sidebar-item-text sidebar-link">
@@ -295,8 +295,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to the R language</span></span></a>
@@ -321,7 +321,7 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup6.html" class="sidebar-item-text sidebar-link">
@@ -330,8 +330,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to the R language</span></span></a>
@@ -356,7 +356,7 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup7.html" class="sidebar-item-text sidebar-link">
@@ -365,8 +365,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to the R language</span></span></a>
@@ -391,7 +391,7 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
@@ -405,33 +405,69 @@ div.csl-indent {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-would-you-learn-in-this-course" id="toc-what-would-you-learn-in-this-course" class="nav-link active" data-scroll-target="#what-would-you-learn-in-this-course">What would you learn in this course</a></li>
-  <li><a href="#workbook-organization" id="toc-workbook-organization" class="nav-link" data-scroll-target="#workbook-organization">Workbook organization</a></li>
-  <li><a href="#references-for-self-study" id="toc-references-for-self-study" class="nav-link" data-scroll-target="#references-for-self-study">References for self study</a></li>
+<li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">🧠 Learning Objectives</a></li>
+  <li>
+<a href="#dataset-loading-and-importing-in-r" id="toc-dataset-loading-and-importing-in-r" class="nav-link" data-scroll-target="#dataset-loading-and-importing-in-r">📂 Dataset loading and importing in R</a>
+  <ul class="collapse">
+<li><a href="#using-data-from-a-package" id="toc-using-data-from-a-package" class="nav-link" data-scroll-target="#using-data-from-a-package">Using data from a package</a></li>
+  <li><a href="#importing-data-from-a-text-file" id="toc-importing-data-from-a-text-file" class="nav-link" data-scroll-target="#importing-data-from-a-text-file">Importing data from a text file</a></li>
+  <li><a href="#importing-data-from-an-excel-file" id="toc-importing-data-from-an-excel-file" class="nav-link" data-scroll-target="#importing-data-from-an-excel-file">Importing data from an Excel file</a></li>
   </ul>
-</nav>
+</li>
+  <li>
+<a href="#dataset-exploration" id="toc-dataset-exploration" class="nav-link" data-scroll-target="#dataset-exploration">Dataset exploration</a>
+  <ul class="collapse">
+<li><a href="#understanding-data-structure" id="toc-understanding-data-structure" class="nav-link" data-scroll-target="#understanding-data-structure">Understanding data structure</a></li>
+  <li><a href="#defining-factors" id="toc-defining-factors" class="nav-link" data-scroll-target="#defining-factors">Defining factors</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#data-organization-and-transformation" id="toc-data-organization-and-transformation" class="nav-link" data-scroll-target="#data-organization-and-transformation">Data organization and transformation</a>
+  <ul class="collapse">
+<li><a href="#using-tidyverse-library" id="toc-using-tidyverse-library" class="nav-link" data-scroll-target="#using-tidyverse-library">Using <em>tidyverse</em> library</a></li>
+  <li><a href="#sorting-filtering-merging" id="toc-sorting-filtering-merging" class="nav-link" data-scroll-target="#sorting-filtering-merging">Sorting, filtering, merging</a></li>
+  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation">Data transformation</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">📝 Exercises</a>
+  <ul class="collapse">
+<li>
+<a href="#explore-a-built-in-dataset" id="toc-explore-a-built-in-dataset" class="nav-link" data-scroll-target="#explore-a-built-in-dataset">Explore a Built-in Dataset</a>
+  <ul class="collapse">
+<li><a href="#display-dataframe" id="toc-display-dataframe" class="nav-link" data-scroll-target="#display-dataframe">Display dataframe</a></li>
+  <li><a href="#extract-column-names" id="toc-extract-column-names" class="nav-link" data-scroll-target="#extract-column-names">Extract column names</a></li>
+  <li><a href="#extract-vector" id="toc-extract-vector" class="nav-link" data-scroll-target="#extract-vector">Extract vector</a></li>
+  <li><a href="#sort-a-vector" id="toc-sort-a-vector" class="nav-link" data-scroll-target="#sort-a-vector">Sort a vector</a></li>
+  </ul>
+</li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-intro" class="quarto-section-identifier">Introduction</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Workgroup 2: Data Exploration with R</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Leticia Pablos Robles </p>
+          </div>
+  </div>
     
   
     
@@ -439,36 +475,206 @@ div.csl-indent {
   
 
 
-</header>
-
-
-<p>This is a book created from markdown and executable code.</p>
-<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
-<section id="what-would-you-learn-in-this-course" class="level2">
-<h2 class="anchored" data-anchor-id="what-would-you-learn-in-this-course">What would you learn in this course</h2>
-</section>
-<section id="workbook-organization" class="level2">
-<h2 class="anchored" data-anchor-id="workbook-organization">Workbook organization</h2>
-</section>
-<section id="references-for-self-study" class="level2">
-<h2 class="anchored" data-anchor-id="references-for-self-study">References for self study</h2>
+</header><section id="learning-objectives" class="level1"><h1>🧠 Learning Objectives</h1>
+<p>By the end of this lesson, you will be able to:</p>
 <ul>
-<li><p>Read Chapter 1, Introduction to R, from Bodo Winter’s book.</p></li>
-<li><p>If you have never used R or any other programming language, read the following online basic tutorial, sections 2 to 8by UMC Utrecht: http://r-tutorial.nl/</p></li>
-<li><p>Watch the following YouTube Videos on data frames by DataCamp: https://www.youtube.com/watch?v=9f2g7RN5N0I https://youtu.be/Nh6tSD4i4qs?feature=shared</p></li>
-<li><p>Look at examples of dataframes usage in: https://bookdown.org/dli/rguide/working-with-data-frames.html</p></li>
-</ul>
-
-
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-knuth84" class="csl-entry" role="listitem">
-Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+<li>Import and explore datasets.</li>
+<li>Use basic functions and create simple plots.</li>
+</ul></section><section id="dataset-loading-and-importing-in-r" class="level1"><h1>📂 Dataset loading and importing in R</h1>
+<section id="using-data-from-a-package" class="level2"><h2 class="anchored" data-anchor-id="using-data-from-a-package">Using data from a package</h2>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">languageR</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'languageR' was built under R version 4.4.1</code></pre>
 </div>
 </div>
-</section>
+</section><section id="importing-data-from-a-text-file" class="level2"><h2 class="anchored" data-anchor-id="importing-data-from-a-text-file">Importing data from a text file</h2>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#data &lt;- read.csv("yourfile.csv")  # Load a CSV file  </span></span>
+<span><span class="co">#head(data)                        # View the first few rows </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="importing-data-from-an-excel-file" class="level2"><h2 class="anchored" data-anchor-id="importing-data-from-an-excel-file">Importing data from an Excel file</h2>
+</section></section><section id="dataset-exploration" class="level1"><h1>Dataset exploration</h1>
+<section id="understanding-data-structure" class="level2"><h2 class="anchored" data-anchor-id="understanding-data-structure">Understanding data structure</h2>
+</section><section id="defining-factors" class="level2"><h2 class="anchored" data-anchor-id="defining-factors">Defining factors</h2>
+</section></section><section id="data-organization-and-transformation" class="level1"><h1>Data organization and transformation</h1>
+<section id="using-tidyverse-library" class="level2"><h2 class="anchored" data-anchor-id="using-tidyverse-library">Using <em>tidyverse</em> library</h2>
+</section><section id="sorting-filtering-merging" class="level2"><h2 class="anchored" data-anchor-id="sorting-filtering-merging">Sorting, filtering, merging</h2>
+</section><section id="data-transformation" class="level2"><h2 class="anchored" data-anchor-id="data-transformation">Data transformation</h2>
+</section></section><section id="exercises" class="level1"><h1>📝 Exercises</h1>
+<section id="explore-a-built-in-dataset" class="level2"><h2 class="anchored" data-anchor-id="explore-a-built-in-dataset">Explore a Built-in Dataset</h2>
+<p>-Load the library called <em><strong>languageR</strong>,</em> using the following command <em>.</em> In the languageR library, there are some sample datasets that we will use for future workgroups.</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load required libraries</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">languageR</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p>From the <em>languageR</em> library we will use a sample dataframe called <em>spanishMeta</em>. This dataset is based on a more general dataset called <em>spanish</em> also included in the library, from <em>Spassova, M. S. (2006) Las marcas sintacticas de atribucion forense de autoria de textos escritos en espanol, Masters thesis, Institut Universitari de Linguistica Aplicada, Universitat Pompeu Fabra, Barcelona</em></p>
+<section id="display-dataframe" class="level3"><h3 class="anchored" data-anchor-id="display-dataframe">Display dataframe</h3>
+<p>To view the contents of a dataset we can simply write the name of the dataset in the console</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span>  <span class="va">spanishMeta</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Author YearOfBirth  TextName PubDate Nwords    FullName
+1       C        1916 X14458gll    1983   2972        Cela
+2       C        1916 X14459gll    1951   3040        Cela
+3       C        1916 X14460gll    1956   3066        Cela
+4       C        1916 X14461gll    1948   3044        Cela
+5       C        1916 X14462gll    1942   3053        Cela
+6       M        1943 X14463gll    1986   3013     Mendoza
+7       M        1943 X14464gll    1992   3049     Mendoza
+8       M        1943 X14465gll    1989   3042     Mendoza
+9       M        1943 X14466gll    1982   3039     Mendoza
+10      M        1943 X14467gll    2002   3045     Mendoza
+11      V        1936 X14472gll    1965   3037 VargasLLosa
+12      V        1936 X14473gll    1963   3067 VargasLLosa
+13      V        1936 X14474gll    1977   3020 VargasLLosa
+14      V        1936 X14475gll    1987   3016 VargasLLosa
+15      V        1936 X14476gll    1981   3054 VargasLLosa</code></pre>
+</div>
+</div>
+<p>If we have a lot of data, the console display will be very long. Then you can use the <em>head()</em> function to only see the first few rows of the dataset</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">spanishMeta</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Author YearOfBirth  TextName PubDate Nwords FullName
+1      C        1916 X14458gll    1983   2972     Cela
+2      C        1916 X14459gll    1951   3040     Cela
+3      C        1916 X14460gll    1956   3066     Cela
+4      C        1916 X14461gll    1948   3044     Cela
+5      C        1916 X14462gll    1942   3053     Cela
+6      M        1943 X14463gll    1986   3013  Mendoza</code></pre>
+</div>
+</div>
+<p>By default the function shows the first 6 rows of the dataset. if you look at the options of the function using <em>help(head)</em>, you can see that there is a parameter (called argument in the vocabulary of R) <em>n</em> that can be used to indicate the number of rows to show. For the exercise, to show 4 rows, you can use:</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">spanishMeta</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Author YearOfBirth  TextName PubDate Nwords FullName
+1      C        1916 X14458gll    1983   2972     Cela
+2      C        1916 X14459gll    1951   3040     Cela
+3      C        1916 X14460gll    1956   3066     Cela
+4      C        1916 X14461gll    1948   3044     Cela</code></pre>
+</div>
+</div>
+</section><section id="extract-column-names" class="level3"><h3 class="anchored" data-anchor-id="extract-column-names">Extract column names</h3>
+<p>There a number of functions that allow to inspect data sets: * <em>str()</em>: provides a brief description of the data set variables and contents * <em>names()</em>: lists the names of the variables * <em>summary()</em>: gives basic summary statistics for every variable (we will explore this in the next assignment) * <em>head()</em>: shows the first rows of the dataset (as we saw above) * <em>tail()</em>: shows the last rows of the dataset</p>
+<p>In the assignment it was asked to list the names of the variables in the dataset. The easiest way is to use the <em>names()</em> function</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">spanishMeta</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Author"      "YearOfBirth" "TextName"    "PubDate"     "Nwords"     
+[6] "FullName"   </code></pre>
+</div>
+</div>
+</section><section id="extract-vector" class="level3"><h3 class="anchored" data-anchor-id="extract-vector">Extract vector</h3>
+<p>Accessing the variables of a dataset is possible using the <em>$</em> operator. So for example, to list the contents of the <em>PubDate</em></p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">spanishMeta</span><span class="op">$</span><span class="va">PubDate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1983 1951 1956 1948 1942 1986 1992 1989 1982 2002 1965 1963 1977 1987 1981</code></pre>
+</div>
+</div>
+<p>In the exercise it was asked to take this information and include it in a variable called <em>PublicationDate</em>. Using the above notation this is simply done as</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PublicationDate</span><span class="op">&lt;-</span><span class="va">spanishMeta</span><span class="op">$</span><span class="va">PubDate</span> </span>
+<span><span class="va">PublicationDate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1983 1951 1956 1948 1942 1986 1992 1989 1982 2002 1965 1963 1977 1987 1981</code></pre>
+</div>
+</div>
+</section><section id="sort-a-vector" class="level3"><h3 class="anchored" data-anchor-id="sort-a-vector">Sort a vector</h3>
+<p>You can sort the vector using the <em>sort()</em> function as below.</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">PublicationDate</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1942 1948 1951 1956 1963 1965 1977 1981 1982 1983 1986 1987 1989 1992 2002</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">PublicationDate</span>,decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 2002 1992 1989 1987 1986 1983 1982 1981 1977 1965 1963 1956 1951 1948 1942</code></pre>
+</div>
+</div>
+<p>Finally, there are many functions available to work, modify, and access dataframes. As an example let’s see how we could select a part of the dataframe based on a criteria. If we want to select the entries that were published before 1980 for example, we can do the following</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">spanishMeta</span><span class="op">[</span><span class="va">spanishMeta</span><span class="op">$</span><span class="va">PubDate</span><span class="op">&lt;</span><span class="fl">1980</span>,<span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Author YearOfBirth  TextName PubDate Nwords    FullName
+2       C        1916 X14459gll    1951   3040        Cela
+3       C        1916 X14460gll    1956   3066        Cela
+4       C        1916 X14461gll    1948   3044        Cela
+5       C        1916 X14462gll    1942   3053        Cela
+11      V        1936 X14472gll    1965   3037 VargasLLosa
+12      V        1936 X14473gll    1963   3067 VargasLLosa
+13      V        1936 X14474gll    1977   3020 VargasLLosa</code></pre>
+</div>
+</div>
+<p>You can also use the <em>subset()</em> function to make a selection</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">spanishMeta</span>, <span class="va">PubDate</span><span class="op">&lt;</span><span class="fl">1980</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Author YearOfBirth  TextName PubDate Nwords    FullName
+2       C        1916 X14459gll    1951   3040        Cela
+3       C        1916 X14460gll    1956   3066        Cela
+4       C        1916 X14461gll    1948   3044        Cela
+5       C        1916 X14462gll    1942   3053        Cela
+11      V        1936 X14472gll    1965   3037 VargasLLosa
+12      V        1936 X14473gll    1963   3067 VargasLLosa
+13      V        1936 X14474gll    1977   3020 VargasLLosa</code></pre>
+</div>
+</div>
+<p>For all the operations above you can also use pipes:</p>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PublicationDate</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">sort</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1942 1948 1951 1956 1963 1965 1977 1981 1982 1983 1986 1987 1989 1992 2002</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PublicationDate</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span>decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 2002 1992 1989 1987 1986 1983 1982 1981 1977 1965 1963 1956 1951 1948 1942</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">spanishMeta</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">PubDate</span><span class="op">&lt;</span><span class="fl">1980</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Author YearOfBirth  TextName PubDate Nwords    FullName
+2       C        1916 X14459gll    1951   3040        Cela
+3       C        1916 X14460gll    1956   3066        Cela
+4       C        1916 X14461gll    1948   3044        Cela
+5       C        1916 X14462gll    1942   3053        Cela
+11      V        1936 X14472gll    1965   3037 VargasLLosa
+12      V        1936 X14473gll    1963   3067 VargasLLosa
+13      V        1936 X14474gll    1977   3020 VargasLLosa</code></pre>
+</div>
+</div>
+<p>For self-study and exploration look at <a href="https://www.statmethods.net/management/index.html">this website</a> to get information on basic manipulation of dataframes.</p>
+</section></section><section id="section" class="level2"><h2 class="anchored" data-anchor-id="section"></h2>
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -884,22 +1090,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Welcome">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./using_notebooks.html" class="pagination-link" aria-label="Using Notebooks and R Markdown">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Using Notebooks and R Markdown</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Workgroup1.html" class="pagination-link" aria-label="Workgroup 1: Introduction to R and RStudio">
-        <span class="nav-page-text">Workgroup 1: Introduction to R and RStudio</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tidyverse_intro.html" class="pagination-link" aria-label="intro_to_r">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">intro_to_r</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Fundamentals of Linear Models Workbook was written by Dr.&nbsp;Leticia Pablos Robles</p>
 </div>   
@@ -911,8 +1114,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
