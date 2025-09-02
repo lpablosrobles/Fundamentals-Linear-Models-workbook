@@ -14,7 +14,7 @@
     "href": "intro.html",
     "title": "Introduction",
     "section": "",
-    "text": "What would you learn in this course\nThis is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\nR\n1 + 1\n\n[1] 2",
+    "text": "What would you learn in this course\nThis is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.",
     "crumbs": [
       "Introduction"
     ]
