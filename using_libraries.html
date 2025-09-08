@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 
-<title>2&nbsp; Libraries and Packages – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>2&nbsp; 📦 Libraries and Packages – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -137,7 +137,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./using_libraries.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Libraries and Packages</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./using_libraries.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -199,13 +199,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_libraries.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Libraries and Packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./read_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and saving data in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -258,20 +258,16 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><span class="header-section-number">2.1</span> </a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages"><span class="header-section-number">3</span> 📦 Packages</a>
-  <ul class="collapse">
-  <li><a href="#install-and-use-a-package" id="toc-install-and-use-a-package" class="nav-link" data-scroll-target="#install-and-use-a-package"><span class="header-section-number">3.1</span> Install and Use a Package</a></li>
-  </ul></li>
+  <li><a href="#install-and-use-a-package" id="toc-install-and-use-a-package" class="nav-link active" data-scroll-target="#install-and-use-a-package"><span class="header-section-number">2.1</span> Install and Use a Package</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./using_libraries.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Libraries and Packages</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./using_libraries.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Libraries and Packages</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></h1>
 </div>
 
 
@@ -288,16 +284,11 @@ div.csl-indent {
 </header>
 
 
-<section id="section" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="section"><span class="header-section-number">2.1</span> </h2>
-</section>
-<section id="packages" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> 📦 Packages</h1>
 <p>One of the big benefits of <em>R</em> in comparison with other statistics packages is its open nature. The functionality is easily extended by groups all around the world by developing libraries that can be easily installed and used.</p>
 <p>R packages extend the functionality of R by providing additional functions, data, and documentation. They are written by a worldwide community of R users and can be downloaded for free from the internet.</p>
 <p>A <strong>package</strong> is a collection of R functions, data, and compiled code bundled together. Packages are created by the R community and cover a wide range of topics like data manipulation, visualization, machine learning, etc.</p>
-<section id="install-and-use-a-package" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="install-and-use-a-package"><span class="header-section-number">3.1</span> Install and Use a Package</h2>
+<section id="install-and-use-a-package" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="install-and-use-a-package"><span class="header-section-number">2.1</span> Install and Use a Package</h2>
 <p>Packages have to be <strong>installed</strong> <u>and</u> <strong>loaded</strong> before using them.</p>
 <p>We need to install packages only once in our environment. That can be done in two ways:</p>
 <ol type="1">
@@ -332,7 +323,6 @@ Warning
 Baayen, R. H. 2008. <em>Analyzing Linguistic Data: A Practical Introduction to Statistics Using r</em>. Cambridge University Press.
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -760,8 +750,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./read_data.html" class="pagination-link" aria-label="Reading and saving data in R">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and saving data in R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./read_data.html" class="pagination-link" aria-label="Reading and Saving data in R">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.42">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
-<title>3&nbsp; Reading and saving data in R – Fundamentals of Linear Models 2025-2026: Workbook</title>
+
+<title>3&nbsp; Reading and Saving data in R – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,6 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -72,7 +76,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -99,24 +104,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+
+
 </head>
+
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./read_data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and saving data in R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./read_data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
         <div class="sidebar-tools-main">
@@ -135,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -155,8 +169,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span></span></a>
@@ -165,13 +179,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_libraries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Libraries and Packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./read_data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and saving data in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -187,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Workgroup 2: Data Exploration with R</span></span>
@@ -215,38 +229,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li>
-<a href="#sec-r-read" id="toc-sec-r-read" class="nav-link active" data-scroll-target="#sec-r-read"><span class="header-section-number">4</span> Reading data from files</a>
+  <li><a href="#sec-r-read" id="toc-sec-r-read" class="nav-link active" data-scroll-target="#sec-r-read"><span class="header-section-number">3.1</span> Reading data from files</a></li>
+  <li><a href="#data-from-text-files" id="toc-data-from-text-files" class="nav-link" data-scroll-target="#data-from-text-files"><span class="header-section-number">3.2</span> Data from text files</a>
   <ul class="collapse">
-<li><a href="#data-in-r-files" id="toc-data-in-r-files" class="nav-link" data-scroll-target="#data-in-r-files"><span class="header-section-number">4.1</span> Data in R files</a></li>
-  <li><a href="#importing-data-from-a-text-file" id="toc-importing-data-from-a-text-file" class="nav-link" data-scroll-target="#importing-data-from-a-text-file"><span class="header-section-number">4.2</span> Importing data from a text file</a></li>
-  <li><a href="#data-from-text-files" id="toc-data-from-text-files" class="nav-link" data-scroll-target="#data-from-text-files"><span class="header-section-number">4.3</span> Data from text files</a></li>
-  <li><a href="#data-from-spss" id="toc-data-from-spss" class="nav-link" data-scroll-target="#data-from-spss"><span class="header-section-number">4.4</span> Data from SPSS</a></li>
-  <li><a href="#data-from-excel-files" id="toc-data-from-excel-files" class="nav-link" data-scroll-target="#data-from-excel-files"><span class="header-section-number">4.5</span> Data from Excel files</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#sec-r-save" id="toc-sec-r-save" class="nav-link" data-scroll-target="#sec-r-save"><span class="header-section-number">5</span> Saving data</a>
+  <li><a href="#data-from-csv-files" id="toc-data-from-csv-files" class="nav-link" data-scroll-target="#data-from-csv-files"><span class="header-section-number">3.2.1</span> Data from CSV files</a></li>
+  </ul></li>
+  <li><a href="#data-from-excel-files" id="toc-data-from-excel-files" class="nav-link" data-scroll-target="#data-from-excel-files"><span class="header-section-number">3.3</span> Data from Excel files</a></li>
+  <li><a href="#data-in-r-files" id="toc-data-in-r-files" class="nav-link" data-scroll-target="#data-in-r-files"><span class="header-section-number">3.4</span> Data in R files</a></li>
+  <li><a href="#data-from-spss" id="toc-data-from-spss" class="nav-link" data-scroll-target="#data-from-spss"><span class="header-section-number">3.5</span> Data from SPSS</a></li>
+  <li><a href="#saving-data" id="toc-saving-data" class="nav-link" data-scroll-target="#saving-data"><span class="header-section-number">4</span> Saving data</a>
   <ul class="collapse">
-<li><a href="#save-to-r-format" id="toc-save-to-r-format" class="nav-link" data-scroll-target="#save-to-r-format"><span class="header-section-number">5.1</span> Save to R format</a></li>
-  <li><a href="#save-to-text" id="toc-save-to-text" class="nav-link" data-scroll-target="#save-to-text"><span class="header-section-number">5.2</span> Save to text</a></li>
+  <li><a href="#save-to-r-format" id="toc-save-to-r-format" class="nav-link" data-scroll-target="#save-to-r-format"><span class="header-section-number">4.1</span> Save to R format</a></li>
+  <li><a href="#save-to-text" id="toc-save-to-text" class="nav-link" data-scroll-target="#save-to-text"><span class="header-section-number">4.2</span> Save to text</a></li>
+  </ul></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">5</span> </a></li>
   </ul>
-</li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">6</span> </a></li>
-  </ul></nav>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./read_data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and saving data in R</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and saving data in R</span>
-</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./read_data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></h1>
 </div>
 
 
@@ -260,33 +274,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="sec-r-read" class="level1" data-number="4"><h1 data-number="4">
-<span class="header-section-number">4</span> Reading data from files</h1>
-<section id="data-in-r-files" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="data-in-r-files">
-<span class="header-section-number">4.1</span> Data in R files</h2>
-</section><section id="importing-data-from-a-text-file" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="importing-data-from-a-text-file">
-<span class="header-section-number">4.2</span> Importing data from a text file</h2>
-<div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#data &lt;- read.csv("yourfile.csv")  # Load a CSV file  </span></span>
-<span><span class="co">#head(data)                        # View the first few rows </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="data-from-text-files" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="data-from-text-files">
-<span class="header-section-number">4.3</span> Data from text files</h2>
-</section><section id="data-from-spss" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="data-from-spss">
-<span class="header-section-number">4.4</span> Data from SPSS</h2>
-</section><section id="data-from-excel-files" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="data-from-excel-files">
-<span class="header-section-number">4.5</span> Data from Excel files</h2>
-</section></section><section id="sec-r-save" class="level1" data-number="5"><h1 data-number="5">
-<span class="header-section-number">5</span> Saving data</h1>
-<section id="save-to-r-format" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="save-to-r-format">
-<span class="header-section-number">5.1</span> Save to R format</h2>
-</section><section id="save-to-text" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="save-to-text">
-<span class="header-section-number">5.2</span> Save to text</h2>
-</section></section><section id="section" class="level1" data-number="6"><h1 data-number="6">
-<span class="header-section-number">6</span> </h1>
+</header>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+<section id="sec-r-read" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-r-read"><span class="header-section-number">3.1</span> Reading data from files</h2>
+<p>We cover below examples for <strong>importing data in R</strong>, covering the most common methods and packages:</p>
+</section>
+<section id="data-from-text-files" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="data-from-text-files"><span class="header-section-number">3.2</span> Data from text files</h2>
+<p>The most generic function to read data from a text file is <code>read.table()</code> . The arguments allow to define if the data includes a header (i.e.&nbsp;a first row with the names of the columns/variables) and the separator used.</p>
+<p>For example, if we want to load a file called <code>file.txt</code> , TAB separated, we will use the function below.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"file.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="data-from-csv-files" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="data-from-csv-files"><span class="header-section-number">3.2.1</span> Data from CSV files</h3>
+<p>Many experimental data is saved in a text or CSV (Comma separated) file. The best method to read data from these files is to use the <code>readr</code> package that is loaded as part of the <code>tidyverse</code> .</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"yourfile.csv"</span>)  <span class="co"># Load a CSV file  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If your data is tab-separated, you can use the function <code>read_tsv()</code> . By default, the functions expect that the first row contains the names of the columns/variables to be read. If that is not the case, you should modify the argument <code>col_names = FALSE</code> .</p>
+</section>
+</section>
+<section id="data-from-excel-files" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="data-from-excel-files"><span class="header-section-number">3.3</span> Data from Excel files</h2>
+<p>The best way to read Excel files is using the <code>readxl</code> package.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using readxl </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl) </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"file.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="data-in-r-files" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="data-in-r-files"><span class="header-section-number">3.4</span> Data in R files</h2>
+</section>
+<section id="data-from-spss" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="data-from-spss"><span class="header-section-number">3.5</span> Data from SPSS</h2>
+<p>The <code>haven</code> package to read directly <code>.sav</code> files from SPSS.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the package</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"haven"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the SPSS .sav file</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"path/to/your/file.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="saving-data" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Saving data</h1>
+<section id="save-to-r-format" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="save-to-r-format"><span class="header-section-number">4.1</span> Save to R format</h2>
+</section>
+<section id="save-to-text" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="save-to-text"><span class="header-section-number">4.2</span> Save to text</h2>
+</section>
+</section>
+<section id="section" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> </h1>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -702,9 +746,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./using_libraries.html" class="pagination-link" aria-label="Libraries and Packages">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Libraries and Packages</span></span>
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./using_libraries.html" class="pagination-link" aria-label="📦 Libraries and Packages">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -714,7 +760,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Fundamentals of Linear Models Workbook was written by Dr.&nbsp;Leticia Pablos Robles</p>
 </div>   
@@ -726,6 +773,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+
+
 
 
 </body></html>

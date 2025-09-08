@@ -158,111 +158,100 @@
   {
     "objectID": "using_libraries.html",
     "href": "using_libraries.html",
-    "title": "2  Libraries and Packages",
+    "title": "2  📦 Libraries and Packages",
     "section": "",
-    "text": "2.1",
+    "text": "2.1 Install and Use a Package\nOne of the big benefits of R in comparison with other statistics packages is its open nature. The functionality is easily extended by groups all around the world by developing libraries that can be easily installed and used.\nR packages extend the functionality of R by providing additional functions, data, and documentation. They are written by a worldwide community of R users and can be downloaded for free from the internet.\nA package is a collection of R functions, data, and compiled code bundled together. Packages are created by the R community and cover a wide range of topics like data manipulation, visualization, machine learning, etc.\nPackages have to be installed and loaded before using them.\nWe need to install packages only once in our environment. That can be done in two ways:\nFor example, in several exercises in this book we use a library (created by for the book (Baayen 2008)) that contains some utilities and a few sample datasets with linguistics examples.\nLet’s install the library using the following command:\nAfter installing the package, the contents will still not be available until you load the package, this has to be done in every new work session and it is done with the library() function.\nNow you can access the functions and data in the languageR package. Let’s take a look at the dataframes available in the package that we will use for some of the exercises and for the first assignment today. You can explore the data sets using the data() function:",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Libraries and Packages</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>📦 Libraries and Packages</span>"
     ]
   },
   {
     "objectID": "using_libraries.html#install-and-use-a-package",
     "href": "using_libraries.html#install-and-use-a-package",
-    "title": "2  Libraries and Packages",
-    "section": "3.1 Install and Use a Package",
-    "text": "3.1 Install and Use a Package\nPackages have to be installed and loaded before using them.\nWe need to install packages only once in our environment. That can be done in two ways:\n\nUsing the install.packages() function or\nUsing the Packages tab in RStudio:\n\n\nFor example, in several exercises in this book we use a library (created by for the book (Baayen 2008)) that contains some utilities and a few sample datasets with linguistics examples.\nLet’s install the library using the following command:\ninstall.packages(\"languageR\")\n\n\n\n\n\n\nWarning\n\n\n\nThe installation of a package can give an error if you try to install a package that is already installed and loaded. If you get an error saying that you have already the package, just cancel.\n\n\nAfter installing the package, the contents will still not be available until you load the package, this has to be done in every new work session and it is done with the library() function.\nlibrary(languageR)\nNow you can access the functions and data in the languageR package. Let’s take a look at the dataframes available in the package that we will use for some of the exercises and for the first assignment today. You can explore the data sets using the data() function:\ndata(package=\"languageR\")\n\n\n\n\nBaayen, R. H. 2008. Analyzing Linguistic Data: A Practical Introduction to Statistics Using r. Cambridge University Press.",
+    "title": "2  📦 Libraries and Packages",
+    "section": "",
+    "text": "Using the install.packages() function or\nUsing the Packages tab in RStudio:\n\n\n\n\ninstall.packages(\"languageR\")\n\n\n\n\n\n\nWarning\n\n\n\nThe installation of a package can give an error if you try to install a package that is already installed and loaded. If you get an error saying that you have already the package, just cancel.\n\n\n\nlibrary(languageR)\n\ndata(package=\"languageR\")\n\n\n\n\nBaayen, R. H. 2008. Analyzing Linguistic Data: A Practical Introduction to Statistics Using r. Cambridge University Press.",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Libraries and Packages</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>📦 Libraries and Packages</span>"
     ]
   },
   {
     "objectID": "read_data.html",
     "href": "read_data.html",
-    "title": "\n3  Reading and saving data in R\n",
+    "title": "3  Reading and Saving data in R",
     "section": "",
-    "text": "4 Reading data from files",
+    "text": "3.1 Reading data from files\nWe cover below examples for importing data in R, covering the most common methods and packages:",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and saving data in R</span>"
-    ]
-  },
-  {
-    "objectID": "read_data.html#data-in-r-files",
-    "href": "read_data.html#data-in-r-files",
-    "title": "\n3  Reading and saving data in R\n",
-    "section": "\n4.1 Data in R files",
-    "text": "4.1 Data in R files",
-    "crumbs": [
-      "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and saving data in R</span>"
-    ]
-  },
-  {
-    "objectID": "read_data.html#importing-data-from-a-text-file",
-    "href": "read_data.html#importing-data-from-a-text-file",
-    "title": "\n3  Reading and saving data in R\n",
-    "section": "\n4.2 Importing data from a text file",
-    "text": "4.2 Importing data from a text file\n\n#data &lt;- read.csv(\"yourfile.csv\")  # Load a CSV file  \n#head(data)                        # View the first few rows",
-    "crumbs": [
-      "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and saving data in R</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and Saving data in R</span>"
     ]
   },
   {
     "objectID": "read_data.html#data-from-text-files",
     "href": "read_data.html#data-from-text-files",
-    "title": "\n3  Reading and saving data in R\n",
-    "section": "\n4.3 Data from text files",
-    "text": "4.3 Data from text files",
+    "title": "3  Reading and Saving data in R",
+    "section": "3.2 Data from text files",
+    "text": "3.2 Data from text files\nThe most generic function to read data from a text file is read.table() . The arguments allow to define if the data includes a header (i.e. a first row with the names of the columns/variables) and the separator used.\nFor example, if we want to load a file called file.txt , TAB separated, we will use the function below.\ndata &lt;- read.table(\"file.txt\", header = TRUE, sep = \"\\t\")\n\n3.2.1 Data from CSV files\nMany experimental data is saved in a text or CSV (Comma separated) file. The best method to read data from these files is to use the readr package that is loaded as part of the tidyverse .\nlibrary(readr)\ndata &lt;- read_csv(\"yourfile.csv\")  # Load a CSV file  \nIf your data is tab-separated, you can use the function read_tsv() . By default, the functions expect that the first row contains the names of the columns/variables to be read. If that is not the case, you should modify the argument col_names = FALSE .",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and saving data in R</span>"
-    ]
-  },
-  {
-    "objectID": "read_data.html#data-from-spss",
-    "href": "read_data.html#data-from-spss",
-    "title": "\n3  Reading and saving data in R\n",
-    "section": "\n4.4 Data from SPSS",
-    "text": "4.4 Data from SPSS",
-    "crumbs": [
-      "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and saving data in R</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and Saving data in R</span>"
     ]
   },
   {
     "objectID": "read_data.html#data-from-excel-files",
     "href": "read_data.html#data-from-excel-files",
-    "title": "\n3  Reading and saving data in R\n",
-    "section": "\n4.5 Data from Excel files",
-    "text": "4.5 Data from Excel files",
+    "title": "3  Reading and Saving data in R",
+    "section": "3.3 Data from Excel files",
+    "text": "3.3 Data from Excel files\nThe best way to read Excel files is using the readxl package.\n# Using readxl \nlibrary(readxl) \ndata &lt;- read_excel(\"file.xlsx\", sheet = 1)",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and saving data in R</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and Saving data in R</span>"
+    ]
+  },
+  {
+    "objectID": "read_data.html#data-in-r-files",
+    "href": "read_data.html#data-in-r-files",
+    "title": "3  Reading and Saving data in R",
+    "section": "3.4 Data in R files",
+    "text": "3.4 Data in R files",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and Saving data in R</span>"
+    ]
+  },
+  {
+    "objectID": "read_data.html#data-from-spss",
+    "href": "read_data.html#data-from-spss",
+    "title": "3  Reading and Saving data in R",
+    "section": "3.5 Data from SPSS",
+    "text": "3.5 Data from SPSS\nThe haven package to read directly .sav files from SPSS.\n# Install and load the package\ninstall.packages(\"haven\")\nlibrary(haven)\n\n# Read the SPSS .sav file\ndata &lt;- read_sav(\"path/to/your/file.sav\")",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and Saving data in R</span>"
     ]
   },
   {
     "objectID": "read_data.html#save-to-r-format",
     "href": "read_data.html#save-to-r-format",
-    "title": "\n3  Reading and saving data in R\n",
-    "section": "\n5.1 Save to R format",
-    "text": "5.1 Save to R format",
+    "title": "3  Reading and Saving data in R",
+    "section": "4.1 Save to R format",
+    "text": "4.1 Save to R format",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and saving data in R</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and Saving data in R</span>"
     ]
   },
   {
     "objectID": "read_data.html#save-to-text",
     "href": "read_data.html#save-to-text",
-    "title": "\n3  Reading and saving data in R\n",
-    "section": "\n5.2 Save to text",
-    "text": "5.2 Save to text",
+    "title": "3  Reading and Saving data in R",
+    "section": "4.2 Save to text",
+    "text": "4.2 Save to text",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and saving data in R</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and Saving data in R</span>"
     ]
   },
   {
