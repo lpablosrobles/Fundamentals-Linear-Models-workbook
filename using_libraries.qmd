@@ -1,12 +1,8 @@
 ---
-title: "Libraries and Packages"
-format: html
 editor: visual
 ---
 
-## 
-
-# 📦 Packages
+# 📦 Libraries and Packages
 
 One of the big benefits of *R* in comparison with other statistics packages is its open nature. The functionality is easily extended by groups all around the world by developing libraries that can be easily installed and used.
 

@@ -1,26 +1,60 @@
 ---
-title: "Reading and saving data in R"
 editor: visual
 ---
 
-# Reading data from files {#sec-r-read}
+# Reading and Saving data in R
 
-## Data in R files
+## Reading data from files {#sec-r-read}
 
-## Importing data from a text file
-
-```{r}
-#data <- read.csv("yourfile.csv")  # Load a CSV file  
-#head(data)                        # View the first few rows 
-```
+We cover below examples for **importing data in R**, covering the most common methods and packages:
 
 ## Data from text files
 
-## Data from SPSS
+The most generic function to read data from a text file is `read.table()` . The arguments allow to define if the data includes a header (i.e. a first row with the names of the columns/variables) and the separator used.
+
+For example, if we want to load a file called `file.txt` , TAB separated, we will use the function below.
+
+``` r
+data <- read.table("file.txt", header = TRUE, sep = "\t")
+```
+
+### Data from CSV files
+
+Many experimental data is saved in a text or CSV (Comma separated) file. The best method to read data from these files is to use the `readr` package that is loaded as part of the `tidyverse` .
+
+``` r
+library(readr)
+data <- read_csv("yourfile.csv")  # Load a CSV file  
+```
+
+If your data is tab-separated, you can use the function `read_tsv()` . By default, the functions expect that the first row contains the names of the columns/variables to be read. If that is not the case, you should modify the argument `col_names = FALSE` .
 
 ## Data from Excel files
 
-# Saving data {#sec-r-save}
+The best way to read Excel files is using the `readxl` package.
+
+``` r
+# Using readxl 
+library(readxl) 
+data <- read_excel("file.xlsx", sheet = 1)
+```
+
+## Data in R files
+
+## Data from SPSS
+
+The `haven` package to read directly `.sav` files from SPSS.
+
+``` r
+# Install and load the package
+install.packages("haven")
+library(haven)
+
+# Read the SPSS .sav file
+data <- read_sav("path/to/your/file.sav")
+```
+
+# Saving data
 
 ## Save to R format
 
