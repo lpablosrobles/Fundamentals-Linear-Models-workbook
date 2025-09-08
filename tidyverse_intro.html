@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 
-<title>4&nbsp; intro_to_r – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>4&nbsp; Introduction to tidyverse – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -70,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -83,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./tidyverse_intro.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">intro_to_r</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./tidyverse_intro.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to tidyverse</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -139,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to the R language</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -157,45 +194,20 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to tidyverse</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproduceable research using Scripts and Notebooks</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./Workgroup2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Workgroup 2: Data Exploration with R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data_organization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Organization and Transformation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data visualization</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./descriptive_stats.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Workgroup 2: Data Exploration with R</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -229,40 +241,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-the-r-language" id="toc-sec-the-r-language" class="nav-link active" data-scroll-target="#sec-the-r-language"><span class="header-section-number">5</span> The R language</a></li>
-  <li><a href="#sec-rstudio-environment" id="toc-sec-rstudio-environment" class="nav-link" data-scroll-target="#sec-rstudio-environment"><span class="header-section-number">6</span> RStudio Environment</a></li>
-  <li><a href="#sec-r-basics" id="toc-sec-r-basics" class="nav-link" data-scroll-target="#sec-r-basics"><span class="header-section-number">7</span> R basics</a>
-  <ul class="collapse">
-  <li><a href="#sec-variables" id="toc-sec-variables" class="nav-link" data-scroll-target="#sec-variables"><span class="header-section-number">7.1</span> Variables</a></li>
-  <li><a href="#operators" id="toc-operators" class="nav-link" data-scroll-target="#operators"><span class="header-section-number">7.2</span> Operators</a></li>
-  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops"><span class="header-section-number">7.3</span> Loops</a></li>
-  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">7.4</span> Data types</a>
-  <ul class="collapse">
-  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists"><span class="header-section-number">7.4.1</span> Lists</a></li>
-  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes"><span class="header-section-number">7.4.2</span> Dataframes</a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#what-is-the-tidyverse" id="toc-what-is-the-tidyverse" class="nav-link active" data-scroll-target="#what-is-the-tidyverse"><span class="header-section-number">4.1</span> 🌐 <strong>What is the tidyverse?</strong></a></li>
+  <li><a href="#core-tidyverse-packages" id="toc-core-tidyverse-packages" class="nav-link" data-scroll-target="#core-tidyverse-packages"><span class="header-section-number">4.2</span> 📦 <strong>Core tidyverse Packages</strong></a></li>
+  <li><a href="#workflow-using-tidyverse" id="toc-workflow-using-tidyverse" class="nav-link" data-scroll-target="#workflow-using-tidyverse"><span class="header-section-number">4.3</span> <strong>Workflow Using tidyverse</strong></a></li>
+  <li><a href="#why-use-tidyverse" id="toc-why-use-tidyverse" class="nav-link" data-scroll-target="#why-use-tidyverse"><span class="header-section-number">4.4</span> ✅ <strong>Why Use tidyverse?</strong></a></li>
+  <li><a href="#pipe-operator-or" id="toc-pipe-operator-or" class="nav-link" data-scroll-target="#pipe-operator-or"><span class="header-section-number">4.5</span> Pipe operator (<code>%&gt;%</code> or <code>|&gt;</code> )</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./tidyverse_intro.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">intro_to_r</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./tidyverse_intro.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to tidyverse</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">intro_to_r</span></h1>
+<h1 class="title"><span id="sec-the-r-language" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to tidyverse</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Leticia Pablos Robles </p>
-          </div>
-  </div>
     
   
     
@@ -273,34 +271,109 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="sec-the-r-language" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> The R language</h1>
+<section id="what-is-the-tidyverse" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="what-is-the-tidyverse"><span class="header-section-number">4.1</span> 🌐 <strong>What is the tidyverse?</strong></h2>
+<p>The <strong><code>tidyverse</code></strong> is a collection of R packages designed for <strong>data science</strong>. These packages share an underlying philosophy, grammar, and data structures, making it easier to learn and use them together. Tidyverse simplifies tasks like data manipulation, visualization, and modeling.</p>
 </section>
-<section id="sec-rstudio-environment" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> RStudio Environment</h1>
+<section id="core-tidyverse-packages" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="core-tidyverse-packages"><span class="header-section-number">4.2</span> 📦 <strong>Core tidyverse Packages</strong></h2>
+<p>When you load the tidyverse, you get access to these core packages:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ggplot2</code></td>
+<td>Data visualization</td>
+</tr>
+<tr class="even">
+<td><code>dplyr</code></td>
+<td>Data manipulation</td>
+</tr>
+<tr class="odd">
+<td><code>tidyr</code></td>
+<td>Data tidying</td>
+</tr>
+<tr class="even">
+<td><code>readr</code></td>
+<td>Reading rectangular data (CSV, etc.)</td>
+</tr>
+<tr class="odd">
+<td><code>purrr</code></td>
+<td>Functional programming</td>
+</tr>
+<tr class="even">
+<td><code>tibble</code></td>
+<td>Modern data frames</td>
+</tr>
+<tr class="odd">
+<td><code>stringr</code></td>
+<td>String manipulation</td>
+</tr>
+<tr class="even">
+<td><code>forcats</code></td>
+<td>Working with categorical data (factors)</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="sec-r-basics" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> R basics</h1>
-<section id="sec-variables" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="sec-variables"><span class="header-section-number">7.1</span> Variables</h2>
+<section id="workflow-using-tidyverse" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="workflow-using-tidyverse"><span class="header-section-number">4.3</span> <strong>Workflow Using tidyverse</strong></h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  load["Load tidyverse"]
+  read["Read data"]
+  clean["Clean and transform data"]
+  plot["Visualize"]
+  load --&gt; read
+  read --&gt; clean
+  clean --&gt; plot
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load tidyverse</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">readcsv</span>(<span class="st">"data.csv"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean and transform</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>cleandata <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(value)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">newvalue =</span> value <span class="sc">*</span> <span class="dv">2</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cleandata, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> newvalue)) <span class="sc">+</span> <span class="fu">geombar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="operators" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="operators"><span class="header-section-number">7.2</span> Operators</h2>
+<section id="why-use-tidyverse" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="why-use-tidyverse"><span class="header-section-number">4.4</span> ✅ <strong>Why Use tidyverse?</strong></h2>
+<ul>
+<li><p>Consistent and readable syntax</p></li>
+<li><p>Pipe operator (<code>%&gt;%</code>) for chaining operations</p></li>
+<li><p>Designed for tidy data principles</p></li>
+<li><p>Strong community and documentation</p></li>
+</ul>
 </section>
-<section id="loops" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="loops"><span class="header-section-number">7.3</span> Loops</h2>
-</section>
-<section id="data-types" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="data-types"><span class="header-section-number">7.4</span> Data types</h2>
-<section id="lists" class="level3" data-number="7.4.1">
-<h3 data-number="7.4.1" class="anchored" data-anchor-id="lists"><span class="header-section-number">7.4.1</span> Lists</h3>
-</section>
-<section id="dataframes" class="level3" data-number="7.4.2">
-<h3 data-number="7.4.2" class="anchored" data-anchor-id="dataframes"><span class="header-section-number">7.4.2</span> Dataframes</h3>
+<section id="pipe-operator-or" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="pipe-operator-or"><span class="header-section-number">4.5</span> Pipe operator (<code>%&gt;%</code> or <code>|&gt;</code> )</h2>
+<p>The pipe operator allows you to&nbsp;<strong>pass the result of one function directly into the next function</strong>&nbsp;as its first argument. It’s widely used in the&nbsp;<strong>tidyverse</strong>, especially with&nbsp;<code>dplyr</code>.</p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -728,8 +801,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./using_notebooks.html" class="pagination-link" aria-label="Reproduceable research using Scripts and Notebooks">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproduceable research using Scripts and Notebooks</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./using_notebooks.html" class="pagination-link" aria-label="Reproducible research using Scripts and Notebooks">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -92,78 +92,67 @@
   {
     "objectID": "intro_to_r.html",
     "href": "intro_to_r.html",
-    "title": "\n1  Introduction to the R language\n",
+    "title": "\n1  ✍️ R Syntax\n",
     "section": "",
-    "text": "2 ✍️ R Syntax\nR is an interpreted language, which means that you can write commands to an interpreter in a console that will execute them and return the results. This is in comparison with compiled languages that require to compile the source code to translate it to a machine understandable code.\nIn the RStudio console, you can see the symbol below. This is the command prompt, indicating that the system us ready to execute an instruction or command.\nR syntax is relatively simple and, although daunting if you have never programmed before when you first encounter it, you will quickly get acquainted with it.\nHere’s a simple example of how R code looks. In the following sections we explain some basic concepts on the syntax and notation.\nBefore going forward, note that lines of code starting with the symbol # are not interpreted. This is use to introduce comments in your code for readability and documentation. We will come to that later when we talk about scripts and notebooks.",
+    "text": "1.0.1 Commands and operators\nR is an interpreted language, which means that you can write commands to an interpreter in a console that will execute them and return the results. This is in comparison with compiled languages that require to compile the source code to translate it to a machine understandable code.\nIn the RStudio console, you can see the symbol below. This is the command prompt, indicating that the system us ready to execute an instruction or command.\nR syntax is relatively simple and, although daunting if you have never programmed before when you first encounter it, you will quickly get acquainted with it.\nHere’s a simple example of how R code looks. In the following sections we explain some basic concepts on the syntax and notation.\nBefore going forward, note that lines of code starting with the symbol # are not interpreted. This is use to introduce comments in your code for readability and documentation. We will come to that later when we talk about scripts and notebooks.\nEvery instruction to enter in the command prompt is called a command.\nA simple command is to perform an arithmetic operations like for example:\n1 + 2\n\n[1] 3\nThe command just calculated the addition of the two numbers. In this example, we used the operator + to do so.\nWe include a list below of the basic operators in R, grouped by category:s. Do not worry if not all are understandable yet:\n1. Arithmetic Operators\nUsed for basic mathematical operations:\n2. Relational (Comparison) Operators\nUsed to compare values:\n3. Logical Operators\nUsed for logical operations (return TRUE/FALSE):\n4. Assignment Operators\nUsed to assign values to variables:\n5. Miscellaneous Operators",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
-    ]
-  },
-  {
-    "objectID": "intro_to_r.html#commands-and-operators",
-    "href": "intro_to_r.html#commands-and-operators",
-    "title": "\n1  Introduction to the R language\n",
-    "section": "\n2.1 Commands and operators",
-    "text": "2.1 Commands and operators\nEvery instruction to enter in the command prompt is called a command.\nA simple command is to perform an arithmetic operations like for example:\n\n1 + 2\n\n[1] 3\n\n\n\n\n\n\n\n\nTip\n\n\n\nCopy the code as you read along in this workbook and try it yourself in RStudio to become familiar with using the tool and environment.\n\n\nThe command just calculated the addition of the two numbers. In this example, we used the operator + to do so.\nWe include a list below of the basic operators in R, grouped by category:s. Do not worry if not all are understandable yet:\n1. Arithmetic Operators\nUsed for basic mathematical operations:\n\n\nOperator\nDescription\nExample\n\n\n\n+\nAddition\n2 + 3\n\n\n-\nSubtraction\n5 - 2\n\n\n*\nMultiplication\n4 * 3\n\n\n/\nDivision\n10 / 2\n\n\n\n^ or **\n\nExponentiation\n\n2^3 or 2**3\n\n\n\n%%\nModulus (remainder)\n10 %% 3\n\n\n\n2. Relational (Comparison) Operators\nUsed to compare values:\n\n\nOperator\nDescription\nExample\n\n\n\n==\nEqual to\nx == y\n\n\n!=\nNot equal to\nx != y\n\n\n&gt;\nGreater than\nx &gt; y\n\n\n&lt;\nLess than\nx &lt; y\n\n\n&gt;=\nGreater than or equal to\nx &gt;= y\n\n\n&lt;=\nLess than or equal to\nx &lt;= y\n\n\n\n3. Logical Operators\nUsed for logical operations (return TRUE/FALSE):\n\n\nOperator\nDescription\nExample\n\n\n\n&\nElement-wise AND\nx &gt; 1 & x &lt; 5\n\n\n|\nElement-wise OR\nx &lt; 1 | x &gt; 5\n\n\n!\nNOT\n!TRUE\n\n\n\n4. Assignment Operators\nUsed to assign values to variables:\n\n\n\n\n\n\n\n\nOperator\nDescription\nExample\nComment\n\n\n\n&lt;-\nPreferred assignment\nx &lt;- 5\nMost commonly used\n\n\n=\nAlternative assignment\nx = 5\nUsed in the assignment of values to function arguments (see function section below)\n\n\n-&gt;\nAssign right to left\n5 -&gt; x\nAlthough syntactically valid in R, not used often\n\n\n\n5. Miscellaneous Operators\n\n\nOperator\nDescription\nExample\n\n\n\n%in%\nMembership test\n\n3 %in% c(1, 2, 3) will return TRUE\n\n\n:\nSequence\n\n1:5 returns 1 2 3 4 5",
-    "crumbs": [
-      "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>✍️ R Syntax</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#variables",
     "href": "intro_to_r.html#variables",
-    "title": "\n1  Introduction to the R language\n",
-    "section": "\n2.2 Variables",
-    "text": "2.2 Variables\nA variable is a name that stores a value or data object. You can think of it as a labeled container that holds information you want to use or manipulate in your program.\nIn R, you assign values to variables mostly using the operator &lt;- .\n\nx &lt;- 5       # Assign 5 to variable x  \ny &lt;- 10      # Assign 10 to variable y  \nz &lt;- x + y   # Add x and y  \nprint(z)     # Print the result \n\n[1] 15\n\n\nVariables naming in R can be anything, but follow a few rules:\n\nMust start with a letter\nCan contain letters, numbers, underscores (_) or periods (.)\nAre case-sensitive (Name and name are different)",
+    "title": "\n1  ✍️ R Syntax\n",
+    "section": "\n1.1 Variables",
+    "text": "1.1 Variables\nA variable is a name that stores a value or data object. You can think of it as a labeled container that holds information you want to use or manipulate in your program.\nIn R, you assign values to variables mostly using the operator &lt;- .\n\nx &lt;- 5       # Assign 5 to variable x  \ny &lt;- 10      # Assign 10 to variable y  \nz &lt;- x + y   # Add x and y  \nprint(z)     # Print the result \n\n[1] 15\n\n\nVariables naming in R can be anything, but follow a few rules:\n\nMust start with a letter\nCan contain letters, numbers, underscores (_) or periods (.)\nAre case-sensitive (Name and name are different)",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>✍️ R Syntax</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#data-types",
     "href": "intro_to_r.html#data-types",
-    "title": "\n1  Introduction to the R language\n",
-    "section": "\n2.3 Data types",
-    "text": "2.3 Data types\n\n2.3.1 Basic types\nR supports several basic data types. Some of the most common are:\n\nNumeric: x &lt;- 3.14\nInteger: x &lt;- 5L (note the L)\nCharacter: name &lt;- \"Leticia\"\nLogical: flag &lt;- TRUE\n\n2.3.2 Vectors and lists\nVectors are the most basic data structure in R. They are a groups of values built using the combine function, c(). For example, c(1, 2, 3, 4) creates a four element series of positive integer values\n\nnumbers &lt;- c(1, 2, 3, 4)\nnumbers\n\n[1] 1 2 3 4\n\n\nYou can perform operations on vectors\n\nnumbers^2\n\n[1]  1  4  9 16\n\n\n\n2.3.3 Dataframes\nstructures can be thought of as sets of data organized in a table format in rows and columns. They can be created using the dataframe() function.\n\ndf &lt;- data.frame(\n  SubjectID = c(\"S1\", \"S2\",\"S3\"),\n  age = c(25, 30, 28)\n)\ndf\n\n  SubjectID age\n1        S1  25\n2        S2  30\n3        S3  28\n\n\nYou can refer to individual columns on a dataframe using the $ operator.\n\ndf$SubjectID\n\n[1] \"S1\" \"S2\" \"S3\"\n\n\nMany of the functions we will use in this course require a dataframe as an input or produce one as output, so it is the data structure you will use the most.",
+    "title": "\n1  ✍️ R Syntax\n",
+    "section": "\n1.2 Data types",
+    "text": "1.2 Data types\n\n1.2.1 Basic types\nR supports several basic data types. Some of the most common are:\n\nNumeric: x &lt;- 3.14\nInteger: x &lt;- 5L (note the L)\nCharacter: name &lt;- \"Leticia\"\nLogical: flag &lt;- TRUE\n\n1.2.2 Vectors and lists\nVectors are the most basic data structure in R. They are a groups of values built using the combine function, c(). For example, c(1, 2, 3, 4) creates a four element series of positive integer values\n\nnumbers &lt;- c(1, 2, 3, 4)\nnumbers\n\n[1] 1 2 3 4\n\n\nYou can perform operations on vectors\n\nnumbers^2\n\n[1]  1  4  9 16\n\n\n\n1.2.3 Dataframes\nstructures can be thought of as sets of data organized in a table format in rows and columns. They can be created using the dataframe() function.\n\ndf &lt;- data.frame(\n  SubjectID = c(\"S1\", \"S2\",\"S3\"),\n  age = c(25, 30, 28)\n)\ndf\n\n  SubjectID age\n1        S1  25\n2        S2  30\n3        S3  28\n\n\nYou can refer to individual columns on a dataframe using the $ operator.\n\ndf$SubjectID\n\n[1] \"S1\" \"S2\" \"S3\"\n\n\nMany of the functions we will use in this course require a dataframe as an input or produce one as output, so it is the data structure you will use the most.",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>✍️ R Syntax</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#par-functions",
     "href": "intro_to_r.html#par-functions",
-    "title": "\n1  Introduction to the R language\n",
-    "section": "\n2.4 Functions",
-    "text": "2.4 Functions\nFunctions perform tasks in R. They take in inputs called arguments and return outputs. They are called using parentheses. For example, the function mean() in R calculates the mean of the elements we provide as input.\n\n# We can specify a list of numbers\nmean(c(1,2,3,4))\n\n[1] 2.5\n\n\nOr, more useful, we can provide a variable containing values:\n\n# we defined the variable numbers before\nmean(numbers)\n\n[1] 2.5\n\n\nThe parameters of a function and normally called arguments. You can either manually specify a function’s arguments or use the function’s default values. In the examples above mean() and sum() are simple functions with not many arguments, but this is not normally the case.\nTo know the arguments of a function you can use the R help. There are two ways to access the help pages for a function:\n\n\nUse the operator ? followed by the function name in the console: If you type the instruction ?mean the help page for the mean() function will open in the RStudio Help panel as in the image below:\n\n\nYou can of course directly open the Help tab and search for the function of interest.\n\nAs you can see above, mean() actually has two other arguments, trim and na.rm . The arguments have a default value, so if we don’t explicitly include them in the function call, they will use that value. Let’s look at an example using na.rm :\nR has a special value called NA , which means “Not Available” and it is used to represent missing values on the data. In experimental work is often the case that some data point is lost or corrupted and we have incomplete datasets. Let’s assume you had performed an online experiment that computed the reaction time in miliseconds of 10 participants, and one value was not available as per the vector below:\n\nrt &lt;- c(234.2, 127.5, 256.2, NA, 287.1, 145.6, 358.9, 200.1, 398.3, 178.3)\n\nLet’s try to calculate the average reaction time of your data using mean():\n\nmean(rt)\n\n[1] NA\n\n\nThe function tries to calculate the average, but when one value is not available (NA) the result is also NA . In the help in the image below we see there is an argument na.rm that we can use to ignore the missing elements in the data:\n\nmean(rt, na.rm = TRUE)\n\n[1] 242.9111\n\n\nNow the function worked and summed all the numbers and divided them by 9, ignoring the missing data, in the calculation of the average.\nWe’ll work with functions a lot throughout this book and you’ll get lots of practice in understanding their behaviors, so don’t panic.\nFinally an advanced note to make you aware that you can define your own functions. The following code defines a new function called add() that, well, adds two numbers:\n\nadd &lt;- function(a, b) {\n  return(a + b)\n}\n\nOnce you have defined the function, you can use it as any other in R:\n\nadd(3.5, 2.5)\n\n[1] 6",
+    "title": "\n1  ✍️ R Syntax\n",
+    "section": "\n1.3 Functions",
+    "text": "1.3 Functions\nFunctions perform tasks in R. They take in inputs called arguments and return outputs. They are called using parentheses. For example, the function mean() in R calculates the mean of the elements we provide as input.\n\n# We can specify a list of numbers\nmean(c(1,2,3,4))\n\n[1] 2.5\n\n\nOr, more useful, we can provide a variable containing values:\n\n# we defined the variable numbers before\nmean(numbers)\n\n[1] 2.5\n\n\nThe parameters of a function and normally called arguments. You can either manually specify a function’s arguments or use the function’s default values. In the examples above mean() and sum() are simple functions with not many arguments, but this is not normally the case.\nTo know the arguments of a function you can use the R help. There are two ways to access the help pages for a function:\n\n\nUse the operator ? followed by the function name in the console: If you type the instruction ?mean the help page for the mean() function will open in the RStudio Help panel as in the image below:\n\n\nYou can of course directly open the Help tab and search for the function of interest.\n\nAs you can see above, mean() actually has two other arguments, trim and na.rm . The arguments have a default value, so if we don’t explicitly include them in the function call, they will use that value. Let’s look at an example using na.rm :\nR has a special value called NA , which means “Not Available” and it is used to represent missing values on the data. In experimental work is often the case that some data point is lost or corrupted and we have incomplete datasets. Let’s assume you had performed an online experiment that computed the reaction time in miliseconds of 10 participants, and one value was not available as per the vector below:\n\nrt &lt;- c(234.2, 127.5, 256.2, NA, 287.1, 145.6, 358.9, 200.1, 398.3, 178.3)\n\nLet’s try to calculate the average reaction time of your data using mean():\n\nmean(rt)\n\n[1] NA\n\n\nThe function tries to calculate the average, but when one value is not available (NA) the result is also NA . In the help in the image below we see there is an argument na.rm that we can use to ignore the missing elements in the data:\n\nmean(rt, na.rm = TRUE)\n\n[1] 242.9111\n\n\nNow the function worked and summed all the numbers and divided them by 9, ignoring the missing data, in the calculation of the average.\nWe’ll work with functions a lot throughout this book and you’ll get lots of practice in understanding their behaviors, so don’t panic.\nFinally an advanced note to make you aware that you can define your own functions. The following code defines a new function called add() that, well, adds two numbers:\n\nadd &lt;- function(a, b) {\n  return(a + b)\n}\n\nOnce you have defined the function, you can use it as any other in R:\n\nadd(3.5, 2.5)\n\n[1] 6",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>✍️ R Syntax</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#factors",
     "href": "intro_to_r.html#factors",
-    "title": "\n1  Introduction to the R language\n",
-    "section": "\n2.5 Factors",
-    "text": "2.5 Factors\nIn R, a factor is a data structure used to represent categorical data. Categorical data consists of variables that have a fixed number of unique values, known as levels. These are typically used for any variable that classifies observations into groups. We will use factors extensively in the analysis of data\nWe convert a vector into a factor by using the factor() function. Let’s look at one example.\n\n\n2.5.1 📝 Exercise 2: Creating a dataframe with factors\nWe want to create a dataset of six words, collecting data of the animacy, gender, length and frequency of the word.\nFirst, we create individual variables with vectors including the values\n\nNounAnimacy&lt;-c(\"animate\",\"inanimate\",\"inanimate\",\"animate\",\"animate\",\"animate\") \nNounAnimacy \n\n[1] \"animate\"   \"inanimate\" \"inanimate\" \"animate\"   \"animate\"   \"animate\"  \n\n\n\nNounGender&lt;-c(\"feminine\",\"masculine\",\"neuter\",\"masculine\",\"feminine\",\"feminine\") \nNounGender\n\n[1] \"feminine\"  \"masculine\" \"neuter\"    \"masculine\" \"feminine\"  \"feminine\" \n\n\n\nNounLength&lt;-c(6,7,4,5,8,6) \nNounLength \n\n[1] 6 7 4 5 8 6\n\nNounFrequency&lt;-c(638,799,390,569,567,665) \nNounFrequency\n\n[1] 638 799 390 569 567 665\n\n\nAs you can see from the output above, data in the variables NounAnimacy and NounGender are considered as words, or literal strings. The next step is to indicate they are factors.\n\nNounAnimacy&lt;- factor(NounAnimacy) \nNounAnimacy \n\n[1] animate   inanimate inanimate animate   animate   animate  \nLevels: animate inanimate\n\nNounGender&lt;- factor(NounGender) \nNounGender\n\n[1] feminine  masculine neuter    masculine feminine  feminine \nLevels: feminine masculine neuter\n\n\nAs you can see by the output produced, now the variables are considered as factors, and Levels indicate the unique values that the each takes.\nWith the variables above, we can now create a dataframe.\n\nDataexample&lt;-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency) \nDataexample\n\n  NounAnimacy NounGender NounLength NounFrequency\n1     animate   feminine          6           638\n2   inanimate  masculine          7           799\n3   inanimate     neuter          4           390\n4     animate  masculine          5           569\n5     animate   feminine          8           567\n6     animate   feminine          6           665",
+    "title": "\n1  ✍️ R Syntax\n",
+    "section": "\n1.4 Factors",
+    "text": "1.4 Factors\nIn R, a factor is a data structure used to represent categorical data. Categorical data consists of variables that have a fixed number of unique values, known as levels. These are typically used for any variable that classifies observations into groups. We will use factors extensively in the analysis of data\nWe convert a vector into a factor by using the factor() function. Let’s look at one example.\n\n\n1.4.1 📝 Exercise 2: Creating a dataframe with factors\nWe want to create a dataset of six words, collecting data of the animacy, gender, length and frequency of the word.\nFirst, we create individual variables with vectors including the values\n\nNounAnimacy&lt;-c(\"animate\",\"inanimate\",\"inanimate\",\"animate\",\"animate\",\"animate\") \nNounAnimacy \n\n[1] \"animate\"   \"inanimate\" \"inanimate\" \"animate\"   \"animate\"   \"animate\"  \n\n\n\nNounGender&lt;-c(\"feminine\",\"masculine\",\"neuter\",\"masculine\",\"feminine\",\"feminine\") \nNounGender\n\n[1] \"feminine\"  \"masculine\" \"neuter\"    \"masculine\" \"feminine\"  \"feminine\" \n\n\n\nNounLength&lt;-c(6,7,4,5,8,6) \nNounLength \n\n[1] 6 7 4 5 8 6\n\nNounFrequency&lt;-c(638,799,390,569,567,665) \nNounFrequency\n\n[1] 638 799 390 569 567 665\n\n\nAs you can see from the output above, data in the variables NounAnimacy and NounGender are considered as words, or literal strings. The next step is to indicate they are factors.\n\nNounAnimacy&lt;- factor(NounAnimacy) \nNounAnimacy \n\n[1] animate   inanimate inanimate animate   animate   animate  \nLevels: animate inanimate\n\nNounGender&lt;- factor(NounGender) \nNounGender\n\n[1] feminine  masculine neuter    masculine feminine  feminine \nLevels: feminine masculine neuter\n\n\nAs you can see by the output produced, now the variables are considered as factors, and Levels indicate the unique values that the each takes.\nWith the variables above, we can now create a dataframe.\n\nDataexample&lt;-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency) \nDataexample\n\n  NounAnimacy NounGender NounLength NounFrequency\n1     animate   feminine          6           638\n2   inanimate  masculine          7           799\n3   inanimate     neuter          4           390\n4     animate  masculine          5           569\n5     animate   feminine          8           567\n6     animate   feminine          6           665",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>✍️ R Syntax</span>"
     ]
   },
   {
     "objectID": "intro_to_r.html#additional-reading-material",
     "href": "intro_to_r.html#additional-reading-material",
-    "title": "\n1  Introduction to the R language\n",
-    "section": "\n2.6 Additional Reading material",
-    "text": "2.6 Additional Reading material\nBasics on R programming:\n\nChapter 1, Introduction to R, from Bodo Winter’s book ((Winter 2019)).\nSections 2 to 8 on R basic Tutorial by UMC Utrecht\nA good starters reference for R is the book “R for Data Science” ((Wickham, Çetinkaya-Rundel, and Grolemund 2024)) ). The book is available online freely at R for Data Science\nExcellent eBook to learn R Basics ((Grolemund 2014)) Hands On Programming with R\n\nDataframes:\n\n\nYouTube Videos by DataCamp:\n\nhttps://www.youtube.com/watch?v=9f2g7RN5N0I\nhttps://youtu.be/Nh6tSD4i4qs?feature=shared\n\n\n\n\n\n\n\nGrolemund, Garrett. 2014. Hands-on Programming with r. \" O’Reilly Media, Inc.\".\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2024. R for Data Science. O’Reilly.\n\n\nWinter, Bodo. 2019. Statistics for Linguists: An Introduction Using r. Routledge.",
+    "title": "\n1  ✍️ R Syntax\n",
+    "section": "\n1.5 Additional Reading material",
+    "text": "1.5 Additional Reading material\nBasics on R programming:\n\nChapter 1, Introduction to R, from Bodo Winter’s book ((Winter 2019)).\nSections 2 to 8 on R basic Tutorial by UMC Utrecht\nA good starters reference for R is the book “R for Data Science” ((Wickham, Çetinkaya-Rundel, and Grolemund 2024)) ). The book is available online freely at R for Data Science\nExcellent eBook to learn R Basics ((Grolemund 2014)) Hands On Programming with R\n\nDataframes:\n\n\nYouTube Videos by DataCamp:\n\nhttps://www.youtube.com/watch?v=9f2g7RN5N0I\nhttps://youtu.be/Nh6tSD4i4qs?feature=shared\n\n\n\n\n\n\n\nGrolemund, Garrett. 2014. Hands-on Programming with r. \" O’Reilly Media, Inc.\".\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2024. R for Data Science. O’Reilly.\n\n\nWinter, Bodo. 2019. Statistics for Linguists: An Introduction Using r. Routledge.",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to the R language</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>✍️ R Syntax</span>"
     ]
   },
   {
@@ -279,111 +268,89 @@
   {
     "objectID": "tidyverse_intro.html",
     "href": "tidyverse_intro.html",
-    "title": "4  intro_to_r",
+    "title": "4  Introduction to tidyverse",
     "section": "",
-    "text": "5 The R language",
+    "text": "4.1 🌐 What is the tidyverse?\nThe tidyverse is a collection of R packages designed for data science. These packages share an underlying philosophy, grammar, and data structures, making it easier to learn and use them together. Tidyverse simplifies tasks like data manipulation, visualization, and modeling.",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>intro_to_r</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to tidyverse</span>"
     ]
   },
   {
-    "objectID": "tidyverse_intro.html#sec-variables",
-    "href": "tidyverse_intro.html#sec-variables",
-    "title": "4  intro_to_r",
-    "section": "7.1 Variables",
-    "text": "7.1 Variables",
+    "objectID": "tidyverse_intro.html#core-tidyverse-packages",
+    "href": "tidyverse_intro.html#core-tidyverse-packages",
+    "title": "4  Introduction to tidyverse",
+    "section": "4.2 📦 Core tidyverse Packages",
+    "text": "4.2 📦 Core tidyverse Packages\nWhen you load the tidyverse, you get access to these core packages:\n\n\n\nPackage\nUsage\n\n\n\n\nggplot2\nData visualization\n\n\ndplyr\nData manipulation\n\n\ntidyr\nData tidying\n\n\nreadr\nReading rectangular data (CSV, etc.)\n\n\npurrr\nFunctional programming\n\n\ntibble\nModern data frames\n\n\nstringr\nString manipulation\n\n\nforcats\nWorking with categorical data (factors)",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>intro_to_r</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to tidyverse</span>"
     ]
   },
   {
-    "objectID": "tidyverse_intro.html#operators",
-    "href": "tidyverse_intro.html#operators",
-    "title": "4  intro_to_r",
-    "section": "7.2 Operators",
-    "text": "7.2 Operators",
+    "objectID": "tidyverse_intro.html#workflow-using-tidyverse",
+    "href": "tidyverse_intro.html#workflow-using-tidyverse",
+    "title": "4  Introduction to tidyverse",
+    "section": "4.3 Workflow Using tidyverse",
+    "text": "4.3 Workflow Using tidyverse\n\n\n\n\n\nflowchart LR\n  load[\"Load tidyverse\"]\n  read[\"Read data\"]\n  clean[\"Clean and transform data\"]\n  plot[\"Visualize\"]\n  load --&gt; read\n  read --&gt; clean\n  clean --&gt; plot\n\n\n\n\n\n\n# Load tidyverse\n\nlibrary(tidyverse)\n\n# Read data\n\ndata &lt;- readcsv(\"data.csv\")\n\n# Clean and transform\n\ncleandata &lt;- data %&gt;%\n  filter(!is.na(value)) %&gt;%\n  mutate(newvalue = value * 2)\n\n# Visualize\n\nggplot(cleandata, aes(x = category, y = newvalue)) + geombar(stat = \"identity\")",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>intro_to_r</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to tidyverse</span>"
     ]
   },
   {
-    "objectID": "tidyverse_intro.html#loops",
-    "href": "tidyverse_intro.html#loops",
-    "title": "4  intro_to_r",
-    "section": "7.3 Loops",
-    "text": "7.3 Loops",
+    "objectID": "tidyverse_intro.html#why-use-tidyverse",
+    "href": "tidyverse_intro.html#why-use-tidyverse",
+    "title": "4  Introduction to tidyverse",
+    "section": "4.4 ✅ Why Use tidyverse?",
+    "text": "4.4 ✅ Why Use tidyverse?\n\nConsistent and readable syntax\nPipe operator (%&gt;%) for chaining operations\nDesigned for tidy data principles\nStrong community and documentation",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>intro_to_r</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to tidyverse</span>"
     ]
   },
   {
-    "objectID": "tidyverse_intro.html#data-types",
-    "href": "tidyverse_intro.html#data-types",
-    "title": "4  intro_to_r",
-    "section": "7.4 Data types",
-    "text": "7.4 Data types\n\n7.4.1 Lists\n\n\n7.4.2 Dataframes",
+    "objectID": "tidyverse_intro.html#pipe-operator-or",
+    "href": "tidyverse_intro.html#pipe-operator-or",
+    "title": "4  Introduction to tidyverse",
+    "section": "4.5 Pipe operator (%>% or |> )",
+    "text": "4.5 Pipe operator (%&gt;% or |&gt; )\nThe pipe operator allows you to pass the result of one function directly into the next function as its first argument. It’s widely used in the tidyverse, especially with dplyr.",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>intro_to_r</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to tidyverse</span>"
     ]
   },
   {
     "objectID": "using_notebooks.html",
     "href": "using_notebooks.html",
-    "title": "\n5  Reproduceable research using Scripts and Notebooks\n",
+    "title": "5  Reproducible research using Scripts and Notebooks",
     "section": "",
-    "text": "6 R Scripts",
+    "text": "5.1 R Scripts",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reproduceable research using Scripts and Notebooks</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reproducible research using Scripts and Notebooks</span>"
     ]
   },
   {
-    "objectID": "using_notebooks.html#saving-scripts",
-    "href": "using_notebooks.html#saving-scripts",
-    "title": "\n5  Reproduceable research using Scripts and Notebooks\n",
-    "section": "\n6.1 Saving scripts",
-    "text": "6.1 Saving scripts",
+    "objectID": "using_notebooks.html#r-scripts",
+    "href": "using_notebooks.html#r-scripts",
+    "title": "5  Reproducible research using Scripts and Notebooks",
+    "section": "",
+    "text": "5.1.1 Saving scripts\n\n\n5.1.2 Executing scripts",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reproduceable research using Scripts and Notebooks</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reproducible research using Scripts and Notebooks</span>"
     ]
   },
   {
-    "objectID": "using_notebooks.html#executing-scripts",
-    "href": "using_notebooks.html#executing-scripts",
-    "title": "\n5  Reproduceable research using Scripts and Notebooks\n",
-    "section": "\n6.2 Executing scripts",
-    "text": "6.2 Executing scripts",
+    "objectID": "using_notebooks.html#r-markdown-and-notebooks",
+    "href": "using_notebooks.html#r-markdown-and-notebooks",
+    "title": "5  Reproducible research using Scripts and Notebooks",
+    "section": "5.2 R Markdown and Notebooks",
+    "text": "5.2 R Markdown and Notebooks\n\n5.2.1 Basic syntax of R Markdown\n\n\n5.2.2 Notebooks\n\n\n\n\n\n\nCaution\n\n\n\nBeware that the environment of a Notebook is not the same as the R session environment!",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reproduceable research using Scripts and Notebooks</span>"
-    ]
-  },
-  {
-    "objectID": "using_notebooks.html#basic-syntax-of-r-markdown",
-    "href": "using_notebooks.html#basic-syntax-of-r-markdown",
-    "title": "\n5  Reproduceable research using Scripts and Notebooks\n",
-    "section": "\n7.1 Basic syntax of R Markdown",
-    "text": "7.1 Basic syntax of R Markdown",
-    "crumbs": [
-      "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reproduceable research using Scripts and Notebooks</span>"
-    ]
-  },
-  {
-    "objectID": "using_notebooks.html#notebooks",
-    "href": "using_notebooks.html#notebooks",
-    "title": "\n5  Reproduceable research using Scripts and Notebooks\n",
-    "section": "\n7.2 Notebooks",
-    "text": "7.2 Notebooks\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed).\n\n\n\n\n\n\nCaution\n\n\n\nBeware that the environment of a Notebook is not the same as the R session environment!",
-    "crumbs": [
-      "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reproduceable research using Scripts and Notebooks</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reproducible research using Scripts and Notebooks</span>"
     ]
   },
   {
@@ -394,116 +361,6 @@
     "text": "🧠 Learning Objectives\nBy the end of this lesson, you will be able to:\n\nExplore datasets.\nUse basic functions and create simple plots.\nData organization and transformation (sorting, filtering, merging)\nHistogram, Boxplot\nDescriptive statistics in R\nData summary write-up\n\n\n\n\n\n\n\nWorkgroup 2 material to be published in the coming weeks",
     "crumbs": [
       "Workgroup 2: Data Exploration with R"
-    ]
-  },
-  {
-    "objectID": "data_organization.html",
-    "href": "data_organization.html",
-    "title": "\n6  Data Organization and Transformation\n",
-    "section": "",
-    "text": "7 Data organization and transformation",
-    "crumbs": [
-      "Workgroup 2: Data Exploration with R",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Organization and Transformation</span>"
-    ]
-  },
-  {
-    "objectID": "data_organization.html#using-tidyverse-library",
-    "href": "data_organization.html#using-tidyverse-library",
-    "title": "\n6  Data Organization and Transformation\n",
-    "section": "\n7.1 Using tidyverse library",
-    "text": "7.1 Using tidyverse library",
-    "crumbs": [
-      "Workgroup 2: Data Exploration with R",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Organization and Transformation</span>"
-    ]
-  },
-  {
-    "objectID": "data_organization.html#sorting-filtering-merging",
-    "href": "data_organization.html#sorting-filtering-merging",
-    "title": "\n6  Data Organization and Transformation\n",
-    "section": "\n7.2 Sorting, filtering, merging",
-    "text": "7.2 Sorting, filtering, merging",
-    "crumbs": [
-      "Workgroup 2: Data Exploration with R",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Organization and Transformation</span>"
-    ]
-  },
-  {
-    "objectID": "data_organization.html#data-transformation",
-    "href": "data_organization.html#data-transformation",
-    "title": "\n6  Data Organization and Transformation\n",
-    "section": "\n7.3 Data transformation",
-    "text": "7.3 Data transformation",
-    "crumbs": [
-      "Workgroup 2: Data Exploration with R",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Organization and Transformation</span>"
-    ]
-  },
-  {
-    "objectID": "data_organization.html#explore-a-built-in-dataset",
-    "href": "data_organization.html#explore-a-built-in-dataset",
-    "title": "\n6  Data Organization and Transformation\n",
-    "section": "\n8.1 Explore a Built-in Dataset",
-    "text": "8.1 Explore a Built-in Dataset\n-Load the library called languageR, using the following command . In the languageR library, there are some sample datasets that we will use for future workgroups.\n\n# load required libraries\nlibrary(languageR)\n\nWarning: package 'languageR' was built under R version 4.4.1\n\nlibrary(tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.4.3\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nFrom the languageR library we will use a sample dataframe called spanishMeta. This dataset is based on a more general dataset called spanish also included in the library, from Spassova, M. S. (2006) Las marcas sintacticas de atribucion forense de autoria de textos escritos en espanol, Masters thesis, Institut Universitari de Linguistica Aplicada, Universitat Pompeu Fabra, Barcelona\n\n8.1.1 Display dataframe\nTo view the contents of a dataset we can simply write the name of the dataset in the console\n\n  spanishMeta\n\n   Author YearOfBirth  TextName PubDate Nwords    FullName\n1       C        1916 X14458gll    1983   2972        Cela\n2       C        1916 X14459gll    1951   3040        Cela\n3       C        1916 X14460gll    1956   3066        Cela\n4       C        1916 X14461gll    1948   3044        Cela\n5       C        1916 X14462gll    1942   3053        Cela\n6       M        1943 X14463gll    1986   3013     Mendoza\n7       M        1943 X14464gll    1992   3049     Mendoza\n8       M        1943 X14465gll    1989   3042     Mendoza\n9       M        1943 X14466gll    1982   3039     Mendoza\n10      M        1943 X14467gll    2002   3045     Mendoza\n11      V        1936 X14472gll    1965   3037 VargasLLosa\n12      V        1936 X14473gll    1963   3067 VargasLLosa\n13      V        1936 X14474gll    1977   3020 VargasLLosa\n14      V        1936 X14475gll    1987   3016 VargasLLosa\n15      V        1936 X14476gll    1981   3054 VargasLLosa\n\n\nIf we have a lot of data, the console display will be very long. Then you can use the head() function to only see the first few rows of the dataset\n\nhead(spanishMeta)\n\n  Author YearOfBirth  TextName PubDate Nwords FullName\n1      C        1916 X14458gll    1983   2972     Cela\n2      C        1916 X14459gll    1951   3040     Cela\n3      C        1916 X14460gll    1956   3066     Cela\n4      C        1916 X14461gll    1948   3044     Cela\n5      C        1916 X14462gll    1942   3053     Cela\n6      M        1943 X14463gll    1986   3013  Mendoza\n\n\nBy default the function shows the first 6 rows of the dataset. if you look at the options of the function using help(head), you can see that there is a parameter (called argument in the vocabulary of R) n that can be used to indicate the number of rows to show. For the exercise, to show 4 rows, you can use:\n\nhead(spanishMeta, n=4)\n\n  Author YearOfBirth  TextName PubDate Nwords FullName\n1      C        1916 X14458gll    1983   2972     Cela\n2      C        1916 X14459gll    1951   3040     Cela\n3      C        1916 X14460gll    1956   3066     Cela\n4      C        1916 X14461gll    1948   3044     Cela\n\n\n\n8.1.2 Extract column names\nThere a number of functions that allow to inspect data sets: * str(): provides a brief description of the data set variables and contents * names(): lists the names of the variables * summary(): gives basic summary statistics for every variable (we will explore this in the next assignment) * head(): shows the first rows of the dataset (as we saw above) * tail(): shows the last rows of the dataset\nIn the assignment it was asked to list the names of the variables in the dataset. The easiest way is to use the names() function\n\nnames(spanishMeta)\n\n[1] \"Author\"      \"YearOfBirth\" \"TextName\"    \"PubDate\"     \"Nwords\"     \n[6] \"FullName\"   \n\n\n\n8.1.3 Extract vector\nAccessing the variables of a dataset is possible using the $ operator. So for example, to list the contents of the PubDate\n\nspanishMeta$PubDate\n\n [1] 1983 1951 1956 1948 1942 1986 1992 1989 1982 2002 1965 1963 1977 1987 1981\n\n\nIn the exercise it was asked to take this information and include it in a variable called PublicationDate. Using the above notation this is simply done as\n\nPublicationDate&lt;-spanishMeta$PubDate \nPublicationDate\n\n [1] 1983 1951 1956 1948 1942 1986 1992 1989 1982 2002 1965 1963 1977 1987 1981\n\n\n\n8.1.4 Sort a vector\nYou can sort the vector using the sort() function as below.\n\nsort(PublicationDate)\n\n [1] 1942 1948 1951 1956 1963 1965 1977 1981 1982 1983 1986 1987 1989 1992 2002\n\n\n\nsort(PublicationDate,decreasing = TRUE)\n\n [1] 2002 1992 1989 1987 1986 1983 1982 1981 1977 1965 1963 1956 1951 1948 1942\n\n\nFinally, there are many functions available to work, modify, and access dataframes. As an example let’s see how we could select a part of the dataframe based on a criteria. If we want to select the entries that were published before 1980 for example, we can do the following\n\nspanishMeta[spanishMeta$PubDate&lt;1980,]\n\n   Author YearOfBirth  TextName PubDate Nwords    FullName\n2       C        1916 X14459gll    1951   3040        Cela\n3       C        1916 X14460gll    1956   3066        Cela\n4       C        1916 X14461gll    1948   3044        Cela\n5       C        1916 X14462gll    1942   3053        Cela\n11      V        1936 X14472gll    1965   3037 VargasLLosa\n12      V        1936 X14473gll    1963   3067 VargasLLosa\n13      V        1936 X14474gll    1977   3020 VargasLLosa\n\n\nYou can also use the subset() function to make a selection\n\nsubset(spanishMeta, PubDate&lt;1980)\n\n   Author YearOfBirth  TextName PubDate Nwords    FullName\n2       C        1916 X14459gll    1951   3040        Cela\n3       C        1916 X14460gll    1956   3066        Cela\n4       C        1916 X14461gll    1948   3044        Cela\n5       C        1916 X14462gll    1942   3053        Cela\n11      V        1936 X14472gll    1965   3037 VargasLLosa\n12      V        1936 X14473gll    1963   3067 VargasLLosa\n13      V        1936 X14474gll    1977   3020 VargasLLosa\n\n\nFor all the operations above you can also use pipes:\n\nlibrary(dplyr)\n\n\nPublicationDate %&gt;% sort\n\n [1] 1942 1948 1951 1956 1963 1965 1977 1981 1982 1983 1986 1987 1989 1992 2002\n\n\n\nPublicationDate %&gt;% sort(decreasing = TRUE)\n\n [1] 2002 1992 1989 1987 1986 1983 1982 1981 1977 1965 1963 1956 1951 1948 1942\n\n\n\nspanishMeta %&gt;% filter(PubDate&lt;1980)\n\n   Author YearOfBirth  TextName PubDate Nwords    FullName\n2       C        1916 X14459gll    1951   3040        Cela\n3       C        1916 X14460gll    1956   3066        Cela\n4       C        1916 X14461gll    1948   3044        Cela\n5       C        1916 X14462gll    1942   3053        Cela\n11      V        1936 X14472gll    1965   3037 VargasLLosa\n12      V        1936 X14473gll    1963   3067 VargasLLosa\n13      V        1936 X14474gll    1977   3020 VargasLLosa",
-    "crumbs": [
-      "Workgroup 2: Data Exploration with R",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Organization and Transformation</span>"
-    ]
-  },
-  {
-    "objectID": "data_organization.html#section",
-    "href": "data_organization.html#section",
-    "title": "\n6  Data Organization and Transformation\n",
-    "section": "\n8.2 ",
-    "text": "8.2",
-    "crumbs": [
-      "Workgroup 2: Data Exploration with R",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Organization and Transformation</span>"
-    ]
-  },
-  {
-    "objectID": "data_visualization.html",
-    "href": "data_visualization.html",
-    "title": "7  Data visualization",
-    "section": "",
-    "text": "8 📊Data visualization in R: introduction to ggplot",
-    "crumbs": [
-      "Workgroup 2: Data Exploration with R",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualization</span>"
-    ]
-  },
-  {
-    "objectID": "data_visualization.html#basic-plotting",
-    "href": "data_visualization.html#basic-plotting",
-    "title": "7  Data visualization",
-    "section": "8.1 Basic Plotting",
-    "text": "8.1 Basic Plotting\n&gt; **Note on ggplot2:** The intention of this example was to show the power of `ggplot2` to produce graphs of all types. It is beyond the scope of this course to learn how to use it and you are **not** expected to know it for the exams. For the interested readers there are several books and resources on the topic:\n- [*R Graphics Cookbook*](http://shop.oreilly.com/product/0636920023135.do) by Winston Chang\n- [*ggplot2: Elegant Graphics for Data Analysis*](https://www.springer.com/gp/book/9780387981413) by Hadley Wickham",
-    "crumbs": [
-      "Workgroup 2: Data Exploration with R",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data visualization</span>"
-    ]
-  },
-  {
-    "objectID": "descriptive_stats.html",
-    "href": "descriptive_stats.html",
-    "title": "\n8  Descriptive Statistics\n",
-    "section": "",
-    "text": "8.1 Quarto\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.",
-    "crumbs": [
-      "Workgroup 2: Data Exploration with R",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Descriptive Statistics</span>"
-    ]
-  },
-  {
-    "objectID": "descriptive_stats.html#running-code",
-    "href": "descriptive_stats.html#running-code",
-    "title": "\n8  Descriptive Statistics\n",
-    "section": "\n8.2 Running Code",
-    "text": "8.2 Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed).",
-    "crumbs": [
-      "Workgroup 2: Data Exploration with R",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Descriptive Statistics</span>"
     ]
   },
   {
