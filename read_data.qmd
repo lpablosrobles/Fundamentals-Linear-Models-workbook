@@ -7,6 +7,13 @@ editor: visual
 
 ## Data in R files
 
+## Importing data from a text file
+
+```{r}
+#data <- read.csv("yourfile.csv")  # Load a CSV file  
+#head(data)                        # View the first few rows 
+```
+
 ## Data from text files
 
 ## Data from SPSS

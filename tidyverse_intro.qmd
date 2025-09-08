@@ -1,22 +1,67 @@
----
-title: "intro_to_r"
-author: "Leticia Pablos Robles"
----
+# Introduction to tidyverse {#sec-the-r-language}
 
-# The R language {#sec-the-r-language}
+## 🌐 **What is the tidyverse?**
 
-# RStudio Environment {#sec-rstudio-environment}
+The **`tidyverse`** is a collection of R packages designed for **data science**. These packages share an underlying philosophy, grammar, and data structures, making it easier to learn and use them together. Tidyverse simplifies tasks like data manipulation, visualization, and modeling.
 
-# R basics {#sec-r-basics}
+## 📦 **Core tidyverse Packages**
 
-## Variables {#sec-variables}
+When you load the tidyverse, you get access to these core packages:
 
-## Operators
+| Package   | Usage                                   |
+|-----------|-----------------------------------------|
+| `ggplot2` | Data visualization                      |
+| `dplyr`   | Data manipulation                       |
+| `tidyr`   | Data tidying                            |
+| `readr`   | Reading rectangular data (CSV, etc.)    |
+| `purrr`   | Functional programming                  |
+| `tibble`  | Modern data frames                      |
+| `stringr` | String manipulation                     |
+| `forcats` | Working with categorical data (factors) |
 
-## Loops
+## **Workflow Using tidyverse**
 
-## Data types
+```{mermaid}
+flowchart LR
+  load["Load tidyverse"]
+  read["Read data"]
+  clean["Clean and transform data"]
+  plot["Visualize"]
+  load --> read
+  read --> clean
+  clean --> plot
+```
 
-### Lists
+``` r
+# Load tidyverse
 
-### Dataframes
+library(tidyverse)
+
+# Read data
+
+data <- readcsv("data.csv")
+
+# Clean and transform
+
+cleandata <- data %>%
+  filter(!is.na(value)) %>%
+  mutate(newvalue = value * 2)
+
+# Visualize
+
+ggplot(cleandata, aes(x = category, y = newvalue)) + geombar(stat = "identity")
+```
+
+## ✅ **Why Use tidyverse?**
+
+-    Consistent and readable syntax
+
+-    Pipe operator (`%>%`) for chaining operations
+
+-    Designed for tidy data principles
+
+-    Strong community and documentation
+
+## Pipe operator (`%>%` or `|>` )
+
+The pipe operator allows you to **pass the result of one function directly into the next function** as its first argument. It’s widely used in the **tidyverse**, especially with `dplyr`.

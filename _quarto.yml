@@ -35,45 +35,45 @@ book:
         - intro_to_r.qmd
         - using_libraries.qmd
         - read_data.qmd
+        - tidyverse_intro.qmd
         - using_notebooks.qmd
         
     - part: Workgroup2.qmd
-      chapters: 
-        - tidyverse_intro.qmd
-        - data_organization.qmd
-        - data_visualization.qmd
-        - descriptive_stats.qmd
+      # chapters: 
+      #   - data_organization.qmd
+      #   - data_visualization.qmd
+      #   - descriptive_stats.qmd
         
     - part: Workgroup3.qmd
-      chapters:
-        - tidyverse_intro.qmd
-        - data_organization.qmd
-        - data_visualization.qmd
-        - descriptive_stats.qmd
+      # chapters:
+      #   - tidyverse_intro.qmd
+      #   - data_organization.qmd
+      #   - data_visualization.qmd
+      #   - descriptive_stats.qmd
 
         
     - part: Workgroup4.qmd
-      chapters: 
-        - intro_to_r.qmd
-        - using_libraries.qmd
-        - tidyverse_intro.qmd
-        - read_data.qmd
+      # chapters: 
+      #   - intro_to_r.qmd
+      #   - using_libraries.qmd
+      #   - tidyverse_intro.qmd
+      #   - read_data.qmd
     
     - part: Workgroup5.qmd
-      chapters: 
-        - intro_to_r.qmd
-        - using_libraries.qmd
-        - tidyverse_intro.qmd
-        - read_data.qmd
+      # chapters: 
+      #   - intro_to_r.qmd
+      #   - using_libraries.qmd
+      #   - tidyverse_intro.qmd
+      #   - read_data.qmd
         
     - part: Workgroup6.qmd
-      chapters: 
-        - intro_to_r.qmd
-        - using_libraries.qmd
-        - tidyverse_intro.qmd
-        - read_data.qmd
+      # chapters: 
+      #   - intro_to_r.qmd
+      #   - using_libraries.qmd
+      #   - tidyverse_intro.qmd
+      #   - read_data.qmd
 
-    - summary.qmd
+    #- summary.qmd
     - references.qmd
 
 bibliography: references.bib

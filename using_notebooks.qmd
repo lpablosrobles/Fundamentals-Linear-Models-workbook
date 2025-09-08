@@ -1,33 +1,20 @@
 ---
-title: "Reproduceable research using Scripts and Notebooks"
-format: html
 editor: visual
 ---
 
-# R Scripts
+# Reproducible research using Scripts and Notebooks
 
-## Saving scripts
+## R Scripts
 
-## Executing scripts
+### Saving scripts
 
-# R Markdown and Notebooks
+### Executing scripts
 
-## Basic syntax of R Markdown
+## R Markdown and Notebooks
 
-## Notebooks
+### Basic syntax of R Markdown
 
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
+### Notebooks
 
 ::: callout-caution
 Beware that the environment of a Notebook is not the same as the R session environment!
