@@ -62,7 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./data_visualization.html" rel="next">
-<link href="./tidyverse_intro.html" rel="prev">
+<link href="./Workgroup2.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -171,13 +171,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./read_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and saving data in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Using Notebooks and R Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproduceable research using Scripts and Notebooks</span></span></a>
   </div>
 </li>
       </ul>
@@ -192,12 +198,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_organization.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Organization and Transformation</span></span></a>
@@ -218,186 +218,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./Workgroup3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Workgroup 3: Data exploration with R (II)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data_organization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Organization and Transformation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data visualization</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./descriptive_stats.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span></a>
-  </div>
-</li>
-      </ul>
-</li>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Workgroup 3: Simple Linear Regression with R</span></span>
+  </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./Workgroup4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Workgroup 4: Simple Linear Regression II</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to the R language</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./using_libraries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Libraries and Packages</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./read_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
-  </div>
-</li>
-      </ul>
-</li>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Workgroup 4: Simple Linear Regression II</span></span>
+  </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./Workgroup5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Workgroup 5: Multiple Regression with R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to the R language</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./using_libraries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Libraries and Packages</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./read_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
-  </div>
-</li>
-      </ul>
-</li>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Workgroup 5: Multiple Regression with R</span></span>
+  </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./Workgroup6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Workgroup 6: Multiple Regression with R II</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to the R language</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./using_libraries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Libraries and Packages</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./read_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
-  </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./Workgroup7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Workgroup 1: Introduction to R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to the R language</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./using_libraries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Libraries and Packages</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./read_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">intro_to_r</span></span></a>
-  </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
-  </div>
-</li>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Workgroup 6: Multiple Regression with R II</span></span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -412,8 +247,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#quarto" id="toc-quarto" class="nav-link active" data-scroll-target="#quarto"><span class="header-section-number">6.1</span> Quarto</a></li>
-  <li><a href="#running-code" id="toc-running-code" class="nav-link" data-scroll-target="#running-code"><span class="header-section-number">6.2</span> Running Code</a></li>
+<li>
+<a href="#data-organization-and-transformation" id="toc-data-organization-and-transformation" class="nav-link active" data-scroll-target="#data-organization-and-transformation"><span class="header-section-number">7</span> Data organization and transformation</a>
+  <ul class="collapse">
+<li><a href="#using-tidyverse-library" id="toc-using-tidyverse-library" class="nav-link" data-scroll-target="#using-tidyverse-library"><span class="header-section-number">7.1</span> Using <code>tidyverse</code> library</a></li>
+  <li><a href="#sorting-filtering-merging" id="toc-sorting-filtering-merging" class="nav-link" data-scroll-target="#sorting-filtering-merging"><span class="header-section-number">7.2</span> Sorting, filtering, merging</a></li>
+  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation"><span class="header-section-number">7.3</span> Data transformation</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">8</span> 📝 Exercise 3:</a>
+  <ul class="collapse">
+<li>
+<a href="#explore-a-built-in-dataset" id="toc-explore-a-built-in-dataset" class="nav-link" data-scroll-target="#explore-a-built-in-dataset"><span class="header-section-number">8.1</span> Explore a Built-in Dataset</a>
+  <ul class="collapse">
+<li><a href="#display-dataframe" id="toc-display-dataframe" class="nav-link" data-scroll-target="#display-dataframe"><span class="header-section-number">8.1.1</span> Display dataframe</a></li>
+  <li><a href="#extract-column-names" id="toc-extract-column-names" class="nav-link" data-scroll-target="#extract-column-names"><span class="header-section-number">8.1.2</span> Extract column names</a></li>
+  <li><a href="#extract-vector" id="toc-extract-vector" class="nav-link" data-scroll-target="#extract-vector"><span class="header-section-number">8.1.3</span> Extract vector</a></li>
+  <li><a href="#sort-a-vector" id="toc-sort-a-vector" class="nav-link" data-scroll-target="#sort-a-vector"><span class="header-section-number">8.1.4</span> Sort a vector</a></li>
+  </ul>
+</li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">8.2</span> </a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -434,28 +290,196 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><section id="quarto" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="quarto">
-<span class="header-section-number">6.1</span> Quarto</h2>
-<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
-</section><section id="running-code" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="running-code">
-<span class="header-section-number">6.2</span> Running Code</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
+</header><section id="data-organization-and-transformation" class="level1" data-number="7"><h1 data-number="7">
+<span class="header-section-number">7</span> Data organization and transformation</h1>
+<section id="using-tidyverse-library" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="using-tidyverse-library">
+<span class="header-section-number">7.1</span> Using <code>tidyverse</code> library</h2>
+</section><section id="sorting-filtering-merging" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="sorting-filtering-merging">
+<span class="header-section-number">7.2</span> Sorting, filtering, merging</h2>
+</section><section id="data-transformation" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="data-transformation">
+<span class="header-section-number">7.3</span> Data transformation</h2>
+</section></section><section id="exercise-3" class="level1" data-number="8"><h1 data-number="8">
+<span class="header-section-number">8</span> 📝 Exercise 3:</h1>
+<section id="explore-a-built-in-dataset" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="explore-a-built-in-dataset">
+<span class="header-section-number">8.1</span> Explore a Built-in Dataset</h2>
+<p>-Load the library called <em><strong>languageR</strong>,</em> using the following command <em>.</em> In the languageR library, there are some sample datasets that we will use for future workgroups.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load required libraries</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">languageR</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'languageR' was built under R version 4.4.1</code></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 </div>
-<p>You can add options to executable code like this</p>
+<p>From the <em>languageR</em> library we will use a sample dataframe called <em>spanishMeta</em>. This dataset is based on a more general dataset called <em>spanish</em> also included in the library, from <em>Spassova, M. S. (2006) Las marcas sintacticas de atribucion forense de autoria de textos escritos en espanol, Masters thesis, Institut Universitari de Linguistica Aplicada, Universitat Pompeu Fabra, Barcelona</em></p>
+<section id="display-dataframe" class="level3" data-number="8.1.1"><h3 data-number="8.1.1" class="anchored" data-anchor-id="display-dataframe">
+<span class="header-section-number">8.1.1</span> Display dataframe</h3>
+<p>To view the contents of a dataset we can simply write the name of the dataset in the console</p>
 <div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span>  <span class="va">spanishMeta</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
+<pre><code>   Author YearOfBirth  TextName PubDate Nwords    FullName
+1       C        1916 X14458gll    1983   2972        Cela
+2       C        1916 X14459gll    1951   3040        Cela
+3       C        1916 X14460gll    1956   3066        Cela
+4       C        1916 X14461gll    1948   3044        Cela
+5       C        1916 X14462gll    1942   3053        Cela
+6       M        1943 X14463gll    1986   3013     Mendoza
+7       M        1943 X14464gll    1992   3049     Mendoza
+8       M        1943 X14465gll    1989   3042     Mendoza
+9       M        1943 X14466gll    1982   3039     Mendoza
+10      M        1943 X14467gll    2002   3045     Mendoza
+11      V        1936 X14472gll    1965   3037 VargasLLosa
+12      V        1936 X14473gll    1963   3067 VargasLLosa
+13      V        1936 X14474gll    1977   3020 VargasLLosa
+14      V        1936 X14475gll    1987   3016 VargasLLosa
+15      V        1936 X14476gll    1981   3054 VargasLLosa</code></pre>
 </div>
 </div>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
+<p>If we have a lot of data, the console display will be very long. Then you can use the <em>head()</em> function to only see the first few rows of the dataset</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">spanishMeta</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Author YearOfBirth  TextName PubDate Nwords FullName
+1      C        1916 X14458gll    1983   2972     Cela
+2      C        1916 X14459gll    1951   3040     Cela
+3      C        1916 X14460gll    1956   3066     Cela
+4      C        1916 X14461gll    1948   3044     Cela
+5      C        1916 X14462gll    1942   3053     Cela
+6      M        1943 X14463gll    1986   3013  Mendoza</code></pre>
+</div>
+</div>
+<p>By default the function shows the first 6 rows of the dataset. if you look at the options of the function using <em>help(head)</em>, you can see that there is a parameter (called argument in the vocabulary of R) <em>n</em> that can be used to indicate the number of rows to show. For the exercise, to show 4 rows, you can use:</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">spanishMeta</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Author YearOfBirth  TextName PubDate Nwords FullName
+1      C        1916 X14458gll    1983   2972     Cela
+2      C        1916 X14459gll    1951   3040     Cela
+3      C        1916 X14460gll    1956   3066     Cela
+4      C        1916 X14461gll    1948   3044     Cela</code></pre>
+</div>
+</div>
+</section><section id="extract-column-names" class="level3" data-number="8.1.2"><h3 data-number="8.1.2" class="anchored" data-anchor-id="extract-column-names">
+<span class="header-section-number">8.1.2</span> Extract column names</h3>
+<p>There a number of functions that allow to inspect data sets: * <em>str()</em>: provides a brief description of the data set variables and contents * <em>names()</em>: lists the names of the variables * <em>summary()</em>: gives basic summary statistics for every variable (we will explore this in the next assignment) * <em>head()</em>: shows the first rows of the dataset (as we saw above) * <em>tail()</em>: shows the last rows of the dataset</p>
+<p>In the assignment it was asked to list the names of the variables in the dataset. The easiest way is to use the <em>names()</em> function</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">spanishMeta</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Author"      "YearOfBirth" "TextName"    "PubDate"     "Nwords"     
+[6] "FullName"   </code></pre>
+</div>
+</div>
+</section><section id="extract-vector" class="level3" data-number="8.1.3"><h3 data-number="8.1.3" class="anchored" data-anchor-id="extract-vector">
+<span class="header-section-number">8.1.3</span> Extract vector</h3>
+<p>Accessing the variables of a dataset is possible using the <em>$</em> operator. So for example, to list the contents of the <em>PubDate</em></p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">spanishMeta</span><span class="op">$</span><span class="va">PubDate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1983 1951 1956 1948 1942 1986 1992 1989 1982 2002 1965 1963 1977 1987 1981</code></pre>
+</div>
+</div>
+<p>In the exercise it was asked to take this information and include it in a variable called <em>PublicationDate</em>. Using the above notation this is simply done as</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PublicationDate</span><span class="op">&lt;-</span><span class="va">spanishMeta</span><span class="op">$</span><span class="va">PubDate</span> </span>
+<span><span class="va">PublicationDate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1983 1951 1956 1948 1942 1986 1992 1989 1982 2002 1965 1963 1977 1987 1981</code></pre>
+</div>
+</div>
+</section><section id="sort-a-vector" class="level3" data-number="8.1.4"><h3 data-number="8.1.4" class="anchored" data-anchor-id="sort-a-vector">
+<span class="header-section-number">8.1.4</span> Sort a vector</h3>
+<p>You can sort the vector using the <em>sort()</em> function as below.</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">PublicationDate</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1942 1948 1951 1956 1963 1965 1977 1981 1982 1983 1986 1987 1989 1992 2002</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">PublicationDate</span>,decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 2002 1992 1989 1987 1986 1983 1982 1981 1977 1965 1963 1956 1951 1948 1942</code></pre>
+</div>
+</div>
+<p>Finally, there are many functions available to work, modify, and access dataframes. As an example let’s see how we could select a part of the dataframe based on a criteria. If we want to select the entries that were published before 1980 for example, we can do the following</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">spanishMeta</span><span class="op">[</span><span class="va">spanishMeta</span><span class="op">$</span><span class="va">PubDate</span><span class="op">&lt;</span><span class="fl">1980</span>,<span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Author YearOfBirth  TextName PubDate Nwords    FullName
+2       C        1916 X14459gll    1951   3040        Cela
+3       C        1916 X14460gll    1956   3066        Cela
+4       C        1916 X14461gll    1948   3044        Cela
+5       C        1916 X14462gll    1942   3053        Cela
+11      V        1936 X14472gll    1965   3037 VargasLLosa
+12      V        1936 X14473gll    1963   3067 VargasLLosa
+13      V        1936 X14474gll    1977   3020 VargasLLosa</code></pre>
+</div>
+</div>
+<p>You can also use the <em>subset()</em> function to make a selection</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">spanishMeta</span>, <span class="va">PubDate</span><span class="op">&lt;</span><span class="fl">1980</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Author YearOfBirth  TextName PubDate Nwords    FullName
+2       C        1916 X14459gll    1951   3040        Cela
+3       C        1916 X14460gll    1956   3066        Cela
+4       C        1916 X14461gll    1948   3044        Cela
+5       C        1916 X14462gll    1942   3053        Cela
+11      V        1936 X14472gll    1965   3037 VargasLLosa
+12      V        1936 X14473gll    1963   3067 VargasLLosa
+13      V        1936 X14474gll    1977   3020 VargasLLosa</code></pre>
+</div>
+</div>
+<p>For all the operations above you can also use pipes:</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PublicationDate</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">sort</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1942 1948 1951 1956 1963 1965 1977 1981 1982 1983 1986 1987 1989 1992 2002</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PublicationDate</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span>decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 2002 1992 1989 1987 1986 1983 1982 1981 1977 1965 1963 1956 1951 1948 1942</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">spanishMeta</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">PubDate</span><span class="op">&lt;</span><span class="fl">1980</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Author YearOfBirth  TextName PubDate Nwords    FullName
+2       C        1916 X14459gll    1951   3040        Cela
+3       C        1916 X14460gll    1956   3066        Cela
+4       C        1916 X14461gll    1948   3044        Cela
+5       C        1916 X14462gll    1942   3053        Cela
+11      V        1936 X14472gll    1965   3037 VargasLLosa
+12      V        1936 X14473gll    1963   3067 VargasLLosa
+13      V        1936 X14474gll    1977   3020 VargasLLosa</code></pre>
+</div>
+</div>
+</section></section><section id="section" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="section">
+<span class="header-section-number">8.2</span> </h2>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -872,8 +896,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./tidyverse_intro.html" class="pagination-link" aria-label="intro_to_r">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">intro_to_r</span></span>
+      <a href="./Workgroup2.html" class="pagination-link" aria-label="Workgroup 2: Data Exploration with R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Workgroup 2: Data Exploration with R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
