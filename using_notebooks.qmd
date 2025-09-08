@@ -1,16 +1,20 @@
 ---
-title: "Using Notebooks and R Markdown"
+title: "Reproduceable research using Scripts and Notebooks"
 format: html
 editor: visual
 ---
 
-## Quarto
+# R Scripts
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+## Saving scripts
 
-## Running Code
+## Executing scripts
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+# R Markdown and Notebooks
+
+## Basic syntax of R Markdown
+
+## Notebooks
 
 ```{r}
 1 + 1
@@ -24,3 +28,7 @@ You can add options to executable code like this
 ```
 
 The `echo: false` option disables the printing of code (only output is displayed).
+
+::: callout-caution
+Beware that the environment of a Notebook is not the same as the R session environment!
+:::

@@ -2,3 +2,7 @@
 title: "Workgroup 4: Simple Linear Regression II"
 author: "Leticia Pablos Robles"
 ---
+
+::: callout-note
+## Workgroup 4 material to be published in the coming weeks
+:::

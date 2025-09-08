@@ -1,37 +1,51 @@
 ---
 title: "Libraries and Packages"
-author: "Dr. Leticia Pablos Robles"
 format: html
 editor: visual
 ---
 
 ## 
 
-# 📦 Libraries and Packages
+# 📦 Packages
 
 One of the big benefits of *R* in comparison with other statistics packages is its open nature. The functionality is easily extended by groups all around the world by developing libraries that can be easily installed and used.
 
 R packages extend the functionality of R by providing additional functions, data, and documentation. They are written by a worldwide community of R users and can be downloaded for free from the internet.
 
-For example, in several exercises in this book we use a library (created by Baayen) that contains some utilities and a few sample datasets with linguistics examples.
-
-The library should be loaded to be used using the *library()* function.
-
-``` r
-library(languageR)
-```
+A **package** is a collection of R functions, data, and compiled code bundled together. Packages are created by the R community and cover a wide range of topics like data manipulation, visualization, machine learning, etc.
 
 ## Install and Use a Package
 
 Packages have to be **installed** [and]{.underline} **loaded** before using them.
 
-We install packages only once
+We need to install packages only once in our environment. That can be done in two ways:
+
+1.  Using the `install.packages()` function or
+
+2.  Using the *Packages* tab in RStudio:
+
+    ![](images/clipboard-4075559686.png)
+
+For example, in several exercises in this book we use a library (created by for the book [@Baayen_2008]) that contains some utilities and a few sample datasets with linguistics examples.
+
+Let's install the library using the following command:
 
 ``` r
-install.packages("dplyr") 
-library(dplyr) mtcars %>% filter(cyl == 6) %>% summarise(avg_mpg = mean(mpg)) 
+install.packages("languageR")
 ```
 
-## 
+::: callout-warning
+The installation of a package can give an error if you try to install a package that is already installed and loaded. If you get an error saying that you have already the package, just cancel.
+:::
 
-## Using RStudio help
+After installing the package, the contents will still not be available until you **load the package**, this has to be done in every new work session and it is done with the `library()` function.
+
+``` r
+library(languageR)
+```
+
+Now you can access the functions and data in the *languageR* package. Let's take a look at the dataframes available in the package that we will use for some of the exercises and for the first assignment today. You can explore the data sets using the `data()` function:
+
+``` r
+data(package="languageR")
+```

@@ -10,6 +10,8 @@ lang: en
 
 book:
   title: "Fundamentals of Linear Models 2025-2026: Workbook"
+  subtitle: "Workbook"
+  author: "Dr. Leticia Pablos Robles"
   reader-mode: true
   
   page-footer: 
@@ -71,13 +73,6 @@ book:
         - tidyverse_intro.qmd
         - read_data.qmd
 
-    - part: Workgroup7.qmd
-      chapters: 
-        - intro_to_r.qmd
-        - using_libraries.qmd
-        - tidyverse_intro.qmd
-        - read_data.qmd
-        
     - summary.qmd
     - references.qmd
 

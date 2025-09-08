@@ -1,15 +1,13 @@
 ---
-title: "Workgroup 3: Data exploration with R (II)"
-author: "Leticia Pablos Robles"
+title: "Workgroup 3: Simple Linear Regression with R"
 ---
 
-# 📊Data visualization in R: introduction to ggplot
+<!-- ```{mermaid} -->
 
-## Basic Plotting
+<!-- flowchart NHST -->
 
+<!-- ``` -->
 
-
-> **Note on ggplot2:** The intention of this example was to show the power of `ggplot2` to produce graphs of all types. It is beyond the scope of this course to learn how to use it and you are **not** expected to know it for the exams. For the interested readers there are several books and resources on the topic:
-
--   [*R Graphics Cookbook*](http://shop.oreilly.com/product/0636920023135.do) by Winston Chang
--   [*ggplot2: Elegant Graphics for Data Analysis*](https://www.springer.com/gp/book/9780387981413) by Hadley Wickham
+::: callout-note
+## Workgroup 3 material to be published in the coming weeks
+:::

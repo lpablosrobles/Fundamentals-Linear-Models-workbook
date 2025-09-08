@@ -19,7 +19,25 @@ By the end of this lesson, you will be able to:
 
 ## 🛠️ What is R?
 
-R is a programming language designed for **statistical computing and graphics**. It is widely used among statisticians, data analysts, and researchers. To work with the programming language, the R interpreter needs to be installed. You can download it from the R homepage, which is:
+**R** is a powerful, open-source programming language designed for **statistical computing, data analysis and visualization**. It is widely used among statisticians, data analysts, and researchers.
+
+It was created by statisticians Ross Ihaka and Robert Gentleman in the early 1990s and has since become a standard tool in academia, research, and industry.
+
+### **Key Features of R**
+
+-   **Statistical Analysis**: R allows to perform analysis using a wide range of statistical techniques including linear and nonlinear modeling, time-series analysis, classification, clustering, bayesian methods.
+
+-   **Data Visualization**: R allows the creation of high-quality plots and graphics using specific packages (we will explain below what packages are) like `ggplot2`, `lattice`, and `plotly`.
+
+-   **Extensibility**: Thousands of community provided packages are available via CRAN (Comprehensive R Archive Network), covering several fields.
+
+-   **Data Handling**: R includes robust tools for importing, cleaning, transforming, and manipulating data.
+
+-   **Community Support**: A large and active user community contributes to its development and provides extensive documentation and tutorials.
+
+### Installing R
+
+To work with the programming language, the R interpreter needs to be installed. You can download it from the R homepage, which is:
 
 > <http://cran.r-project.org/>
 
@@ -27,7 +45,7 @@ There are versions available for [Windows](https://cran.r-project.org/bin/window
 
 *R* installation includes a basic interface environment with a Console to enter commands and write scripts that can be launched using the *R.exe* or *R.app*.
 
-## ![](images/clipboard-347489880.png)
+![](images/clipboard-347489880.png)
 
 This interface is nonetheless quite limited and it is not normally used for data analysis and script development. You can use this language through lots of different applications and environments (e.g. VSCode, JupyterLabs, etc..) . For this course we will introduce the most commonly use development environment for R: *RStudio*.
 
@@ -83,179 +101,10 @@ Open it and explore the RStudio interface.
 
 ------------------------------------------------------------------------
 
-# ✍️ R Syntax
-
-## Commands and operators
-
-R
-
-```         
->
-```
-
-That's the ***command prompt***. When you see this, it means that R is waiting patiently for you to do something!
-
-One of the easiest things you can do with R is use it as a simple calculator, so it's a good place to start. For instance, try typing `10 + 20`, and hitting enter.[^workgroup1-1] When you do this, you've entered a ***command***, and R will "execute" that command. What you see on screen now will be this:
-
-[^workgroup1-1]: Seriously. If you're in a position to do so, open up R and start typing. The simple act of typing it rather than "just reading" makes a big difference. It makes the concepts more concrete, and it ties the abstract ideas (programming and statistics) to the actual context in which you need to use them. Statistics is something you *do*, not just something you read about in a textbook.
-
-``` r
-> 10 + 20
-[1] 30
-```
-
-Not a lot of surprises in this extract. But there's a few things worth talking about, even with such a simple example. Firstly, it's important that you understand how to read the extract. In this example, what *I* typed was the `10 + 20` part. I didn't type the `>` symbol: that's just the R command prompt and isn't part of the actual command. And neither did I type the `[1] 30` part. That's what R printed out in response to my command.
-
-Secondly, it's important to understand how the output is formatted. Obviously, the correct answer to the sum `10 + 20` is `30`, and not surprisingly R has printed that out as part of its response. But it's also printed out this `[1]` part, which probably doesn't make a lot of sense to you right now. You're going to see that a lot. I'll talk about what this means in a bit more detail later on, but for now you can think of `[1] 30` as if R were saying "the answer to the 1st question you asked is 30". That's not quite the truth, but it's close enough for now. And in any case it's not really very interesting at the moment: we only asked R to calculate one thing, so obviously there's only one answer printed on the screen. Later on this will change, and the `[1]` part will start to make a bit more sense. For now, I just don't want you to get confused or concerned by it.
-
-## Variables
-
-``` r
-# This is a comment 
-x <- 5       # Assign 5 to variable x 
-y <- 10      # Assign 10 to variable y 
-z <- x + y   # Add x and y 
-print(z)     # Print the result 
-```
-
-## Functions
-
-## Loops and conditional statements
-
-## Data types
-
-### Basic types
-
-### Vectors and lists
-
-### Dataframes and tibbles
-
-# 📦 Libraries and Packages
-
-One of the big benefits of *R* in comparison with other statistics packages is its open nature. The functionality is easily extended by groups all around the world by developing libraries that can be easily installed and used.
-
-For this exercise, we use a library (created by Baayen) that contains some utilities and a few sample datasets with linguistics examples.
-
-The library should be loaded to be used using the *library()* function.
-
-``` r
-library(languageR)
-```
-
-## Install and Use a Package
-
-``` r
-install.packages("dplyr")
-library(dplyr)
-mtcars %>% filter(cyl == 6) %>% summarise(avg_mpg = mean(mpg)) 
-```
-
-## 
-
-# Working with Scripts
-
-# Working with Notebooks
-
-# 📝 Exercises
-
-## 1. Basic Calculations
-
-Open RStudio and type the following in the console:
-
--   Add 15 and 27
-
--   Multiply 6 by 9
-
--   Divide 100 by 4
-
-## 2. Create Variables
-
-``` r
-a <- 12 
-b <- 8 
-c <- a * b 
-print(c) 
-```
-
-Try changing the values of `a` and `b` and re-run the code.
-
-## 3. Create a dataframe
-
-Create a dataframe coming up with a sample data of your own (possibly made up) including 4 columns and 6 rows: one column with a factor with two levels, another column with a factor with 3 levels and two columns with numeric values.
-
-You can create a dataframe in several ways, but below you see an example on the steps to create a dataframe based on on vectors.
-
-Create individual variables with vectors including the values
-
-```{r}
-NounAnimacy<-c("animate","inanimate","inanimate","animate","animate","animate")
-NounAnimacy
-
-```
-
-``` r
-NounGender<-c("feminine","masculine","neuter","masculine","feminine","feminine")
-NounGender
-```
-
-```{r}
-NounGender<-c("feminine","masculine","neuter","masculine","feminine","feminine")
-NounGender
-```
-
-```{r}
-NounLength<-c(6,7,4,5,8,6)
-NounLength
-NounFrequency<-c(638,799,390,569,567,665)
-NounFrequency
-```
-
-As you can see from the output above, data in the variables *NounAnimacy* and *NounGender* are considered as words, or literal strings. The next step is to indicate they are factors.
-
-```{r}
-NounAnimacy<-as.factor(NounAnimacy)
-NounAnimacy
-NounGender<-as.factor(NounGender)
-NounGender
-```
-
-As you can see by the output produced, now the variables are considered as factors, and *Levels* indicate the unique values that the predictor takes.
-
-With the variables above, we can now create a dataframe.
-
-```{r}
-Dataexample<-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency)
-Dataexample
-```
-
-## Reading material
-
--   Basics on R programming:
-
-    -   Chapter 1, Introduction to R, from Bodo Winter’s book.
-
-    -   Sections 2 to 8 on [R basic Tutorial by UMC Utrecht](http://r-tutorial.nl/)
-
-A good starters reference for R is the book “R for Data Science” (Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for data science. " O'Reilly Media, Inc.".). The book is available online freely at:
-
-```         
--   [Hands On Programming with R](https://rstudio-education.github.io/hopr/)
-
--   [R for Data Science](https://r4ds.hadley.nz/)
-```
-
--   Dataframes:
-
-    -   [Examples of dataframes usage](https://bookdown.org/dli/rguide/working-with-data-frames.html)
-
-    -   YouTube Video by DataCamp:
-
-<https://www.youtube.com/watch?v=9f2g7RN5N0I>
-
-<https://youtu.be/Nh6tSD4i4qs?feature=shared>
+## Additional Reading material
 
 -   Extended information on usage of dataframes and management with tidyverse and pipes
 
-<https://datacarpentry.org/R-ecology-lesson/how-r-thinks-about-data.html>
+    -   <https://datacarpentry.org/R-ecology-lesson/how-r-thinks-about-data.html>
 
-<https://datacarpentry.org/R-ecology-lesson/working-with-data.html>
+    -   <https://datacarpentry.org/R-ecology-lesson/working-with-data.html>

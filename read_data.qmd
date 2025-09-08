@@ -1,22 +1,22 @@
 ---
-title: "intro_to_r"
-author: "Leticia Pablos Robles"
+title: "Reading and saving data in R"
+editor: visual
 ---
 
-# The R language {#sec-the-r-language}
+# Reading data from files {#sec-r-read}
 
-# RStudio Environment {#sec-rstudio-environment}
+## Data in R files
 
-# R basics {#sec-r-basics}
+## Data from text files
 
-## Variables {#sec-variables}
+## Data from SPSS
 
-## Operators
+## Data from Excel files
 
-## Loops
+# Saving data {#sec-r-save}
 
-## Data types
+## Save to R format
 
-### Lists
+## Save to text
 
-### Dataframes
+# 

@@ -6,21 +6,14 @@ See @knuth84 for additional discussion of literate programming.
 
 ## What would you learn in this course
 
-
-
-
 ## Workbook organization
-
 
 ## References for self study
 
-- Read Chapter 1, Introduction to R, from Bodo Winter’s book.
+-   Read Chapter 1, Introduction to R, from Bodo Winter’s book.
 
-- If you have never used R or any other programming language, read the following online basic tutorial, sections 2 to 8by UMC Utrecht:
-http://r-tutorial.nl/
+-   If you have never used R or any other programming language, read the following online basic tutorial, sections 2 to 8by UMC Utrecht: http://r-tutorial.nl/
 
-- Watch the following YouTube Videos on data frames by DataCamp:	https://www.youtube.com/watch?v=9f2g7RN5N0I
-https://youtu.be/Nh6tSD4i4qs?feature=shared
+-   Watch the following YouTube Videos on data frames by DataCamp: https://www.youtube.com/watch?v=9f2g7RN5N0I https://youtu.be/Nh6tSD4i4qs?feature=shared
 
-- Look at examples of dataframes usage in:
-https://bookdown.org/dli/rguide/working-with-data-frames.html
+-   Look at examples of dataframes usage in: https://bookdown.org/dli/rguide/working-with-data-frames.html

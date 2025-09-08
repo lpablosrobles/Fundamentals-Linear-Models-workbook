@@ -1,139 +1,300 @@
 ---
 title: "Introduction to the R language"
-author: "Dr. Leticia Pablos Robles"
 ---
 
 # ✍️ R Syntax
 
-## Commands and operators
+R is an **interpreted language**, which means that you can write *commands* to an interpreter in a console that will execute them and return the results. This is in comparison with **compiled languages** that require to *compile* the source code to translate it to a machine understandable code.
 
-R
+In the RStudio console, you can see the symbol below. This is the **command prompt**, indicating that the system us ready to execute an instruction or command.
 
 ```         
 >
 ```
 
-That's the ***command prompt***. When you see this, it means that R is waiting patiently for you to do something!
+R syntax is relatively simple and, although daunting if you have never programmed before when you first encounter it, you will quickly get acquainted with it.
 
-One of the easiest things you can do with R is use it as a simple calculator, so it's a good place to start. For instance, try typing `10 + 20`, and hitting enter.[^intro_to_r-1] When you do this, you've entered a ***command***, and R will "execute" that command. What you see on screen now will be this:
+Here’s a simple example of how R code looks. In the following sections we explain some basic concepts on the syntax and notation.
 
-[^intro_to_r-1]: Seriously. If you're in a position to do so, open up R and start typing. The simple act of typing it rather than "just reading" makes a big difference. It makes the concepts more concrete, and it ties the abstract ideas (programming and statistics) to the actual context in which you need to use them. Statistics is something you *do*, not just something you read about in a textbook.
+``` {#example code .r}
+# Load a package 
+library(tidyverse)  
 
-``` r
-> 10 + 20
-[1] 30
+#Assign values to variables 
+x <- c(1, 2, 3, 4, 5) 
+y <- c(2, 4, 6, 8, 10)  
+
+# Create a scatter plot 
+plot(x, y, main="Simple Scatter Plot", xlab="X Axis", ylab="Y Axis")  
+
+# Fit a linear model 
+model <- lm(y ~ x) abline(model, col="blue")
 ```
 
-Not a lot of surprises in this extract. But there's a few things worth talking about, even with such a simple example. Firstly, it's important that you understand how to read the extract. In this example, what *I* typed was the `10 + 20` part. I didn't type the `>` symbol: that's just the R command prompt and isn't part of the actual command. And neither did I type the `[1] 30` part. That's what R printed out in response to my command.
+Before going forward, note that lines of code starting with the symbol `#` are not interpreted. This is use to introduce comments in your code for readability and documentation. We will come to that later when we talk about scripts and notebooks.
 
-Secondly, it's important to understand how the output is formatted. Obviously, the correct answer to the sum `10 + 20` is `30`, and not surprisingly R has printed that out as part of its response. But it's also printed out this `[1]` part, which probably doesn't make a lot of sense to you right now. You're going to see that a lot. I'll talk about what this means in a bit more detail later on, but for now you can think of `[1] 30` as if R were saying "the answer to the 1st question you asked is 30". That's not quite the truth, but it's close enough for now. And in any case it's not really very interesting at the moment: we only asked R to calculate one thing, so obviously there's only one answer printed on the screen. Later on this will change, and the `[1]` part will start to make a bit more sense. For now, I just don't want you to get confused or concerned by it.
+::: callout-important
+**Note**: This course is not intended to be an in-depth R programming course. We will use the language to illustrate the concepts in the lectures and provide with simple examples so that you can perform basic data analysis.
+
+There are plenty of online guided resources for further self-study of R and its capabilities. If you would like to go beyond the basics in the course or familiarize with the language, I would suggest two starting pages:
+
+-   UMC Utrecht's R tutorial: <http://r-tutorial.nl/>
+
+-   Book "*R for Data Science"*, available online at: <https://r4ds.hadley.nz/>
+:::
+
+## Commands and operators
+
+Every instruction to enter in the ***command prompt*** is called a command.
+
+A simple command is to perform an arithmetic operations like for example:
+
+```{r}
+1 + 2
+```
+
+::: callout-tip
+Copy the code as you read along in this workbook and try it yourself in RStudio to become familiar with using the tool and environment.
+:::
+
+The command just calculated the addition of the two numbers. In this example, we used the **operator** `+` to do so.
+
+We include a list below of the **basic operators in R**, grouped by category:s. Do not worry if not all are understandable yet:
+
+**1. Arithmetic Operators**
+
+Used for basic mathematical operations:
+
+| Operator    | Description         | Example         |
+|-------------|---------------------|-----------------|
+| `+`         | Addition            | `2 + 3`         |
+| `-`         | Subtraction         | `5 - 2`         |
+| `*`         | Multiplication      | `4 * 3`         |
+| `/`         | Division            | `10 / 2`        |
+| `^` or `**` | Exponentiation      | `2^3` or `2**3` |
+| `%%`        | Modulus (remainder) | `10 %% 3`       |
+
+**2. Relational (Comparison) Operators**
+
+Used to compare values:
+
+| Operator | Description              | Example  |
+|----------|--------------------------|----------|
+| `==`     | Equal to                 | `x == y` |
+| `!=`     | Not equal to             | `x != y` |
+| `>`      | Greater than             | `x > y`  |
+| `<`      | Less than                | `x < y`  |
+| `>=`     | Greater than or equal to | `x >= y` |
+| `<=`     | Less than or equal to    | `x <= y` |
+
+**3. Logical Operators**
+
+Used for logical operations (return `TRUE`/`FALSE`):
+
+| Operator | Description      | Example         |
+|----------|------------------|-----------------|
+| `&`      | Element-wise AND | `x > 1 & x < 5` |
+| `|`      | Element-wise OR  | `x < 1 | x > 5` |
+| `!`      | NOT              | `!TRUE`         |
+
+**4. Assignment Operators**
+
+Used to assign values to variables:
+
+| Operator | Description | Example |  **Comment** |
+|------------|---------------------|-------------|---------------------------|
+| `<-` | Preferred assignment | `x <- 5` |  Most commonly used |
+| `=` | Alternative assignment | `x = 5` | Used in the assignment of values to function arguments (see  function section below) |
+| `->` | Assign right to left | `5 -> x` |  Although syntactically valid in R, not used often |
+
+**5. Miscellaneous Operators**
+
+| Operator | Description     | Example                              |
+|----------|-----------------|--------------------------------------|
+| `%in%`   | Membership test | `3 %in% c(1, 2, 3)` will return TRUE |
+| `:`      | Sequence        | `1:5` returns `1 2 3 4 5`            |
 
 ## Variables
 
-``` r
-# This is a comment 
-x <- 5       # Assign 5 to variable x 
-y <- 10      # Assign 10 to variable y 
-z <- x + y   # Add x and y 
+A **variable** is a name that stores a value or data object. You can think of it as a labeled container that holds information you want to use or manipulate in your program.
+
+In R, you assign values to variables mostly using the operator `<-` .
+
+```{r}
+x <- 5       # Assign 5 to variable x  
+y <- 10      # Assign 10 to variable y  
+z <- x + y   # Add x and y  
 print(z)     # Print the result 
 ```
 
-## Functions
+Variables naming in R can be anything, but follow a few rules:
 
-Functions perform tasks in R. They take in inputs called *arguments* and return outputs. You can either manually specify a function’s arguments or use the function’s *default values*.
+-   Must start with a letter
 
--   For example, the function `seq()` in R generates a sequence of numbers. If you just run `seq()` it will return the value 1. That doesn’t seem very useful! This is because the default arguments are set as `seq(from = 1, to = 1)`. Thus, if you don’t pass in different values for `from` and `to` to change this behavior, R just assumes all you want is the number 1. You can change the argument values by updating the values after the `=` sign. If we try out `seq(from = 2, to = 5)` we get the result `2 3 4 5` that we might expect.
+-   Can contain letters, numbers, underscores (`_`) or periods (`.`)
 
--   We’ll work with functions a lot throughout this book and you’ll get lots of practice in understanding their behaviors. To further assist you in understanding when a function is mentioned in the book, we’ll also include the `()` after them as we did with `seq()` above.
-
-## Loops and conditional statements
+-   Are case-sensitive (`Name` and `name` are different)
 
 ## Data types
 
 ### Basic types
 
+R supports several basic data types. Some of the most common are:
+
+-   **Numeric**: `x <- 3.14`
+
+-   **Integer**: `x <- 5L` (note the `L`)
+
+-   **Character**: `name <- "Leticia"`
+
+-   **Logical**: `flag <- TRUE`
+
 ### Vectors and lists
 
-Vectors are a groups of values built using the combine function, `c()`.
-
-For example, `c(6, 11, 13, 31, 90, 92)` creates a six element series of positive integer values
-
-### Dataframes and tibbles
-
-Dataframes can be thought of as sets of data organized in a spreadsheet format in rows and columns.
-
-# Working with Scripts
-
-# Working with Notebooks
-
-# 📝 Exercises
-
-## 1. Basic Calculations
-
-Open RStudio and type the following in the console:
-
--   Add 15 and 27
-
--   Multiply 6 by 9
-
--   Divide 100 by 4
-
-## 2. Create Variables
-
-``` r
-a <- 12 
-b <- 8 
-c <- a * b 
-print(c) 
-```
-
-Try changing the values of `a` and `b` and re-run the code.
-
-## 3. Create a dataframe
-
-Create a dataframe coming up with a sample data of your own (possibly made up) including 4 columns and 6 rows: one column with a factor with two levels, another column with a factor with 3 levels and two columns with numeric values.
-
-You can create a dataframe in several ways, but below you see an example on the steps to create a dataframe based on on vectors.
-
-Create individual variables with vectors including the values
+Vectors are the most basic data structure in R. They are a groups of values built using the *combine* function, `c()`. For example, `c(1, 2, 3, 4)` creates a four element series of positive integer values
 
 ```{r}
-NounAnimacy<-c("animate","inanimate","inanimate","animate","animate","animate")
-NounAnimacy
-
+numbers <- c(1, 2, 3, 4)
+numbers
 ```
 
-``` r
-NounGender<-c("feminine","masculine","neuter","masculine","feminine","feminine")
+You can perform operations on vectors
+
+```{r}
+numbers^2
+```
+
+### Dataframes
+
+structures can be thought of as sets of data organized in a table format in rows and columns. They can be created using the `dataframe()` function.
+
+```{r}
+df <- data.frame(
+  SubjectID = c("S1", "S2","S3"),
+  age = c(25, 30, 28)
+)
+df
+```
+
+You can refer to individual columns on a dataframe using the `$` operator.
+
+```{r}
+df$SubjectID
+```
+
+Many of the functions we will use in this course require a dataframe as an input or produce one as output, so it is the data structure you will use the most.
+
+## Functions {#par-functions}
+
+Functions perform tasks in R. They take in inputs called *arguments* and return outputs. They are called using parentheses. For example, the function `mean()` in R calculates the mean of the elements we provide as input.
+
+```{r}
+# We can specify a list of numbers
+mean(c(1,2,3,4))
+```
+
+Or, more useful, we can provide a variable containing values:
+
+```{r}
+# we defined the variable numbers before
+mean(numbers)
+```
+
+The parameters of a function and normally called *arguments.* You can either manually specify a function’s arguments or use the function’s *default values*. In the examples above `mean()` and `sum()` are simple functions with not many arguments, but this is not normally the case.
+
+To know the arguments of a function you can use the R help. There are two ways to access the help pages for a function:
+
+1.  Use the operator `?` followed by the function name in the console:
+
+    ```{r}
+    ?mean
+    ```
+
+    If you type the function above the help page for the `mean()` function will open in the RStudio Help panel as in the image below:
+
+    ![](images/clipboard-947968862.png)
+
+2.  You can of course directly open the Help tab and search for the function of interest.
+
+As you can see above, `mean()` actually has two other arguments, `trim` and `na.rm` . The arguments have a default value, so if we don't explicitly include them in the function call, they will use that value. Let's look at an example using `na.rm` :
+
+R has a special value called `NA` , which means "Not Available" and it is used to represent missing values on the data. In experimental work is often the case that some data point is lost or corrupted and we have incomplete datasets. Let's assume you had performed an online experiment that computed the reaction time in miliseconds of 10 participants, and one value was not available as per the vector below:
+
+```{r}
+rt <- c(234.2, 127.5, 256.2, NA, 287.1, 145.6, 358.9, 200.1, 398.3, 178.3)
+```
+
+Let's try to calculate the average reaction time of your data using `mean()`:
+
+```{r}
+mean(rt)
+```
+
+The function tries to calculate the average, but when one value is not available (`NA`) the result is also `NA` . In the help in the image below we see there is an argument `na.rm` that we can use to ignore the missing elements in the data:
+
+```{r}
+mean(rt, na.rm = TRUE)
+```
+
+Now the function worked and summed all the numbers and divided them by 9, ignoring the missing data, in the calculation of the average.
+
+We’ll work with functions a lot throughout this book and you’ll get lots of practice in understanding their behaviors, so don't panic.
+
+Finally an advanced note to make you aware that you can define your own functions. The following code defines a new function called `add()` that, well, adds two numbers:
+
+```{r}
+add <- function(a, b) {
+  return(a + b)
+}
+```
+
+Once you have defined the function, you can use it as any other in R:
+
+```{r}
+add(3.5, 2.5)
+```
+
+### Factors
+
+In **R**, a **factor** is a data structure used to represent **categorical data**. Categorical data consists of variables that have a fixed number of unique values, known as **levels**. These are typically used for any variable that classifies observations into groups. We will use factors extensively in the analysis of data
+
+We convert a vector into a factor by using the `factor()` function. Let's look at one example.
+
+We want to create a dataset of six words, collecting data of the *animacy*, *gender*, *length* and *frequency* of the word.
+
+First, we create individual variables with vectors including the values
+
+```{r}
+NounAnimacy<-c("animate","inanimate","inanimate","animate","animate","animate") 
+NounAnimacy 
+```
+
+```{r}
+NounGender<-c("feminine","masculine","neuter","masculine","feminine","feminine") 
 NounGender
 ```
 
 ```{r}
-NounGender<-c("feminine","masculine","neuter","masculine","feminine","feminine")
-NounGender
-```
-
-```{r}
-NounLength<-c(6,7,4,5,8,6)
-NounLength
-NounFrequency<-c(638,799,390,569,567,665)
+NounLength<-c(6,7,4,5,8,6) 
+NounLength 
+NounFrequency<-c(638,799,390,569,567,665) 
 NounFrequency
 ```
 
 As you can see from the output above, data in the variables *NounAnimacy* and *NounGender* are considered as words, or literal strings. The next step is to indicate they are factors.
 
 ```{r}
-NounAnimacy<-as.factor(NounAnimacy)
-NounAnimacy
-NounGender<-as.factor(NounGender)
+NounAnimacy<- factor(NounAnimacy) 
+NounAnimacy 
+NounGender<- factor(NounGender) 
 NounGender
 ```
 
-As you can see by the output produced, now the variables are considered as factors, and *Levels* indicate the unique values that the predictor takes.
+As you can see by the output produced, now the variables are considered as factors, and *Levels* indicate the unique values that the each takes.
 
 With the variables above, we can now create a dataframe.
 
 ```{r}
-Dataexample<-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency)
+Dataexample<-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency) 
 Dataexample
 ```
