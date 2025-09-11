@@ -258,7 +258,14 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#install-and-use-a-package" id="toc-install-and-use-a-package" class="nav-link active" data-scroll-target="#install-and-use-a-package"><span class="header-section-number">2.1</span> Install and Use a Package</a></li>
+  <li><a href="#installing-and-using-a-package" id="toc-installing-and-using-a-package" class="nav-link active" data-scroll-target="#installing-and-using-a-package"><span class="header-section-number">2.1</span> Installing and using a Package</a></li>
+  <li><a href="#using-datasets-available-in-packages" id="toc-using-datasets-available-in-packages" class="nav-link" data-scroll-target="#using-datasets-available-in-packages"><span class="header-section-number">2.2</span> Using datasets available in packages</a></li>
+  <li><a href="#useful-packages" id="toc-useful-packages" class="nav-link" data-scroll-target="#useful-packages"><span class="header-section-number">2.3</span> Useful packages</a>
+  <ul class="collapse">
+  <li><a href="#packages-for-data-input-and-output" id="toc-packages-for-data-input-and-output" class="nav-link" data-scroll-target="#packages-for-data-input-and-output"><span class="header-section-number">2.3.1</span> Packages for data input and output</a></li>
+  <li><a href="#packages-for-data-analysis" id="toc-packages-for-data-analysis" class="nav-link" data-scroll-target="#packages-for-data-analysis"><span class="header-section-number">2.3.2</span> Packages for data analysis</a></li>
+  <li><a href="#packages-for-data-visualization-and-manipulation" id="toc-packages-for-data-visualization-and-manipulation" class="nav-link" data-scroll-target="#packages-for-data-visualization-and-manipulation"><span class="header-section-number">2.3.3</span> Packages for data visualization and manipulation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -287,8 +294,9 @@ div.csl-indent {
 <p>One of the big benefits of <em>R</em> in comparison with other statistics packages is its open nature. The functionality is easily extended by groups all around the world by developing libraries that can be easily installed and used.</p>
 <p>R packages extend the functionality of R by providing additional functions, data, and documentation. They are written by a worldwide community of R users and can be downloaded for free from the internet.</p>
 <p>A <strong>package</strong> is a collection of R functions, data, and compiled code bundled together. Packages are created by the R community and cover a wide range of topics like data manipulation, visualization, machine learning, etc.</p>
-<section id="install-and-use-a-package" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="install-and-use-a-package"><span class="header-section-number">2.1</span> Install and Use a Package</h2>
+<section id="installing-and-using-a-package" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="installing-and-using-a-package"><span class="header-section-number">2.1</span> Installing and using a Package</h2>
+<hr>
 <p>Packages have to be <strong>installed</strong> <u>and</u> <strong>loaded</strong> before using them.</p>
 <p>We need to install packages only once in our environment. That can be done in two ways:</p>
 <ol type="1">
@@ -314,8 +322,118 @@ Warning
 </div>
 <p>After installing the package, the contents will still not be available until you <strong>load the package</strong>, this has to be done in every new work session and it is done with the <code>library()</code> function.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(languageR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now you can access the functions and data in the <em>languageR</em> package. Let’s take a look at the dataframes available in the package that we will use for some of the exercises and for the first assignment today. You can explore the data sets using the <code>data()</code> function:</p>
+<p>Now you can access the functions and data in the <em>languageR</em> package.</p>
+</section>
+<section id="using-datasets-available-in-packages" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="using-datasets-available-in-packages"><span class="header-section-number">2.2</span> Using datasets available in packages</h2>
+<hr>
+<p>As mentioned, the main objective of a package is to distribute functions, but it is often convenient to include example datasets that can be used to illustrate the use of the functions. In other cases, there are packages that are use mainly to distribute data. The later is the case for example for the <code>languageR</code> package, provided as a companion to the book <span class="citation" data-cites="Baayen_2008">Baayen (<a href="references.html#ref-Baayen_2008" role="doc-biblioref">2008</a>)</span> that we will use in some of the examples and assignments in this course.</p>
+<p>You can explore data sets available from all loaded packages using the <code>data()</code> function. If you want the data from a specific package, specified with the argument <code>package</code> .</p>
+<p>Take a look at the packages datasets included in <code>languageR</code> using the following command.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package=</span><span class="st">"languageR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You will see that a new tab opens in the Editor area with the content:</p>
+<p><img src="images/clipboard-1927359389.png" class="img-fluid"></p>
+<p>If you want more information more information of a particular dataset, you can use the help operator <code>?</code> as with any function.</p>
+<p>For example in today’s assignment we will use the <code>lexdec</code> dataset containing Lexical decision latencies collected from a group of speakers. Run the following command to read the composition of the dataframe.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>?lexdec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="useful-packages" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="useful-packages"><span class="header-section-number">2.3</span> Useful packages</h2>
+<hr>
+<p>There are by now thousands of community contributed packages available for R and the list grows by the day (see complete list in <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">CRAN website</a>).</p>
+<p>In practice you will use only a few packages on your data analysis tasks. I list below a number of commonly used packages for further reference (note we will only use a few of those in this course and I will always indicate it in the specific sessions or assignments).</p>
+<section id="packages-for-data-input-and-output" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="packages-for-data-input-and-output"><span class="header-section-number">2.3.1</span> Packages for data input and output</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Usage</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://cran.r-project.org/web/packages/foreign/refman/foreign.html"><em>foreign</em></a></td>
+<td>Used to read data from other statistical analysis software as SPSS, Stata, etc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><a href="https://readxl.tidyverse.org/">readxl</a></td>
+<td>Read Excel files</td>
+<td>Part of <code>tidyverse</code></td>
+</tr>
+<tr class="odd">
+<td><a href="https://readr.tidyverse.org/">readr</a></td>
+<td>Read information in tabular format from CSV and TAB separated files</td>
+<td>Part of <code>tidyverse</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="packages-for-data-analysis" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="packages-for-data-analysis"><span class="header-section-number">2.3.2</span> Packages for data analysis</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Usage</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://cran.r-project.org/web/packages/foreign/refman/foreign.html"><em>foreign</em></a></td>
+<td>Used to read data from other statistical analysis software as SPSS, Stata, etc</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>readxl</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="packages-for-data-visualization-and-manipulation" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="packages-for-data-visualization-and-manipulation"><span class="header-section-number">2.3.3</span> Packages for data visualization and manipulation</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Usage</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://ggplot2.tidyverse.org/"><em>ggplot2</em></a></td>
+<td>Library to create graphics and data visualizations</td>
+<td>Part of <code>tidyverse</code></td>
+</tr>
+<tr class="even">
+<td><a href="https://dplyr.tidyverse.org/">dplyr</a></td>
+<td>Data manipulation functions</td>
+<td>Part of <code>tidyverse</code></td>
+</tr>
+<tr class="odd">
+<td><a href="https://tidyr.tidyverse.org/">tidyr</a></td>
+<td>Functions to transform data from wide to long format.</td>
+<td>Part of <code>tidyverse</code></td>
+</tr>
+<tr class="even">
+<td><a href="https://forcats.tidyverse.org/">forcats</a></td>
+<td>Functions to modify factors levels and ordering</td>
+<td>Part of <code>tidyverse</code></td>
+</tr>
+</tbody>
+</table>
+<p>We will explore functions from the packages above in the Workgroups 1 &amp; 2</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -323,6 +441,7 @@ Warning
 Baayen, R. H. 2008. <em>Analyzing Linguistic Data: A Practical Introduction to Statistics Using r</em>. Cambridge University Press.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -238,14 +238,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-r-read" id="toc-sec-r-read" class="nav-link active" data-scroll-target="#sec-r-read"><span class="header-section-number">3.1</span> Reading data from files</a></li>
-  <li><a href="#data-from-text-files" id="toc-data-from-text-files" class="nav-link" data-scroll-target="#data-from-text-files"><span class="header-section-number">3.2</span> Data from text files</a>
+  <li><a href="#sec-r-read" id="toc-sec-r-read" class="nav-link active" data-scroll-target="#sec-r-read"><span class="header-section-number">3.1</span> Reading data from files</a>
   <ul class="collapse">
-  <li><a href="#data-from-csv-files" id="toc-data-from-csv-files" class="nav-link" data-scroll-target="#data-from-csv-files"><span class="header-section-number">3.2.1</span> Data from CSV files</a></li>
+  <li><a href="#data-from-text-files" id="toc-data-from-text-files" class="nav-link" data-scroll-target="#data-from-text-files"><span class="header-section-number">3.1.1</span> Data from text files</a></li>
+  <li><a href="#data-from-csv-files" id="toc-data-from-csv-files" class="nav-link" data-scroll-target="#data-from-csv-files"><span class="header-section-number">3.1.2</span> Data from CSV files</a></li>
+  <li><a href="#data-from-excel-files" id="toc-data-from-excel-files" class="nav-link" data-scroll-target="#data-from-excel-files"><span class="header-section-number">3.1.3</span> Data from Excel files</a></li>
+  <li><a href="#data-in-r-files" id="toc-data-in-r-files" class="nav-link" data-scroll-target="#data-in-r-files"><span class="header-section-number">3.1.4</span> Data in R files</a></li>
+  <li><a href="#data-from-spss" id="toc-data-from-spss" class="nav-link" data-scroll-target="#data-from-spss"><span class="header-section-number">3.1.5</span> Data from SPSS</a></li>
   </ul></li>
-  <li><a href="#data-from-excel-files" id="toc-data-from-excel-files" class="nav-link" data-scroll-target="#data-from-excel-files"><span class="header-section-number">3.3</span> Data from Excel files</a></li>
-  <li><a href="#data-in-r-files" id="toc-data-in-r-files" class="nav-link" data-scroll-target="#data-in-r-files"><span class="header-section-number">3.4</span> Data in R files</a></li>
-  <li><a href="#data-from-spss" id="toc-data-from-spss" class="nav-link" data-scroll-target="#data-from-spss"><span class="header-section-number">3.5</span> Data from SPSS</a></li>
   <li><a href="#saving-data" id="toc-saving-data" class="nav-link" data-scroll-target="#saving-data"><span class="header-section-number">4</span> Saving data</a>
   <ul class="collapse">
   <li><a href="#save-to-r-format" id="toc-save-to-r-format" class="nav-link" data-scroll-target="#save-to-r-format"><span class="header-section-number">4.1</span> Save to R format</a></li>
@@ -279,40 +279,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="sec-r-read" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="sec-r-read"><span class="header-section-number">3.1</span> Reading data from files</h2>
-<p>We cover below examples for <strong>importing data in R</strong>, covering the most common methods and packages:</p>
-</section>
-<section id="data-from-text-files" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="data-from-text-files"><span class="header-section-number">3.2</span> Data from text files</h2>
-<p>The most generic function to read data from a text file is <code>read.table()</code> . The arguments allow to define if the data includes a header (i.e.&nbsp;a first row with the names of the columns/variables) and the separator used.</p>
+<p>In most of the cases, the</p>
+<p>We cover below examples for <strong>importing data in R</strong>, covering the most common methods and packages.</p>
+<section id="data-from-text-files" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="data-from-text-files"><span class="header-section-number">3.1.1</span> Data from text files</h3>
+<p>The most generic function to read data from a text file is <code>read.table()</code> . The arguments allow to define if the data includes a header (i.e.&nbsp;a first row with the names of the columns/variables) and the separator used</p>
+<p>Note that by default the argument is <code>header = FALSE</code> so you should explicitly change it to <code>TRUE</code> in case you have a first line in your file with the columns names.</p>
 <p>For example, if we want to load a file called <code>file.txt</code> , TAB separated, we will use the function below.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"file.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="data-from-csv-files" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="data-from-csv-files"><span class="header-section-number">3.2.1</span> Data from CSV files</h3>
+</section>
+<section id="data-from-csv-files" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="data-from-csv-files"><span class="header-section-number">3.1.2</span> Data from CSV files</h3>
 <p>Many experimental data is saved in a text or CSV (Comma separated) file. The best method to read data from these files is to use the <code>readr</code> package that is loaded as part of the <code>tidyverse</code> .</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"yourfile.csv"</span>)  <span class="co"># Load a CSV file  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If your data is tab-separated, you can use the function <code>read_tsv()</code> . By default, the functions expect that the first row contains the names of the columns/variables to be read. If that is not the case, you should modify the argument <code>col_names = FALSE</code> .</p>
 </section>
+<section id="data-from-excel-files" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="data-from-excel-files"><span class="header-section-number">3.1.3</span> Data from Excel files</h3>
+<p>The best way to read Excel files is using the <code>readxl</code> package. If your file has several worksheets, you can use the <code>sheet</code> argument to specify either an index or the name of the worksheet to read.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If not yet available, install the package</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load library</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Using readxl</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"file.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="data-from-excel-files" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="data-from-excel-files"><span class="header-section-number">3.3</span> Data from Excel files</h2>
-<p>The best way to read Excel files is using the <code>readxl</code> package.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using readxl </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl) </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"file.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="data-in-r-files" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="data-in-r-files"><span class="header-section-number">3.1.4</span> Data in R files</h3>
+<p>Data can also be saved and loaded in <em>R format</em> directly</p>
 </section>
-<section id="data-in-r-files" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="data-in-r-files"><span class="header-section-number">3.4</span> Data in R files</h2>
-</section>
-<section id="data-from-spss" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="data-from-spss"><span class="header-section-number">3.5</span> Data from SPSS</h2>
-<p>The <code>haven</code> package to read directly <code>.sav</code> files from SPSS.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the package</span></span>
+<section id="data-from-spss" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="data-from-spss"><span class="header-section-number">3.1.5</span> Data from SPSS</h3>
+<p>The <code>haven</code> package can be used to read directly <code>.sav</code> files from SPSS.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If not yet available, install the package</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"haven"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the SPSS .sav file</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"path/to/your/file.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the SPSS .sav file</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"file.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="saving-data" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Saving data</h1>

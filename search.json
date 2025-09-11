@@ -116,7 +116,7 @@
     "href": "intro_to_r.html#data-types",
     "title": "\n1  ✍️ R Syntax\n",
     "section": "\n1.2 Data types",
-    "text": "1.2 Data types\n\n1.2.1 Basic types\nR supports several basic data types. Some of the most common are:\n\nNumeric: x &lt;- 3.14\nInteger: x &lt;- 5L (note the L)\nCharacter: name &lt;- \"Leticia\"\nLogical: flag &lt;- TRUE\n\n1.2.2 Vectors and lists\nVectors are the most basic data structure in R. They are a groups of values built using the combine function, c(). For example, c(1, 2, 3, 4) creates a four element series of positive integer values\n\nnumbers &lt;- c(1, 2, 3, 4)\nnumbers\n\n[1] 1 2 3 4\n\n\nYou can perform operations on vectors\n\nnumbers^2\n\n[1]  1  4  9 16\n\n\n\n1.2.3 Dataframes\nstructures can be thought of as sets of data organized in a table format in rows and columns. They can be created using the dataframe() function.\n\ndf &lt;- data.frame(\n  SubjectID = c(\"S1\", \"S2\",\"S3\"),\n  age = c(25, 30, 28)\n)\ndf\n\n  SubjectID age\n1        S1  25\n2        S2  30\n3        S3  28\n\n\nYou can refer to individual columns on a dataframe using the $ operator.\n\ndf$SubjectID\n\n[1] \"S1\" \"S2\" \"S3\"\n\n\nMany of the functions we will use in this course require a dataframe as an input or produce one as output, so it is the data structure you will use the most.",
+    "text": "1.2 Data types\n\n1.2.1 Basic types\nR supports several basic data types. Some of the most common are:\n\nNumeric: x &lt;- 3.14\nInteger: x &lt;- 5L (note the L)\nCharacter: name &lt;- \"Leticia\"\nLogical: flag &lt;- TRUE\n\n1.2.2 Vectors and lists\nVectors are the most basic data structure in R. They are a groups of values built using the combine function, c(). For example, c(1, 2, 3, 4) creates a four element series of positive integer values\n\nnumbers &lt;- c(1, 2, 3, 4)\nnumbers\n\n[1] 1 2 3 4\n\n\nYou can also perform operations on vectors.\n\nnumbers^2\n\n[1]  1  4  9 16\n\n\n\n1.2.3 Dataframes\nstructures can be thought of as sets of data organized in a table format in rows and columns. They can be created using the dataframe() function.\n\ndf &lt;- data.frame(\n  SubjectID = c(\"S1\", \"S2\",\"S3\"),\n  age = c(25, 30, 28)\n)\ndf\n\n  SubjectID age\n1        S1  25\n2        S2  30\n3        S3  28\n\n\nYou can access the individual columns on a dataframe using the $ operator. Try to start typing the code below on the console. You will see that R provides suggested completions, displaying the available columns in the dataframe.\n\ndf$SubjectID\n\n[1] \"S1\" \"S2\" \"S3\"\n\n\nMany of the functions we will use in this course require a dataframe as an input or produce one as output, so it is the data structure you will use the most.",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>✍️ R Syntax</span>"
@@ -138,7 +138,7 @@
     "href": "intro_to_r.html#factors",
     "title": "\n1  ✍️ R Syntax\n",
     "section": "\n1.4 Factors",
-    "text": "1.4 Factors\nIn R, a factor is a data structure used to represent categorical data. Categorical data consists of variables that have a fixed number of unique values, known as levels. These are typically used for any variable that classifies observations into groups. We will use factors extensively in the analysis of data\nWe convert a vector into a factor by using the factor() function. Let’s look at one example.\n\n\n1.4.1 📝 Exercise 2: Creating a dataframe with factors\nWe want to create a dataset of six words, collecting data of the animacy, gender, length and frequency of the word.\nFirst, we create individual variables with vectors including the values\n\nNounAnimacy&lt;-c(\"animate\",\"inanimate\",\"inanimate\",\"animate\",\"animate\",\"animate\") \nNounAnimacy \n\n[1] \"animate\"   \"inanimate\" \"inanimate\" \"animate\"   \"animate\"   \"animate\"  \n\n\n\nNounGender&lt;-c(\"feminine\",\"masculine\",\"neuter\",\"masculine\",\"feminine\",\"feminine\") \nNounGender\n\n[1] \"feminine\"  \"masculine\" \"neuter\"    \"masculine\" \"feminine\"  \"feminine\" \n\n\n\nNounLength&lt;-c(6,7,4,5,8,6) \nNounLength \n\n[1] 6 7 4 5 8 6\n\nNounFrequency&lt;-c(638,799,390,569,567,665) \nNounFrequency\n\n[1] 638 799 390 569 567 665\n\n\nAs you can see from the output above, data in the variables NounAnimacy and NounGender are considered as words, or literal strings. The next step is to indicate they are factors.\n\nNounAnimacy&lt;- factor(NounAnimacy) \nNounAnimacy \n\n[1] animate   inanimate inanimate animate   animate   animate  \nLevels: animate inanimate\n\nNounGender&lt;- factor(NounGender) \nNounGender\n\n[1] feminine  masculine neuter    masculine feminine  feminine \nLevels: feminine masculine neuter\n\n\nAs you can see by the output produced, now the variables are considered as factors, and Levels indicate the unique values that the each takes.\nWith the variables above, we can now create a dataframe.\n\nDataexample&lt;-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency) \nDataexample\n\n  NounAnimacy NounGender NounLength NounFrequency\n1     animate   feminine          6           638\n2   inanimate  masculine          7           799\n3   inanimate     neuter          4           390\n4     animate  masculine          5           569\n5     animate   feminine          8           567\n6     animate   feminine          6           665",
+    "text": "1.4 Factors\nIn R, a factor is a data structure used to represent categorical data. Categorical data consists of variables that have a fixed number of unique values, known as levels. These are typically used for any variable that classifies observations into groups. We will use factors extensively in the analysis of data\nWe convert a vector into a factor by using the factor() function. Let’s look at one example.\n\n\n1.4.1 📝 Exercise 2: Creating a dataframe with factors\nWe want to create a dataset of six words, collecting data of the animacy, gender, length and frequency of the word.\nFirst, we create individual variables with vectors including the values\n\nNounAnimacy&lt;-c(\"animate\",\"inanimate\",\"inanimate\",\"animate\",\"animate\",\"animate\") \nNounAnimacy \n\n[1] \"animate\"   \"inanimate\" \"inanimate\" \"animate\"   \"animate\"   \"animate\"  \n\n\n\nNounGender&lt;-c(\"feminine\",\"masculine\",\"neuter\",\"masculine\",\"feminine\",\"feminine\") \nNounGender\n\n[1] \"feminine\"  \"masculine\" \"neuter\"    \"masculine\" \"feminine\"  \"feminine\" \n\n\n\nNounLength&lt;-c(6,7,4,5,8,6) \nNounLength \n\n[1] 6 7 4 5 8 6\n\nNounFrequency&lt;-c(638,799,390,569,567,665) \nNounFrequency\n\n[1] 638 799 390 569 567 665\n\n\nAs you can see from the output above, data in the variables NounAnimacy and NounGender are considered as words, or literal strings. The next step is to indicate they are factors.\n\nNounAnimacy&lt;- factor(NounAnimacy) \nNounAnimacy \n\n[1] animate   inanimate inanimate animate   animate   animate  \nLevels: animate inanimate\n\nNounGender&lt;- factor(NounGender) \nNounGender\n\n[1] feminine  masculine neuter    masculine feminine  feminine \nLevels: feminine masculine neuter\n\n\nAs you can see by the output produced, now the variables are considered as factors, and Levels indicate the unique values that the each takes.\nWith the variables above, we can now create a dataframe.\n\nDataexample&lt;-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency) \nDataexample\n\n  NounAnimacy NounGender NounLength NounFrequency\n1     animate   feminine          6           638\n2   inanimate  masculine          7           799\n3   inanimate     neuter          4           390\n4     animate  masculine          5           569\n5     animate   feminine          8           567\n6     animate   feminine          6           665\n\n\nIn this exercise, we have created a dataframe from scratch",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>✍️ R Syntax</span>"
@@ -160,18 +160,40 @@
     "href": "using_libraries.html",
     "title": "2  📦 Libraries and Packages",
     "section": "",
-    "text": "2.1 Install and Use a Package\nOne of the big benefits of R in comparison with other statistics packages is its open nature. The functionality is easily extended by groups all around the world by developing libraries that can be easily installed and used.\nR packages extend the functionality of R by providing additional functions, data, and documentation. They are written by a worldwide community of R users and can be downloaded for free from the internet.\nA package is a collection of R functions, data, and compiled code bundled together. Packages are created by the R community and cover a wide range of topics like data manipulation, visualization, machine learning, etc.\nPackages have to be installed and loaded before using them.\nWe need to install packages only once in our environment. That can be done in two ways:\nFor example, in several exercises in this book we use a library (created by for the book (Baayen 2008)) that contains some utilities and a few sample datasets with linguistics examples.\nLet’s install the library using the following command:\nAfter installing the package, the contents will still not be available until you load the package, this has to be done in every new work session and it is done with the library() function.\nNow you can access the functions and data in the languageR package. Let’s take a look at the dataframes available in the package that we will use for some of the exercises and for the first assignment today. You can explore the data sets using the data() function:",
+    "text": "2.1 Installing and using a Package\nOne of the big benefits of R in comparison with other statistics packages is its open nature. The functionality is easily extended by groups all around the world by developing libraries that can be easily installed and used.\nR packages extend the functionality of R by providing additional functions, data, and documentation. They are written by a worldwide community of R users and can be downloaded for free from the internet.\nA package is a collection of R functions, data, and compiled code bundled together. Packages are created by the R community and cover a wide range of topics like data manipulation, visualization, machine learning, etc.\nPackages have to be installed and loaded before using them.\nWe need to install packages only once in our environment. That can be done in two ways:\nFor example, in several exercises in this book we use a library (created by for the book (Baayen 2008)) that contains some utilities and a few sample datasets with linguistics examples.\nLet’s install the library using the following command:\nAfter installing the package, the contents will still not be available until you load the package, this has to be done in every new work session and it is done with the library() function.\nNow you can access the functions and data in the languageR package.",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>📦 Libraries and Packages</span>"
     ]
   },
   {
-    "objectID": "using_libraries.html#install-and-use-a-package",
-    "href": "using_libraries.html#install-and-use-a-package",
+    "objectID": "using_libraries.html#installing-and-using-a-package",
+    "href": "using_libraries.html#installing-and-using-a-package",
     "title": "2  📦 Libraries and Packages",
     "section": "",
-    "text": "Using the install.packages() function or\nUsing the Packages tab in RStudio:\n\n\n\n\ninstall.packages(\"languageR\")\n\n\n\n\n\n\nWarning\n\n\n\nThe installation of a package can give an error if you try to install a package that is already installed and loaded. If you get an error saying that you have already the package, just cancel.\n\n\n\nlibrary(languageR)\n\ndata(package=\"languageR\")\n\n\n\n\nBaayen, R. H. 2008. Analyzing Linguistic Data: A Practical Introduction to Statistics Using r. Cambridge University Press.",
+    "text": "Using the install.packages() function or\nUsing the Packages tab in RStudio:\n\n\n\n\ninstall.packages(\"languageR\")\n\n\n\n\n\n\nWarning\n\n\n\nThe installation of a package can give an error if you try to install a package that is already installed and loaded. If you get an error saying that you have already the package, just cancel.\n\n\n\nlibrary(languageR)",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>📦 Libraries and Packages</span>"
+    ]
+  },
+  {
+    "objectID": "using_libraries.html#using-datasets-available-in-packages",
+    "href": "using_libraries.html#using-datasets-available-in-packages",
+    "title": "2  📦 Libraries and Packages",
+    "section": "2.2 Using datasets available in packages",
+    "text": "2.2 Using datasets available in packages\n\nAs mentioned, the main objective of a package is to distribute functions, but it is often convenient to include example datasets that can be used to illustrate the use of the functions. In other cases, there are packages that are use mainly to distribute data. The later is the case for example for the languageR package, provided as a companion to the book Baayen (2008) that we will use in some of the examples and assignments in this course.\nYou can explore data sets available from all loaded packages using the data() function. If you want the data from a specific package, specified with the argument package .\nTake a look at the packages datasets included in languageR using the following command.\ndata(package=\"languageR\")\nYou will see that a new tab opens in the Editor area with the content:\n\nIf you want more information more information of a particular dataset, you can use the help operator ? as with any function.\nFor example in today’s assignment we will use the lexdec dataset containing Lexical decision latencies collected from a group of speakers. Run the following command to read the composition of the dataframe.\n?lexdec",
+    "crumbs": [
+      "Workgroup 1: Introduction to R and RStudio",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>📦 Libraries and Packages</span>"
+    ]
+  },
+  {
+    "objectID": "using_libraries.html#useful-packages",
+    "href": "using_libraries.html#useful-packages",
+    "title": "2  📦 Libraries and Packages",
+    "section": "2.3 Useful packages",
+    "text": "2.3 Useful packages\n\nThere are by now thousands of community contributed packages available for R and the list grows by the day (see complete list in CRAN website).\nIn practice you will use only a few packages on your data analysis tasks. I list below a number of commonly used packages for further reference (note we will only use a few of those in this course and I will always indicate it in the specific sessions or assignments).\n\n2.3.1 Packages for data input and output\n\n\n\nPackage\nUsage\nNotes\n\n\n\n\nforeign\nUsed to read data from other statistical analysis software as SPSS, Stata, etc\n\n\n\nreadxl\nRead Excel files\nPart of tidyverse\n\n\nreadr\nRead information in tabular format from CSV and TAB separated files\nPart of tidyverse\n\n\n\n\n\n2.3.2 Packages for data analysis\n\n\n\nPackage\nUsage\nNotes\n\n\n\n\nforeign\nUsed to read data from other statistical analysis software as SPSS, Stata, etc\n\n\n\nreadxl\n\n\n\n\n\n\n\n\n\n\n\n\n2.3.3 Packages for data visualization and manipulation\n\n\n\nPackage\nUsage\nNotes\n\n\n\n\nggplot2\nLibrary to create graphics and data visualizations\nPart of tidyverse\n\n\ndplyr\nData manipulation functions\nPart of tidyverse\n\n\ntidyr\nFunctions to transform data from wide to long format.\nPart of tidyverse\n\n\nforcats\nFunctions to modify factors levels and ordering\nPart of tidyverse\n\n\n\nWe will explore functions from the packages above in the Workgroups 1 & 2\n\n\n\n\nBaayen, R. H. 2008. Analyzing Linguistic Data: A Practical Introduction to Statistics Using r. Cambridge University Press.",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>📦 Libraries and Packages</span>"
@@ -182,51 +204,18 @@
     "href": "read_data.html",
     "title": "3  Reading and Saving data in R",
     "section": "",
-    "text": "3.1 Reading data from files\nWe cover below examples for importing data in R, covering the most common methods and packages:",
+    "text": "3.1 Reading data from files\nIn most of the cases, the\nWe cover below examples for importing data in R, covering the most common methods and packages.",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and Saving data in R</span>"
     ]
   },
   {
-    "objectID": "read_data.html#data-from-text-files",
-    "href": "read_data.html#data-from-text-files",
+    "objectID": "read_data.html#sec-r-read",
+    "href": "read_data.html#sec-r-read",
     "title": "3  Reading and Saving data in R",
-    "section": "3.2 Data from text files",
-    "text": "3.2 Data from text files\nThe most generic function to read data from a text file is read.table() . The arguments allow to define if the data includes a header (i.e. a first row with the names of the columns/variables) and the separator used.\nFor example, if we want to load a file called file.txt , TAB separated, we will use the function below.\ndata &lt;- read.table(\"file.txt\", header = TRUE, sep = \"\\t\")\n\n3.2.1 Data from CSV files\nMany experimental data is saved in a text or CSV (Comma separated) file. The best method to read data from these files is to use the readr package that is loaded as part of the tidyverse .\nlibrary(readr)\ndata &lt;- read_csv(\"yourfile.csv\")  # Load a CSV file  \nIf your data is tab-separated, you can use the function read_tsv() . By default, the functions expect that the first row contains the names of the columns/variables to be read. If that is not the case, you should modify the argument col_names = FALSE .",
-    "crumbs": [
-      "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and Saving data in R</span>"
-    ]
-  },
-  {
-    "objectID": "read_data.html#data-from-excel-files",
-    "href": "read_data.html#data-from-excel-files",
-    "title": "3  Reading and Saving data in R",
-    "section": "3.3 Data from Excel files",
-    "text": "3.3 Data from Excel files\nThe best way to read Excel files is using the readxl package.\n# Using readxl \nlibrary(readxl) \ndata &lt;- read_excel(\"file.xlsx\", sheet = 1)",
-    "crumbs": [
-      "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and Saving data in R</span>"
-    ]
-  },
-  {
-    "objectID": "read_data.html#data-in-r-files",
-    "href": "read_data.html#data-in-r-files",
-    "title": "3  Reading and Saving data in R",
-    "section": "3.4 Data in R files",
-    "text": "3.4 Data in R files",
-    "crumbs": [
-      "Workgroup 1: Introduction to R and RStudio",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and Saving data in R</span>"
-    ]
-  },
-  {
-    "objectID": "read_data.html#data-from-spss",
-    "href": "read_data.html#data-from-spss",
-    "title": "3  Reading and Saving data in R",
-    "section": "3.5 Data from SPSS",
-    "text": "3.5 Data from SPSS\nThe haven package to read directly .sav files from SPSS.\n# Install and load the package\ninstall.packages(\"haven\")\nlibrary(haven)\n\n# Read the SPSS .sav file\ndata &lt;- read_sav(\"path/to/your/file.sav\")",
+    "section": "",
+    "text": "3.1.1 Data from text files\nThe most generic function to read data from a text file is read.table() . The arguments allow to define if the data includes a header (i.e. a first row with the names of the columns/variables) and the separator used\nNote that by default the argument is header = FALSE so you should explicitly change it to TRUE in case you have a first line in your file with the columns names.\nFor example, if we want to load a file called file.txt , TAB separated, we will use the function below.\ndata &lt;- read.table(\"file.txt\", header = TRUE, sep = \"\\t\")\n\n\n3.1.2 Data from CSV files\nMany experimental data is saved in a text or CSV (Comma separated) file. The best method to read data from these files is to use the readr package that is loaded as part of the tidyverse .\nlibrary(readr)\ndata &lt;- read_csv(\"yourfile.csv\")  # Load a CSV file  \nIf your data is tab-separated, you can use the function read_tsv() . By default, the functions expect that the first row contains the names of the columns/variables to be read. If that is not the case, you should modify the argument col_names = FALSE .\n\n\n3.1.3 Data from Excel files\nThe best way to read Excel files is using the readxl package. If your file has several worksheets, you can use the sheet argument to specify either an index or the name of the worksheet to read.\n# If not yet available, install the package\ninstall.packages(\"readxl\")\n\n# load library\nlibrary(readxl)\n\n# Using readxl\ndata &lt;- read_excel(\"file.xlsx\", sheet = 1)\n\n\n3.1.4 Data in R files\nData can also be saved and loaded in R format directly\n\n\n3.1.5 Data from SPSS\nThe haven package can be used to read directly .sav files from SPSS.\n# If not yet available, install the package\ninstall.packages(\"haven\")\n\n# Load library\nlibrary(haven)\n\n# Read the SPSS .sav file\ndata &lt;- read_sav(\"file.sav\")",
     "crumbs": [
       "Workgroup 1: Introduction to R and RStudio",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Reading and Saving data in R</span>"
