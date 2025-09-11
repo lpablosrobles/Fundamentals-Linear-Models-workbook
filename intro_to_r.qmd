@@ -1,4 +1,4 @@
-## ✍️ R Syntax
+# ✍️ R Syntax
 
 R is an **interpreted language**, which means that you can write *commands* to an interpreter in a console that will execute them and return the results. This is in comparison with **compiled languages** that require to *compile* the source code to translate it to a machine understandable code.
 
@@ -39,7 +39,7 @@ There are plenty of online guided resources for further self-study of R and its 
 -   Book "*R for Data Science"*, available online at: <https://r4ds.hadley.nz/>
 :::
 
-### Commands and operators
+## Commands and operators
 
 Every instruction to enter in the ***command prompt*** is called a command.
 
@@ -55,7 +55,7 @@ Copy the code as you read along in this workbook and try it yourself in RStudio 
 
 The command just calculated the addition of the two numbers. In this example, we used the **operator** `+` to do so.
 
-We include a list below of the **basic operators in R**, grouped by category:s. Do not worry if not all are understandable yet:
+We include a list below of the **basic operators in R**, grouped by category. Do not worry if not all are understandable yet:
 
 **1. Arithmetic Operators**
 
@@ -154,7 +154,7 @@ numbers <- c(1, 2, 3, 4)
 numbers
 ```
 
-You can perform operations on vectors
+You can also perform operations on vectors.
 
 ```{r}
 numbers^2
@@ -172,7 +172,7 @@ df <- data.frame(
 df
 ```
 
-You can refer to individual columns on a dataframe using the `$` operator.
+You can access the individual columns on a dataframe using the `$` operator. Try to start typing the code below on the console. You will see that R provides suggested completions, displaying the available columns in the dataframe.
 
 ```{r}
 df$SubjectID
@@ -292,6 +292,8 @@ With the variables above, we can now create a dataframe.
 Dataexample<-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency) 
 Dataexample
 ```
+
+In this exercise, we have created a dataframe from scratch
 
 ------------------------------------------------------------------------
 

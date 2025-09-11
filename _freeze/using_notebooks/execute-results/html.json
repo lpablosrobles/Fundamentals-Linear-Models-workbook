@@ -1,9 +1,11 @@
 {
-  "hash": "9db1633e486821edb6da39e2055d7589",
+  "hash": "227b18411cad5250e7605e8e01da8e30",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Using Notebooks and R Markdown\"\nformat: html\neditor: visual\n---\n\n\n\n\n\n\n\n\n## Quarto\n\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.\n\n## Running Code\n\nWhen you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n\n\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n\n\n\n\n\n\n\nYou can add options to executable code like this\n\n\n\n\n\n\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 4\n```\n\n\n:::\n:::\n\n\n\n\n\n\n\n\nThe `echo: false` option disables the printing of code (only output is displayed).\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Reproduceable research using Scripts and Notebooks\"\nformat: html\neditor: visual\n---\n\n\n\n# R Scripts\n\n## Saving scripts\n\n## Executing scripts\n\n# R Markdown and Notebooks\n\n## Basic syntax of R Markdown\n\n## Notebooks\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n\n\nYou can add options to executable code like this\n\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 4\n```\n\n\n:::\n:::\n\n\n\nThe `echo: false` option disables the printing of code (only output is displayed).\n\n::: callout-caution\nBeware that the environment of a Notebook is not the same as the R session environment!\n:::\n",
+    "supporting": [
+      "using_notebooks_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

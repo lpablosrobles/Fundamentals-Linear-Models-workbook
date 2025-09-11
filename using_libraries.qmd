@@ -10,7 +10,9 @@ R packages extend the functionality of R by providing additional functions, data
 
 A **package** is a collection of R functions, data, and compiled code bundled together. Packages are created by the R community and cover a wide range of topics like data manipulation, visualization, machine learning, etc.
 
-## Install and Use a Package
+## Installing and using a Package
+
+------------------------------------------------------------------------
 
 Packages have to be **installed** [and]{.underline} **loaded** before using them.
 
@@ -40,8 +42,65 @@ After installing the package, the contents will still not be available until you
 library(languageR)
 ```
 
-Now you can access the functions and data in the *languageR* package. Let's take a look at the dataframes available in the package that we will use for some of the exercises and for the first assignment today. You can explore the data sets using the `data()` function:
+Now you can access the functions and data in the *languageR* package.
+
+## Using datasets available in packages
+
+------------------------------------------------------------------------
+
+As mentioned, the main objective of a package is to distribute functions, but it is often convenient to include example datasets that can be used to illustrate the use of the functions. In other cases, there are packages that are use mainly to distribute data. The later is the case for example for the `languageR` package, provided as a companion to the book @Baayen_2008 that we will use in some of the examples and assignments in this course.
+
+You can explore data sets available from all loaded packages using the `data()` function. If you want the data from a specific package, specified with the argument `package` .
+
+Take a look at the packages datasets included in `languageR` using the following command.
 
 ``` r
 data(package="languageR")
 ```
+
+You will see that a new tab opens in the Editor area with the content:
+
+![](images/clipboard-1927359389.png)
+
+If you want more information more information of a particular dataset, you can use the help operator `?` as with any function.
+
+For example in today's assignment we will use the `lexdec` dataset containing Lexical decision latencies collected from a group of speakers. Run the following command to read the composition of the dataframe.
+
+``` r
+?lexdec
+```
+
+## Useful packages
+
+------------------------------------------------------------------------
+
+There are by now thousands of community contributed packages available for R and the list grows by the day (see complete list in [CRAN website](https://cran.r-project.org/web/packages/available_packages_by_name.html)).
+
+In practice you will use only a few packages on your data analysis tasks. I list below a number of commonly used packages for further reference (note we will only use a few of those in this course and I will always indicate it in the specific sessions or assignments).
+
+### Packages for data input and output
+
+| Package | Usage | Notes |
+|-----------------|----------------------------|----------------------------|
+| [*foreign*](https://cran.r-project.org/web/packages/foreign/refman/foreign.html) | Used to read data from other statistical analysis software as SPSS, Stata, etc |  |
+| [readxl](https://readxl.tidyverse.org/) | Read Excel files | Part of `tidyverse` |
+| [readr](https://readr.tidyverse.org/) | Read information in tabular format from CSV and TAB separated files | Part of `tidyverse` |
+
+### Packages for data analysis
+
+| Package | Usage | Notes |
+|-----------------|----------------------------|----------------------------|
+| [*foreign*](https://cran.r-project.org/web/packages/foreign/refman/foreign.html) | Used to read data from other statistical analysis software as SPSS, Stata, etc |  |
+| readxl |  |  |
+|  |  |  |
+
+### Packages for data visualization and manipulation
+
+| Package | Usage | Notes |
+|-----------------|----------------------------|----------------------------|
+| [*ggplot2*](https://ggplot2.tidyverse.org/) | Library to create graphics and data visualizations | Part of `tidyverse` |
+| [dplyr](https://dplyr.tidyverse.org/) | Data manipulation functions | Part of `tidyverse` |
+| [tidyr](https://tidyr.tidyverse.org/) | Functions to transform data from wide to long format. | Part of `tidyverse` |
+| [forcats](https://forcats.tidyverse.org/) | Functions to modify factors levels and ordering | Part of `tidyverse` |
+
+We will explore functions from the packages above in the Workgroups 1 & 2
