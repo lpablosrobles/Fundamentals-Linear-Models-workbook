@@ -37,6 +37,7 @@ book:
         - read_data.qmd
         - tidyverse_intro.qmd
         - using_notebooks.qmd
+        - assignment1_intro.qmd
         
     - part: Workgroup2.qmd
       # chapters: 

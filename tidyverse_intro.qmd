@@ -54,14 +54,32 @@ ggplot(cleandata, aes(x = category, y = newvalue)) + geombar(stat = "identity")
 
 ## ✅ **Why Use tidyverse?**
 
--    Consistent and readable syntax
+-   Consistent and readable syntax
 
--    Pipe operator (`%>%`) for chaining operations
+-   Pipe operator (`%>%`) for chaining operations
 
--    Designed for tidy data principles
+-   Designed for tidy data principles
 
--    Strong community and documentation
+-   Strong community and documentation
 
 ## Pipe operator (`%>%` or `|>` )
 
 The pipe operator allows you to **pass the result of one function directly into the next function** as its first argument. It’s widely used in the **tidyverse**, especially with `dplyr`.
+
+## A grammar of data manipulation
+
+dplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges:
+
+-   [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) adds new variables that are functions of existing variables
+
+-   [`select()`](https://dplyr.tidyverse.org/reference/select.html) picks variables based on their names.
+
+-   [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) picks cases based on their values.
+
+-   [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) reduces multiple values down to a single summary.
+
+-   [`arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) changes the ordering of the rows.
+
+Tibbles vs dataframes
+
+You will see that the functions in `tidyverse` libraries return a so called `tibble` . The details are beyond the scope of this course, but you can think of a tibble as a simpler version of a dataframe. Let’s load another data frame and transform it into a tibble using `as_tibble()`:

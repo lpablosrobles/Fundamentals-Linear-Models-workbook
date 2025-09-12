@@ -81,7 +81,7 @@ In practice you will use only a few packages on your data analysis tasks. I list
 ### Packages for data input and output
 
 | Package | Usage | Notes |
-|-----------------|----------------------------|----------------------------|
+|----|----|----|
 | [*foreign*](https://cran.r-project.org/web/packages/foreign/refman/foreign.html) | Used to read data from other statistical analysis software as SPSS, Stata, etc |  |
 | [readxl](https://readxl.tidyverse.org/) | Read Excel files | Part of `tidyverse` |
 | [readr](https://readr.tidyverse.org/) | Read information in tabular format from CSV and TAB separated files | Part of `tidyverse` |
@@ -89,7 +89,7 @@ In practice you will use only a few packages on your data analysis tasks. I list
 ### Packages for data analysis
 
 | Package | Usage | Notes |
-|-----------------|----------------------------|----------------------------|
+|----|----|----|
 | [*foreign*](https://cran.r-project.org/web/packages/foreign/refman/foreign.html) | Used to read data from other statistical analysis software as SPSS, Stata, etc |  |
 | readxl |  |  |
 |  |  |  |
@@ -97,7 +97,7 @@ In practice you will use only a few packages on your data analysis tasks. I list
 ### Packages for data visualization and manipulation
 
 | Package | Usage | Notes |
-|-----------------|----------------------------|----------------------------|
+|----|----|----|
 | [*ggplot2*](https://ggplot2.tidyverse.org/) | Library to create graphics and data visualizations | Part of `tidyverse` |
 | [dplyr](https://dplyr.tidyverse.org/) | Data manipulation functions | Part of `tidyverse` |
 | [tidyr](https://tidyr.tidyverse.org/) | Functions to transform data from wide to long format. | Part of `tidyverse` |
