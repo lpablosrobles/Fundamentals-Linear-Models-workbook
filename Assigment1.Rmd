@@ -1,0 +1,89 @@
+---
+title: "Fundamentals of Linear Models 2025-2026 - Assignment #1"
+date: "16 September 2025"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+## Introduction to the Assignment
+
+This document you are reading is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. It is a very efficient way to document and maintain your work including useful anotations, etc. If you want to learn more about R Markdown, read and follow the available [online tutorials](https://rmarkdown.rstudio.com/lesson-1.html)
+
+## Task#1: Creating a dataframe
+
+------------------------------------------------------------------------
+
+Create a dataframe coming up with a sample data of your own (possibly made up) with the following contents:
+
+-   4 columns/variables: one column with a factor with two levels, another column with a factor with 3 levels and two columns with numeric values.
+
+-   6 rows or observations
+
+```{r}
+
+
+
+```
+
+## Task#2: loading required libraries
+
+------------------------------------------------------------------------
+
+Read through the complete assignment and identify which libraries will be required for the tasks and load them
+
+```{r}
+# add code to load the required libraries
+
+
+
+```
+
+## Task#3: Working with and exploring dataframes
+
+------------------------------------------------------------------------
+
+From the *`languageR`* library we will use a sample dataframe called `lexdec`. This dataset contains lexical decision latencies elicited from 21 subjects for 79 English concrete nouns. To understand the content of each variable, look at the description of the dataset using `?lexdec` as described during the workgroup.
+
+1.  **Show the first 4 rows of the dataframe**
+
+    *Tip*: you can use the `head()` function. To learn how to use it, type `help(head))` or `?head` in the terminal.
+
+```{r}
+
+
+```
+
+2.  **Extract the column names from the dataframe.**
+
+```{r}
+
+
+```
+
+3.  **Sort the dataframe by the reaction time** (`RT` variable) **in ascending order and then in descending order**
+
+```{r}
+
+
+```
+
+5.  **Create a new dataframe called** `lexdec_reduced`**with only the variables from** `Subject` **to** `Frequency` **and selecting only the entries from native English speakers (as coded in the** `NativeLanguage` **variable).**
+
+```{r}
+
+
+```
+
+6.  **Save** `lexdec_reduced` **dataframe in a file in the** `/data` **directorate**.
+
+    Note: Choose any name and data format that you want for the file.
+
+```{r}
+
+
+```
+
+## Task#4 (Extra Credit)
+
+------------------------------------------------------------------------
