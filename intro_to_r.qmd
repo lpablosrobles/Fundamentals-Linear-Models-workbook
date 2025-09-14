@@ -200,7 +200,9 @@ The parameters of a function and normally called *arguments.* You can either man
 
 To know the arguments of a function you can use the R help. There are two ways to access the help pages for a function:
 
-1.  Use the operator `?` followed by the function name in the console: If you type the instruction `?mean` the help page for the `mean()` function will open in the RStudio Help panel as in the image below:
+1.  Use the operator `?` followed by the function name in the console, or use the `help()` function.
+
+    For example, type the instruction `?mean` in the console. The help page for the `mean()` function will open in the RStudio Help panel as in the image below:
 
     ![](images/clipboard-947968862.png)
 
@@ -293,7 +295,7 @@ Dataexample<-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency)
 Dataexample
 ```
 
-In this exercise, we have created a dataframe from scratch
+In this exercise, we have created a dataframe from scratch.
 
 ------------------------------------------------------------------------
 
