@@ -24,7 +24,8 @@ y <- c(2, 4, 6, 8, 10)
 plot(x, y, main="Simple Scatter Plot", xlab="X Axis", ylab="Y Axis")  
 
 # Fit a linear model 
-model <- lm(y ~ x) abline(model, col="blue")
+model <- lm(y ~ x) 
+abline(model, col="blue")
 ```
 
 Before going forward, note that lines of code starting with the symbol `#` are not interpreted. This is use to introduce comments in your code for readability and documentation. We will come to that later when we talk about scripts and notebooks.
@@ -295,7 +296,43 @@ Dataexample<-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency)
 Dataexample
 ```
 
-In this exercise, we have created a dataframe from scratch.
+A few useful functions when working with dataframes:
+
+-   `nrow()` : returns the number of rows of a dataframe. Normally corresponding to observations in experimental data files.
+
+-   `ncol()`: returns the number of columns of a dataframe.
+
+-   `head()` : displays the first rows of a dataframe or vector. By default, it displays the first 6 items, but you can specify how many rows to show with the argument `n` . Useful when displaying on the screen large datasets.
+
+-   `View()`: Opens the dataset in a excel-like data viewer in RStudio. Same can be done clicking the name of the variable in the Environment window in RStudio.
+
+-   `str()` : can be used to display the structure of the dataframe.
+
+-   `colnames()`: returns the names of the columns/variables in a dataframe.
+
+Let's look at a few examples with the dataframe we just created.
+
+First we can inspect what is the dataframe structure:
+
+```{r}
+
+str(Dataexample)
+```
+
+As you can see, the output tells us that the dataframe is composed of four *variables* (columns), two with categorical values and two with numerical elements and provides the names of those columns. It tells us also that it contains 6 *observations* (rows). You can obtain also the information above using:
+
+```{r}
+nrow(Dataexample)
+ncol(Dataexample)
+colnames(Dataexample)
+```
+
+If we want to display the first 4 observations in the dataset, you could use:
+
+```{r}
+head(Dataexample, n = 4)
+
+```
 
 ------------------------------------------------------------------------
 

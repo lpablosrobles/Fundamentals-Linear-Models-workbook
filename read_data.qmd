@@ -4,31 +4,48 @@ editor: visual
 
 # Reading and Saving data in R
 
+------------------------------------------------------------------------
+
+We have seen how to access datasets contained in packages, but to analyze your own data you will need to load it in the RStudio environment.
+
+We will look in what follows at a few examples of loading data in different common formats (text files in general, excel files, files in SPSS format, R files).
+
 ## Reading data from files {#sec-r-read}
 
-In most of the cases, the
+------------------------------------------------------------------------
 
 We cover below examples for **importing data in R**, covering the most common methods and packages.
 
 ### Data from text files
 
-The most generic function to read data from a text file is `read.table()` . The arguments allow to define if the data includes a header (i.e. a first row with the names of the columns/variables) and the separator used
+The most generic function to read data from a text file is `read.table()` . The arguments allow to define if the data includes a header (i.e. a first row with the names of the columns/variables) and the separator used.
 
-Note that by default the argument is `header = FALSE` so you should explicitly change it to `TRUE` in case you have a first line in your file with the columns names.
+For example, let's load a file in the `/data` directory containing the sample dataset from the previous exercise using the function below:
 
-For example, if we want to load a file called `file.txt` , TAB separated, we will use the function below.
-
-``` r
-data <- read.table("file.txt", header = TRUE, sep = "\t")
+```{r}
+data_sample <- read.table("./data/sample_wg1_text.txt")
+data_sample
 ```
 
 ### Data from CSV files
 
-Many experimental data is saved in a text or CSV (Comma separated) file. The best method to read data from these files is to use the `readr` package that is loaded as part of the `tidyverse` .
+Many experimental data is saved in a text or CSV (Comma separated) file. The best method to read data from these files is to use the `read_csv()` function in the `readr` package.
 
-``` r
+Let's see an example of usage loading the file in the `/data` directorate "*ELP_full_length_frequency.csv"*
+
+```{r}
 library(readr)
-data <- read_csv("yourfile.csv")  # Load a CSV file  
+
+data_sample_csv <- read_csv("./data/ELP_full_length_frequency.csv")
+head(data_sample_csv)
+```
+
+As you can see, the file was loaded with 33,057 observations!
+
+To free up memory, let's remove the variable from the workspace using the `rm()` function (remove):
+
+```{r}
+rm(data_sample_csv)
 ```
 
 If your data is tab-separated, you can use the function `read_tsv()` . By default, the functions expect that the first row contains the names of the columns/variables to be read. If that is not the case, you should modify the argument `col_names = FALSE` .
@@ -38,39 +55,76 @@ If your data is tab-separated, you can use the function `read_tsv()` . By defaul
 The best way to read Excel files is using the `readxl` package. If your file has several worksheets, you can use the `sheet` argument to specify either an index or the name of the worksheet to read.
 
 ``` r
-# If not yet available, install the package
-install.packages("readxl")
-
 # load library
 library(readxl)
 
 # Using readxl
-data <- read_excel("file.xlsx", sheet = 1)
+data_sample_r <- read_excel("file.xlsx", sheet = 1)
 ```
 
 ### Data in R files
 
-Data can also be saved and loaded in *R format* directly
+Data can also be saved and loaded in *R format* directly. This is useful if you are performing your analysis in R to save data intermediate steps as it is a compact and efficient format, even though to share with other researchers and in open access journals you should export it to a more generic format.
+
+To illustrate again let's load a file in the `/data` directory containing the sample dataset from the previous exercise, saved in R format using the function below:
+
+```{r}
+data_sample_r <- readRDS("./data/sample_wg1.Rda")
+data_sample_r
+```
 
 ### Data from SPSS
 
 The `haven` package can be used to read directly `.sav` files from SPSS.
 
-``` r
-# If not yet available, install the package
-install.packages("haven")
+As an example again, let's open a file saved in SPSS from a ERP (Event Related Potential) study of code-switching in Dutch.
+
+```{r}
+# If not yet available, install the package using install.packages("haven")
 
 # Load library
 library(haven)
 
-# Read the SPSS .sav file
-data <- read_sav("file.sav")
+data_sample_spss <- read_sav("./data/EEG_DataSet_LongFormat_pablos.sav")
+data_sample_spss
 ```
+
+Again to preserve memory, let's clean the workspace by removing the variable we created using :
+
+```{r}
+rm(data_sample_spss)
+```
+
+### Other formats
+
+In your own research, if you have data in other specific formats, you may have to develop your own function to read it, although it is highly likely there is already a solution available. Always search first in the internet... For example, imagine you have data in a file saved in the software Matlab, typing "read Matlab files in R" in any search engine points to the R package [`R.matlab`](https://cran.r-project.org/web/packages/R.matlab/refman/R.matlab.html "R.matlab package") that offers the functions `readMat()` and `writeMat()` to read and write respectively Matlab files.
+
+A few examples of useful packages for data reading in linguistics research are listed below:
+
++--------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Package                                                                                    | Description                                                                                                                                                                                                      |
++============================================================================================+==================================================================================================================================================================================================================+
+| [`eegUtils`](https://neuroconductor.org/package/eegUtils)                                  | **Utilities for** **Electroencephalographic (EEG) Analysis:**                                                                                                                                                    |
+|                                                                                            |                                                                                                                                                                                                                  |
+|                                                                                            | Includes import functions for EEG files from several EEG acquisition and analysis software suites: 'BioSemi' (.BDF), 'Neuroscan' (.CNT), 'Brain Vision Analyzer' (.VHDR), 'EEGLAB' (.set) and 'Fieldtrip' (.mat) |
++--------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [`rprime`](https://cran.r-project.org/web/packages/rprime/vignettes/quick-start-demo.html) | Package for parsing `.txt` generated by E-Prime, a program for running psychological experiments.                                                                                                                |
+|                                                                                            |                                                                                                                                                                                                                  |
+|                                                                                            | Support functions to read and clean data created in E-Prime                                                                                                                                                      |
++--------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [`childesr`](https://langcog.github.io/childesr/index.html)                                | Package to access data in the childes-db, an open database of child language datasets from the CHILDES (Child Language Data Exchange System) data bank.                                                          |
++--------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 # Saving data
 
-## Save to R format
+Similar functions to the ones discussed above are available to save data in different formats:
 
-## Save to text
+-   Save to R format: `saveRDS()`
+
+-   Save to text format: `write.table()`
+
+-   Save to Excel format: several packages are available, but I recommend using the `writexl` package that does not depend on other elements being installed in your computer. The function `write_xlsx()` can be used to save an excel file.
+
+-   Save to SPSS format: `write_sav()` from the `haven` package
 
 # 

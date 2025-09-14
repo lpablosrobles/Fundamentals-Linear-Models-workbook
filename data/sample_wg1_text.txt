@@ -1,0 +1,7 @@
+"NounAnimacy" "NounGender" "NounLength" "NounFrequency"
+"1" "animate" "feminine" 6 638
+"2" "inanimate" "masculine" 7 799
+"3" "inanimate" "neuter" 4 390
+"4" "animate" "masculine" 5 569
+"5" "animate" "feminine" 8 567
+"6" "animate" "feminine" 6 665
