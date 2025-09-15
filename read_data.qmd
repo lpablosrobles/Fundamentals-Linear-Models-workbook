@@ -10,6 +10,14 @@ We have seen how to access datasets contained in packages, but to analyze your o
 
 We will look in what follows at a few examples of loading data in different common formats (text files in general, excel files, files in SPSS format, R files).
 
+## Working directory and paths in R
+
+------------------------------------------------------------------------
+
+Before entering into the details on the read and write of files, it is important to understand where the files are located and how to provide paths in R.
+
+Paths for files in R are relative to the "*Working Directory*". To know which is the working directory, you can use the function `getwd()`.
+
 ## Reading data from files {#sec-r-read}
 
 ------------------------------------------------------------------------
@@ -31,7 +39,7 @@ data_sample
 
 Many experimental data is saved in a text or CSV (Comma separated) file. The best method to read data from these files is to use the `read_csv()` function in the `readr` package.
 
-Let's see an example of usage loading the file in the `/data` directorate "*ELP_full_length_frequency.csv"*
+Let's see an example of usage loading the file in the `/data` directorate "*ELP_full_length_frequency.csv"* with data from a psycholinguistic study on the reading comprehension of words as a function of frequency part of the English Lexicon Project, described in the the @winter2019statistics textbook Chapter 4.1.
 
 ```{r}
 library(readr)
@@ -66,10 +74,10 @@ data_sample_r <- read_excel("file.xlsx", sheet = 1)
 
 Data can also be saved and loaded in *R format* directly. This is useful if you are performing your analysis in R to save data intermediate steps as it is a compact and efficient format, even though to share with other researchers and in open access journals you should export it to a more generic format.
 
-To illustrate again let's load a file in the `/data` directory containing the sample dataset from the previous exercise, saved in R format using the function below:
+To illustrate again let's load a file in the `/data` directory containing a sample real dataset from a Event Related Potential (ERP) study that we will use in some of the exercises in the course:
 
 ```{r}
-data_sample_r <- readRDS("./data/sample_wg1.Rda")
+data_sample_r <- readRDS("./data/eegSampleData.Rda")
 data_sample_r
 ```
 
@@ -77,7 +85,7 @@ data_sample_r
 
 The `haven` package can be used to read directly `.sav` files from SPSS.
 
-As an example again, let's open a file saved in SPSS from a ERP (Event Related Potential) study of code-switching in Dutch.
+As an example again, let's open a file saved in SPSS from another ERP (Event Related Potential) study of code-switching in Dutch.
 
 ```{r}
 # If not yet available, install the package using install.packages("haven")
@@ -89,10 +97,10 @@ data_sample_spss <- read_sav("./data/EEG_DataSet_LongFormat_pablos.sav")
 data_sample_spss
 ```
 
-Again to preserve memory, let's clean the workspace by removing the variable we created using :
+Again to preserve memory, let's clean the workspace by removing the variables we created using :
 
 ```{r}
-rm(data_sample_spss)
+rm(data_sample_spss, data_sample_r)
 ```
 
 ### Other formats
