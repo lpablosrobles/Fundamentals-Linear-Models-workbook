@@ -1,5 +1,0 @@
-# Assignment 1
-
-In this assignment we will put in practice some of the basic R syntax and concepts covered in Workgroup 1.
-
-You can find

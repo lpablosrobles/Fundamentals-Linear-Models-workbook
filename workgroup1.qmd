@@ -83,7 +83,7 @@ All assignments will be performed in Posit Cloud where I can follow your progres
 
 ------------------------------------------------------------------------
 
-### 📝 Exercise1: Connect to Posit Cloud {#sec-📝-exercise1}
+### 📝 Exercise1: Connect to Posit Cloud {#sec-exercise1}
 
 In order to use Posit Cloud you need to register for this course following the link below.
 
@@ -101,10 +101,4 @@ Open it and explore the RStudio interface.
 
 ------------------------------------------------------------------------
 
-## Additional Reading material
-
--   Extended information on usage of dataframes and management with tidyverse and pipes
-
-    -   <https://datacarpentry.org/R-ecology-lesson/how-r-thinks-about-data.html>
-
-    -   <https://datacarpentry.org/R-ecology-lesson/working-with-data.html>
+## 

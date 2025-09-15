@@ -1,12 +1,28 @@
-# Introduction to tidyverse {#sec-the-r-language}
+# Introduction to tidyverse 1: data manipulation {#sec-the-r-language}
 
 ## 🌐 **What is the tidyverse?**
 
+------------------------------------------------------------------------
+
 The **`tidyverse`** is a collection of R packages designed for **data science**. These packages share an underlying philosophy, grammar, and data structures, making it easier to learn and use them together. Tidyverse simplifies tasks like data manipulation, visualization, and modeling.
 
-## 📦 **Core tidyverse Packages**
+A full description of the tidyverse packages and functions is available in <https://dplyr.tidyverse.org/>
 
-When you load the tidyverse, you get access to these core packages:
+### **Why Use tidyverse?**
+
+Using the functions in tidyverse have a number of advantages versus the use of individual packages or the available base R functions:
+
+-   Consistent and readable syntax.
+
+-   Pipe operator (`%>%`) for chaining operations (see later)
+
+-   Designed for tidy data principles as described in @wickham2024r.
+
+-   It has a strong user community and documentation.
+
+### 📦 **Core tidyverse Packages**
+
+When you install and load the `tidyverse` package, you get access to the core packages listed in the table below without needing to load them individually
 
 | Package   | Usage                                   |
 |-----------|-----------------------------------------|
@@ -19,7 +35,11 @@ When you load the tidyverse, you get access to these core packages:
 | `stringr` | String manipulation                     |
 | `forcats` | Working with categorical data (factors) |
 
-## **Workflow Using tidyverse**
+We have already seen `readr` when loading files. We will explore today the `tidyr` functions.
+
+### **Workflow Using tidyverse**
+
+A generic workflow using tidyverse can be represented as follows:
 
 ```{mermaid}
 flowchart LR
@@ -32,54 +52,238 @@ flowchart LR
   clean --> plot
 ```
 
-``` r
+This flow result in a code as the following example:
+
+::: callout-important
+You are not expected to understand all the code below now. We will explain different elements during the course. It is just intended as an example of the workflow.
+:::
+
+```{r}
 # Load tidyverse
 
 library(tidyverse)
 
 # Read data
 
-data <- readcsv("data.csv")
+df <- read_csv("./data/ELP_full_length_frequency.csv")
 
-# Clean and transform
+# filter, clean and transform data
 
-cleandata <- data %>%
-  filter(!is.na(value)) %>%
-  mutate(newvalue = value * 2)
+cleandata <- df %>%
+  filter(length>3) %>%
+  mutate(rt_per_character = RT / length)
 
 # Visualize
 
-ggplot(cleandata, aes(x = category, y = newvalue)) + geombar(stat = "identity")
+ggplot(cleandata, aes(x = Log10Freq, y = RT)) + geom_point(color='grey') + geom_smooth(method="lm")
 ```
 
-## ✅ **Why Use tidyverse?**
-
--   Consistent and readable syntax
-
--   Pipe operator (`%>%`) for chaining operations
-
--   Designed for tidy data principles
-
--   Strong community and documentation
-
-## Pipe operator (`%>%` or `|>` )
-
-The pipe operator allows you to **pass the result of one function directly into the next function** as its first argument. It’s widely used in the **tidyverse**, especially with `dplyr`.
+##  
 
 ## A grammar of data manipulation
 
-dplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges:
+------------------------------------------------------------------------
 
--   [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) adds new variables that are functions of existing variables
+`dplyr` is a package within the `tidyverse` set of functions that allow to manipulate data. You can think of the functions in the package as a sort of "*grammar of data manipulation*", providing a consistent set of verbs that help you solve the most common data manipulation challenges:
 
--   [`select()`](https://dplyr.tidyverse.org/reference/select.html) picks variables based on their names.
+-   [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) adds new variables that are functions of existing variables -\> operates on columns.
 
--   [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) picks cases based on their values.
+-   [`relocate()`](https://dplyr.tidyverse.org/reference/relocate.html): moves variables to a different position (change order of columns) -\> operates on columns.
 
--   [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) reduces multiple values down to a single summary.
+-   [`select()`](https://dplyr.tidyverse.org/reference/select.html) picks variables based on their names. -\> operates on columns.
 
--   [`arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) changes the ordering of the rows.
+-   `rename()`: change variable names -\> operates on columns
 
-Tibbles vs dataframes
+-   [`arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) changes the ordering of the rows. -\> operates on rows.
 
-You will see that the functions in `tidyverse` libraries return a so called `tibble` . The details are beyond the scope of this course, but you can think of a tibble as a simpler version of a dataframe. Let’s load another data frame and transform it into a tibble using `as_tibble()`:
+-   [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) picks cases based on their values. -\> operates on rows.
+
+-   [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) reduces multiple values down to a single summary (we will look at this in next workgroup).
+
+::: callout-note
+You will see that the functions in `tidyverse` libraries return a so called `tibble` . The details are beyond the scope of this course, but you can think of a tibble as a version of a data frame.
+:::
+
+Let's explore how to use the functions above with another of the datasets contained in the `languageR` package by @Baayen_2008. We will use the `DurationsOnt` dataset that contains durational measurement of the Dutch prefix *-ont* from a study on a Spoken Dutch Corpus ( @pluymaekers2005lexical).
+
+```{r}
+#load library
+library(languageR)
+
+#load dataset in the environment
+data("durationsOnt")
+
+#display the structure of the dataset
+str(durationsOnt)
+
+#look at the description of the variables
+?durationsOnt
+```
+
+### Selecting variables: `select()`
+
+------------------------------------------------------------------------
+
+The function `select()` allows to choose a subset of variables (columns of interest). The function call includes as first parameter the dataset followed by the list of columns you would like to keep.
+
+For this example we would like to look only at the duration of the Prefix in seconds and are not interested in the other variables.
+
+```{r}
+durationsOnt_simplified <- select(durationsOnt,  Word, Frequency, Speaker, Sex, YearOfBirth, DurationOfPrefix)
+head(durationsOnt_simplified)
+```
+
+The new dataframe `durationsOnt_simplified` contains now only the columns we specified.
+
+::: callout-tip
+If you have many columns, there is a simpler way to specify "*keep from column X to column Y*" without having to list each one of the individually by using `:` as in the example below that provides the same result. Of course this does not work if you want to select non-contiguous columns.
+:::
+
+```{r}
+durationsOnt_simplified <- select(durationsOnt,  Word:DurationOfPrefix)
+head(durationsOnt_simplified)
+```
+
+### Changing variable names: `rename()` 
+
+------------------------------------------------------------------------
+
+You can change the naming of the variable using rename as follows - You call the function with as first parameter the dataset and after with the list of variables to be renamed.\\
+
+::: callout-warning
+Note that you write first the new name and then the old one.
+:::
+
+```{r}
+durationsOnt_simplified_renamed <- rename(durationsOnt_simplified, Gender = Sex)
+durationsOnt_simplified_renamed
+```
+
+### Moving variable position: `relocate()`
+
+------------------------------------------------------------------------
+
+With big datasets including many variables (columns), sometimes it is useful to change the order of the columns. This can be done with the `relocate()` function.
+
+You call the function providing again as first parameter the dataset and then the column you want to move. By default the function will move the column specified to become the first. Let's say that we want to have the S*peaker Identifier* as the first column, we will use the following:
+
+```{r}
+durationsOnt_reordered <- relocate(durationsOnt_simplified_renamed, Speaker)
+durationsOnt_reordered
+```
+
+The Speaker variable is now the first. If we want to define a specific location, we can use the arguments `.after` or `.before` . For instance, if we want to move the Gender to be just after the Speaker column we will call the following:
+
+```{r}
+durationsOnt_reordered <- relocate(durationsOnt_reordered, Gender, .after = Speaker)
+durationsOnt_reordered
+```
+
+Now that we have selected the variables that we want and in the order that we want them, let's filter the data to select some cases
+
+### Selecting cases: filter()
+
+------------------------------------------------------------------------
+
+We can select cases or observations based on a criteria using the `filter()` function. The filter function is called providing as a first parameter the dataset, followed by a *condition* or criteria to use for the selection.
+
+Let's say that we want to make an analysis on the duration of people born after 1970
+
+```{r}
+durationsOnt_reordered_filtered_age <- filter(durationsOnt_reordered,YearOfBirth > 70)
+
+#check on the minimum value of the Year of Birth with the function min()
+min(durationsOnt_reordered$YearOfBirth)
+min(durationsOnt_reordered_filtered_age$YearOfBirth)
+```
+
+As you can see on the example, the `filter()` selected the cases based on the condition specified.
+
+If we wanted to select for example only the cases for Females, we will have used the filter as `Gender == "female"` . What about if we want to select the females born after 1970 in a single step? You can combine conditions using the operators `&` (meaning "and" ) and `|` (meaning "or"). For example:
+
+```{r}
+durationsOnt_reordered_filtered_age_gender <- filter(durationsOnt_reordered,(YearOfBirth > 70) & (Gender=="female"))
+durationsOnt_reordered_filtered_age_gender
+```
+
+### Reordering cases: `arrange()` 
+
+Finally, the `arrange()` function orders the dataset by a selected value. For example to order the dataframe by Frequency:
+
+```{r}
+durationsOnt_reordered_filtered_age_gender_ordered <- arrange(durationsOnt_reordered_filtered_age_gender, Frequency)
+durationsOnt_reordered_filtered_age_gender_ordered
+```
+
+What about if we want to use a **reverse order**? This can be done use the `desc()` modified on the variable to be used:
+
+```{r}
+durationsOnt_reordered_filtered_age_gender_ordered <- arrange(durationsOnt_reordered_filtered_age_gender, desc(Frequency))
+durationsOnt_reordered_filtered_age_gender_ordered
+```
+
+## Pipe operator (`%>%` or `|>` )
+
+------------------------------------------------------------------------
+
+As you can see, in all the examples above we pass as first argument to the function the dataframe on which we want to make the operation.
+
+Putting all the calls before together :
+
+``` r
+durationsOnt_simplified <- select(durationsOnt,  Word:DurationOfPrefix)
+durationsOnt_simplified_renamed <- rename(durationsOnt_simplified, Gender = Sex)
+durationsOnt_reordered <- relocate(durationsOnt_simplified_renamed, Speaker)
+durationsOnt_reordered_filtered_age_gender <- filter(durationsOnt_reordered,(YearOfBirth > 70) & (Gender=="female"))
+durationsOnt_reordered_filtered_age_gender_ordered <- arrange(durationsOnt_reordered_filtered_age_gender, desc(Frequency))
+```
+
+In this examples I created on every step a new variable with a different name to save the output of the functions, which created a lot of new variables. This might be useful only in cases when you want to save the intermediate steps. In reality this is rarely the case since anyway you can always execute again the complete flow if you want to change something, and it is a better practice.
+
+That being the case, we could just use on variable for example called *`durationsOnt_processed`* that we overwrite in every step, resulting in something like this:
+
+``` r
+durationsOnt_processed <- select(durationsOnt,  Word:DurationOfPrefix)
+durationsOnt_processed <- rename(durationsOnt_processed, Gender = Sex)
+durationsOnt_processed <- relocate(durationsOnt_processed, Speaker)
+durationsOnt_processed <- filter(durationsOnt_processed,(YearOfBirth > 70) & (Gender=="female"))
+durationsOnt_processed <- arrange(durationsOnt_processed, desc(Frequency))
+```
+
+In this process though, still everytime the output of the one call is the input for the next step (in the end it is an analysis *workflow*).
+
+If we were to write textually what we did to the data would be something like:
+
+> "Take the durationsOnt dataset **then**
+>
+> Select columns ... **then**
+>
+> **rename** column Sex to Gender **then**
+>
+> move column Speaker to the first column **then**
+>
+> move column Gender after Speaker **then**
+>
+> select cases of Females born after 1970 **then**
+>
+> arrange by frequency in descending order."
+
+This is where the concept of a ***pipe*** was introduced in R. The pipe operator allows you to **pass the result of one function directly into the next function** as its first argument, without the need to explicitly write it. It’s widely used in the **tidyverse**, especially with `dplyr`.
+
+The operator can be used with two syntax `%>%` or the new `|>` .
+
+Using this, the examples before could be executed as below.
+
+```{r}
+durationsOnt_processed <- durationsOnt %>% select(Word:DurationOfPrefix) %>%
+                          rename(Gender = Sex) %>%
+                          relocate(Speaker) %>%
+                          relocate(Gender, .after = Speaker) %>%
+                          filter((YearOfBirth > 70) & (Gender=="female")) %>%
+                          arrange(desc(Frequency))
+durationsOnt_processed
+```
+
+As you can see, the result is the case, but the code and data processing flow is much more readable, and there is no need to introduce intermediate variables.
+
+You will become more familiar along the course with the basic usage of the tidyverse data manipulation.s
