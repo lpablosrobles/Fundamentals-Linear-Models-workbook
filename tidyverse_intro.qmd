@@ -65,7 +65,7 @@ library(tidyverse)
 
 # Read data
 
-df <- read_csv("./data/ELP_full_length_frequency.csv")
+df <- read_csv("./data/ELP_full_length_frequency.csv", show_col_types = FALSE)
 
 # filter, clean and transform data
 
@@ -156,7 +156,7 @@ Note that you write first the new name and then the old one.
 
 ```{r}
 durationsOnt_simplified_renamed <- rename(durationsOnt_simplified, Gender = Sex)
-durationsOnt_simplified_renamed
+head(durationsOnt_simplified_renamed)
 ```
 
 ### Moving variable position: `relocate()`
@@ -169,14 +169,14 @@ You call the function providing again as first parameter the dataset and then th
 
 ```{r}
 durationsOnt_reordered <- relocate(durationsOnt_simplified_renamed, Speaker)
-durationsOnt_reordered
+head(durationsOnt_reordered)
 ```
 
 The Speaker variable is now the first. If we want to define a specific location, we can use the arguments `.after` or `.before` . For instance, if we want to move the Gender to be just after the Speaker column we will call the following:
 
 ```{r}
 durationsOnt_reordered <- relocate(durationsOnt_reordered, Gender, .after = Speaker)
-durationsOnt_reordered
+head(durationsOnt_reordered)
 ```
 
 Now that we have selected the variables that we want and in the order that we want them, let's filter the data to select some cases
@@ -203,7 +203,7 @@ If we wanted to select for example only the cases for Females, we will have used
 
 ```{r}
 durationsOnt_reordered_filtered_age_gender <- filter(durationsOnt_reordered,(YearOfBirth > 70) & (Gender=="female"))
-durationsOnt_reordered_filtered_age_gender
+head(durationsOnt_reordered_filtered_age_gender)
 ```
 
 ### Reordering cases: `arrange()` 
@@ -212,14 +212,14 @@ Finally, the `arrange()` function orders the dataset by a selected value. For ex
 
 ```{r}
 durationsOnt_reordered_filtered_age_gender_ordered <- arrange(durationsOnt_reordered_filtered_age_gender, Frequency)
-durationsOnt_reordered_filtered_age_gender_ordered
+head(durationsOnt_reordered_filtered_age_gender_ordered)
 ```
 
 What about if we want to use a **reverse order**? This can be done use the `desc()` modified on the variable to be used:
 
 ```{r}
 durationsOnt_reordered_filtered_age_gender_ordered <- arrange(durationsOnt_reordered_filtered_age_gender, desc(Frequency))
-durationsOnt_reordered_filtered_age_gender_ordered
+head(durationsOnt_reordered_filtered_age_gender_ordered)
 ```
 
 ## Pipe operator (`%>%` or `|>` )
@@ -281,7 +281,8 @@ durationsOnt_processed <- durationsOnt %>% select(Word:DurationOfPrefix) %>%
                           relocate(Gender, .after = Speaker) %>%
                           filter((YearOfBirth > 70) & (Gender=="female")) %>%
                           arrange(desc(Frequency))
-durationsOnt_processed
+
+head(durationsOnt_processed)
 ```
 
 As you can see, the result is the case, but the code and data processing flow is much more readable, and there is no need to introduce intermediate variables.

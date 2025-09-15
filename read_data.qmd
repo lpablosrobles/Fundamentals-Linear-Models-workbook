@@ -72,6 +72,10 @@ If your data is tab-separated, you can use the function `read_tsv()` . By defaul
 
 The best way to read Excel files is using the `readxl` package. If your file has several worksheets, you can use the `sheet` argument to specify either an index or the name of the worksheet to read.
 
+::: {.callout-note icon="false"}
+Example for Excel as reference. Not to be run.
+:::
+
 ``` r
 # load library
 library(readxl)
