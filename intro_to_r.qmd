@@ -1,4 +1,4 @@
-# ✍️ R Syntax
+# ✍️ R Syntax {.unnumbered}
 
 R is an **interpreted language**, which means that you can write *commands* to an interpreter in a console that will execute them and return the results. This is in comparison with **compiled languages** that require to *compile* the source code to translate it to a machine understandable code.
 
@@ -99,7 +99,7 @@ Used for logical operations (return `TRUE`/`FALSE`):
 Used to assign values to variables:
 
 | Operator | Description | Example | **Comment** |
-|----|----|----|----|
+|------------------|------------------|------------------|-------------------|
 | `<-` | Preferred assignment | `x <- 5` | Most commonly used |
 | `=` | Alternative assignment | `x = 5` | Used in the assignment of values to function arguments (see function section below) |
 | `->` | Assign right to left | `5 -> x` | Although syntactically valid in R, not used often |

@@ -1,4 +1,4 @@
-# Workbook organization
+# Workbook organization {.unnumbered}
 
 The workbook is organized in six chapters to cover the Workgroup sessions.
 

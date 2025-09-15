@@ -2,7 +2,7 @@
 editor: visual
 ---
 
-# Reproducible research using Scripts and Notebooks
+# Reproducible research using Scripts and Notebooks {.unnumbered}
 
 Up to now we have described the usage of R and RStudio as an interactive data analysis environment where we introduce commands and get outputs on the Console.
 

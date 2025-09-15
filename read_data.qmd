@@ -2,7 +2,7 @@
 editor: visual
 ---
 
-# Reading and Saving data in R
+# Reading and Saving data in R {.unnumbered}
 
 ------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ Let's see an example of usage loading the file in the `/data` directorate "*ELP_
 ```{r}
 library(readr)
 
-data_sample_csv <- read_csv("./data/ELP_full_length_frequency.csv")
+data_sample_csv <- read_csv("./data/ELP_full_length_frequency.csv",show_col_types = FALSE)
 head(data_sample_csv)
 ```
 
@@ -88,7 +88,7 @@ To illustrate again let's load a file in the `/data` directory containing a samp
 
 ```{r}
 data_sample_r <- readRDS("./data/eegSampleData.Rda")
-data_sample_r
+head(data_sample_r)
 ```
 
 ### Data from SPSS
@@ -104,7 +104,7 @@ As an example again, let's open a file saved in SPSS from another ERP (Event Rel
 library(haven)
 
 data_sample_spss <- read_sav("./data/EEG_DataSet_LongFormat_pablos.sav")
-data_sample_spss
+head(data_sample_spss)
 ```
 
 Again to preserve memory, let's clean the workspace by removing the variables we created using :
