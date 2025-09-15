@@ -333,6 +333,19 @@ div.csl-indent {
 <p>If your data is tab-separated, you can use the function <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv()</a></code> . By default, the functions expect that the first row contains the names of the columns/variables to be read. If that is not the case, you should modify the argument <code>col_names = FALSE</code> .</p>
 </section><section id="data-from-excel-files" class="level3"><h3 class="anchored" data-anchor-id="data-from-excel-files">Data from Excel files</h3>
 <p>The best way to read Excel files is using the <code>readxl</code> package. If your file has several worksheets, you can use the <code>sheet</code> argument to specify either an index or the name of the worksheet to read.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Example for Excel as reference. Not to be run.</p>
+</div>
+</div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load library</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
 <span></span>
