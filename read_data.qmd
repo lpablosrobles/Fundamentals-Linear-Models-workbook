@@ -16,7 +16,17 @@ We will look in what follows at a few examples of loading data in different comm
 
 Before entering into the details on the read and write of files, it is important to understand where the files are located and how to provide paths in R.
 
-Paths for files in R are relative to the "*Working Directory*". To know which is the working directory, you can use the function `getwd()`.
+Paths for files in R are relative to the "*Working Directory*". To know which is the working directory, you can use the function `getwd()` or select the option "*Go to working directory*" in the files tab.
+
+![](images/clipboard-2964102789.png)
+
+The paths of a file are relative to that directory. Considering this, in the examples and assignments in this course, we will load data in the `/data` folder as follows:
+
+`'./data/FILE_NAME'`
+
+The `./` in the path above indicates the working directory.
+
+When running commands loading or saving files, take care that you indicate the path correctly if you get an error.
 
 ## Reading data from files {#sec-r-read}
 
