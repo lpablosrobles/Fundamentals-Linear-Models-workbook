@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.42">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
-
-<title>4&nbsp; Introduction to tidyverse – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>5&nbsp; Introduction to tidyverse 1: data manipulation – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,8 +52,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
-
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -76,8 +92,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -103,37 +118,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
-
-
+}</script><script src="site_libs/quarto-diagram/mermaid.min.js"></script><script src="site_libs/quarto-diagram/mermaid-init.js"></script><link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./tidyverse_intro.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to tidyverse</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./tidyverse_intro.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction to tidyverse 1: data manipulation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
         <div class="sidebar-tools-main">
@@ -152,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -161,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Workbook organization</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -172,39 +175,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_libraries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./read_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to tidyverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction to tidyverse 1: data manipulation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Workgroup 2: Data Exploration with R</span></span>
@@ -232,29 +235,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-the-tidyverse" id="toc-what-is-the-tidyverse" class="nav-link active" data-scroll-target="#what-is-the-tidyverse"><span class="header-section-number">4.1</span> 🌐 <strong>What is the tidyverse?</strong></a></li>
-  <li><a href="#core-tidyverse-packages" id="toc-core-tidyverse-packages" class="nav-link" data-scroll-target="#core-tidyverse-packages"><span class="header-section-number">4.2</span> 📦 <strong>Core tidyverse Packages</strong></a></li>
-  <li><a href="#workflow-using-tidyverse" id="toc-workflow-using-tidyverse" class="nav-link" data-scroll-target="#workflow-using-tidyverse"><span class="header-section-number">4.3</span> <strong>Workflow Using tidyverse</strong></a></li>
-  <li><a href="#why-use-tidyverse" id="toc-why-use-tidyverse" class="nav-link" data-scroll-target="#why-use-tidyverse"><span class="header-section-number">4.4</span> ✅ <strong>Why Use tidyverse?</strong></a></li>
-  <li><a href="#pipe-operator-or" id="toc-pipe-operator-or" class="nav-link" data-scroll-target="#pipe-operator-or"><span class="header-section-number">4.5</span> Pipe operator (<code>%&gt;%</code> or <code>|&gt;</code> )</a></li>
+<li>
+<a href="#what-is-the-tidyverse" id="toc-what-is-the-tidyverse" class="nav-link active" data-scroll-target="#what-is-the-tidyverse"><span class="header-section-number">5.1</span> 🌐 <strong>What is the tidyverse?</strong></a>
+  <ul class="collapse">
+<li><a href="#why-use-tidyverse" id="toc-why-use-tidyverse" class="nav-link" data-scroll-target="#why-use-tidyverse"><span class="header-section-number">5.1.1</span> <strong>Why Use tidyverse?</strong></a></li>
+  <li><a href="#core-tidyverse-packages" id="toc-core-tidyverse-packages" class="nav-link" data-scroll-target="#core-tidyverse-packages"><span class="header-section-number">5.1.2</span> 📦 <strong>Core tidyverse Packages</strong></a></li>
+  <li><a href="#workflow-using-tidyverse" id="toc-workflow-using-tidyverse" class="nav-link" data-scroll-target="#workflow-using-tidyverse"><span class="header-section-number">5.1.3</span> <strong>Workflow Using tidyverse</strong></a></li>
   </ul>
-</nav>
+</li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">5.2</span> </a></li>
+  <li>
+<a href="#a-grammar-of-data-manipulation" id="toc-a-grammar-of-data-manipulation" class="nav-link" data-scroll-target="#a-grammar-of-data-manipulation"><span class="header-section-number">5.3</span> A grammar of data manipulation</a>
+  <ul class="collapse">
+<li><a href="#selecting-variables-select" id="toc-selecting-variables-select" class="nav-link" data-scroll-target="#selecting-variables-select"><span class="header-section-number">5.3.1</span> Selecting variables: <code>select()</code></a></li>
+  <li><a href="#changing-variable-names-rename" id="toc-changing-variable-names-rename" class="nav-link" data-scroll-target="#changing-variable-names-rename"><span class="header-section-number">5.3.2</span> Changing variable names: <code>rename()</code></a></li>
+  <li><a href="#moving-variable-position-relocate" id="toc-moving-variable-position-relocate" class="nav-link" data-scroll-target="#moving-variable-position-relocate"><span class="header-section-number">5.3.3</span> Moving variable position: <code>relocate()</code></a></li>
+  <li><a href="#selecting-cases-filter" id="toc-selecting-cases-filter" class="nav-link" data-scroll-target="#selecting-cases-filter"><span class="header-section-number">5.3.4</span> Selecting cases: filter()</a></li>
+  <li><a href="#reordering-cases-arrange" id="toc-reordering-cases-arrange" class="nav-link" data-scroll-target="#reordering-cases-arrange"><span class="header-section-number">5.3.5</span> Reordering cases: <code>arrange()</code></a></li>
+  </ul>
+</li>
+  <li><a href="#pipe-operator-or" id="toc-pipe-operator-or" class="nav-link" data-scroll-target="#pipe-operator-or"><span class="header-section-number">5.4</span> Pipe operator (<code>%&gt;%</code> or <code>|&gt;</code> )</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./tidyverse_intro.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to tidyverse</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span id="sec-the-r-language" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to tidyverse</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./tidyverse_intro.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction to tidyverse 1: data manipulation</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-the-r-language" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction to tidyverse 1: data manipulation</span></span></h1>
 </div>
 
 
@@ -268,23 +280,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header>
-
-
-<section id="what-is-the-tidyverse" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="what-is-the-tidyverse"><span class="header-section-number">4.1</span> 🌐 <strong>What is the tidyverse?</strong></h2>
+</header><section id="what-is-the-tidyverse" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="what-is-the-tidyverse">
+<span class="header-section-number">5.1</span> 🌐 <strong>What is the tidyverse?</strong>
+</h2>
+<hr>
 <p>The <strong><code>tidyverse</code></strong> is a collection of R packages designed for <strong>data science</strong>. These packages share an underlying philosophy, grammar, and data structures, making it easier to learn and use them together. Tidyverse simplifies tasks like data manipulation, visualization, and modeling.</p>
-</section>
-<section id="core-tidyverse-packages" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="core-tidyverse-packages"><span class="header-section-number">4.2</span> 📦 <strong>Core tidyverse Packages</strong></h2>
-<p>When you load the tidyverse, you get access to these core packages:</p>
+<p>A full description of the tidyverse packages and functions is available in <a href="https://dplyr.tidyverse.org/" class="uri">https://dplyr.tidyverse.org/</a></p>
+<section id="why-use-tidyverse" class="level3" data-number="5.1.1"><h3 data-number="5.1.1" class="anchored" data-anchor-id="why-use-tidyverse">
+<span class="header-section-number">5.1.1</span> <strong>Why Use tidyverse?</strong>
+</h3>
+<p>Using the functions in tidyverse have a number of advantages versus the use of individual packages or the available base R functions:</p>
+<ul>
+<li><p>Consistent and readable syntax.</p></li>
+<li><p>Pipe operator (<code>%&gt;%</code>) for chaining operations (see later)</p></li>
+<li><p>Designed for tidy data principles as described in <span class="citation" data-cites="wickham2024r">Wickham, Çetinkaya-Rundel, and Grolemund (<a href="references.html#ref-wickham2024r" role="doc-biblioref">2024</a>)</span>.</p></li>
+<li><p>It has a strong user community and documentation.</p></li>
+</ul></section><section id="core-tidyverse-packages" class="level3" data-number="5.1.2"><h3 data-number="5.1.2" class="anchored" data-anchor-id="core-tidyverse-packages">
+<span class="header-section-number">5.1.2</span> 📦 <strong>Core tidyverse Packages</strong>
+</h3>
+<p>When you install and load the <code>tidyverse</code> package, you get access to the core packages listed in the table below without needing to load them individually</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Package</th>
 <th>Usage</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><code>ggplot2</code></td>
@@ -320,13 +339,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-</section>
-<section id="workflow-using-tidyverse" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="workflow-using-tidyverse"><span class="header-section-number">4.3</span> <strong>Workflow Using tidyverse</strong></h2>
+<p>We have already seen <code>readr</code> when loading files. We will explore today the <code>tidyr</code> functions.</p>
+</section><section id="workflow-using-tidyverse" class="level3" data-number="5.1.3"><h3 data-number="5.1.3" class="anchored" data-anchor-id="workflow-using-tidyverse">
+<span class="header-section-number">5.1.3</span> <strong>Workflow Using tidyverse</strong>
+</h3>
+<p>A generic workflow using tidyverse can be represented as follows:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"><p></p>
+<p></p><figure class="figure"></figure><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
   load["Load tidyverse"]
@@ -338,46 +359,747 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   clean --&gt; plot
 </pre>
 </div>
-<p></p></figure><p></p>
+<p></p>
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load tidyverse</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">readcsv</span>(<span class="st">"data.csv"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean and transform</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>cleandata <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(value)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">newvalue =</span> value <span class="sc">*</span> <span class="dv">2</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cleandata, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> newvalue)) <span class="sc">+</span> <span class="fu">geombar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="why-use-tidyverse" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="why-use-tidyverse"><span class="header-section-number">4.4</span> ✅ <strong>Why Use tidyverse?</strong></h2>
+<p>This flow result in a code as the following example:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You are not expected to understand all the code below now. We will explain different elements during the course. It is just intended as an example of the workflow.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load tidyverse</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tibble' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.3.0
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Read data</span></span>
+<span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"./data/ELP_full_length_frequency.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 33075 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): Word
+dbl (3): Log10Freq, length, RT
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># filter, clean and transform data</span></span>
+<span></span>
+<span><span class="va">cleandata</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">length</span><span class="op">&gt;</span><span class="fl">3</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>rt_per_character <span class="op">=</span> <span class="va">RT</span> <span class="op">/</span> <span class="va">length</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Visualize</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">cleandata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Log10Freq</span>, y <span class="op">=</span> <span class="va">RT</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color<span class="op">=</span><span class="st">'grey'</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="st">"lm"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="tidyverse_intro_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="section" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="section">
+<span class="header-section-number">5.2</span> </h2>
+</section><section id="a-grammar-of-data-manipulation" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="a-grammar-of-data-manipulation">
+<span class="header-section-number">5.3</span> A grammar of data manipulation</h2>
+<hr>
+<p><code>dplyr</code> is a package within the <code>tidyverse</code> set of functions that allow to manipulate data. You can think of the functions in the package as a sort of “<em>grammar of data manipulation</em>”, providing a consistent set of verbs that help you solve the most common data manipulation challenges:</p>
 <ul>
-<li><p>Consistent and readable syntax</p></li>
-<li><p>Pipe operator (<code>%&gt;%</code>) for chaining operations</p></li>
-<li><p>Designed for tidy data principles</p></li>
-<li><p>Strong community and documentation</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>mutate()</code></a> adds new variables that are functions of existing variables -&gt; operates on columns.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/relocate.html"><code>relocate()</code></a>: moves variables to a different position (change order of columns) -&gt; operates on columns.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/select.html"><code>select()</code></a> picks variables based on their names. -&gt; operates on columns.</p></li>
+<li><p><code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code>: change variable names -&gt; operates on columns</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/arrange.html"><code>arrange()</code></a> changes the ordering of the rows. -&gt; operates on rows.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/filter.html"><code>filter()</code></a> picks cases based on their values. -&gt; operates on rows.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a> reduces multiple values down to a single summary (we will look at this in next workgroup).</p></li>
 </ul>
-</section>
-<section id="pipe-operator-or" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="pipe-operator-or"><span class="header-section-number">4.5</span> Pipe operator (<code>%&gt;%</code> or <code>|&gt;</code> )</h2>
-<p>The pipe operator allows you to&nbsp;<strong>pass the result of one function directly into the next function</strong>&nbsp;as its first argument. It’s widely used in the&nbsp;<strong>tidyverse</strong>, especially with&nbsp;<code>dplyr</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will see that the functions in <code>tidyverse</code> libraries return a so called <code>tibble</code> . The details are beyond the scope of this course, but you can think of a tibble as a version of a data frame.</p>
+</div>
+</div>
+<p>Let’s explore how to use the functions above with another of the datasets contained in the <code>languageR</code> package by <span class="citation" data-cites="Baayen_2008">Baayen (<a href="references.html#ref-Baayen_2008" role="doc-biblioref">2008</a>)</span>. We will use the <code>DurationsOnt</code> dataset that contains durational measurement of the Dutch prefix <em>-ont</em> from a study on a Spoken Dutch Corpus ( <span class="citation" data-cites="pluymaekers2005lexical">Pluymaekers, Ernestus, and Baayen (<a href="references.html#ref-pluymaekers2005lexical" role="doc-biblioref">2005</a>)</span>).</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#load library</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">languageR</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'languageR' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#load dataset in the environment</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"durationsOnt"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#display the structure of the dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">durationsOnt</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   102 obs. of  12 variables:
+ $ Word                 : Factor w/ 102 levels "ontbeten","ontbijt",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ Frequency            : num  3.09 4.84 0 3.76 1.95 ...
+ $ Speaker              : Factor w/ 63 levels "N01001","N01002",..: 44 15 53 55 46 42 25 25 63 4 ...
+ $ Sex                  : Factor w/ 2 levels "female","male": 1 1 2 1 2 1 2 2 2 1 ...
+ $ YearOfBirth          : num  72 80 52 60 74 70 76 76 76 66 ...
+ $ DurationOfPrefix     : num  0.113 0.1 0.14 0.161 0.161 ...
+ $ DurationPrefixVowel  : num  0.0695 0.0354 0.0474 0.0959 0.064 ...
+ $ DurationPrefixNasal  : num  0.0439 0.0651 0.0925 0.0648 0.0973 ...
+ $ DurationPrefixPlosive: num  0 0 0 0 0 0 0 0 0 0 ...
+ $ NumberOfSegmentsOnset: int  1 1 1 1 1 1 1 1 2 2 ...
+ $ PlosivePresent       : Factor w/ 2 levels "no","yes": 1 1 1 1 1 1 1 1 1 1 ...
+ $ SpeechRate           : num  3.92 6.88 3.53 5.39 6.73 ...</code></pre>
+</div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#look at the description of the variables</span></span>
+<span><span class="op">?</span><span class="va">durationsOnt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="selecting-variables-select" class="level3" data-number="5.3.1"><h3 data-number="5.3.1" class="anchored" data-anchor-id="selecting-variables-select">
+<span class="header-section-number">5.3.1</span> Selecting variables: <code>select()</code>
+</h3>
+<hr>
+<p>The function <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> allows to choose a subset of variables (columns of interest). The function call includes as first parameter the dataset followed by the list of columns you would like to keep.</p>
+<p>For this example we would like to look only at the duration of the Prefix in seconds and are not interested in the other variables.</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_simplified</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">durationsOnt</span>,  <span class="va">Word</span>, <span class="va">Frequency</span>, <span class="va">Speaker</span>, <span class="va">Sex</span>, <span class="va">YearOfBirth</span>, <span class="va">DurationOfPrefix</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">durationsOnt_simplified</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Word Frequency Speaker    Sex YearOfBirth DurationOfPrefix
+24       ontbeten 3.0910425  N01143 female          72         0.113372
+58        ontbijt 4.8441871  N01041 female          80         0.100478
+40  ontbijtbuffet 0.0000000  N01157   male          52         0.139806
+42      ontbijten 3.7612001  N01162 female          60         0.160739
+60      ontbijtje 1.9459101  N01145   male          74         0.161283
+21 ontbijtservies 0.6931472  N01134 female          70         0.176658</code></pre>
+</div>
+</div>
+<p>The new dataframe <code>durationsOnt_simplified</code> contains now only the columns we specified.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have many columns, there is a simpler way to specify “<em>keep from column X to column Y</em>” without having to list each one of the individually by using <code>:</code> as in the example below that provides the same result. Of course this does not work if you want to select non-contiguous columns.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_simplified</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">durationsOnt</span>,  <span class="va">Word</span><span class="op">:</span><span class="va">DurationOfPrefix</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">durationsOnt_simplified</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Word Frequency Speaker    Sex YearOfBirth DurationOfPrefix
+24       ontbeten 3.0910425  N01143 female          72         0.113372
+58        ontbijt 4.8441871  N01041 female          80         0.100478
+40  ontbijtbuffet 0.0000000  N01157   male          52         0.139806
+42      ontbijten 3.7612001  N01162 female          60         0.160739
+60      ontbijtje 1.9459101  N01145   male          74         0.161283
+21 ontbijtservies 0.6931472  N01134 female          70         0.176658</code></pre>
+</div>
+</div>
+</section><section id="changing-variable-names-rename" class="level3" data-number="5.3.2"><h3 data-number="5.3.2" class="anchored" data-anchor-id="changing-variable-names-rename">
+<span class="header-section-number">5.3.2</span> Changing variable names: <code>rename()</code>
+</h3>
+<hr>
+<p>You can change the naming of the variable using rename as follows - You call the function with as first parameter the dataset and after with the list of variables to be renamed.\</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that you write first the new name and then the old one.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_simplified_renamed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="va">durationsOnt_simplified</span>, Gender <span class="op">=</span> <span class="va">Sex</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_simplified_renamed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    Word Frequency Speaker Gender YearOfBirth DurationOfPrefix
+24              ontbeten 3.0910425  N01143 female          72         0.113372
+58               ontbijt 4.8441871  N01041 female          80         0.100478
+40         ontbijtbuffet 0.0000000  N01157   male          52         0.139806
+42             ontbijten 3.7612001  N01162 female          60         0.160739
+60             ontbijtje 1.9459101  N01145   male          74         0.161283
+21        ontbijtservies 0.6931472  N01134 female          70         0.176658
+69            ontbinding 1.0986123  N01078   male          76         0.148544
+83              ontbindt 0.6931472  N01078   male          76         0.158397
+30             ontbreekt 4.2626799  N01217   male          76         0.086736
+10             ontbreken 3.7135721  N01011 female          66         0.160132
+41               ontgaan 3.0445224  N01205   male          61         0.157300
+62               ontging 2.1972246  N01069   male          37         0.169992
+48             ontgraven 0.0000000  N01020   male          61         0.161262
+63           ontgroening 1.0986123  N01147 female          45         0.198056
+70              ontheven 0.0000000  N01029   male          39         0.172546
+46               onthoud 3.4339872  N01103 female          77         0.168078
+45             onthouden 5.4071718  N01132   male          78         0.174686
+51              onthoudt 3.4011974  N01012   male          73         0.179994
+100              onthuld 1.7917595  N01214 female          40         0.232413
+43              onthulde 2.0794415  N01089 female          75         0.165369
+55             onthullen 1.9459101  N01065 female          78         0.185638
+98               ontkend 3.4339872  N01214 female          40         0.170969
+78              ontkende 2.8332133  N01096 female          78         0.186745
+16             ontkennen 4.1271344  N01058   male          75         0.160937
+26               ontkent 3.6888795  N01066 female          78         0.179150
+19                ontkom 2.0794415  N01209 female          49         0.215504
+50             ontkracht 1.6094379  N01042   male          79         0.140938
+6                ontlast 1.9459101  N01156 female          42         0.192938
+27             ontlasten 1.6094379  N01159   male          44         0.166283
+99            ontlasting 2.3978953  N01102 female          77         0.174332
+18              ontleent 1.6094379  N01068 female          46         0.160403
+54              ontloopt 1.6094379  N01147 female          45         0.175413
+1            ontluikende 1.6094379  N01068 female          46         0.160924
+20            ontmaskerd 0.6931472  N01051 female          79         0.190070
+32           ontmaskeren 1.6094379  N01051 female          79         0.143948
+31               ontmoet 5.0875963  N01212 female          83         0.119349
+14       ontmoetingspunt 0.6931472  N01001 female          52         0.161911
+28             ontmoette 3.3672958  N01029   male          39         0.201341
+77            ontmoetten 2.7725887  N01157   male          52         0.167576
+53              ontneemt 1.3862944  N01019   male          62         0.109592
+101          ontploffing 3.6635616  N01083 female          75         0.115718
+93         ontploffingen 1.3862944  N01171 female          76         0.114520
+74              ontploft 3.4339872  N01086   male          69         0.147802
+90              ontregel 0.6931472  N01031 female          38         0.191336
+47              ontroerd 2.3025851  N01089 female          75         0.157852
+13            ontroerend 2.4849066  N01144   male          71         0.171721
+94             ontruimen 1.3862944  N01020   male          61         0.111411
+75              ontslaan 3.2958369  N01132   male          78         0.106138
+39               ontslag 4.6347290  N01151 female          56         0.101774
+82             ontslagen 4.2626799  N01149 female          25         0.159804
+44             ontsloten 2.0794415  N01019   male          62         0.117869
+66            ontsluiten 1.3862944  N01019   male          62         0.114725
+81               ontsnap 0.6931472  N01014   male          76         0.091196
+76            ontsnappen 3.9318256  N01017   male          69         0.148343
+67              ontsnapt 4.1431347  N01156 female          42         0.125200
+89            ontspannen 4.6728288  N01041 female          80         0.143707
+64           ontspannend 3.2580965  N01010   male          70         0.107453
+15           ontspanning 4.5432948  N01214 female          40         0.180961
+65      ontspanningsteam 0.0000000  N01163 female          61         0.121993
+35             ontspoord 1.9459101  N01085   male          70         0.039299
+96             ontspoort 1.3862944  N01085   male          70         0.074228
+71              ontstaan 6.0684256  N01041 female          80         0.205519
+17              ontstaat 5.0434251  N01020   male          61         0.086615
+95             ontsteken 1.7917595  N01121   male          77         0.165329
+73            ontsteking 3.8918203  N01037 female          81         0.113105
+102     ontstekingsvocht 0.0000000  N01037 female          81         0.099240
+68             ontstoken 3.0910425  N01144   male          71         0.115091
+12              ontstond 4.5747110  N01090 female          76         0.127984
+92               ontvang 2.0794415  N01105 female          80         0.161155
+59             ontvangen 5.4337220  N01017   male          69         0.087884
+7              ontvangst 3.9512437  N01062   male          48         0.102165
+34           ontvangsten 3.1354942  N01068 female          46         0.183979
+5       ontvangststation 0.0000000  N01002   male          52         0.130220
+97              ontvangt 3.6888795  N01106   male          77         0.187346
+9                ontving 3.2958369  N01002   male          52         0.130554
+38             ontvingen 1.6094379  N01157   male          52         0.116323
+87              ontvoerd 2.9444390  N01027 female          70         0.118748
+88             ontvoeren 1.6094379  N01110 female          77         0.098185
+2              ontvreemd 2.0794415  N01065 female          78         0.107143
+4               ontwaken 1.3862944  N01157   male          52         0.230269
+22           ontwapenend 0.6931472  N01133   male          79         0.174880
+91               ontwerp 4.3040651  N01150 female          23         0.174030
+3              ontwerpen 4.1431347  N01065 female          78         0.126606
+57             ontwerper 3.0445224  N01042   male          79         0.158592
+49             ontwijken 2.6390573  N01089 female          75         0.187598
+29           ontwijkende 0.0000000  N01146   male          23         0.236841
+84            ontwikkeld 5.0039463  N01135   male          64         0.170042
+52           ontwikkelde 3.4965076  N01100   male          29         0.200608
+72           ontwikkelen 5.3278762  N01085   male          70         0.075877
+36          ontwikkeling 5.8777358  N01042   male          79         0.239222
+23        ontwikkelingen 5.0998664  N01028 female          38         0.123474
+79     ontwikkelingshulp 2.9444390  N01078   male          76         0.171507
+37    ontwikkelingskaart 0.0000000  N01014   male          76         0.130127
+25  ontwikkelingskaartje 0.0000000  N01014   male          76         0.108434
+56     ontwikkelingspunt 0.0000000  N01014   male          76         0.124063
+61     ontwikkelingswerk 1.9459101  N01051 female          79         0.114132
+80            ontwikkelt 4.0253517  N01085   male          70         0.128376
+86             ontworpen 3.7135721  N01170   male          78         0.139723
+85             ontwricht 2.3025851  N01205   male          61         0.218802
+33            ontzettend 6.7250336  N01068 female          46         0.164835
+11           ontzettende 4.1896547  N01092 female          80         0.117997
+8                ontzien 1.9459101  N01045   male          77         0.134899</code></pre>
+</div>
+</div>
+</section><section id="moving-variable-position-relocate" class="level3" data-number="5.3.3"><h3 data-number="5.3.3" class="anchored" data-anchor-id="moving-variable-position-relocate">
+<span class="header-section-number">5.3.3</span> Moving variable position: <code>relocate()</code>
+</h3>
+<hr>
+<p>With big datasets including many variables (columns), sometimes it is useful to change the order of the columns. This can be done with the <code><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate()</a></code> function.</p>
+<p>You call the function providing again as first parameter the dataset and then the column you want to move. By default the function will move the column specified to become the first. Let’s say that we want to have the S<em>peaker Identifier</em> as the first column, we will use the following:</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_reordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">durationsOnt_simplified_renamed</span>, <span class="va">Speaker</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_reordered</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Speaker                 Word Frequency Gender YearOfBirth DurationOfPrefix
+24   N01143             ontbeten 3.0910425 female          72         0.113372
+58   N01041              ontbijt 4.8441871 female          80         0.100478
+40   N01157        ontbijtbuffet 0.0000000   male          52         0.139806
+42   N01162            ontbijten 3.7612001 female          60         0.160739
+60   N01145            ontbijtje 1.9459101   male          74         0.161283
+21   N01134       ontbijtservies 0.6931472 female          70         0.176658
+69   N01078           ontbinding 1.0986123   male          76         0.148544
+83   N01078             ontbindt 0.6931472   male          76         0.158397
+30   N01217            ontbreekt 4.2626799   male          76         0.086736
+10   N01011            ontbreken 3.7135721 female          66         0.160132
+41   N01205              ontgaan 3.0445224   male          61         0.157300
+62   N01069              ontging 2.1972246   male          37         0.169992
+48   N01020            ontgraven 0.0000000   male          61         0.161262
+63   N01147          ontgroening 1.0986123 female          45         0.198056
+70   N01029             ontheven 0.0000000   male          39         0.172546
+46   N01103              onthoud 3.4339872 female          77         0.168078
+45   N01132            onthouden 5.4071718   male          78         0.174686
+51   N01012             onthoudt 3.4011974   male          73         0.179994
+100  N01214              onthuld 1.7917595 female          40         0.232413
+43   N01089             onthulde 2.0794415 female          75         0.165369
+55   N01065            onthullen 1.9459101 female          78         0.185638
+98   N01214              ontkend 3.4339872 female          40         0.170969
+78   N01096             ontkende 2.8332133 female          78         0.186745
+16   N01058            ontkennen 4.1271344   male          75         0.160937
+26   N01066              ontkent 3.6888795 female          78         0.179150
+19   N01209               ontkom 2.0794415 female          49         0.215504
+50   N01042            ontkracht 1.6094379   male          79         0.140938
+6    N01156              ontlast 1.9459101 female          42         0.192938
+27   N01159            ontlasten 1.6094379   male          44         0.166283
+99   N01102           ontlasting 2.3978953 female          77         0.174332
+18   N01068             ontleent 1.6094379 female          46         0.160403
+54   N01147             ontloopt 1.6094379 female          45         0.175413
+1    N01068          ontluikende 1.6094379 female          46         0.160924
+20   N01051           ontmaskerd 0.6931472 female          79         0.190070
+32   N01051          ontmaskeren 1.6094379 female          79         0.143948
+31   N01212              ontmoet 5.0875963 female          83         0.119349
+14   N01001      ontmoetingspunt 0.6931472 female          52         0.161911
+28   N01029            ontmoette 3.3672958   male          39         0.201341
+77   N01157           ontmoetten 2.7725887   male          52         0.167576
+53   N01019             ontneemt 1.3862944   male          62         0.109592
+101  N01083          ontploffing 3.6635616 female          75         0.115718
+93   N01171        ontploffingen 1.3862944 female          76         0.114520
+74   N01086             ontploft 3.4339872   male          69         0.147802
+90   N01031             ontregel 0.6931472 female          38         0.191336
+47   N01089             ontroerd 2.3025851 female          75         0.157852
+13   N01144           ontroerend 2.4849066   male          71         0.171721
+94   N01020            ontruimen 1.3862944   male          61         0.111411
+75   N01132             ontslaan 3.2958369   male          78         0.106138
+39   N01151              ontslag 4.6347290 female          56         0.101774
+82   N01149            ontslagen 4.2626799 female          25         0.159804
+44   N01019            ontsloten 2.0794415   male          62         0.117869
+66   N01019           ontsluiten 1.3862944   male          62         0.114725
+81   N01014              ontsnap 0.6931472   male          76         0.091196
+76   N01017           ontsnappen 3.9318256   male          69         0.148343
+67   N01156             ontsnapt 4.1431347 female          42         0.125200
+89   N01041           ontspannen 4.6728288 female          80         0.143707
+64   N01010          ontspannend 3.2580965   male          70         0.107453
+15   N01214          ontspanning 4.5432948 female          40         0.180961
+65   N01163     ontspanningsteam 0.0000000 female          61         0.121993
+35   N01085            ontspoord 1.9459101   male          70         0.039299
+96   N01085            ontspoort 1.3862944   male          70         0.074228
+71   N01041             ontstaan 6.0684256 female          80         0.205519
+17   N01020             ontstaat 5.0434251   male          61         0.086615
+95   N01121            ontsteken 1.7917595   male          77         0.165329
+73   N01037           ontsteking 3.8918203 female          81         0.113105
+102  N01037     ontstekingsvocht 0.0000000 female          81         0.099240
+68   N01144            ontstoken 3.0910425   male          71         0.115091
+12   N01090             ontstond 4.5747110 female          76         0.127984
+92   N01105              ontvang 2.0794415 female          80         0.161155
+59   N01017            ontvangen 5.4337220   male          69         0.087884
+7    N01062            ontvangst 3.9512437   male          48         0.102165
+34   N01068          ontvangsten 3.1354942 female          46         0.183979
+5    N01002     ontvangststation 0.0000000   male          52         0.130220
+97   N01106             ontvangt 3.6888795   male          77         0.187346
+9    N01002              ontving 3.2958369   male          52         0.130554
+38   N01157            ontvingen 1.6094379   male          52         0.116323
+87   N01027             ontvoerd 2.9444390 female          70         0.118748
+88   N01110            ontvoeren 1.6094379 female          77         0.098185
+2    N01065            ontvreemd 2.0794415 female          78         0.107143
+4    N01157             ontwaken 1.3862944   male          52         0.230269
+22   N01133          ontwapenend 0.6931472   male          79         0.174880
+91   N01150              ontwerp 4.3040651 female          23         0.174030
+3    N01065            ontwerpen 4.1431347 female          78         0.126606
+57   N01042            ontwerper 3.0445224   male          79         0.158592
+49   N01089            ontwijken 2.6390573 female          75         0.187598
+29   N01146          ontwijkende 0.0000000   male          23         0.236841
+84   N01135           ontwikkeld 5.0039463   male          64         0.170042
+52   N01100          ontwikkelde 3.4965076   male          29         0.200608
+72   N01085          ontwikkelen 5.3278762   male          70         0.075877
+36   N01042         ontwikkeling 5.8777358   male          79         0.239222
+23   N01028       ontwikkelingen 5.0998664 female          38         0.123474
+79   N01078    ontwikkelingshulp 2.9444390   male          76         0.171507
+37   N01014   ontwikkelingskaart 0.0000000   male          76         0.130127
+25   N01014 ontwikkelingskaartje 0.0000000   male          76         0.108434
+56   N01014    ontwikkelingspunt 0.0000000   male          76         0.124063
+61   N01051    ontwikkelingswerk 1.9459101 female          79         0.114132
+80   N01085           ontwikkelt 4.0253517   male          70         0.128376
+86   N01170            ontworpen 3.7135721   male          78         0.139723
+85   N01205            ontwricht 2.3025851   male          61         0.218802
+33   N01068           ontzettend 6.7250336 female          46         0.164835
+11   N01092          ontzettende 4.1896547 female          80         0.117997
+8    N01045              ontzien 1.9459101   male          77         0.134899</code></pre>
+</div>
+</div>
+<p>The Speaker variable is now the first. If we want to define a specific location, we can use the arguments <code>.after</code> or <code>.before</code> . For instance, if we want to move the Gender to be just after the Speaker column we will call the following:</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_reordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">durationsOnt_reordered</span>, <span class="va">Gender</span>, .after <span class="op">=</span> <span class="va">Speaker</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_reordered</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Speaker Gender                 Word Frequency YearOfBirth DurationOfPrefix
+24   N01143 female             ontbeten 3.0910425          72         0.113372
+58   N01041 female              ontbijt 4.8441871          80         0.100478
+40   N01157   male        ontbijtbuffet 0.0000000          52         0.139806
+42   N01162 female            ontbijten 3.7612001          60         0.160739
+60   N01145   male            ontbijtje 1.9459101          74         0.161283
+21   N01134 female       ontbijtservies 0.6931472          70         0.176658
+69   N01078   male           ontbinding 1.0986123          76         0.148544
+83   N01078   male             ontbindt 0.6931472          76         0.158397
+30   N01217   male            ontbreekt 4.2626799          76         0.086736
+10   N01011 female            ontbreken 3.7135721          66         0.160132
+41   N01205   male              ontgaan 3.0445224          61         0.157300
+62   N01069   male              ontging 2.1972246          37         0.169992
+48   N01020   male            ontgraven 0.0000000          61         0.161262
+63   N01147 female          ontgroening 1.0986123          45         0.198056
+70   N01029   male             ontheven 0.0000000          39         0.172546
+46   N01103 female              onthoud 3.4339872          77         0.168078
+45   N01132   male            onthouden 5.4071718          78         0.174686
+51   N01012   male             onthoudt 3.4011974          73         0.179994
+100  N01214 female              onthuld 1.7917595          40         0.232413
+43   N01089 female             onthulde 2.0794415          75         0.165369
+55   N01065 female            onthullen 1.9459101          78         0.185638
+98   N01214 female              ontkend 3.4339872          40         0.170969
+78   N01096 female             ontkende 2.8332133          78         0.186745
+16   N01058   male            ontkennen 4.1271344          75         0.160937
+26   N01066 female              ontkent 3.6888795          78         0.179150
+19   N01209 female               ontkom 2.0794415          49         0.215504
+50   N01042   male            ontkracht 1.6094379          79         0.140938
+6    N01156 female              ontlast 1.9459101          42         0.192938
+27   N01159   male            ontlasten 1.6094379          44         0.166283
+99   N01102 female           ontlasting 2.3978953          77         0.174332
+18   N01068 female             ontleent 1.6094379          46         0.160403
+54   N01147 female             ontloopt 1.6094379          45         0.175413
+1    N01068 female          ontluikende 1.6094379          46         0.160924
+20   N01051 female           ontmaskerd 0.6931472          79         0.190070
+32   N01051 female          ontmaskeren 1.6094379          79         0.143948
+31   N01212 female              ontmoet 5.0875963          83         0.119349
+14   N01001 female      ontmoetingspunt 0.6931472          52         0.161911
+28   N01029   male            ontmoette 3.3672958          39         0.201341
+77   N01157   male           ontmoetten 2.7725887          52         0.167576
+53   N01019   male             ontneemt 1.3862944          62         0.109592
+101  N01083 female          ontploffing 3.6635616          75         0.115718
+93   N01171 female        ontploffingen 1.3862944          76         0.114520
+74   N01086   male             ontploft 3.4339872          69         0.147802
+90   N01031 female             ontregel 0.6931472          38         0.191336
+47   N01089 female             ontroerd 2.3025851          75         0.157852
+13   N01144   male           ontroerend 2.4849066          71         0.171721
+94   N01020   male            ontruimen 1.3862944          61         0.111411
+75   N01132   male             ontslaan 3.2958369          78         0.106138
+39   N01151 female              ontslag 4.6347290          56         0.101774
+82   N01149 female            ontslagen 4.2626799          25         0.159804
+44   N01019   male            ontsloten 2.0794415          62         0.117869
+66   N01019   male           ontsluiten 1.3862944          62         0.114725
+81   N01014   male              ontsnap 0.6931472          76         0.091196
+76   N01017   male           ontsnappen 3.9318256          69         0.148343
+67   N01156 female             ontsnapt 4.1431347          42         0.125200
+89   N01041 female           ontspannen 4.6728288          80         0.143707
+64   N01010   male          ontspannend 3.2580965          70         0.107453
+15   N01214 female          ontspanning 4.5432948          40         0.180961
+65   N01163 female     ontspanningsteam 0.0000000          61         0.121993
+35   N01085   male            ontspoord 1.9459101          70         0.039299
+96   N01085   male            ontspoort 1.3862944          70         0.074228
+71   N01041 female             ontstaan 6.0684256          80         0.205519
+17   N01020   male             ontstaat 5.0434251          61         0.086615
+95   N01121   male            ontsteken 1.7917595          77         0.165329
+73   N01037 female           ontsteking 3.8918203          81         0.113105
+102  N01037 female     ontstekingsvocht 0.0000000          81         0.099240
+68   N01144   male            ontstoken 3.0910425          71         0.115091
+12   N01090 female             ontstond 4.5747110          76         0.127984
+92   N01105 female              ontvang 2.0794415          80         0.161155
+59   N01017   male            ontvangen 5.4337220          69         0.087884
+7    N01062   male            ontvangst 3.9512437          48         0.102165
+34   N01068 female          ontvangsten 3.1354942          46         0.183979
+5    N01002   male     ontvangststation 0.0000000          52         0.130220
+97   N01106   male             ontvangt 3.6888795          77         0.187346
+9    N01002   male              ontving 3.2958369          52         0.130554
+38   N01157   male            ontvingen 1.6094379          52         0.116323
+87   N01027 female             ontvoerd 2.9444390          70         0.118748
+88   N01110 female            ontvoeren 1.6094379          77         0.098185
+2    N01065 female            ontvreemd 2.0794415          78         0.107143
+4    N01157   male             ontwaken 1.3862944          52         0.230269
+22   N01133   male          ontwapenend 0.6931472          79         0.174880
+91   N01150 female              ontwerp 4.3040651          23         0.174030
+3    N01065 female            ontwerpen 4.1431347          78         0.126606
+57   N01042   male            ontwerper 3.0445224          79         0.158592
+49   N01089 female            ontwijken 2.6390573          75         0.187598
+29   N01146   male          ontwijkende 0.0000000          23         0.236841
+84   N01135   male           ontwikkeld 5.0039463          64         0.170042
+52   N01100   male          ontwikkelde 3.4965076          29         0.200608
+72   N01085   male          ontwikkelen 5.3278762          70         0.075877
+36   N01042   male         ontwikkeling 5.8777358          79         0.239222
+23   N01028 female       ontwikkelingen 5.0998664          38         0.123474
+79   N01078   male    ontwikkelingshulp 2.9444390          76         0.171507
+37   N01014   male   ontwikkelingskaart 0.0000000          76         0.130127
+25   N01014   male ontwikkelingskaartje 0.0000000          76         0.108434
+56   N01014   male    ontwikkelingspunt 0.0000000          76         0.124063
+61   N01051 female    ontwikkelingswerk 1.9459101          79         0.114132
+80   N01085   male           ontwikkelt 4.0253517          70         0.128376
+86   N01170   male            ontworpen 3.7135721          78         0.139723
+85   N01205   male            ontwricht 2.3025851          61         0.218802
+33   N01068 female           ontzettend 6.7250336          46         0.164835
+11   N01092 female          ontzettende 4.1896547          80         0.117997
+8    N01045   male              ontzien 1.9459101          77         0.134899</code></pre>
+</div>
+</div>
+<p>Now that we have selected the variables that we want and in the order that we want them, let’s filter the data to select some cases</p>
+</section><section id="selecting-cases-filter" class="level3" data-number="5.3.4"><h3 data-number="5.3.4" class="anchored" data-anchor-id="selecting-cases-filter">
+<span class="header-section-number">5.3.4</span> Selecting cases: filter()</h3>
+<hr>
+<p>We can select cases or observations based on a criteria using the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function. The filter function is called providing as a first parameter the dataset, followed by a <em>condition</em> or criteria to use for the selection.</p>
+<p>Let’s say that we want to make an analysis on the duration of people born after 1970</p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_reordered_filtered_age</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">durationsOnt_reordered</span>,<span class="va">YearOfBirth</span> <span class="op">&gt;</span> <span class="fl">70</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#check on the minimum value of the Year of Birth with the function min()</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">durationsOnt_reordered</span><span class="op">$</span><span class="va">YearOfBirth</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 23</code></pre>
+</div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">durationsOnt_reordered_filtered_age</span><span class="op">$</span><span class="va">YearOfBirth</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 71</code></pre>
+</div>
+</div>
+<p>As you can see on the example, the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> selected the cases based on the condition specified.</p>
+<p>If we wanted to select for example only the cases for Females, we will have used the filter as <code>Gender == "female"</code> . What about if we want to select the females born after 1970 in a single step? You can combine conditions using the operators <code>&amp;</code> (meaning “and” ) and <code>|</code> (meaning “or”). For example:</p>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_reordered_filtered_age_gender</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">durationsOnt_reordered</span>,<span class="op">(</span><span class="va">YearOfBirth</span> <span class="op">&gt;</span> <span class="fl">70</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">(</span><span class="va">Gender</span><span class="op">==</span><span class="st">"female"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_reordered_filtered_age_gender</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Speaker Gender              Word Frequency YearOfBirth DurationOfPrefix
+24   N01143 female          ontbeten 3.0910425          72         0.113372
+58   N01041 female           ontbijt 4.8441871          80         0.100478
+46   N01103 female           onthoud 3.4339872          77         0.168078
+43   N01089 female          onthulde 2.0794415          75         0.165369
+55   N01065 female         onthullen 1.9459101          78         0.185638
+78   N01096 female          ontkende 2.8332133          78         0.186745
+26   N01066 female           ontkent 3.6888795          78         0.179150
+99   N01102 female        ontlasting 2.3978953          77         0.174332
+20   N01051 female        ontmaskerd 0.6931472          79         0.190070
+32   N01051 female       ontmaskeren 1.6094379          79         0.143948
+31   N01212 female           ontmoet 5.0875963          83         0.119349
+101  N01083 female       ontploffing 3.6635616          75         0.115718
+93   N01171 female     ontploffingen 1.3862944          76         0.114520
+47   N01089 female          ontroerd 2.3025851          75         0.157852
+89   N01041 female        ontspannen 4.6728288          80         0.143707
+71   N01041 female          ontstaan 6.0684256          80         0.205519
+73   N01037 female        ontsteking 3.8918203          81         0.113105
+102  N01037 female  ontstekingsvocht 0.0000000          81         0.099240
+12   N01090 female          ontstond 4.5747110          76         0.127984
+92   N01105 female           ontvang 2.0794415          80         0.161155
+88   N01110 female         ontvoeren 1.6094379          77         0.098185
+2    N01065 female         ontvreemd 2.0794415          78         0.107143
+3    N01065 female         ontwerpen 4.1431347          78         0.126606
+49   N01089 female         ontwijken 2.6390573          75         0.187598
+61   N01051 female ontwikkelingswerk 1.9459101          79         0.114132
+11   N01092 female       ontzettende 4.1896547          80         0.117997</code></pre>
+</div>
+</div>
+</section><section id="reordering-cases-arrange" class="level3" data-number="5.3.5"><h3 data-number="5.3.5" class="anchored" data-anchor-id="reordering-cases-arrange">
+<span class="header-section-number">5.3.5</span> Reordering cases: <code>arrange()</code>
+</h3>
+<p>Finally, the <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> function orders the dataset by a selected value. For example to order the dataframe by Frequency:</p>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_reordered_filtered_age_gender_ordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">durationsOnt_reordered_filtered_age_gender</span>, <span class="va">Frequency</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_reordered_filtered_age_gender_ordered</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Speaker Gender              Word Frequency YearOfBirth DurationOfPrefix
+102  N01037 female  ontstekingsvocht 0.0000000          81         0.099240
+20   N01051 female        ontmaskerd 0.6931472          79         0.190070
+93   N01171 female     ontploffingen 1.3862944          76         0.114520
+32   N01051 female       ontmaskeren 1.6094379          79         0.143948
+88   N01110 female         ontvoeren 1.6094379          77         0.098185
+55   N01065 female         onthullen 1.9459101          78         0.185638
+61   N01051 female ontwikkelingswerk 1.9459101          79         0.114132
+43   N01089 female          onthulde 2.0794415          75         0.165369
+92   N01105 female           ontvang 2.0794415          80         0.161155
+2    N01065 female         ontvreemd 2.0794415          78         0.107143
+47   N01089 female          ontroerd 2.3025851          75         0.157852
+99   N01102 female        ontlasting 2.3978953          77         0.174332
+49   N01089 female         ontwijken 2.6390573          75         0.187598
+78   N01096 female          ontkende 2.8332133          78         0.186745
+24   N01143 female          ontbeten 3.0910425          72         0.113372
+46   N01103 female           onthoud 3.4339872          77         0.168078
+101  N01083 female       ontploffing 3.6635616          75         0.115718
+26   N01066 female           ontkent 3.6888795          78         0.179150
+73   N01037 female        ontsteking 3.8918203          81         0.113105
+3    N01065 female         ontwerpen 4.1431347          78         0.126606
+11   N01092 female       ontzettende 4.1896547          80         0.117997
+12   N01090 female          ontstond 4.5747110          76         0.127984
+89   N01041 female        ontspannen 4.6728288          80         0.143707
+58   N01041 female           ontbijt 4.8441871          80         0.100478
+31   N01212 female           ontmoet 5.0875963          83         0.119349
+71   N01041 female          ontstaan 6.0684256          80         0.205519</code></pre>
+</div>
+</div>
+<p>What about if we want to use a <strong>reverse order</strong>? This can be done use the <code><a href="https://dplyr.tidyverse.org/reference/desc.html">desc()</a></code> modified on the variable to be used:</p>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_reordered_filtered_age_gender_ordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">durationsOnt_reordered_filtered_age_gender</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">Frequency</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_reordered_filtered_age_gender_ordered</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Speaker Gender              Word Frequency YearOfBirth DurationOfPrefix
+71   N01041 female          ontstaan 6.0684256          80         0.205519
+31   N01212 female           ontmoet 5.0875963          83         0.119349
+58   N01041 female           ontbijt 4.8441871          80         0.100478
+89   N01041 female        ontspannen 4.6728288          80         0.143707
+12   N01090 female          ontstond 4.5747110          76         0.127984
+11   N01092 female       ontzettende 4.1896547          80         0.117997
+3    N01065 female         ontwerpen 4.1431347          78         0.126606
+73   N01037 female        ontsteking 3.8918203          81         0.113105
+26   N01066 female           ontkent 3.6888795          78         0.179150
+101  N01083 female       ontploffing 3.6635616          75         0.115718
+46   N01103 female           onthoud 3.4339872          77         0.168078
+24   N01143 female          ontbeten 3.0910425          72         0.113372
+78   N01096 female          ontkende 2.8332133          78         0.186745
+49   N01089 female         ontwijken 2.6390573          75         0.187598
+99   N01102 female        ontlasting 2.3978953          77         0.174332
+47   N01089 female          ontroerd 2.3025851          75         0.157852
+43   N01089 female          onthulde 2.0794415          75         0.165369
+92   N01105 female           ontvang 2.0794415          80         0.161155
+2    N01065 female         ontvreemd 2.0794415          78         0.107143
+55   N01065 female         onthullen 1.9459101          78         0.185638
+61   N01051 female ontwikkelingswerk 1.9459101          79         0.114132
+32   N01051 female       ontmaskeren 1.6094379          79         0.143948
+88   N01110 female         ontvoeren 1.6094379          77         0.098185
+93   N01171 female     ontploffingen 1.3862944          76         0.114520
+20   N01051 female        ontmaskerd 0.6931472          79         0.190070
+102  N01037 female  ontstekingsvocht 0.0000000          81         0.099240</code></pre>
+</div>
+</div>
+</section></section><section id="pipe-operator-or" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="pipe-operator-or">
+<span class="header-section-number">5.4</span> Pipe operator (<code>%&gt;%</code> or <code>|&gt;</code> )</h2>
+<hr>
+<p>As you can see, in all the examples above we pass as first argument to the function the dataframe on which we want to make the operation.</p>
+<p>Putting all the calls before together :</p>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_simplified</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">durationsOnt</span>,  <span class="va">Word</span><span class="op">:</span><span class="va">DurationOfPrefix</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_simplified_renamed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="va">durationsOnt_simplified</span>, Gender <span class="op">=</span> <span class="va">Sex</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_reordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">durationsOnt_simplified_renamed</span>, <span class="va">Speaker</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_reordered_filtered_age_gender</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">durationsOnt_reordered</span>,<span class="op">(</span><span class="va">YearOfBirth</span> <span class="op">&gt;</span> <span class="fl">70</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">(</span><span class="va">Gender</span><span class="op">==</span><span class="st">"female"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_reordered_filtered_age_gender_ordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">durationsOnt_reordered_filtered_age_gender</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">Frequency</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this examples I created on every step a new variable with a different name to save the output of the functions, which created a lot of new variables. This might be useful only in cases when you want to save the intermediate steps. In reality this is rarely the case since anyway you can always execute again the complete flow if you want to change something, and it is a better practice.</p>
+<p>That being the case, we could just use on variable for example called <em><code>durationsOnt_processed</code></em> that we overwrite in every step, resulting in something like this:</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_processed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">durationsOnt</span>,  <span class="va">Word</span><span class="op">:</span><span class="va">DurationOfPrefix</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_processed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="va">durationsOnt_processed</span>, Gender <span class="op">=</span> <span class="va">Sex</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_processed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">durationsOnt_processed</span>, <span class="va">Speaker</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_processed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">durationsOnt_processed</span>,<span class="op">(</span><span class="va">YearOfBirth</span> <span class="op">&gt;</span> <span class="fl">70</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">(</span><span class="va">Gender</span><span class="op">==</span><span class="st">"female"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_processed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">durationsOnt_processed</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">Frequency</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this process though, still everytime the output of the one call is the input for the next step (in the end it is an analysis <em>workflow</em>).</p>
+<p>If we were to write textually what we did to the data would be something like:</p>
+<blockquote class="blockquote">
+<p>“Take the durationsOnt dataset <strong>then</strong></p>
+<p>Select columns … <strong>then</strong></p>
+<p><strong>rename</strong> column Sex to Gender <strong>then</strong></p>
+<p>move column Speaker to the first column <strong>then</strong></p>
+<p>move column Gender after Speaker <strong>then</strong></p>
+<p>select cases of Females born after 1970 <strong>then</strong></p>
+<p>arrange by frequency in descending order.”</p>
+</blockquote>
+<p>This is where the concept of a <strong><em>pipe</em></strong> was introduced in R. The pipe operator allows you to&nbsp;<strong>pass the result of one function directly into the next function</strong>&nbsp;as its first argument, without the need to explicitly write it. It’s widely used in the&nbsp;<strong>tidyverse</strong>, especially with&nbsp;<code>dplyr</code>.</p>
+<p>The operator can be used with two syntax <code>%&gt;%</code> or the new <code>|&gt;</code> .</p>
+<p>Using this, the examples before could be executed as below.</p>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_processed</span> <span class="op">&lt;-</span> <span class="va">durationsOnt</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Word</span><span class="op">:</span><span class="va">DurationOfPrefix</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>Gender <span class="op">=</span> <span class="va">Sex</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">Speaker</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">Gender</span>, .after <span class="op">=</span> <span class="va">Speaker</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">(</span><span class="va">YearOfBirth</span> <span class="op">&gt;</span> <span class="fl">70</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">(</span><span class="va">Gender</span><span class="op">==</span><span class="st">"female"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">Frequency</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">durationsOnt_processed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Speaker Gender              Word Frequency YearOfBirth DurationOfPrefix
+71   N01041 female          ontstaan 6.0684256          80         0.205519
+31   N01212 female           ontmoet 5.0875963          83         0.119349
+58   N01041 female           ontbijt 4.8441871          80         0.100478
+89   N01041 female        ontspannen 4.6728288          80         0.143707
+12   N01090 female          ontstond 4.5747110          76         0.127984
+11   N01092 female       ontzettende 4.1896547          80         0.117997
+3    N01065 female         ontwerpen 4.1431347          78         0.126606
+73   N01037 female        ontsteking 3.8918203          81         0.113105
+26   N01066 female           ontkent 3.6888795          78         0.179150
+101  N01083 female       ontploffing 3.6635616          75         0.115718
+46   N01103 female           onthoud 3.4339872          77         0.168078
+24   N01143 female          ontbeten 3.0910425          72         0.113372
+78   N01096 female          ontkende 2.8332133          78         0.186745
+49   N01089 female         ontwijken 2.6390573          75         0.187598
+99   N01102 female        ontlasting 2.3978953          77         0.174332
+47   N01089 female          ontroerd 2.3025851          75         0.157852
+43   N01089 female          onthulde 2.0794415          75         0.165369
+92   N01105 female           ontvang 2.0794415          80         0.161155
+2    N01065 female         ontvreemd 2.0794415          78         0.107143
+55   N01065 female         onthullen 1.9459101          78         0.185638
+61   N01051 female ontwikkelingswerk 1.9459101          79         0.114132
+32   N01051 female       ontmaskeren 1.6094379          79         0.143948
+88   N01110 female         ontvoeren 1.6094379          77         0.098185
+93   N01171 female     ontploffingen 1.3862944          76         0.114520
+20   N01051 female        ontmaskerd 0.6931472          79         0.190070
+102  N01037 female  ontstekingsvocht 0.0000000          81         0.099240</code></pre>
+</div>
+</div>
+<p>As you can see, the result is the case, but the code and data processing flow is much more readable, and there is no need to introduce intermediate variables.</p>
+<p>You will become more familiar along the course with the basic usage of the tidyverse data manipulation.s</p>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Baayen_2008" class="csl-entry" role="listitem">
+Baayen, R. H. 2008. <em>Analyzing Linguistic Data: A Practical Introduction to Statistics Using r</em>. Cambridge University Press.
+</div>
+<div id="ref-pluymaekers2005lexical" class="csl-entry" role="listitem">
+Pluymaekers, Mark, Mirjam Ernestus, and R Harald Baayen. 2005. <span>“Lexical Frequency and Acoustic Reduction in Spoken Dutch.”</span> <em>The Journal of the Acoustical Society of America</em> 118 (4): 2561–69.
+</div>
+<div id="ref-wickham2024r" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2024. <em>R for Data Science</em>. O’Reilly.
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -793,22 +1515,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./read_data.html" class="pagination-link" aria-label="Reading and Saving data in R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./using_notebooks.html" class="pagination-link" aria-label="Reproducible research using Scripts and Notebooks">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Fundamentals of Linear Models Workbook was written by Dr.&nbsp;Leticia Pablos Robles</p>
 </div>   
@@ -820,8 +1539,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 
-<title>5&nbsp; Reproducible research using Scripts and Notebooks – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>6&nbsp; Reproducible research using Scripts and Notebooks – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./using_notebooks.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./using_notebooks.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -124,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Workbook organization</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -139,31 +139,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_libraries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./read_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to tidyverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction to tidyverse 1: data manipulation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_notebooks.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></span></a>
   </div>
 </li>
       </ul>
@@ -204,25 +204,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#r-scripts" id="toc-r-scripts" class="nav-link active" data-scroll-target="#r-scripts"><span class="header-section-number">5.1</span> R Scripts</a>
+  <li><a href="#r-scripts" id="toc-r-scripts" class="nav-link active" data-scroll-target="#r-scripts"><span class="header-section-number">6.1</span> R Scripts</a></li>
+  <li><a href="#r-markdown-and-notebooks" id="toc-r-markdown-and-notebooks" class="nav-link" data-scroll-target="#r-markdown-and-notebooks"><span class="header-section-number">6.2</span> R Markdown and Notebooks</a>
   <ul class="collapse">
-  <li><a href="#saving-scripts" id="toc-saving-scripts" class="nav-link" data-scroll-target="#saving-scripts"><span class="header-section-number">5.1.1</span> Saving scripts</a></li>
-  <li><a href="#executing-scripts" id="toc-executing-scripts" class="nav-link" data-scroll-target="#executing-scripts"><span class="header-section-number">5.1.2</span> Executing scripts</a></li>
+  <li><a href="#notebook-instructions" id="toc-notebook-instructions" class="nav-link" data-scroll-target="#notebook-instructions"><span class="header-section-number">6.2.1</span> Notebook instructions</a></li>
   </ul></li>
-  <li><a href="#r-markdown-and-notebooks" id="toc-r-markdown-and-notebooks" class="nav-link" data-scroll-target="#r-markdown-and-notebooks"><span class="header-section-number">5.2</span> R Markdown and Notebooks</a>
-  <ul class="collapse">
-  <li><a href="#basic-syntax-of-r-markdown" id="toc-basic-syntax-of-r-markdown" class="nav-link" data-scroll-target="#basic-syntax-of-r-markdown"><span class="header-section-number">5.2.1</span> Basic syntax of R Markdown</a></li>
-  <li><a href="#notebooks" id="toc-notebooks" class="nav-link" data-scroll-target="#notebooks"><span class="header-section-number">5.2.2</span> Notebooks</a></li>
-  </ul></li>
+  <li><a href="#additional-reading" id="toc-additional-reading" class="nav-link" data-scroll-target="#additional-reading"><span class="header-section-number">6.3</span> Additional Reading</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./using_notebooks.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./using_notebooks.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></h1>
 </div>
 
 
@@ -239,22 +235,30 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="r-scripts" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="r-scripts"><span class="header-section-number">5.1</span> R Scripts</h2>
-<section id="saving-scripts" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="saving-scripts"><span class="header-section-number">5.1.1</span> Saving scripts</h3>
+<p>Up to now we have described the usage of R and RStudio as an interactive data analysis environment where we introduce commands and get outputs on the Console.</p>
+<p>An important part of research and data analysis is being able to reproduce the analysis and work you produce and report.</p>
+<p>In order to that, reproducible research includes:</p>
+<ul>
+<li><p>raw data collected</p></li>
+<li><p>code, including versions of all packages used for the analysis</p></li>
+<li><p>documentation of the steps and process.</p></li>
+</ul>
+<section id="r-scripts" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="r-scripts"><span class="header-section-number">6.1</span> R Scripts</h2>
+<p>Scripts are used to collect the commands and steps used in a data analysis. In the R language, a script is a <strong>text file</strong> with commands saved with extension .R.</p>
+<p>To create a script, select <strong>File</strong> -&gt; <strong>New File -&gt;</strong> R Script</p>
+<p><img src="images/clipboard-1880213501.png" class="img-fluid" width="945"></p>
+<p>This will open a file in the Editor where you can type a series of commands and comments. Comments are lines starting with <code>#</code> .</p>
+<p>You can execute the code you want to run highlighting it and pressing&nbsp;<strong>Ctrl + Enter</strong>&nbsp;(Windows) or&nbsp;<strong>Cmd + Enter</strong>&nbsp;(Mac) or with the Green “Run” button on the top right of the Editor window.</p>
+<p><img src="images/clipboard-1109715082.png" class="img-fluid" width="926"></p>
 </section>
-<section id="executing-scripts" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="executing-scripts"><span class="header-section-number">5.1.2</span> Executing scripts</h3>
-</section>
-</section>
-<section id="r-markdown-and-notebooks" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="r-markdown-and-notebooks"><span class="header-section-number">5.2</span> R Markdown and Notebooks</h2>
-<section id="basic-syntax-of-r-markdown" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="basic-syntax-of-r-markdown"><span class="header-section-number">5.2.1</span> Basic syntax of R Markdown</h3>
-</section>
-<section id="notebooks" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="notebooks"><span class="header-section-number">5.2.2</span> Notebooks</h3>
+<section id="r-markdown-and-notebooks" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="r-markdown-and-notebooks"><span class="header-section-number">6.2</span> R Markdown and Notebooks</h2>
+<p>An alternative to scripts are <strong>Notebooks</strong>, which are a powerful way of documenting work by producing documents that mix plain text and code.&nbsp;</p>
+<p>Notebooks include chunks of code that can be executed and the output displayed and included in the document, together with textual input formatted using <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown</a> language. In fact the current workbook is written using this approach.</p>
+<p>A full description of R Markdown is beyond the scope of this course, but also not required to follow the content and exercises. In the section below a basic introduction is given to create a Notebook, use the Visual editor and generate PDF output to hand-in your assignments.</p>
+<section id="notebook-instructions" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="notebook-instructions"><span class="header-section-number">6.2.1</span> Notebook instructions</h3>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -268,9 +272,54 @@ Caution
 <p>Beware that the environment of a Notebook is not the same as the R session environment!</p>
 </div>
 </div>
-
-
+<p>To create a notebook in R Markdown, you can select <strong>File</strong> -&gt; <strong>New File -&gt;</strong> R Notebook</p>
+<p><img src="images/clipboard-3584638955.png" class="img-fluid" width="850"></p>
+<p>To show the capabilities of the Notebook, we will look at the assignments to be delivered:</p>
+<ul>
+<li><p>Open the file <code>Assignment1.Rmd</code> by clicking on the file on the name in the file tab.</p></li>
+<li><p>If not active, select “<em>Visual</em>” in the edit mode on the upper left.</p></li>
+<li><p>Enter your name and Student ID in the author field.</p></li>
+</ul>
+<p><img src="images/clipboard-300414333.png" class="img-fluid" width="774"></p>
+<ul>
+<li><p>Enter the code to answer each of the questions in the relevant code section, that appear in grey and with a {r} marking.</p></li>
+<li><p>After entering the code, run it pressing the green arrow on the top right corner of the code section</p></li>
+<li><p>Remember to save from time to time!</p></li>
+</ul>
+<p><img src="images/clipboard-686377011.png" class="img-fluid" width="963"></p>
+<p>When you are ready to hand in your assignment you can generate a PDF to upload in Brightspace. This is the procedure to do it:</p>
+<ul>
+<li><p>Click on the small arrow next to the <em>Knit</em> button (see figure below).</p></li>
+<li><p>Select “Knit to PDF”</p></li>
+<li><p>Save the PDF file generated somewhere in your drive or computer.</p></li>
+<li><p>Upload it to Brightspace on the relevant assignment.</p></li>
+</ul>
+<p><img src="images/clipboard-3604996052.png" class="img-fluid" width="894"></p>
 </section>
+</section>
+<section id="additional-reading" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="additional-reading"><span class="header-section-number">6.3</span> Additional Reading</h2>
+<hr>
+<p>If you are interested into knowing more on the capabilities of R notebooks, you can use this resources.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This material is for your own development but it is <strong>not required</strong> for the course. I add it here as additional information in case you need to use it in your own research</p>
+</div>
+</div>
+<ul>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/notebook.html">R Notebooks guide.</a></p></li>
+<li><p><a href="https://www.datacamp.com/tutorial/r-markdown-tutorial">Datacamp R Notebook tutorial</a></p></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -693,8 +742,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./tidyverse_intro.html" class="pagination-link" aria-label="Introduction to tidyverse">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to tidyverse</span></span>
+      <a href="./tidyverse_intro.html" class="pagination-link" aria-label="Introduction to tidyverse 1: data manipulation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction to tidyverse 1: data manipulation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

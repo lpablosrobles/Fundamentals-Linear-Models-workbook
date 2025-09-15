@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.6.42">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
-<title>1&nbsp; ✍️ R Syntax – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>2&nbsp; ✍️ R Syntax – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,7 +92,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -127,7 +127,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./intro_to_r.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./intro_to_r.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -164,7 +164,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Workbook organization</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -179,31 +179,31 @@ div.csl-indent {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_libraries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./read_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Reading and Saving data in R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tidyverse_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to tidyverse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction to tidyverse 1: data manipulation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./using_notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reproducible research using Scripts and Notebooks</span></span></a>
   </div>
 </li>
       </ul>
@@ -242,30 +242,30 @@ div.csl-indent {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#commands-and-operators" id="toc-commands-and-operators" class="nav-link active" data-scroll-target="#commands-and-operators"><span class="header-section-number">1.0.1</span> Commands and operators</a></li>
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">1.1</span> Variables</a></li>
+<li><a href="#commands-and-operators" id="toc-commands-and-operators" class="nav-link active" data-scroll-target="#commands-and-operators"><span class="header-section-number">2.1</span> Commands and operators</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">2.2</span> Variables</a></li>
   <li>
-<a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">1.2</span> Data types</a>
+<a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">2.3</span> Data types</a>
   <ul class="collapse">
-<li><a href="#basic-types" id="toc-basic-types" class="nav-link" data-scroll-target="#basic-types"><span class="header-section-number">1.2.1</span> Basic types</a></li>
-  <li><a href="#vectors-and-lists" id="toc-vectors-and-lists" class="nav-link" data-scroll-target="#vectors-and-lists"><span class="header-section-number">1.2.2</span> Vectors and lists</a></li>
-  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes"><span class="header-section-number">1.2.3</span> Dataframes</a></li>
+<li><a href="#basic-types" id="toc-basic-types" class="nav-link" data-scroll-target="#basic-types"><span class="header-section-number">2.3.1</span> Basic types</a></li>
+  <li><a href="#vectors-and-lists" id="toc-vectors-and-lists" class="nav-link" data-scroll-target="#vectors-and-lists"><span class="header-section-number">2.3.2</span> Vectors and lists</a></li>
+  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes"><span class="header-section-number">2.3.3</span> Dataframes</a></li>
   </ul>
 </li>
-  <li><a href="#par-functions" id="toc-par-functions" class="nav-link" data-scroll-target="#par-functions"><span class="header-section-number">1.3</span> Functions</a></li>
+  <li><a href="#par-functions" id="toc-par-functions" class="nav-link" data-scroll-target="#par-functions"><span class="header-section-number">2.4</span> Functions</a></li>
   <li>
-<a href="#factors" id="toc-factors" class="nav-link" data-scroll-target="#factors"><span class="header-section-number">1.4</span> Factors</a>
+<a href="#factors" id="toc-factors" class="nav-link" data-scroll-target="#factors"><span class="header-section-number">2.5</span> Factors</a>
   <ul class="collapse">
-<li><a href="#exercise-2-creating-a-dataframe-with-factors" id="toc-exercise-2-creating-a-dataframe-with-factors" class="nav-link" data-scroll-target="#exercise-2-creating-a-dataframe-with-factors"><span class="header-section-number">1.4.1</span> 📝 Exercise 2: Creating a dataframe with factors</a></li>
+<li><a href="#exercise-2-creating-a-dataframe-with-factors" id="toc-exercise-2-creating-a-dataframe-with-factors" class="nav-link" data-scroll-target="#exercise-2-creating-a-dataframe-with-factors"><span class="header-section-number">2.5.1</span> 📝 Exercise 2: Creating a dataframe with factors</a></li>
   </ul>
 </li>
-  <li><a href="#additional-reading-material" id="toc-additional-reading-material" class="nav-link" data-scroll-target="#additional-reading-material"><span class="header-section-number">1.5</span> Additional Reading material</a></li>
+  <li><a href="#additional-reading-material" id="toc-additional-reading-material" class="nav-link" data-scroll-target="#additional-reading-material"><span class="header-section-number">2.6</span> Additional Reading material</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./intro_to_r.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./intro_to_r.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span>
+<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">✍️ R Syntax</span>
 </h1>
 </div>
 
@@ -285,18 +285,19 @@ div.csl-indent {
 <pre><code>&gt;</code></pre>
 <p>R syntax is relatively simple and, although daunting if you have never programmed before when you first encounter it, you will quickly get acquainted with it.</p>
 <p>Here’s a simple example of how R code looks. In the following sections we explain some basic concepts on the syntax and notation.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a package </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Assign values to variables </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>)  </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scatter plot </span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">main=</span><span class="st">"Simple Scatter Plot"</span>, <span class="at">xlab=</span><span class="st">"X Axis"</span>, <span class="at">ylab=</span><span class="st">"Y Axis"</span>)  </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a linear model </span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x) <span class="fu">abline</span>(model, <span class="at">col=</span><span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load a package </span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>  </span>
+<span></span>
+<span><span class="co">#Assign values to variables </span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span> </span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">10</span><span class="op">)</span>  </span>
+<span></span>
+<span><span class="co"># Create a scatter plot </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, main<span class="op">=</span><span class="st">"Simple Scatter Plot"</span>, xlab<span class="op">=</span><span class="st">"X Axis"</span>, ylab<span class="op">=</span><span class="st">"Y Axis"</span><span class="op">)</span>  </span>
+<span></span>
+<span><span class="co"># Fit a linear model </span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">model</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Before going forward, note that lines of code starting with the symbol <code>#</code> are not interpreted. This is use to introduce comments in your code for readability and documentation. We will come to that later when we talk about scripts and notebooks.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -316,8 +317,8 @@ Important
 </ul>
 </div>
 </div>
-<section id="commands-and-operators" class="level3" data-number="1.0.1"><h3 data-number="1.0.1" class="anchored" data-anchor-id="commands-and-operators">
-<span class="header-section-number">1.0.1</span> Commands and operators</h3>
+<section id="commands-and-operators" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="commands-and-operators">
+<span class="header-section-number">2.1</span> Commands and operators</h2>
 <p>Every instruction to enter in the <strong><em>command prompt</em></strong> is called a command.</p>
 <p>A simple command is to perform an arithmetic operations like for example:</p>
 <div class="cell">
@@ -340,7 +341,7 @@ Tip
 </div>
 </div>
 <p>The command just calculated the addition of the two numbers. In this example, we used the <strong>operator</strong> <code>+</code> to do so.</p>
-<p>We include a list below of the <strong>basic operators in R</strong>, grouped by category:s. Do not worry if not all are understandable yet:</p>
+<p>We include a list below of the <strong>basic operators in R</strong>, grouped by category. Do not worry if not all are understandable yet:</p>
 <p><strong>1. Arithmetic Operators</strong></p>
 <p>Used for basic mathematical operations:</p>
 <table class="caption-top table">
@@ -457,10 +458,10 @@ Tip
 <p>Used to assign values to variables:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 26%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead><tr class="header">
 <th>Operator</th>
@@ -511,8 +512,8 @@ Tip
 </td>
 </tr>
 </tbody>
-</table></section><section id="variables" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="variables">
-<span class="header-section-number">1.1</span> Variables</h2>
+</table></section><section id="variables" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="variables">
+<span class="header-section-number">2.2</span> Variables</h2>
 <p>A <strong>variable</strong> is a name that stores a value or data object. You can think of it as a labeled container that holds information you want to use or manipulate in your program.</p>
 <p>In R, you assign values to variables mostly using the operator <code>&lt;-</code> .</p>
 <div class="cell">
@@ -529,18 +530,18 @@ Tip
 <li><p>Must start with a letter</p></li>
 <li><p>Can contain letters, numbers, underscores (<code>_</code>) or periods (<code>.</code>)</p></li>
 <li><p>Are case-sensitive (<code>Name</code> and <code>name</code> are different)</p></li>
-</ul></section><section id="data-types" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="data-types">
-<span class="header-section-number">1.2</span> Data types</h2>
-<section id="basic-types" class="level3" data-number="1.2.1"><h3 data-number="1.2.1" class="anchored" data-anchor-id="basic-types">
-<span class="header-section-number">1.2.1</span> Basic types</h3>
+</ul></section><section id="data-types" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="data-types">
+<span class="header-section-number">2.3</span> Data types</h2>
+<section id="basic-types" class="level3" data-number="2.3.1"><h3 data-number="2.3.1" class="anchored" data-anchor-id="basic-types">
+<span class="header-section-number">2.3.1</span> Basic types</h3>
 <p>R supports several basic data types. Some of the most common are:</p>
 <ul>
 <li><p><strong>Numeric</strong>: <code>x &lt;- 3.14</code></p></li>
 <li><p><strong>Integer</strong>: <code>x &lt;- 5L</code> (note the <code>L</code>)</p></li>
 <li><p><strong>Character</strong>: <code>name &lt;- "Leticia"</code></p></li>
 <li><p><strong>Logical</strong>: <code>flag &lt;- TRUE</code></p></li>
-</ul></section><section id="vectors-and-lists" class="level3" data-number="1.2.2"><h3 data-number="1.2.2" class="anchored" data-anchor-id="vectors-and-lists">
-<span class="header-section-number">1.2.2</span> Vectors and lists</h3>
+</ul></section><section id="vectors-and-lists" class="level3" data-number="2.3.2"><h3 data-number="2.3.2" class="anchored" data-anchor-id="vectors-and-lists">
+<span class="header-section-number">2.3.2</span> Vectors and lists</h3>
 <p>Vectors are the most basic data structure in R. They are a groups of values built using the <em>combine</em> function,&nbsp;<code><a href="https://rdrr.io/r/base/c.html">c()</a></code>. For example,&nbsp;<code>c(1, 2, 3, 4)</code>&nbsp;creates a four element series of positive integer values</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">numbers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span></span>
@@ -556,8 +557,8 @@ Tip
 <pre><code>[1]  1  4  9 16</code></pre>
 </div>
 </div>
-</section><section id="dataframes" class="level3" data-number="1.2.3"><h3 data-number="1.2.3" class="anchored" data-anchor-id="dataframes">
-<span class="header-section-number">1.2.3</span> Dataframes</h3>
+</section><section id="dataframes" class="level3" data-number="2.3.3"><h3 data-number="2.3.3" class="anchored" data-anchor-id="dataframes">
+<span class="header-section-number">2.3.3</span> Dataframes</h3>
 <p>structures can be thought of as sets of data organized in a table format in rows and columns. They can be created using the <code>dataframe()</code> function.</p>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
@@ -580,8 +581,8 @@ Tip
 </div>
 </div>
 <p>Many of the functions we will use in this course require a dataframe as an input or produce one as output, so it is the data structure you will use the most.</p>
-</section></section><section id="par-functions" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="par-functions">
-<span class="header-section-number">1.3</span> Functions</h2>
+</section></section><section id="par-functions" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="par-functions">
+<span class="header-section-number">2.4</span> Functions</h2>
 <p>Functions perform tasks in R. They take in inputs called <em>arguments</em> and return outputs. They are called using parentheses. For example, the function <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> in R calculates the mean of the elements we provide as input.</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># We can specify a list of numbers</span></span>
@@ -602,7 +603,8 @@ Tip
 <p>To know the arguments of a function you can use the R help. There are two ways to access the help pages for a function:</p>
 <ol type="1">
 <li>
-<p>Use the operator <code>?</code> followed by the function name in the console: If you type the instruction <code><a href="https://rdrr.io/r/base/mean.html">?mean</a></code> the help page for the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function will open in the RStudio Help panel as in the image below:</p>
+<p>Use the operator <code>?</code> followed by the function name in the console, or use the <code><a href="https://rdrr.io/r/utils/help.html">help()</a></code> function.</p>
+<p>For example, type the instruction <code><a href="https://rdrr.io/r/base/mean.html">?mean</a></code> in the console. The help page for the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function will open in the RStudio Help panel as in the image below:</p>
 <p><img src="images/clipboard-947968862.png" class="img-fluid"></p>
 </li>
 <li><p>You can of course directly open the Help tab and search for the function of interest.</p></li>
@@ -641,13 +643,13 @@ Tip
 <pre><code>[1] 6</code></pre>
 </div>
 </div>
-</section><section id="factors" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="factors">
-<span class="header-section-number">1.4</span> Factors</h2>
+</section><section id="factors" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="factors">
+<span class="header-section-number">2.5</span> Factors</h2>
 <p>In&nbsp;<strong>R</strong>, a&nbsp;<strong>factor</strong>&nbsp;is a data structure used to represent&nbsp;<strong>categorical data</strong>. Categorical data consists of variables that have a fixed number of unique values, known as&nbsp;<strong>levels</strong>. These are typically used for any variable that classifies observations into groups. We will use factors extensively in the analysis of data</p>
 <p>We convert a vector into a factor by using the <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code> function. Let’s look at one example.</p>
 <hr>
-<section id="exercise-2-creating-a-dataframe-with-factors" class="level3" data-number="1.4.1"><h3 data-number="1.4.1" class="anchored" data-anchor-id="exercise-2-creating-a-dataframe-with-factors">
-<span class="header-section-number">1.4.1</span> 📝 Exercise 2: Creating a dataframe with factors</h3>
+<section id="exercise-2-creating-a-dataframe-with-factors" class="level3" data-number="2.5.1"><h3 data-number="2.5.1" class="anchored" data-anchor-id="exercise-2-creating-a-dataframe-with-factors">
+<span class="header-section-number">2.5.1</span> 📝 Exercise 2: Creating a dataframe with factors</h3>
 <p>We want to create a dataset of six words, collecting data of the <em>animacy</em>, <em>gender</em>, <em>length</em> and <em>frequency</em> of the word.</p>
 <p>First, we create individual variables with vectors including the values</p>
 <div class="cell">
@@ -706,9 +708,55 @@ Levels: feminine masculine neuter</code></pre>
 6     animate   feminine          6           665</code></pre>
 </div>
 </div>
-<p>In this exercise, we have created a dataframe from scratch</p>
-<hr></section></section><section id="additional-reading-material" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="additional-reading-material">
-<span class="header-section-number">1.5</span> Additional Reading material</h2>
+<p>A few useful functions when working with dataframes:</p>
+<ul>
+<li><p><code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> : returns the number of rows of a dataframe. Normally corresponding to observations in experimental data files.</p></li>
+<li><p><code><a href="https://rdrr.io/r/base/nrow.html">ncol()</a></code>: returns the number of columns of a dataframe.</p></li>
+<li><p><code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> : displays the first rows of a dataframe or vector. By default, it displays the first 6 items, but you can specify how many rows to show with the argument <code>n</code> . Useful when displaying on the screen large datasets.</p></li>
+<li><p><code><a href="https://rdrr.io/r/utils/View.html">View()</a></code>: Opens the dataset in a excel-like data viewer in RStudio. Same can be done clicking the name of the variable in the Environment window in RStudio.</p></li>
+<li><p><code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> : can be used to display the structure of the dataframe.</p></li>
+<li><p><code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code>: returns the names of the columns/variables in a dataframe.</p></li>
+</ul>
+<p>Let’s look at a few examples with the dataframe we just created.</p>
+<p>First we can inspect what is the dataframe structure:</p>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">Dataexample</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   6 obs. of  4 variables:
+ $ NounAnimacy  : Factor w/ 2 levels "animate","inanimate": 1 2 2 1 1 1
+ $ NounGender   : Factor w/ 3 levels "feminine","masculine",..: 1 2 3 2 1 1
+ $ NounLength   : num  6 7 4 5 8 6
+ $ NounFrequency: num  638 799 390 569 567 665</code></pre>
+</div>
+</div>
+<p>As you can see, the output tells us that the dataframe is composed of four <em>variables</em> (columns), two with categorical values and two with numerical elements and provides the names of those columns. It tells us also that it contains 6 <em>observations</em> (rows). You can obtain also the information above using:</p>
+<div class="cell">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">Dataexample</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">Dataexample</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">Dataexample</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "NounAnimacy"   "NounGender"    "NounLength"    "NounFrequency"</code></pre>
+</div>
+</div>
+<p>If we want to display the first 4 observations in the dataset, you could use:</p>
+<div class="cell">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">Dataexample</span>, n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  NounAnimacy NounGender NounLength NounFrequency
+1     animate   feminine          6           638
+2   inanimate  masculine          7           799
+3   inanimate     neuter          4           390
+4     animate  masculine          5           569</code></pre>
+</div>
+</div>
+<hr></section></section><section id="additional-reading-material" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="additional-reading-material">
+<span class="header-section-number">2.6</span> Additional Reading material</h2>
 <p><strong>Basics on R programming:</strong></p>
 <ul>
 <li><p>Chapter 1, Introduction to R, from Bodo Winter’s book (<span class="citation" data-cites="winter2019statistics">(<a href="references.html#ref-winter2019statistics" role="doc-biblioref">Winter 2019</a>)</span>).</p></li>
@@ -1162,7 +1210,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./using_libraries.html" class="pagination-link" aria-label="📦 Libraries and Packages">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">📦 Libraries and Packages</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
