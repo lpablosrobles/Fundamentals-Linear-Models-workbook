@@ -333,29 +333,30 @@ div.csl-indent {
 <p>If your data is tab-separated, you can use the function <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv()</a></code> . By default, the functions expect that the first row contains the names of the columns/variables to be read. If that is not the case, you should modify the argument <code>col_names = FALSE</code> .</p>
 </section><section id="data-from-excel-files" class="level3"><h3 class="anchored" data-anchor-id="data-from-excel-files">Data from Excel files</h3>
 <p>The best way to read Excel files is using the <code>readxl</code> package. If your file has several worksheets, you can use the <code>sheet</code> argument to specify either an index or the name of the worksheet to read.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Example for Excel as reference. Not to be run.</p>
-</div>
-</div>
+<div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load library</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Using readxl</span></span>
-<span><span class="va">data_sample_r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"file.xlsx"</span>, sheet <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">data_sample_excel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"./data/sample_wg1_excel.xlsx"</span>, sheet <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">data_sample_excel</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  NounAnimacy NounGender NounLength NounFrequency
+  &lt;chr&gt;       &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;
+1 animate     feminine            6           638
+2 inanimate   masculine           7           799
+3 inanimate   neuter              4           390
+4 animate     masculine           5           569
+5 animate     feminine            8           567
+6 animate     feminine            6           665</code></pre>
+</div>
+</div>
 </section><section id="data-in-r-files" class="level3"><h3 class="anchored" data-anchor-id="data-in-r-files">Data in R files</h3>
 <p>Data can also be saved and loaded in <em>R format</em> directly. This is useful if you are performing your analysis in R to save data intermediate steps as it is a compact and efficient format, even though to share with other researchers and in open access journals you should export it to a more generic format.</p>
 <p>To illustrate again let’s load a file in the <code>/data</code> directory containing a sample real dataset from a Event Related Potential (ERP) study that we will use in some of the exercises in the course:</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_sample_r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"./data/eegSampleData.Rda"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_sample_r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"./data/eegSampleData.Rda"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_sample_r</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       time Subject Condition       Fp1       Fpz       Fp2       AF3      AF4
@@ -434,7 +435,7 @@ Note
 <p>The <code>haven</code> package can be used to read directly <code>.sav</code> files from SPSS.</p>
 <p>As an example again, let’s open a file saved in SPSS from another ERP (Event Related Potential) study of code-switching in Dutch.</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># If not yet available, install the package using install.packages("haven")</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># If not yet available, install the package using install.packages("haven")</span></span>
 <span></span>
 <span><span class="co"># Load library</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
@@ -455,7 +456,7 @@ Note
 </div>
 <p>Again to preserve memory, let’s clean the workspace by removing the variables we created using :</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">data_sample_spss</span>, <span class="va">data_sample_r</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">data_sample_spss</span>, <span class="va">data_sample_r</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="other-formats" class="level3"><h3 class="anchored" data-anchor-id="other-formats">Other formats</h3>
 <p>In your own research, if you have data in other specific formats, you may have to develop your own function to read it, although it is highly likely there is already a solution available. Always search first in the internet… For example, imagine you have data in a file saved in the software Matlab, typing “read Matlab files in R” in any search engine points to the R package <a href="https://cran.r-project.org/web/packages/R.matlab/refman/R.matlab.html" title="R.matlab package"><code>R.matlab</code></a> that offers the functions <code>readMat()</code> and <code>writeMat()</code> to read and write respectively Matlab files.</p>
