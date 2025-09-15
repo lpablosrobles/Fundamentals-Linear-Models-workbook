@@ -100,5 +100,3 @@ Once you sign-in you should see the course project as in the image below:
 Open it and explore the RStudio interface.
 
 ------------------------------------------------------------------------
-
-## 
