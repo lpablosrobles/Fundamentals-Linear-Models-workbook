@@ -72,16 +72,13 @@ If your data is tab-separated, you can use the function `read_tsv()` . By defaul
 
 The best way to read Excel files is using the `readxl` package. If your file has several worksheets, you can use the `sheet` argument to specify either an index or the name of the worksheet to read.
 
-::: {.callout-note icon="false"}
-Example for Excel as reference. Not to be run.
-:::
-
-``` r
+```{r}
 # load library
 library(readxl)
 
 # Using readxl
-data_sample_r <- read_excel("file.xlsx", sheet = 1)
+data_sample_excel <- read_excel("./data/sample_wg1_excel.xlsx", sheet = 1)
+data_sample_excel
 ```
 
 ### Data in R files
