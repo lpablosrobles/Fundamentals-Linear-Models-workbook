@@ -1,0 +1,249 @@
+---
+title: "Assignment #1 - Answer key"
+date: 26/09/2025
+---
+
+# Assignment #1 - Answer key
+
+## Task#1: Creating a dataframe
+
+You were asked to create a dataframe made up sample data according to the following prescription:
+
+-   4 columns/variables: one column with a factor with two levels, another column with a factor with 3 levels and two columns with numeric values.
+
+-   6 rows or observations
+
+This can be done exactly as in the example we followed in Workgroup 1, with the steps replicated below:
+
+### 1.1. Create variables with the data.
+
+As you were asked to create 6 observations, every variable contains six entries.
+
+```{r}
+NounAnimacy<-c("animate","inanimate","inanimate","animate","animate","animate")
+NounGender<-c("feminine","masculine","neuter","masculine","feminine","feminine")
+NounLength<-c(6,7,4,5,8,6)
+NounFrequency<-c(638,799,390,569,567,665) 
+```
+
+### 1.2. Create factors
+
+The variables created above with categorical entries are considered as character vectors. We should convert them into *factors* using the function `factor()` .
+
+```{r}
+NounAnimacy <- factor(NounAnimacy)
+NounGender <- factor(NounGender)
+```
+
+::: callout-tip
+The following could be performed in a single step by *nesting* functions as in the code below:
+
+``` r
+NounAnimacy <- factor(c("animate","inanimate","inanimate","animate","animate","animate"))
+NounGender<- factor(c("feminine","masculine","neuter","masculine","feminine","feminine"))
+```
+:::
+
+### 1.3. Create a dataframe
+
+We can define a dataframe based on the variables we created as:
+
+```{r}
+df_example<-data.frame(NounAnimacy,NounGender,NounLength,NounFrequency)
+df_example
+```
+
+If you look at the Environment window, a new variable was created called `example` with the specified contents:
+
+![](images/clipboard-541810592.png)
+
+::: callout-important
+Note that when creating the dataset using the `data.frame()` function it builds a copy of the data. Modifying the original variables will not change `df_example` . You can remove the variables to clean up the workspace using `rm()`
+
+```{r}
+rm(NounAnimacy,NounFrequency, NounGender, NounLength)
+```
+:::
+
+Only `df_example` is left in the environment now:
+
+![](images/clipboard-729095383.png)
+
+and you can access the individual columns in the dataframe using the `$` operator. For example to see the column NounGender
+
+```{r}
+df_example$NounGender
+```
+
+## Task#2: loading required libraries
+
+Looking at the content of the assignment tasks, we will use data from the `languageR` package and functions from the `dyplr` package, which is part of the `tidyverse` environment.
+
+To use both of them we have to load the libraries first
+
+```{r}
+# add code to load the required libraries
+library(languageR)
+library(tidyverse)
+```
+
+## Task#3: Working with and exploring dataframes
+
+From the `languageR` library a sample dataframe called `lexdec` is used in this assignment. This dataset contains lexical decision latencies elicited from 21 subjects for 79 English concrete nouns.
+
+### 3.1. Load dataset in the environment
+
+To use the `lexdec` dataset, we load it in the environment using the function `data()` . Although this step is not needed to access the data, it conveniently includes is as any other variable in the Environment window, so that it is possible to inspect it.
+
+```{r}
+data(lexdec)
+```
+
+![](images/clipboard-1068450891.png)
+
+You can browse the information on the dataset in the documentation included with the package. You can do that with the `help()` function, using `?` or searching in the help tab.
+
+``` r
+help(lexdec)
+?lexdec
+```
+
+The help tab shows the description of each of the variables in the dataset
+
+![](images/clipboard-4085058704.png)
+
+### 3.1. Explore contents of the dataset
+
+You were asked to show the first rows of the dataset.
+
+Typing the name of the dataset will show you the full contents.
+
+```{r}
+lexdec
+```
+
+If you want to just look at the first rows, you can use the `head()` function as follows:
+
+```{r}
+head(lexdec)
+```
+
+As can be seen from the output, by default it displays 6 rows. Looking at the documentation of the `head()` function, it describes that the function can take an *argument* `n` specifying how many rows to display.
+
+```{r}
+head(lexdec, n = 4)
+```
+
+### 3.2. Extract the column names from the dataframe.
+
+As per the workgroup notes, the names of the variables in the dataframe can be extracted using the `colnames()` function.
+
+```{r}
+colnames(lexdec)
+```
+
+### 3.3. Sort dataframe
+
+You were asked to sort the dataframe by the *reaction time* (RT variable). Sorting can be done in several ways, but we will use the tidyverse `arrange()` function as described in the workgroup.
+
+```{r}
+arrange(lexdec,RT)
+```
+
+To instead arrange in reducing order:
+
+```{r}
+arrange(lexdec, desc(RT))
+```
+
+As an example, the previous can also be done using *pipes*. It does not make much difference in this task but it makes the code more readable when you perform several steps:
+
+```{r}
+lexdec %>% arrange(RT)
+```
+
+::: callout-caution
+Note that on these examples, we are providing a dataframe (`lexdec`) as input to the `arrange()` function that displays the result on the screen but [**does not modify the dataframe**]{.underline} provided. If we want to save the output of the call, we have to assign it to a variable.
+
+For example:
+
+```{r}
+lexdec_ordered <- lexdec %>% arrange(RT)
+lexdec_ordered
+```
+:::
+
+We now have a new variable in the environment called `lexdec_ordered` containing a copy of the data from `lexdec` ordered by the value of `RT` .
+
+### 3.4. Select columns and rows
+
+You were asked to create a new dataframe called `lexdec_reduced` with only the variables from Subject to Frequency and selecting only the entries from native English speakers (as coded in the NativeLanguage variable).
+
+As described in the workgroup materials, two functions are used to select the data, one selecting the variables/columns of interest (`select()`) and another selecting the observations/rows based on a criteria (`filter()`)
+
+Let's see below how to do the same operation with and without using pipes.
+
+```{r}
+# Without pipes
+
+lexdec_reduced <- select(lexdec,Subject:Frequency)
+lexdec_reduced
+```
+
+With this first command, we have selected a few columns from the original dataset. We can check that using for example `colnames()`
+
+```{r}
+colnames(lexdec)
+```
+
+```{r}
+colnames(lexdec_reduced)
+```
+
+As you can see only the first columns (from Subject to Frequency) are retained in `lexdec_reduced`
+
+To now select only the English native speakers, we use the function `filter()` :
+
+```{r}
+lexdec_reduced <- filter(lexdec_reduced,NativeLanguage=="English")
+lexdec_reduced
+```
+
+The steps above could be performed using *pipes*:
+
+```{r}
+#Using pipes
+
+lexdec_reduced <- lexdec %>% 
+                  select(Subject:Frequency) %>% 
+                  filter(NativeLanguage == "English")
+lexdec_reduced
+```
+
+With identical results and a more readable code.
+
+### 3.5. Save dataframe
+
+Finally you were asked to save the filtered dataframe into a file in the /data directorate.
+
+Let's save the data for example in text format using the `write.table()` function:
+
+```{r}
+write.table(lexdec_reduced,file = "./data/reduced_data.txt")
+```
+
+This command creates a file in the `/data` directory called `reduced_data.txt`
+
+![](images/clipboard-78236926.png)
+
+We can also save a copy in R format using `saveRDS()` if using R for further analysis.
+
+```{r}
+saveRDS(lexdec_reduced,"./data/reduced_data.Rda")
+```
+
+![](images/clipboard-3249453368.png)
+
+------------------------------------------------------------------------
+
+And this concludes the first assignment of the course! You will be gaining familiarity with R and RStudio along the workgroups.
