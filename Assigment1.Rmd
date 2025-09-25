@@ -83,7 +83,3 @@ From the *`languageR`* library we will use a sample dataframe called `lexdec`. T
 
 
 ```
-
-## Task#4 (Extra Credit)
-
-------------------------------------------------------------------------

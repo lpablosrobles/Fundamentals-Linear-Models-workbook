@@ -1,17 +1,19 @@
 ---
 title: "Workgroup 2: Data Exploration with R"
+date-meta: 20/09/2025
 ---
+
+In this session we will continue to introduce basic concepts of data manipulation and plotting using the `tidyverse` package and start performing data exploration and descriptive statistics with R.
 
 # 🧠 Learning Objectives
 
 By the end of this lesson, you will be able to:
 
--   Explore datasets.
--   Use basic functions and create simple plots.
--   Data organization and transformation (sorting, filtering, merging)
--   Histogram, Boxplot
--   Descriptive statistics in R
--   Data summary write-up
+-   Perform basic data transformation and reorganization.
+-   Understand concept of grammar of graphics and create basic plots
+-   Perform basic descriptive statistics in R
+-   Create histograms and boxplot.
+-   Write dataset summaries.
 
 ::: callout-note
 ## Workgroup 2 material to be published in the coming weeks

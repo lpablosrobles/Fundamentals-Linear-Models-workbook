@@ -78,7 +78,7 @@ cleandata <- df %>%
 ggplot(cleandata, aes(x = Log10Freq, y = RT)) + geom_point(color='grey') + geom_smooth(method="lm")
 ```
 
-##  
+## 
 
 ## A grammar of data manipulation
 
@@ -144,7 +144,7 @@ durationsOnt_simplified <- select(durationsOnt,  Word:DurationOfPrefix)
 head(durationsOnt_simplified)
 ```
 
-### Changing variable names: `rename()` 
+### Changing variable names: `rename()`
 
 ------------------------------------------------------------------------
 
@@ -181,7 +181,7 @@ head(durationsOnt_reordered)
 
 Now that we have selected the variables that we want and in the order that we want them, let's filter the data to select some cases
 
-### Selecting cases: filter()
+### Selecting cases: `filter()`
 
 ------------------------------------------------------------------------
 
@@ -206,7 +206,7 @@ durationsOnt_reordered_filtered_age_gender <- filter(durationsOnt_reordered,(Yea
 head(durationsOnt_reordered_filtered_age_gender)
 ```
 
-### Reordering cases: `arrange()` 
+### Reordering cases: `arrange()`
 
 Finally, the `arrange()` function orders the dataset by a selected value. For example to order the dataframe by Frequency:
 
