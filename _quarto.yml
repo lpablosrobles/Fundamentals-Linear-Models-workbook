@@ -43,7 +43,7 @@ book:
       chapters: 
         - data_organization.qmd
         - data_visualization.qmd
-      #   - descriptive_stats.qmd
+        - descriptive_stats.qmd
         
     - part: Workgroup3.qmd
       # chapters:

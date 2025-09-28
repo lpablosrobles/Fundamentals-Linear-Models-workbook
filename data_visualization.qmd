@@ -4,7 +4,7 @@ editor: visual
 
 # 📊Data visualization in R {#sec-ggplot .unnumbered}
 
-## Introduction to `ggplot2` 
+## Introduction to `ggplot2`
 
 ------------------------------------------------------------------------
 
@@ -45,6 +45,8 @@ data("lexdec")
 To build a plot, first we have to indicate the data that will be used to ggplot
 
 ```{r}
+library(tidyverse)
+
 ggplot(lexdec)
 ```
 
