@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
-
-<title>Reproducible research using Scripts and Notebooks – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Data organization and transformation – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,8 +18,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
-
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -31,8 +82,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Workgroup2.html" rel="next">
-<link href="./tidyverse_intro.html" rel="prev">
+<link href="./data_visualization.html" rel="next">
+<link href="./Workgroup2.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -43,8 +94,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -71,33 +121,24 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./using_notebooks.html">Reproducible research using Scripts and Notebooks</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li><li class="breadcrumb-item"><a href="./data_organization.html">Data organization and transformation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
         <div class="sidebar-tools-main">
@@ -116,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -136,8 +177,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">✍️ R Syntax</span></a>
@@ -163,12 +204,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./using_notebooks.html" class="sidebar-item-text sidebar-link active">
+  <a href="./using_notebooks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reproducible research using Scripts and Notebooks</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup2.html" class="sidebar-item-text sidebar-link">
@@ -177,10 +218,10 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_organization.html" class="sidebar-item-text sidebar-link">
+  <a href="./data_organization.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Data organization and transformation</span></a>
   </div>
 </li>
@@ -197,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Workgroup 3: Simple Linear Regression with R</span></span>
@@ -221,30 +262,21 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#r-scripts" id="toc-r-scripts" class="nav-link active" data-scroll-target="#r-scripts">R Scripts</a></li>
-  <li><a href="#r-markdown-and-notebooks" id="toc-r-markdown-and-notebooks" class="nav-link" data-scroll-target="#r-markdown-and-notebooks">R Markdown and Notebooks</a>
-  <ul class="collapse">
-  <li><a href="#notebook-instructions" id="toc-notebook-instructions" class="nav-link" data-scroll-target="#notebook-instructions">Notebook instructions</a></li>
-  </ul></li>
-  <li><a href="#additional-reading" id="toc-additional-reading" class="nav-link" data-scroll-target="#additional-reading">Additional Reading</a></li>
-  </ul>
-</nav>
+<li><a href="#adding-columns-mutate" id="toc-adding-columns-mutate" class="nav-link active" data-scroll-target="#adding-columns-mutate">Adding columns: <code>mutate()</code></a></li>
+  <li><a href="#data-organization-long-and-wide-format" id="toc-data-organization-long-and-wide-format" class="nav-link" data-scroll-target="#data-organization-long-and-wide-format">Data organization: long and wide format</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./using_notebooks.html">Reproducible research using Scripts and Notebooks</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Reproducible research using Scripts and Notebooks</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li><li class="breadcrumb-item"><a href="./data_organization.html">Data organization and transformation</a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-tidyverse2" class="quarto-section-identifier">Data organization and transformation</span></h1>
 </div>
 
 
@@ -258,98 +290,280 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
-
-
-<p>Up to now we have described the usage of R and RStudio as an interactive data analysis environment where we introduce commands and get outputs on the Console.</p>
-<p>An important part of research and data analysis is being able to reproduce the analysis and work you produce and report.</p>
-<p>In order to that, reproducible research includes:</p>
+</header><p>As mentioned in the previous workgroup, it is not in the scope of the course to cover all the functions available in the <code>tidyverse</code> framework. We introduce a subset of them useful to illustrate the concepts in the course.</p>
+<section id="adding-columns-mutate" class="level2"><h2 class="anchored" data-anchor-id="adding-columns-mutate">Adding columns: <code>mutate()</code>
+</h2>
+<p>The <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> function, part of the <code>dplyr</code> package, allows to create new columns or variables in a dataset. It is used normally for values based in an existing column.</p>
+<p>As an example, let’s use again the data from a psycholinguistic study on the reading comprehension of words as a function of frequency part of the English Lexicon Project, described in the the <span class="citation" data-cites="winter2019statistics">Winter (<a href="references.html#ref-winter2019statistics" role="doc-biblioref">2019</a>)</span> textbook Chapter 4.1. Dataset is in the file <code>/ELP_full_length_frequency.csv</code> in the <code>/data</code> directory.</p>
+<p>We load the data as indicated in workgroup1</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">dfELP</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"./data/ELP_full_length_frequency.csv"</span>,show_col_types <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dfELP</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  Word   Log10Freq length    RT
+  &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 zenith      1.34      5  754.
+2 zephyr      1.70      4  875.
+3 zeroed      1.30      5  929.
+4 zeros       1.70      5  625.
+5 zest        1.54      4  659.
+6 zigzag      1.36      6  785.</code></pre>
+</div>
+</div>
+<p>Let’s say we want to add two new calculated values:</p>
 <ul>
-<li><p>raw data collected</p></li>
-<li><p>code, including versions of all packages used for the analysis</p></li>
-<li><p>documentation of the steps and process.</p></li>
+<li><p>Reading time per character: calculated dividing RT by length</p></li>
+<li><p>logarithmic Reading Time : calculated using the <code><a href="https://rdrr.io/r/base/Log.html">log10()</a></code> function</p></li>
 </ul>
-<section id="r-scripts" class="level2">
-<h2 class="anchored" data-anchor-id="r-scripts">R Scripts</h2>
-<p>Scripts are used to collect the commands and steps used in a data analysis. In the R language, a script is a <strong>text file</strong> with commands saved with extension .R.</p>
-<p>To create a script, select <strong>File</strong> -&gt; <strong>New File -&gt;</strong> R Script</p>
-<p><img src="images/clipboard-1880213501.png" class="img-fluid" width="945"></p>
-<p>This will open a file in the Editor where you can type a series of commands and comments. Comments are lines starting with <code>#</code> .</p>
-<p>You can execute the code you want to run highlighting it and pressing&nbsp;<strong>Ctrl + Enter</strong>&nbsp;(Windows) or&nbsp;<strong>Cmd + Enter</strong>&nbsp;(Mac) or with the Green “Run” button on the top right of the Editor window.</p>
-<p><img src="images/clipboard-1109715082.png" class="img-fluid" width="926"></p>
-</section>
-<section id="r-markdown-and-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="r-markdown-and-notebooks">R Markdown and Notebooks</h2>
-<p>An alternative to scripts are <strong>Notebooks</strong>, which are a powerful way of documenting work by producing documents that mix plain text and code.&nbsp;</p>
-<p>Notebooks include chunks of code that can be executed and the output displayed and included in the document, together with textual input formatted using <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown</a> language. In fact the current workbook is written using this approach.</p>
-<p>A full description of R Markdown is beyond the scope of this course, but also not required to follow the content and exercises. In the section below a basic introduction is given to create a Notebook, use the Visual editor and generate PDF output to hand-in your assignments.</p>
-<section id="notebook-instructions" class="level3">
-<h3 class="anchored" data-anchor-id="notebook-instructions">Notebook instructions</h3>
-<div class="callout callout-style-default callout-caution callout-titled">
+<p>We can add the two columns using <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> as follows</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tibble' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ purrr     1.0.4
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.3.0
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfELP_extended</span> <span class="op">&lt;-</span> <span class="va">dfELP</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>RT_per_char <span class="op">=</span> <span class="va">RT</span><span class="op">/</span><span class="va">length</span>, logRT <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">RT</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dfELP_extended</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  Word   Log10Freq length    RT RT_per_char logRT
+  &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
+1 zenith      1.34      5  754.        151.  2.88
+2 zephyr      1.70      4  875.        219.  2.94
+3 zeroed      1.30      5  929.        186.  2.97
+4 zeros       1.70      5  625.        125.  2.80
+5 zest        1.54      4  659.        165.  2.82
+6 zigzag      1.36      6  785.        131.  2.90</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caution
+Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Beware that the environment of a Notebook is not the same as the R session environment!</p>
+<p>To avoid filling up the memory in the system, we will remove the variables after completing the examples when not using them again for a while</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">dfELP</span>, <span class="va">dfELP_extended</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>To create a notebook in R Markdown, you can select <strong>File</strong> -&gt; <strong>New File -&gt;</strong> R Notebook</p>
-<p><img src="images/clipboard-3584638955.png" class="img-fluid" width="850"></p>
-<p>To show the capabilities of the Notebook, we will look at the assignments to be delivered:</p>
+</div>
+<hr></section><section id="data-organization-long-and-wide-format" class="level2"><h2 class="anchored" data-anchor-id="data-organization-long-and-wide-format">Data organization: long and wide format</h2>
+<p>A common task when preparing the analysis steps is to <em>reshape</em> the data in a way that can be used for the analysis.</p>
+<p>We can widely characterize the data into two groups <strong>wide</strong> and <strong>long</strong>. (see section 3.9.4 of <span class="citation" data-cites="field2026">Field (<a href="references.html#ref-field2026" role="doc-biblioref">2026</a>)</span> for details)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/clipboard-127516850.png" class="img-fluid figure-img" width="660"></p>
+<figcaption>From A. Field</figcaption></figure>
+</div>
+<p>The <code>tidyr</code> package contains two useful functions to allow to transform the data from one format to the other: <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> and <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> .</p>
+<p>Again let’s look at one example based on data from an Event Related Potential (ERP) experiment. In ERP analysis one common approach is to compare the average amplitude of the signal measured in several electrodes on a time window of interest for the ERP component expected. The file <code>EEG_DataSet_Wide.Rda</code> in the <code>/data</code> directory contains an example data set with the average voltage measured in a set of electrodes in a time window of 250-500ms to investigate the so-called N400 ERP component.</p>
+<p>Let’s load and look at the data:</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfEEG_wide</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"./data/EEG_DataSet_Wide.Rda"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dfEEG_wide</span>, n<span class="op">=</span><span class="fl">8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 64
+# Groups:   Subject [2]
+  Subject Condition    Fp1     Fpz    Fp2     AF3    AF4     F7     F5     F3
+  &lt;fct&gt;   &lt;fct&gt;      &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 1       CondA     -3.05  -1.04   -2.88  -3.06   -3.31  -2.05  -2.06  -2.89 
+2 1       CondB     -1.03  -1.57   -0.842 -1.84   -0.361 -1.08  -1.06  -0.158
+3 1       CondC      0.575  1.52   -0.198  0.818   0.235  0.200  0.226  1.04 
+4 1       CondD     -2.20  -1.02   -1.63  -2.75   -1.90  -1.63  -1.62  -1.79 
+5 2       CondA      0.655  0.251   0.133  0.606   0.190  0.503  0.741  0.762
+6 2       CondB     -1.80  -2.13   -2.31  -2.33   -2.45  -1.23  -2.12  -2.12 
+7 2       CondC      0.145  0.0108  0.122  0.0548 -0.172  0.216  0.226  0.180
+8 2       CondD     -1.38  -1.66   -1.74  -0.980  -1.43  -0.797 -0.963 -0.944
+# ℹ 54 more variables: F1 &lt;dbl&gt;, Fz &lt;dbl&gt;, F2 &lt;dbl&gt;, F4 &lt;dbl&gt;, F6 &lt;dbl&gt;,
+#   F8 &lt;dbl&gt;, FT7 &lt;dbl&gt;, FC5 &lt;dbl&gt;, FC3 &lt;dbl&gt;, FC1 &lt;dbl&gt;, FCz &lt;dbl&gt;, FC2 &lt;dbl&gt;,
+#   FC4 &lt;dbl&gt;, FC6 &lt;dbl&gt;, FT8 &lt;dbl&gt;, T7 &lt;dbl&gt;, C5 &lt;dbl&gt;, C3 &lt;dbl&gt;, C1 &lt;dbl&gt;,
+#   Cz &lt;dbl&gt;, C2 &lt;dbl&gt;, C4 &lt;dbl&gt;, C6 &lt;dbl&gt;, T8 &lt;dbl&gt;, TP7 &lt;dbl&gt;, CP5 &lt;dbl&gt;,
+#   CP3 &lt;dbl&gt;, CP1 &lt;dbl&gt;, CPz &lt;dbl&gt;, CP2 &lt;dbl&gt;, CP4 &lt;dbl&gt;, CP6 &lt;dbl&gt;,
+#   TP8 &lt;dbl&gt;, P7 &lt;dbl&gt;, P5 &lt;dbl&gt;, P3 &lt;dbl&gt;, P1 &lt;dbl&gt;, Pz &lt;dbl&gt;, P2 &lt;dbl&gt;,
+#   P4 &lt;dbl&gt;, P6 &lt;dbl&gt;, P8 &lt;dbl&gt;, PO7 &lt;dbl&gt;, PO5 &lt;dbl&gt;, PO3 &lt;dbl&gt;, POz &lt;dbl&gt;, …</code></pre>
+</div>
+</div>
+<p>The table contains 64 columns, with one row representing the measurements on a particular condition per subject.</p>
 <ul>
-<li><p>Open the file <code>Assignment1.Rmd</code> by clicking on the file on the name in the file tab.</p></li>
-<li><p>If not active, select “<em>Visual</em>” in the edit mode on the upper left.</p></li>
-<li><p>Enter your name and Student ID in the author field.</p></li>
+<li><p>Column 1 - “Subject” - ID of the participant</p></li>
+<li><p>Column 2 - “Condition” - factor representing the condition with four levels (CondA, CondB, CondC, CondD).</p></li>
+<li><p>Columns 3-64: Average Voltages in 250-500 ms time window after stimuli onset at 61 electrodes.</p></li>
 </ul>
-<p><img src="images/clipboard-300414333.png" class="img-fluid" width="774"></p>
+<p>For the data analysis, we would like to actually see the effect on the Voltage measurement at different electrode sites, so we would like to actually have the data organized as:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Subject</th>
+<th>Condition</th>
+<th>Electrode</th>
+<th>Amplitude</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>CondA</td>
+<td>Fp1</td>
+<td>-3.047</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>CondA</td>
+<td>Fpz</td>
+<td>-1.037</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>We can do this with the <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code> function, that has the following syntax:</p>
+<p><code>pivot_longer(data, cols, names_to = "name", values_to = "value")</code></p>
 <ul>
-<li><p>Enter the code to answer each of the questions in the relevant code section, that appear in grey and with a {r} marking.</p></li>
-<li><p>After entering the code, run it pressing the green arrow on the top right corner of the code section</p></li>
-<li><p>Remember to save from time to time!</p></li>
+<li><p><code>data</code> : dataframe to be transformed</p></li>
+<li><p><code>cols</code>: columns to be converted into longer format</p></li>
+<li><p><code>names_to</code>: name of the variable that will contain as values the names of the cols argument</p></li>
+<li><p><code>values_to</code>: name of the variable that will contain values</p></li>
 </ul>
-<p><img src="images/clipboard-686377011.png" class="img-fluid" width="963"></p>
-<p>When you are ready to hand in your assignment you can generate a PDF to upload in Brightspace. This is the procedure to do it:</p>
+<p>In our example, we want to pivot all columns with electrode name. Normally you could provide a list, but since here we have several columns we can specify a range: “from column Fp1 to CB2”</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfEEG_long</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="va">dfEEG_wide</span>,cols <span class="op">=</span> <span class="va">Fp1</span><span class="op">:</span><span class="va">CB2</span>, names_to <span class="op">=</span> <span class="st">"Electrode"</span>,values_to<span class="op">=</span> <span class="st">"AvgVoltage"</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dfEEG_long</span>,n<span class="op">=</span><span class="fl">8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 4
+# Groups:   Subject [1]
+  Subject Condition Electrode AvgVoltage
+  &lt;fct&gt;   &lt;fct&gt;     &lt;chr&gt;          &lt;dbl&gt;
+1 1       CondA     Fp1            -3.05
+2 1       CondA     Fpz            -1.04
+3 1       CondA     Fp2            -2.88
+4 1       CondA     AF3            -3.06
+5 1       CondA     AF4            -3.31
+6 1       CondA     F7             -2.05
+7 1       CondA     F5             -2.06
+8 1       CondA     F3             -2.89</code></pre>
+</div>
+</div>
+<p>As can be seen from the output, we have the data in the format expected</p>
+<p>Transforming into <em>wide format</em> is done similarly with the <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider()</a></code> function, that takes the following arguments:</p>
 <ul>
-<li><p>Click on the small arrow next to the <em>Knit</em> button (see figure below).</p></li>
-<li><p>Select “Knit to PDF”</p></li>
-<li><p>Save the PDF file generated somewhere in your drive or computer.</p></li>
-<li><p>Upload it to Brightspace on the relevant assignment.</p></li>
+<li><p><code>data</code> : dataframe to be transformed</p></li>
+<li><p><code>names_from</code> : column (or columns) to get the name of the output column</p></li>
+<li><p><code>values_from</code> : column (or columns) to get the cell values from</p></li>
 </ul>
-<p><img src="images/clipboard-3604996052.png" class="img-fluid" width="894"></p>
-</section>
-</section>
-<section id="additional-reading" class="level2">
-<h2 class="anchored" data-anchor-id="additional-reading">Additional Reading</h2>
-<hr>
-<p>If you are interested into knowing more on the capabilities of R notebooks, you can use this resources.</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<p>Let’s imagine that we would like to transform our last dataframe into a table of the form:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Subject</th>
+<th>Electrode</th>
+<th>CondA</th>
+<th>CondB</th>
+<th>CondC</th>
+<th>CondD</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Fp1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Fpz</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>We can do the following:</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfEEG_wide_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span><span class="va">dfEEG_long</span>,names_from <span class="op">=</span> <span class="st">"Condition"</span>,values_from<span class="op">=</span> <span class="st">"AvgVoltage"</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dfEEG_wide_2</span>,n<span class="op">=</span><span class="fl">8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 6
+# Groups:   Subject [1]
+  Subject Electrode CondA  CondB  CondC CondD
+  &lt;fct&gt;   &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+1 1       Fp1       -3.05 -1.03   0.575 -2.20
+2 1       Fpz       -1.04 -1.57   1.52  -1.02
+3 1       Fp2       -2.88 -0.842 -0.198 -1.63
+4 1       AF3       -3.06 -1.84   0.818 -2.75
+5 1       AF4       -3.31 -0.361  0.235 -1.90
+6 1       F7        -2.05 -1.08   0.200 -1.63
+7 1       F5        -2.06 -1.06   0.226 -1.62
+8 1       F3        -2.89 -0.158  1.04  -1.79</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This material is for your own development but it is <strong>not required</strong> for the course. I add it here as additional information in case you need to use it in your own research</p>
+<p>Pivoting tables can be confusing at first. You will master it with practice on your own data. This section is included to illustrate a typical data manipulation and provide tips for your own analysis but will not be used in exercises or exams.</p>
 </div>
 </div>
+<hr></section><section id="further-reading" class="level2"><h2 class="anchored" data-anchor-id="further-reading">Further reading</h2>
+<p>If you want to go more into details here are links to good resources:</p>
 <ul>
-<li><p><a href="https://bookdown.org/yihui/rmarkdown/notebook.html">R Notebooks guide.</a></p></li>
-<li><p><a href="https://www.datacamp.com/tutorial/r-markdown-tutorial">Datacamp R Notebook tutorial</a></p></li>
+<li><p>R for data Science ( <span class="citation" data-cites="wickham2024r">Wickham, Çetinkaya-Rundel, and Grolemund (<a href="references.html#ref-wickham2024r" role="doc-biblioref">2024</a>)</span>) <a href="https://r4ds.hadley.nz/data-tidy.html">Chapter 5 - Data tyding</a></p></li>
+<li><p>Tidyverse <a href="https://tidyr.tidyverse.org/articles/pivot.html">article on Pivoting</a></p></li>
 </ul>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-field2026" class="csl-entry" role="listitem">
+Field, Andy P. 2026. <em>Discovering Statistics Using R and RStudio</em>. London: SAGE Publications.
+</div>
+<div id="ref-wickham2024r" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2024. <em>R for Data Science</em>. O’Reilly.
+</div>
+<div id="ref-winter2019statistics" class="csl-entry" role="listitem">
+Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. Routledge.
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -747,22 +961,19 @@ Important
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./tidyverse_intro.html" class="pagination-link" aria-label="Introduction to tidyverse 1: data manipulation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction to tidyverse 1: data manipulation</span>
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./Workgroup2.html" class="pagination-link" aria-label="Workgroup 2: Data Exploration with R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Workgroup 2: Data Exploration with R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Workgroup2.html" class="pagination-link" aria-label="Workgroup 2: Data Exploration with R">
-        <span class="nav-page-text">Workgroup 2: Data Exploration with R</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./data_visualization.html" class="pagination-link" aria-label="📊Data visualization in R">
+        <span class="nav-page-text">📊Data visualization in R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Fundamentals of Linear Models Workbook was written by Dr.&nbsp;Leticia Pablos Robles</p>
 </div>   
@@ -774,8 +985,6 @@ Important
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
