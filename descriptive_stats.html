@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
-<title>1&nbsp; Descriptive Statistics – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Descriptive Statistics – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -134,7 +134,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li><li class="breadcrumb-item"><a href="./descriptive_stats.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li><li class="breadcrumb-item"><a href="./descriptive_stats.html">Descriptive Statistics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -239,7 +239,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./descriptive_stats.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span></a>
+ <span class="menu-text">Descriptive Statistics</span></a>
   </div>
 </li>
       </ul>
@@ -275,38 +275,36 @@ window.Quarto = {
    
   <ul>
 <li>
-<a href="#measures-of-central-tendency" id="toc-measures-of-central-tendency" class="nav-link active" data-scroll-target="#measures-of-central-tendency"><span class="header-section-number">1.1</span> Measures of central tendency</a>
+<a href="#measures-of-central-tendency" id="toc-measures-of-central-tendency" class="nav-link active" data-scroll-target="#measures-of-central-tendency">Measures of central tendency</a>
   <ul class="collapse">
-<li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean"><span class="header-section-number">1.1.1</span> Mean</a></li>
-  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median"><span class="header-section-number">1.1.2</span> Median</a></li>
-  <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode"><span class="header-section-number">1.1.3</span> Mode</a></li>
+<li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean">Mean</a></li>
+  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">Median</a></li>
+  <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode">Mode</a></li>
   </ul>
 </li>
-  <li><a href="#point-summaries" id="toc-point-summaries" class="nav-link" data-scroll-target="#point-summaries"><span class="header-section-number">1.2</span> 5-point summaries</a></li>
+  <li><a href="#point-summaries" id="toc-point-summaries" class="nav-link" data-scroll-target="#point-summaries">5-point summaries</a></li>
   <li>
-<a href="#measures-of-dispersion" id="toc-measures-of-dispersion" class="nav-link" data-scroll-target="#measures-of-dispersion"><span class="header-section-number">1.3</span> Measures of dispersion</a>
+<a href="#measures-of-dispersion" id="toc-measures-of-dispersion" class="nav-link" data-scroll-target="#measures-of-dispersion">Measures of dispersion</a>
   <ul class="collapse">
-<li><a href="#standard-deviation-and-variance" id="toc-standard-deviation-and-variance" class="nav-link" data-scroll-target="#standard-deviation-and-variance"><span class="header-section-number">1.3.1</span> Standard deviation and variance</a></li>
+<li><a href="#standard-deviation-and-variance" id="toc-standard-deviation-and-variance" class="nav-link" data-scroll-target="#standard-deviation-and-variance">Standard deviation and variance</a></li>
   </ul>
 </li>
-  <li><a href="#data-summaries-with-tidyverse" id="toc-data-summaries-with-tidyverse" class="nav-link" data-scroll-target="#data-summaries-with-tidyverse"><span class="header-section-number">1.4</span> Data summaries with <code>tidyverse</code></a></li>
-  <li><a href="#reporting-summary-descriptive-statistics" id="toc-reporting-summary-descriptive-statistics" class="nav-link" data-scroll-target="#reporting-summary-descriptive-statistics"><span class="header-section-number">1.5</span> Reporting Summary Descriptive Statistics</a></li>
+  <li><a href="#data-summaries-with-tidyverse" id="toc-data-summaries-with-tidyverse" class="nav-link" data-scroll-target="#data-summaries-with-tidyverse">Data summaries with <code>tidyverse</code></a></li>
+  <li><a href="#reporting-summary-descriptive-statistics" id="toc-reporting-summary-descriptive-statistics" class="nav-link" data-scroll-target="#reporting-summary-descriptive-statistics">Reporting Summary Descriptive Statistics</a></li>
   <li>
-<a href="#data-normality-checks" id="toc-data-normality-checks" class="nav-link" data-scroll-target="#data-normality-checks"><span class="header-section-number">1.6</span> Data Normality checks</a>
+<a href="#data-normality-checks" id="toc-data-normality-checks" class="nav-link" data-scroll-target="#data-normality-checks">Data Normality checks</a>
   <ul class="collapse">
-<li><a href="#skewness-and-kurtosis" id="toc-skewness-and-kurtosis" class="nav-link" data-scroll-target="#skewness-and-kurtosis"><span class="header-section-number">1.6.1</span> Skewness and Kurtosis</a></li>
-  <li><a href="#q-q-plots" id="toc-q-q-plots" class="nav-link" data-scroll-target="#q-q-plots"><span class="header-section-number">1.6.2</span> Q-Q plots</a></li>
-  <li><a href="#shapiro-wilk-tests" id="toc-shapiro-wilk-tests" class="nav-link" data-scroll-target="#shapiro-wilk-tests"><span class="header-section-number">1.6.3</span> Shapiro-Wilk tests</a></li>
+<li><a href="#skewness-and-kurtosis" id="toc-skewness-and-kurtosis" class="nav-link" data-scroll-target="#skewness-and-kurtosis">Skewness and Kurtosis</a></li>
+  <li><a href="#q-q-plots" id="toc-q-q-plots" class="nav-link" data-scroll-target="#q-q-plots">Q-Q plots</a></li>
+  <li><a href="#shapiro-wilk-tests" id="toc-shapiro-wilk-tests" class="nav-link" data-scroll-target="#shapiro-wilk-tests">Shapiro-Wilk tests</a></li>
   </ul>
 </li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">1.7</span> </a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li><li class="breadcrumb-item"><a href="./descriptive_stats.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span>
-</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li><li class="breadcrumb-item"><a href="./descriptive_stats.html">Descriptive Statistics</a></li></ol></nav><div class="quarto-title">
+<h1 class="title">Descriptive Statistics</h1>
 </div>
 
 
@@ -320,11 +318,9 @@ window.Quarto = {
   
 
 
-</header><section id="measures-of-central-tendency" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="measures-of-central-tendency">
-<span class="header-section-number">1.1</span> Measures of central tendency</h2>
+</header><section id="measures-of-central-tendency" class="level2"><h2 class="anchored" data-anchor-id="measures-of-central-tendency">Measures of central tendency</h2>
 <p>We described in the lecture three main measures of central tendency: the <strong>mean</strong>, the <strong>median</strong> and the <strong>mode</strong>.</p>
-<section id="mean" class="level3" data-number="1.1.1"><h3 data-number="1.1.1" class="anchored" data-anchor-id="mean">
-<span class="header-section-number">1.1.1</span> Mean</h3>
+<section id="mean" class="level3"><h3 class="anchored" data-anchor-id="mean">Mean</h3>
 <p>The mean is described in mathematically as:</p>
 <p><span class="math display">\[
 \overline{X}=\frac{\sum_{i=1}^{N}{X_i}}{N}
@@ -344,8 +340,7 @@ window.Quarto = {
 <pre><code>[1] 4.166667</code></pre>
 </div>
 </div>
-</section><section id="median" class="level3" data-number="1.1.2"><h3 data-number="1.1.2" class="anchored" data-anchor-id="median">
-<span class="header-section-number">1.1.2</span> Median</h3>
+</section><section id="median" class="level3"><h3 class="anchored" data-anchor-id="median">Median</h3>
 <p>Similarly, the median can be calculated by ranking the values and selecting those in the middle, but there is a convenience function <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code></p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -365,11 +360,9 @@ window.Quarto = {
 <pre><code>[1] 5</code></pre>
 </div>
 </div>
-</section><section id="mode" class="level3" data-number="1.1.3"><h3 data-number="1.1.3" class="anchored" data-anchor-id="mode">
-<span class="header-section-number">1.1.3</span> Mode</h3>
+</section><section id="mode" class="level3"><h3 class="anchored" data-anchor-id="mode">Mode</h3>
 <p>There is no built in function to calculate the mode in R. It is simply the value repeated the most in a dataset. The function <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> can be used to create a count of the number of elements in a dataframe as a function of variable (so-called <em>contingency tables</em>). We will see in the next sections how to do that with tidyverse.</p>
-</section></section><section id="point-summaries" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="point-summaries">
-<span class="header-section-number">1.2</span> 5-point summaries</h2>
+</section></section><section id="point-summaries" class="level2"><h2 class="anchored" data-anchor-id="point-summaries">5-point summaries</h2>
 <p>There are several ways to calculate the five point summaries discussed in the lecture for a dataset. Using individual functions:</p>
 <ul>
 <li><p><code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code> : minimum of a set of numbers</p></li>
@@ -438,10 +431,8 @@ window.Quarto = {
   5.829   6.215   6.346   6.385   6.502   7.587 </code></pre>
 </div>
 </div>
-</section><section id="measures-of-dispersion" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="measures-of-dispersion">
-<span class="header-section-number">1.3</span> Measures of dispersion</h2>
-<section id="standard-deviation-and-variance" class="level3" data-number="1.3.1"><h3 data-number="1.3.1" class="anchored" data-anchor-id="standard-deviation-and-variance">
-<span class="header-section-number">1.3.1</span> Standard deviation and variance</h3>
+</section><section id="measures-of-dispersion" class="level2"><h2 class="anchored" data-anchor-id="measures-of-dispersion">Measures of dispersion</h2>
+<section id="standard-deviation-and-variance" class="level3"><h3 class="anchored" data-anchor-id="standard-deviation-and-variance">Standard deviation and variance</h3>
 <p>As described in the lecture the standard deviation of a dataset is calculated as follows:</p>
 <ul>
 <li><p>for the full population: <span class="math inline">\(\sigma = \sqrt{\frac{\sum_{i=1}^{N}{(X_i-\mu)^2}}{N}}\)</span></p></li>
@@ -454,8 +445,7 @@ window.Quarto = {
 <pre><code>[1] 0.2415091</code></pre>
 </div>
 </div>
-</section></section><section id="data-summaries-with-tidyverse" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="data-summaries-with-tidyverse">
-<span class="header-section-number">1.4</span> Data summaries with <code>tidyverse</code>
+</section></section><section id="data-summaries-with-tidyverse" class="level2"><h2 class="anchored" data-anchor-id="data-summaries-with-tidyverse">Data summaries with <code>tidyverse</code>
 </h2>
 <p>In most cases, we have a most complex data structure where we want to calculate the summary statistics not only globally but in several cases of conditions.</p>
 <p>For example, if we want to calculate the average and number of cases of the Reaction Time in the lexdec dataset for Male and Female and also between Native and non-native English speakers. We could perform it by individually filtering each group combination and calculating the mean and number of cases (<code><a href="https://rdrr.io/r/base/length.html">length()</a></code> provides the number of rows) as below:</p>
@@ -538,8 +528,7 @@ argument.</code></pre>
 4 M     Other             158  6.50 0.224 0.0178 </code></pre>
 </div>
 </div>
-</section><section id="reporting-summary-descriptive-statistics" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="reporting-summary-descriptive-statistics">
-<span class="header-section-number">1.5</span> Reporting Summary Descriptive Statistics</h2>
+</section><section id="reporting-summary-descriptive-statistics" class="level2"><h2 class="anchored" data-anchor-id="reporting-summary-descriptive-statistics">Reporting Summary Descriptive Statistics</h2>
 <p>For the reporting of each group of data, either a tabular form or descriptive paragraph can be used, providing the values as calculated. An example for the <em><code>lexdec</code></em> example we used could be as follows:</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -555,11 +544,9 @@ Note
 </div>
 </div>
 <p>Note that the mean is denoted by a capital <em>M</em>. In this case we don’t have yet a statistical analysis to determine if the difference observed is significant. That should be reported as well and we will address it in the next lectures.</p>
-</section><section id="data-normality-checks" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="data-normality-checks">
-<span class="header-section-number">1.6</span> Data Normality checks</h2>
+</section><section id="data-normality-checks" class="level2"><h2 class="anchored" data-anchor-id="data-normality-checks">Data Normality checks</h2>
 <p>We mentioned in the lectures the importance to be able to check the normality of data or, as we will see of the residuals of a model fit, to ensure that our conclusions based on the statistical assessment of the results of a linear model are valid. In this section we briefly present how to perform in R some of the measures to determine deviation from normality.</p>
-<section id="skewness-and-kurtosis" class="level3" data-number="1.6.1"><h3 data-number="1.6.1" class="anchored" data-anchor-id="skewness-and-kurtosis">
-<span class="header-section-number">1.6.1</span> Skewness and Kurtosis</h3>
+<section id="skewness-and-kurtosis" class="level3"><h3 class="anchored" data-anchor-id="skewness-and-kurtosis">Skewness and Kurtosis</h3>
 <p>Skewness and Kurtosis of a distribution can be computed using functions in the <code>moments</code> package. Before using it, we have to install the package</p>
 <div class="cell">
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#install.packages("moments")</span></span>
@@ -594,8 +581,7 @@ Note
 </div>
 <p>A positive value indicates a distribution that is more concentrated in the center than a normal distribution.</p>
 <p>So both measures point to a distribution deviating from normality on the data.</p>
-</section><section id="q-q-plots" class="level3" data-number="1.6.2"><h3 data-number="1.6.2" class="anchored" data-anchor-id="q-q-plots">
-<span class="header-section-number">1.6.2</span> Q-Q plots</h3>
+</section><section id="q-q-plots" class="level3"><h3 class="anchored" data-anchor-id="q-q-plots">Q-Q plots</h3>
 <p>A Q-Q plot or “Quantile-Quantile” Plot, can be used to compare two distributions. It plots the quantiles from the measured data against what a theoretical or other distribution quantile would look like.</p>
 <p>A straight line implies that the two distributions compared are very similar. this is done in R using the <code><a href="https://rdrr.io/r/stats/qqnorm.html">qqplot()</a></code> function. To test for normality, we want to compare the data against a thoretical normal distribution. This a particular case implemented with the function <code><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm()</a></code> .</p>
 <p>If we look in our running example</p>
@@ -641,8 +627,7 @@ Attaching package: 'car'</code></pre>
 <pre><code>[1] 1273  750</code></pre>
 </div>
 </div>
-</section><section id="shapiro-wilk-tests" class="level3" data-number="1.6.3"><h3 data-number="1.6.3" class="anchored" data-anchor-id="shapiro-wilk-tests">
-<span class="header-section-number">1.6.3</span> Shapiro-Wilk tests</h3>
+</section><section id="shapiro-wilk-tests" class="level3"><h3 class="anchored" data-anchor-id="shapiro-wilk-tests">Shapiro-Wilk tests</h3>
 <p>Finally, a number of tests can be used to provide a quantified assessment of the normality or not of the data.</p>
 <p>Here we present the Shapiro-Wilk test. This test considers a null hypothesis that the data is normally distributed. A significant outcome implies that the null hypothesis is not maintained and that the data is not normally distributed. It is implemented by the <code><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test()</a></code> function</p>
 <div class="cell">
@@ -656,8 +641,7 @@ W = 0.94738, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>A p-value lower than a defined threshold implies that the null hypothesis is rejected. In this case, p&lt;0.001 so we will assess the data as not being normally distributed.</p>
-</section></section><section id="section" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="section">
-<span class="header-section-number">1.7</span> </h2>
+</section></section><section id="section" class="level2"><h2 class="anchored" data-anchor-id="section"></h2>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
