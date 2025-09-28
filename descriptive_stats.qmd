@@ -2,7 +2,7 @@
 editor: visual
 ---
 
-# Descriptive Statistics
+# Descriptive Statistics {.unnumbered}
 
 ## Measures of central tendency
 
