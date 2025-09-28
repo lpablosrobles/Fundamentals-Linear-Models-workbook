@@ -1,15 +1,174 @@
 ---
-title: "Data visualization"
-format: html
 editor: visual
 ---
 
-# 📊Data visualization in R: introduction to ggplot
+# 📊Data visualization in R {#sec-ggplot .unnumbered}
 
-## Basic Plotting
+## Introduction to `ggplot2` 
 
-\> \*\*Note on ggplot2:\*\* The intention of this example was to show the power of \`ggplot2\` to produce graphs of all types. It is beyond the scope of this course to learn how to use it and you are \*\*not\*\* expected to know it for the exams. For the interested readers there are several books and resources on the topic:
+------------------------------------------------------------------------
 
-\- \[\*R Graphics Cookbook\*\](http://shop.oreilly.com/product/0636920023135.do) by Winston Chang
+R provides several ways to plot data, from simple plots using basic functions like `plot()` to complex visualization with specialized packages.
 
-\- \[\*ggplot2: Elegant Graphics for Data Analysis\*\](https://www.springer.com/gp/book/9780387981413) by Hadley Wickham
+For this course we have chosen to introduce plotting based on the `ggplot2` package, part of the `tidyverse` environment because of its versatility to generate almost any required visualization in the linguistics field. A full treatment of the capabilities of ggplot is beyond the scope of this course and you are **not** expected to know how to use it for the exams, but will need it for the assignments.
+
+For a full description refer to @10.5555/2967391, available [online](https://ggplot2-book.org).
+
+## Grammar of graphics
+
+------------------------------------------------------------------------
+
+The name, ggplot, it is due to the underlying concept based on the notion of *Grammar of Graphics* ( @wilkinson2011grammar)
+
+The concept behind ggplot2 divides a plot into different fundamental composable parts:
+
+[![Image extracted from ggplot introduction](images/clipboard-2157620022.png)](https://ggplot2.tidyverse.org/articles/ggplot2.html)
+
+The main components are
+
+Plot = Data + Mapping + Layers (or Geometry)
+
+-   **Data** is a data frame with the source of the data to be represented.
+
+-   **Mapping** is used to indicate with of the data elements are mapped to the *aesthetics* of the graph (i.e. the x and y axis. It can also be used to control the color/ size / shape of points, the height of bars, etc.
+
+-   **Geometry** defines the type of graphics (i.e., histogram, box plot, line plot, density plot, dot plot, etc.).
+
+To explain these concepts, let's walk through an example of the steps to build a plot. We will make use again of the `lexdec` dataset in the `languageR` package.
+
+```{r}
+library(languageR)
+
+data("lexdec")
+```
+
+To build a plot, first we have to indicate the data that will be used to ggplot
+
+```{r}
+ggplot(lexdec)
+```
+
+This command has created an empty canvas, since we have not mapped the data to the plot. We have to provide a mapping of which variables are to be displayed. We do this mapping with the `aes()` function. Let's plot the Reading Time as a function of the Frequency of the word.
+
+```{r}
+ggplot(lexdec, mapping = aes(x = Frequency, y = RT))
+```
+
+Now we get a plot, with axis indicating the two elements we have mapped, but nothing is displayed. This is because we have not specified the *geometry* or representation.
+
+If we want to make a scatter plot, we use the `geom_point()` function:
+
+```{r}
+ggplot(lexdec, mapping = aes(x = Frequency, y = RT)) + geom_point()
+```
+
+The basic geometries in ggplot are:
+
+-   geom_point() : scatter plot
+
+-   geom_line() : line plot
+
+-   geom_bar() : bar chart
+
+-   geom_histogram() : histogram
+
+-   geom_boxplot() : boxplot
+
+Additional variables beyond x and y, can be considered using the `colour` or `fill` arguments. For instance, in the example above, we could color the points differently according to the `NativeLanguage` of the subject in the observation:
+
+```{r}
+ggplot(lexdec, mapping = aes(x = Frequency, y = RT, color=NativeLanguage)) + geom_point()
+```
+
+In the following we look at a couple of plots that we addressed in the first lectures
+
+## Histograms
+
+------------------------------------------------------------------------
+
+A histogram is a representation of the frequency distribution of the data. It is created using the `geom_histogram()` function. Note that for this plot, only one variable is needed to be specified for the x-axis, since the other coordinate is the count of cases.
+
+For example, to look at the distribution of the reaction time data:
+
+```{r}
+ggplot(lexdec, aes(x=RT)) + geom_histogram()
+```
+
+We can see that the data is only slightly right skewed, since it corresponds to a log transformed Reaction Time.
+
+In a histogram, we can adjust the arguments `bins` and `binwidth` to determine the *resolution* of our grouping. The default is 30 bins distributed equally between the min and maximum value. Let's see what happens if we change the value to 70:
+
+```{r}
+ggplot(lexdec, aes(x=RT)) + geom_histogram(bins = 70)
+```
+
+Let's illustrate another capability of the layered concept to build graphs in ggplot: if we were interested to see if the distribution of reaction times is different between males and females, we could filter the data for each of the groups and plot two histograms (let's do this using pipes this time)
+
+```{r}
+#histogram for females
+
+lexdec %>% filter(Sex=="F") %>% 
+           ggplot(aes(x=RT)) + geom_histogram()
+```
+
+```{r}
+#histogram for males
+lexdec %>% filter(Sex=="M") %>% 
+           ggplot(aes(x=RT)) + geom_histogram()
+```
+
+However we can also do it using *facets* in ggplot, which allows us to create multiple graphs based on a given variable. See the example below:
+
+```{r}
+ggplot(lexdec, aes(x=RT)) + geom_histogram() + facet_wrap(~Sex)
+```
+
+Now both plots are places next to each other and, more importantly, with the same scale on the axis. By looking at the graphs, the distributions are similar, but the Female is higher, pointing to the fact that there were likely more female participants than males (remember the y-axis in a histogram is a count).
+
+This can be solved by using a 'normalization', that is, asking R to plot the histogram divided by the maximum count (this is call a density function). This can be done specifying
+
+::: callout-note
+Advanced:
+
+This can be solved by using a 'normalization', that is, asking R to plot the histogram divided by the maximum count (this is call a density function). This can be done specifying in `plot_histogram()` a specific aesthetic `aes(y =..density..)`
+
+```{r}
+ggplot(lexdec, aes(x=RT)) + geom_histogram( aes( y =..density..)) + facet_wrap(~Sex)
+```
+:::
+
+## Boxplot
+
+------------------------------------------------------------------------
+
+Another representation of the distribution of the data that we discussed in the lecture is the boxplot. Boxplots can be plotted in ggplot using the `geom_boxplot()` function.
+
+If we look again at the `RT` as a function of `Sex` can simply change the call as follows:
+
+```{r}
+ggplot(lexdec, aes(x=Sex, y = RT)) + geom_boxplot() 
+```
+
+One observation is that the plot shows a number of points (circles) beyond the end of the '*whisker'* lines. If we look back at our definition in the lecture for the boxplot:
+
+![](images/clipboard-2223091613.png)
+
+The box plot representation was based on the **5-point summary** (min, max, median, Q1 and Q3) with the whiskers representing the min and max values.
+
+Software packages however, have a different implementation. By default geom_histogram() places whisker edges at 1.5 times the Inter Quartile Range (IQR).
+
+![](images/clipboard-3763080153.png)
+
+You can change the default behaviour by using the `coef` argument. For example, the call below extends the whiskers to 2\*IQR.
+
+```{r}
+ggplot(lexdec, aes(x=Sex, y = RT)) + geom_boxplot( coef = 2) 
+```
+
+::: callout-important
+Always check the manual of a function if you are not sure what is calculating/plotting.
+
+In this case, looking at the help of page of `geom_histogram()` you will find the following:
+
+"*The upper whisker extends from the hinge to the largest value no further than 1.5 \* IQR from the hinge (where IQR is the inter-quartile range, or distance between the first and third quartiles). The lower whisker extends from the hinge to the smallest value at most 1.5 \* IQR of the hinge. Data beyond the end of the whiskers are called "outlying" points and are plotted individually"*
+:::

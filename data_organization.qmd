@@ -1,116 +1,141 @@
 ---
-title: "Data Organization and Transformation"
-format: html
 editor: visual
 ---
 
-# Data organization and transformation
+# Data organization and transformation {#sec-tidyverse2 .unnumbered}
 
-## Using `tidyverse` library
+As mentioned in the previous workgroup, it is not in the scope of the course to cover all the functions available in the `tidyverse` framework. We introduce a subset of them useful to illustrate the concepts in the course.
 
-## Sorting, filtering, merging
+## Adding columns: `mutate()`
 
-## Data transformation
+The `mutate()` function, part of the `dplyr` package, allows to create new columns or variables in a dataset. It is used normally for values based in an existing column.
 
-# 📝 Exercise 3: 
+As an example, let's use again the data from a psycholinguistic study on the reading comprehension of words as a function of frequency part of the English Lexicon Project, described in the the @winter2019statistics textbook Chapter 4.1. Dataset is in the file `/ELP_full_length_frequency.csv` in the `/data` directory.
 
-## Explore a Built-in Dataset
-
--Load the library called ***languageR**,* using the following command *.* In the languageR library, there are some sample datasets that we will use for future workgroups.
+We load the data as indicated in workgroup1
 
 ```{r}
-# load required libraries
-library(languageR)
+library(readr)
+
+dfELP <- read_csv("./data/ELP_full_length_frequency.csv",show_col_types = FALSE)
+head(dfELP)
+```
+
+Let's say we want to add two new calculated values:
+
+-   Reading time per character: calculated dividing RT by length
+
+-   logarithmic Reading Time : calculated using the `log10()` function
+
+We can add the two columns using `mutate()` as follows
+
+```{r}
 library(tidyverse)
+
+dfELP_extended <- dfELP %>% mutate(RT_per_char = RT/length, logRT = log10(RT))
+head(dfELP_extended)
+
 ```
 
-From the *languageR* library we will use a sample dataframe called *spanishMeta*. This dataset is based on a more general dataset called *spanish* also included in the library, from *Spassova, M. S. (2006) Las marcas sintacticas de atribucion forense de autoria de textos escritos en espanol, Masters thesis, Institut Universitari de Linguistica Aplicada, Universitat Pompeu Fabra, Barcelona*
-
-### Display dataframe
-
-To view the contents of a dataset we can simply write the name of the dataset in the console
+::: callout-warning
+To avoid filling up the memory in the system, we will remove the variables after completing the examples when not using them again for a while
 
 ```{r}
-  spanishMeta
+rm(dfELP, dfELP_extended)
 ```
+:::
 
-If we have a lot of data, the console display will be very long. Then you can use the *head()* function to only see the first few rows of the dataset
+------------------------------------------------------------------------
+
+## Data organization: long and wide format
+
+A common task when preparing the analysis steps is to *reshape* the data in a way that can be used for the analysis.
+
+We can widely characterize the data into two groups **wide** and **long**. (see section 3.9.4 of @field2026 for details)
+
+![From A. Field](images/clipboard-127516850.png){width="660"}
+
+The `tidyr` package contains two useful functions to allow to transform the data from one format to the other: `pivot_wider()` and `pivot_longer()` .
+
+Again let's look at one example based on data from an Event Related Potential (ERP) experiment. In ERP analysis one common approach is to compare the average amplitude of the signal measured in several electrodes on a time window of interest for the ERP component expected. The file `EEG_DataSet_Wide.Rda` in the `/data` directory contains an example data set with the average voltage measured in a set of electrodes in a time window of 250-500ms to investigate the so-called N400 ERP component.
+
+Let's load and look at the data:
 
 ```{r}
-head(spanishMeta)
+dfEEG_wide <- readRDS("./data/EEG_DataSet_Wide.Rda")
+head(dfEEG_wide, n=8)
 ```
 
-By default the function shows the first 6 rows of the dataset. if you look at the options of the function using *help(head)*, you can see that there is a parameter (called argument in the vocabulary of R) *n* that can be used to indicate the number of rows to show. For the exercise, to show 4 rows, you can use:
+The table contains 64 columns, with one row representing the measurements on a particular condition per subject.
+
+-   Column 1 - "Subject" - ID of the participant
+
+-   Column 2 - "Condition" - factor representing the condition with four levels (CondA, CondB, CondC, CondD).
+
+-   Columns 3-64: Average Voltages in 250-500 ms time window after stimuli onset at 61 electrodes.
+
+For the data analysis, we would like to actually see the effect on the Voltage measurement at different electrode sites, so we would like to actually have the data organized as:
+
+| Subject | Condition | Electrode | Amplitude |
+|---------|-----------|-----------|-----------|
+| 1       | CondA     | Fp1       | -3.047    |
+| 1       | CondA     | Fpz       | -1.037    |
+| ...     | ...       | ...       | ...       |
+
+We can do this with the `pivot_longer()` function, that has the following syntax:
+
+`pivot_longer(data, cols, names_to = "name", values_to = "value")`
+
+-   `data` : dataframe to be transformed
+
+-   `cols`: columns to be converted into longer format
+
+-   `names_to`: name of the variable that will contain as values the names of the cols argument
+
+-   `values_to`: name of the variable that will contain values
+
+In our example, we want to pivot all columns with electrode name. Normally you could provide a list, but since here we have several columns we can specify a range: "from column Fp1 to CB2"
 
 ```{r}
-head(spanishMeta, n=4)
+dfEEG_long <- pivot_longer(dfEEG_wide,cols = Fp1:CB2, names_to = "Electrode",values_to= "AvgVoltage") 
+head(dfEEG_long,n=8)
 ```
 
-### Extract column names
+As can be seen from the output, we have the data in the format expected
 
-There a number of functions that allow to inspect data sets: \* *str()*: provides a brief description of the data set variables and contents \* *names()*: lists the names of the variables \* *summary()*: gives basic summary statistics for every variable (we will explore this in the next assignment) \* *head()*: shows the first rows of the dataset (as we saw above) \* *tail()*: shows the last rows of the dataset
+Transforming into *wide format* is done similarly with the `pivot_wider()` function, that takes the following arguments:
 
-In the assignment it was asked to list the names of the variables in the dataset. The easiest way is to use the *names()* function
+-   `data` : dataframe to be transformed
+
+-   `names_from` : column (or columns) to get the name of the output column
+
+-   `values_from` : column (or columns) to get the cell values from
+
+Let's imagine that we would like to transform our last dataframe into a table of the form:
+
+| Subject | Electrode | CondA | CondB | CondC | CondD |
+|---------|-----------|-------|-------|-------|-------|
+| 1       | Fp1       |       |       |       |       |
+| 1       | Fpz       |       |       |       |       |
+| ...     | ...       |       |       |       |       |
+
+We can do the following:
 
 ```{r}
-names(spanishMeta)
+dfEEG_wide_2 <- pivot_wider(dfEEG_long,names_from = "Condition",values_from= "AvgVoltage") 
+head(dfEEG_wide_2,n=8)
 ```
 
-### Extract vector
+::: callout-note
+Pivoting tables can be confusing at first. You will master it with practice on your own data. This section is included to illustrate a typical data manipulation and provide tips for your own analysis but will not be used in exercises or exams.
+:::
 
-Accessing the variables of a dataset is possible using the *\$* operator. So for example, to list the contents of the *PubDate*
+------------------------------------------------------------------------
 
-```{r}
-spanishMeta$PubDate
-```
+## Further reading
 
-In the exercise it was asked to take this information and include it in a variable called *PublicationDate*. Using the above notation this is simply done as
+If you want to go more into details here are links to good resources:
 
-```{r}
-PublicationDate<-spanishMeta$PubDate 
-PublicationDate
-```
+-   R for data Science ( @wickham2024r) [Chapter 5 - Data tyding](https://r4ds.hadley.nz/data-tidy.html)
 
-### Sort a vector
-
-You can sort the vector using the *sort()* function as below.
-
-```{r}
-sort(PublicationDate)
-```
-
-```{r}
-sort(PublicationDate,decreasing = TRUE)
-```
-
-Finally, there are many functions available to work, modify, and access dataframes. As an example let's see how we could select a part of the dataframe based on a criteria. If we want to select the entries that were published before 1980 for example, we can do the following
-
-```{r}
-spanishMeta[spanishMeta$PubDate<1980,]
-```
-
-You can also use the *subset()* function to make a selection
-
-```{r}
-subset(spanishMeta, PubDate<1980)
-```
-
-For all the operations above you can also use pipes:
-
-```{r}
-library(dplyr)
-```
-
-```{r}
-PublicationDate %>% sort
-```
-
-```{r}
-PublicationDate %>% sort(decreasing = TRUE)
-```
-
-```{r}
-spanishMeta %>% filter(PubDate<1980)
-```
-
-## 
+-   Tidyverse [article on Pivoting](https://tidyr.tidyverse.org/articles/pivot.html)
