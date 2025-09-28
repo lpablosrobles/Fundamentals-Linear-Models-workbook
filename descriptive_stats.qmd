@@ -76,6 +76,10 @@ There are several ways to calculate the five point summaries discussed in the le
 Taking again the example of the `lexdec` dataset and the Reaction Time `RT`
 
 ```{r}
+library(languageR)
+
+data(lexdec)
+
 min(lexdec$RT)
 max(lexdec$RT)
 
