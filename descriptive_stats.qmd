@@ -126,6 +126,8 @@ In most cases, we have a most complex data structure where we want to calculate 
 For example, if we want to calculate the average and number of cases of the Reaction Time in the lexdec dataset for Male and Female and also between Native and non-native English speakers. We could perform it by individually filtering each group combination and calculating the mean and number of cases (`length()` provides the number of rows) as below:
 
 ```{r}
+library(tidyverse)
+
 # Male and Native English Speaker
 lexdec_M_english <- lexdec %>% filter( (Sex=="M") & (NativeLanguage=="English"))
 mean(lexdec_M_english$RT)
@@ -179,7 +181,7 @@ We mentioned in the lectures the importance to be able to check the normality of
 Skewness and Kurtosis of a distribution can be computed using functions in the `moments` package. Before using it, we have to install the package
 
 ```{r}
-install.packages("moments")
+#install.packages("moments")
 library(moments)
 ```
 
