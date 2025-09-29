@@ -1,9 +1,8 @@
 ---
-title: "Assignment #1 - Answer key"
 date: 26/09/2025
 ---
 
-# Assignment #1 - Answer key
+# Assignment #1 - Answer key {#sec-assignment1-key .unnumbered}
 
 ## Task#1: Creating a dataframe
 
