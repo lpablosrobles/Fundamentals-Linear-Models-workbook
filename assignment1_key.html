@@ -269,11 +269,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <a href="#task3-working-with-and-exploring-dataframes" id="toc-task3-working-with-and-exploring-dataframes" class="nav-link" data-scroll-target="#task3-working-with-and-exploring-dataframes">Task#3: Working with and exploring dataframes</a>
   <ul class="collapse">
 <li><a href="#load-dataset-in-the-environment" id="toc-load-dataset-in-the-environment" class="nav-link" data-scroll-target="#load-dataset-in-the-environment">3.1. Load dataset in the environment</a></li>
-  <li><a href="#explore-contents-of-the-dataset" id="toc-explore-contents-of-the-dataset" class="nav-link" data-scroll-target="#explore-contents-of-the-dataset">3.1. Explore contents of the dataset</a></li>
-  <li><a href="#extract-the-column-names-from-the-dataframe." id="toc-extract-the-column-names-from-the-dataframe." class="nav-link" data-scroll-target="#extract-the-column-names-from-the-dataframe.">3.2. Extract the column names from the dataframe.</a></li>
-  <li><a href="#sort-dataframe" id="toc-sort-dataframe" class="nav-link" data-scroll-target="#sort-dataframe">3.3. Sort dataframe</a></li>
-  <li><a href="#select-columns-and-rows" id="toc-select-columns-and-rows" class="nav-link" data-scroll-target="#select-columns-and-rows">3.4. Select columns and rows</a></li>
-  <li><a href="#save-dataframe" id="toc-save-dataframe" class="nav-link" data-scroll-target="#save-dataframe">3.5. Save dataframe</a></li>
+  <li><a href="#explore-contents-of-the-dataset" id="toc-explore-contents-of-the-dataset" class="nav-link" data-scroll-target="#explore-contents-of-the-dataset">3.2. Explore contents of the dataset</a></li>
+  <li><a href="#extract-the-column-names-from-the-dataframe." id="toc-extract-the-column-names-from-the-dataframe." class="nav-link" data-scroll-target="#extract-the-column-names-from-the-dataframe.">3.3 Extract the column names from the dataframe.</a></li>
+  <li><a href="#sort-dataframe" id="toc-sort-dataframe" class="nav-link" data-scroll-target="#sort-dataframe">3.4. Sort dataframe</a></li>
+  <li><a href="#select-columns-and-rows" id="toc-select-columns-and-rows" class="nav-link" data-scroll-target="#select-columns-and-rows">3.5. Select columns and rows</a></li>
+  <li><a href="#save-dataframe" id="toc-save-dataframe" class="nav-link" data-scroll-target="#save-dataframe">3.6. Save dataframe</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -424,7 +424,7 @@ Levels: feminine masculine neuter</code></pre>
 <span><span class="op">?</span><span class="va">lexdec</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The help tab shows the description of each of the variables in the dataset</p>
 <p><img src="images/clipboard-4085058704.png" class="img-fluid"></p>
-</section><section id="explore-contents-of-the-dataset" class="level3"><h3 class="anchored" data-anchor-id="explore-contents-of-the-dataset">3.1. Explore contents of the dataset</h3>
+</section><section id="explore-contents-of-the-dataset" class="level3"><h3 class="anchored" data-anchor-id="explore-contents-of-the-dataset">3.2. Explore contents of the dataset</h3>
 <p>You were asked to show the first rows of the dataset.</p>
 <p>Typing the name of the dataset will show you the full contents, which is not too handy. Instead you can use <code>View(lexdec)</code> to load it in the RStudio Viewer, or, just to inspect he first rows, you can use the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function as follows:</p>
 <div class="cell">
@@ -486,7 +486,7 @@ Levels: feminine masculine neuter</code></pre>
 4 1.462410  7.363218  0.713242  3.591166</code></pre>
 </div>
 </div>
-</section><section id="extract-the-column-names-from-the-dataframe." class="level3"><h3 class="anchored" data-anchor-id="extract-the-column-names-from-the-dataframe.">3.2. Extract the column names from the dataframe.</h3>
+</section><section id="extract-the-column-names-from-the-dataframe." class="level3"><h3 class="anchored" data-anchor-id="extract-the-column-names-from-the-dataframe.">3.3 Extract the column names from the dataframe.</h3>
 <p>As per the workgroup notes, the names of the variables in the dataframe can be extracted using the <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code> function.</p>
 <div class="cell">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -500,7 +500,7 @@ Levels: feminine masculine neuter</code></pre>
 [25] "BNCc"           "BNCd"           "BNCcRatio"      "BNCdRatio"     </code></pre>
 </div>
 </div>
-</section><section id="sort-dataframe" class="level3"><h3 class="anchored" data-anchor-id="sort-dataframe">3.3. Sort dataframe</h3>
+</section><section id="sort-dataframe" class="level3"><h3 class="anchored" data-anchor-id="sort-dataframe">3.4. Sort dataframe</h3>
 <p>You were asked to sort the dataframe by the <em>reaction time</em> (RT variable). Sorting can be done in several ways, but we will use the tidyverse <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> function as described in the workgroup.</p>
 <div class="cell">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec_ordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">lexdec</span>,<span class="va">RT</span><span class="op">)</span></span>
@@ -598,7 +598,7 @@ Important
 </div>
 </div>
 <p>We now have a new variable in the environment called <code>lexdec_ordered</code> containing a copy of the data from <code>lexdec</code> ordered by the value of <code>RT</code> .</p>
-</section><section id="select-columns-and-rows" class="level3"><h3 class="anchored" data-anchor-id="select-columns-and-rows">3.4. Select columns and rows</h3>
+</section><section id="select-columns-and-rows" class="level3"><h3 class="anchored" data-anchor-id="select-columns-and-rows">3.5. Select columns and rows</h3>
 <p>You were asked to create a new dataframe called <code>lexdec_reduced</code> with only the variables from Subject to Frequency and selecting only the entries from native English speakers (as coded in the NativeLanguage variable).</p>
 <p>As described in the workgroup materials, two functions are used to select the data, one selecting the variables/columns of interest (<code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>) and another selecting the observations/rows based on a criteria (<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>)</p>
 <p>Let’s see below how to do the same operation with and without using pipes.</p>
@@ -644,8 +644,8 @@ Important
 <p>As you can see only the first columns (from Subject to Frequency) are retained in <code>lexdec_reduced</code></p>
 <p>To now select only the English native speakers, we use the function <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> :</p>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec_reduced</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>,<span class="va">NativeLanguage</span><span class="op">==</span><span class="st">"English"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec_filtered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>,<span class="va">NativeLanguage</span><span class="op">==</span><span class="st">"English"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_filtered</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Subject       RT Trial Sex NativeLanguage Correct PrevType PrevCorrect   Word
 1      A1 6.340359    23   F        English correct     word     correct    owl
@@ -659,14 +659,30 @@ Important
 4  4.727388</code></pre>
 </div>
 </div>
+<p>To check we can use the function unique() that tells us how many unique values are in a variable. The output below shows that <code>NativeLanguage</code> is a factor with two levels and both are present in the dataframe <code>lexdec_reduced</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">lexdec_reduced</span><span class="op">$</span><span class="va">NativeLanguage</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] English Other  
+Levels: English Other</code></pre>
+</div>
+</div>
+<p>If we looked at the <code>lexdec_filtered</code> dataframe, it specifies that the variable is still a factor with two levels, but only “English” is present in the data.</p>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">lexdec_filtered</span><span class="op">$</span><span class="va">NativeLanguage</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] English
+Levels: English Other</code></pre>
+</div>
+</div>
 <p>The steps above could be performed using <em>pipes</em>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Using pipes</span></span>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Using pipes</span></span>
 <span></span>
-<span><span class="va">lexdec_reduced</span> <span class="op">&lt;-</span> <span class="va">lexdec</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span><span class="va">lexdec_filtered</span> <span class="op">&lt;-</span> <span class="va">lexdec</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>                  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Subject</span><span class="op">:</span><span class="va">Frequency</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>                  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NativeLanguage</span> <span class="op">==</span> <span class="st">"English"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_filtered</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Subject       RT Trial Sex NativeLanguage Correct PrevType PrevCorrect   Word
 1      A1 6.340359    23   F        English correct     word     correct    owl
@@ -681,17 +697,17 @@ Important
 </div>
 </div>
 <p>With identical results and a more readable code.</p>
-</section><section id="save-dataframe" class="level3"><h3 class="anchored" data-anchor-id="save-dataframe">3.5. Save dataframe</h3>
+</section><section id="save-dataframe" class="level3"><h3 class="anchored" data-anchor-id="save-dataframe">3.6. Save dataframe</h3>
 <p>Finally you were asked to save the filtered dataframe into a file in the /data directorate.</p>
 <p>Let’s save the data for example in text format using the <code><a href="https://rdrr.io/r/utils/write.table.html">write.table()</a></code> function:</p>
 <div class="cell">
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>,file <span class="op">=</span> <span class="st">"./data/reduced_data.txt"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>,file <span class="op">=</span> <span class="st">"./data/reduced_data.txt"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This command creates a file in the <code>/data</code> directory called <code>reduced_data.txt</code></p>
 <p><img src="images/clipboard-78236926.png" class="img-fluid"></p>
 <p>We can also save a copy in R format using <code><a href="https://rdrr.io/r/base/readRDS.html">saveRDS()</a></code> if using R for further analysis.</p>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>,<span class="st">"./data/reduced_data.Rda"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>,<span class="st">"./data/reduced_data.Rda"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="images/clipboard-3249453368.png" class="img-fluid"></p>
 <hr>
