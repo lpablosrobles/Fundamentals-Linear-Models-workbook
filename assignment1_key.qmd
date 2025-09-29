@@ -182,7 +182,7 @@ Let's see below how to do the same operation with and without using pipes.
 # Without pipes
 
 lexdec_reduced <- select(lexdec,Subject:Frequency)
-lexdec_reduced
+head(lexdec_reduced, n=4)
 ```
 
 With this first command, we have selected a few columns from the original dataset. We can check that using for example `colnames()`
@@ -201,7 +201,7 @@ To now select only the English native speakers, we use the function `filter()` :
 
 ```{r}
 lexdec_reduced <- filter(lexdec_reduced,NativeLanguage=="English")
-lexdec_reduced
+head(lexdec_reduced, n=4)
 ```
 
 The steps above could be performed using *pipes*:
@@ -212,7 +212,7 @@ The steps above could be performed using *pipes*:
 lexdec_reduced <- lexdec %>% 
                   select(Subject:Frequency) %>% 
                   filter(NativeLanguage == "English")
-lexdec_reduced
+head(lexdec_reduced, n=4)
 ```
 
 With identical results and a more readable code.
