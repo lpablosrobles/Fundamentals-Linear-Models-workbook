@@ -516,7 +516,7 @@ Note
 <p>One observation is that the plot shows a number of points (circles) beyond the end of the ’<em>whisker’</em> lines. If we look back at our definition in the lecture for the boxplot:</p>
 <p><img src="images/clipboard-2223091613.png" class="img-fluid"></p>
 <p>The box plot representation was based on the <strong>5-point summary</strong> (min, max, median, Q1 and Q3) with the whiskers representing the min and max values.</p>
-<p>Software packages however, have a different implementation. By default geom_histogram() places whisker edges at 1.5 times the Inter Quartile Range (IQR).</p>
+<p>Software packages however, have a different implementation. By default <code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></code> places whisker edges at 1.5 times the Inter Quartile Range (IQR).</p>
 <p><img src="images/clipboard-3763080153.png" class="img-fluid"></p>
 <p>You can change the default behaviour by using the <code>coef</code> argument. For example, the call below extends the whiskers to 2*IQR.</p>
 <div class="cell">
@@ -539,7 +539,7 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <p>Always check the manual of a function if you are not sure what is calculating/plotting.</p>
-<p>In this case, looking at the help of page of <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code> you will find the following:</p>
+<p>In this case, looking at the help of page of <code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></code> you will find the following:</p>
 <p>“<em>The upper whisker extends from the hinge to the largest value no further than 1.5 * IQR from the hinge (where IQR is the inter-quartile range, or distance between the first and third quartiles). The lower whisker extends from the hinge to the smallest value at most 1.5 * IQR of the hinge. Data beyond the end of the whiskers are called “outlying” points and are plotted individually”</em></p>
 </div>
 </div>
