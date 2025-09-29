@@ -111,7 +111,7 @@ The help tab shows the description of each of the variables in the dataset
 
 ![](images/clipboard-4085058704.png)
 
-### 3.1. Explore contents of the dataset
+### 3.2. Explore contents of the dataset
 
 You were asked to show the first rows of the dataset.
 
@@ -127,7 +127,7 @@ As can be seen from the output, by default it displays 6 rows. Looking at the do
 head(lexdec, n = 4)
 ```
 
-### 3.2. Extract the column names from the dataframe.
+### 3.3 Extract the column names from the dataframe.
 
 As per the workgroup notes, the names of the variables in the dataframe can be extracted using the `colnames()` function.
 
@@ -135,7 +135,7 @@ As per the workgroup notes, the names of the variables in the dataframe can be e
 colnames(lexdec)
 ```
 
-### 3.3. Sort dataframe
+### 3.4. Sort dataframe
 
 You were asked to sort the dataframe by the *reaction time* (RT variable). Sorting can be done in several ways, but we will use the tidyverse `arrange()` function as described in the workgroup.
 
@@ -170,7 +170,7 @@ it would display on the console the output which is rather long and not easy to 
 
 We now have a new variable in the environment called `lexdec_ordered` containing a copy of the data from `lexdec` ordered by the value of `RT` .
 
-### 3.4. Select columns and rows
+### 3.5. Select columns and rows
 
 You were asked to create a new dataframe called `lexdec_reduced` with only the variables from Subject to Frequency and selecting only the entries from native English speakers (as coded in the NativeLanguage variable).
 
@@ -200,8 +200,20 @@ As you can see only the first columns (from Subject to Frequency) are retained i
 To now select only the English native speakers, we use the function `filter()` :
 
 ```{r}
-lexdec_reduced <- filter(lexdec_reduced,NativeLanguage=="English")
-head(lexdec_reduced, n=4)
+lexdec_filtered <- filter(lexdec_reduced,NativeLanguage=="English")
+head(lexdec_filtered, n=4)
+```
+
+To check we can use the function unique() that tells us how many unique values are in a variable. The output below shows that `NativeLanguage` is a factor with two levels and both are present in the dataframe `lexdec_reduced`.
+
+```{r}
+unique(lexdec_reduced$NativeLanguage)
+```
+
+If we looked at the `lexdec_filtered` dataframe, it specifies that the variable is still a factor with two levels, but only "English" is present in the data.
+
+```{r}
+unique(lexdec_filtered$NativeLanguage)
 ```
 
 The steps above could be performed using *pipes*:
@@ -209,15 +221,15 @@ The steps above could be performed using *pipes*:
 ```{r}
 #Using pipes
 
-lexdec_reduced <- lexdec %>% 
+lexdec_filtered <- lexdec %>% 
                   select(Subject:Frequency) %>% 
                   filter(NativeLanguage == "English")
-head(lexdec_reduced, n=4)
+head(lexdec_filtered, n=4)
 ```
 
 With identical results and a more readable code.
 
-### 3.5. Save dataframe
+### 3.6. Save dataframe
 
 Finally you were asked to save the filtered dataframe into a file in the /data directorate.
 
