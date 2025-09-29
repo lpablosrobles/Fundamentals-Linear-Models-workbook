@@ -115,13 +115,7 @@ The help tab shows the description of each of the variables in the dataset
 
 You were asked to show the first rows of the dataset.
 
-Typing the name of the dataset will show you the full contents.
-
-```{r}
-lexdec
-```
-
-If you want to just look at the first rows, you can use the `head()` function as follows:
+Typing the name of the dataset will show you the full contents, which is not too handy. Instead you can use `View(lexdec)` to load it in the RStudio Viewer, or, just to inspect he first rows, you can use the `head()` function as follows:
 
 ```{r}
 head(lexdec)
