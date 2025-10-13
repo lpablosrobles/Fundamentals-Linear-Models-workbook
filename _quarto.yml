@@ -40,11 +40,10 @@ book:
         - assignment1_key.qmd 
         
     - part: Workgroup2.qmd
-       chapters: 
-         - data_organization.qmd
-         - data_visualization.qmd
-         - descriptive_stats.qmd
-         #- assignment2_key.qmd
+       chapters:
+        - data_organization.qmd
+        - data_visualization.qmd
+        - descriptive_stats.qmd
 
         
     - part: Workgroup3.qmd
