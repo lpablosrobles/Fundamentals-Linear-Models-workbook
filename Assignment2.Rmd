@@ -297,7 +297,7 @@ For comparison, let's look at the q-q plot for the filtered data
 
 ## Task #3 - Calculate data summaries
 
-Use the `filter()`, `group_by()` and `summarize()`functions in `dplyr` to generate a dataframe called *`basquenpi_data_summary`* with the data grouped by the factors `RegionNumber`, `EmbeddedSubject` and `AgreementMorphology`, and summarized via the addition of columns specifying the mean and standard deviations of the [**Raw Reading Time**]{.underline}and **[Residual Reading Time]{.underline}**[.]{.underline} Your output table should be as follows:
+Use the `filter()`, `group_by()` and `summarize()`functions in `dplyr` to generate a dataframe called *`basquenpi_data_summary`* with the data grouped by the factors `RegionNumber`, `EmbeddedSubject` and `AgreementMorphology`, and summarized via the addition of columns specifying the mean and standard deviations of the [**Raw Reading Time**]{.underline}and [**Residual Reading Time**.]{.underline} Your output table should be as follows:
 
 ![](images/clipboard-1796136293.png)
 

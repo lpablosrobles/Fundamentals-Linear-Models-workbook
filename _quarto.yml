@@ -37,13 +37,14 @@ book:
         - read_data.qmd
         - tidyverse_intro.qmd
         - using_notebooks.qmd
-      # - assignment1_key.qmd 
+        - assignment1_key.qmd 
         
     - part: Workgroup2.qmd
-      # chapters: 
-      #   - data_organization.qmd
-      #   - data_visualization.qmd
-      #   - descriptive_stats.qmd
+       chapters: 
+         - data_organization.qmd
+         - data_visualization.qmd
+         - descriptive_stats.qmd
+         - assignment2_key.qmd
         
     - part: Workgroup3.qmd
       # chapters:
