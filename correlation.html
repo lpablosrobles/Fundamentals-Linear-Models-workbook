@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 
-<title>2&nbsp; Correlation – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Correlation – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -148,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./correlation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Correlation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./correlation.html">Correlation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -280,13 +280,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./plot_xy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Plotting relationship between two variables</span></span></a>
+ <span class="menu-text">Plotting relationship between two variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./correlation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
+ <span class="menu-text">Correlation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -325,16 +325,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#pearsons-correlation-coefficient" id="toc-pearsons-correlation-coefficient" class="nav-link active" data-scroll-target="#pearsons-correlation-coefficient"><span class="header-section-number">2.1</span> Pearson’s correlation coefficient</a></li>
+  <li><a href="#pearsons-correlation-coefficient" id="toc-pearsons-correlation-coefficient" class="nav-link active" data-scroll-target="#pearsons-correlation-coefficient">Pearson’s correlation coefficient</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./correlation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Correlation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./correlation.html">Correlation</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Correlation</span></h1>
+<h1 class="title"><span id="sec-correlation" class="quarto-section-identifier">Correlation</span></h1>
 </div>
 
 
@@ -352,8 +352,8 @@ window.Quarto = {
 
 
 <p>Correlation is a measure of the dependence between two variables, and to which degree they are linearly related. It is not an indication of <u>causality</u> just of relationship.</p>
-<section id="pearsons-correlation-coefficient" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="pearsons-correlation-coefficient"><span class="header-section-number">2.1</span> Pearson’s correlation coefficient</h2>
+<section id="pearsons-correlation-coefficient" class="level2">
+<h2 class="anchored" data-anchor-id="pearsons-correlation-coefficient">Pearson’s correlation coefficient</h2>
 <p>The <strong><em>Pearson’s correlation coefficient</em></strong>, <span class="math inline">\(r\)</span>, is used to quantify the direction and magnitude of the association between two variables X, Y. It is calculated based in the sum of cross products of their values, normalized by their standard deviation:</p>
 <p><span class="math display">\[
 r= \frac{\sum_{i=1}^N (x_i-\bar{X})(y_i-\bar{Y})}{\sqrt{\sum_{i=1}^N (x_i-\bar{X})^2}\sqrt{\sum_{i=1}^N (y_i-\bar{Y})^2}}
@@ -400,7 +400,12 @@ t=\frac{r\times\sqrt{n-2}}{\sqrt{1-r^2}}
 <p>Note: details beyond the scope of the course.</p></li>
 </ul>
 <p>In the case our example, the number of data points, n, is <span class="math inline">\(n=1659\)</span></p>
-<pre class="{r} nrow(lexdec)}"><code></code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(lexdec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1659</code></pre>
+</div>
+</div>
 <p>The t-statistics will be :</p>
 <p><span class="math display">\[ t= \frac{r\times \sqrt{n-2}}{\sqrt{1-r^2}}=\frac{-0.23 \times \sqrt{1659-2}}{\sqrt{1-(-0.23)^2}} = -9.46
 \]</span></p>
@@ -409,7 +414,7 @@ t=\frac{r\times\sqrt{n-2}}{\sqrt{1-r^2}}
 </ul>
 <p>If we select a confidence level of 5%, <span class="math inline">\(\alpha = 0.05\)</span>, we can extract the value of <span class="math inline">\(t_{critical}\)</span> considering the <span class="math inline">\(df = 1659-2=1657\)</span>. This can be calculated in R using the function <code>qt()</code> that returns a value of the Student t distribution. Note that since we are running a two-tailed test, we use 0.025 for p (half of 0.05).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="at">p =</span> <span class="fl">0.025</span>, <span class="at">df =</span> <span class="dv">1657</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="at">p =</span> <span class="fl">0.025</span>, <span class="at">df =</span> <span class="dv">1657</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.961397</code></pre>
 </div>
@@ -423,7 +428,7 @@ t_{value} = -9.62 \lt t_{critical} = -1.96
 <p>The t-value is smaller than the critical value, so we reject the null hypothesis: there is a correlation between our variables.</p>
 <p>The complete process above, can be performed in R using the function <code>cor.test()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lexdec<span class="sc">$</span>Frequency,lexdec<span class="sc">$</span>RT,<span class="at">method=</span><span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lexdec<span class="sc">$</span>Frequency,lexdec<span class="sc">$</span>RT,<span class="at">method=</span><span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -846,7 +851,7 @@ sample estimates:
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./plot_xy.html" class="pagination-link" aria-label="Plotting relationship between two variables">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Plotting relationship between two variables</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Plotting relationship between two variables</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 
-<title>1&nbsp; Plotting relationship between two variables – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Plotting relationship between two variables – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./plot_xy.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Plotting relationship between two variables</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./plot_xy.html">Plotting relationship between two variables</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -251,13 +251,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./plot_xy.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Plotting relationship between two variables</span></span></a>
+ <span class="menu-text">Plotting relationship between two variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./correlation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
+ <span class="menu-text">Correlation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -296,23 +296,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#scatterplot-with-two-variables" id="toc-scatterplot-with-two-variables" class="nav-link active" data-scroll-target="#scatterplot-with-two-variables"><span class="header-section-number">1.1</span> Scatterplot with two variables</a>
+  <li><a href="#scatterplot-with-two-variables" id="toc-scatterplot-with-two-variables" class="nav-link active" data-scroll-target="#scatterplot-with-two-variables">Scatterplot with two variables</a>
   <ul class="collapse">
-  <li><a href="#basic-scatterplot" id="toc-basic-scatterplot" class="nav-link" data-scroll-target="#basic-scatterplot"><span class="header-section-number">1.1.1</span> Basic scatterplot</a></li>
-  <li><a href="#overplotting" id="toc-overplotting" class="nav-link" data-scroll-target="#overplotting"><span class="header-section-number">1.1.2</span> Overplotting</a></li>
-  <li><a href="#discrete-variables" id="toc-discrete-variables" class="nav-link" data-scroll-target="#discrete-variables"><span class="header-section-number">1.1.3</span> Discrete variables</a></li>
+  <li><a href="#basic-scatterplot" id="toc-basic-scatterplot" class="nav-link" data-scroll-target="#basic-scatterplot">Basic scatterplot</a></li>
+  <li><a href="#overplotting" id="toc-overplotting" class="nav-link" data-scroll-target="#overplotting">Overplotting</a></li>
+  <li><a href="#discrete-variables" id="toc-discrete-variables" class="nav-link" data-scroll-target="#discrete-variables">Discrete variables</a></li>
   </ul></li>
-  <li><a href="#mapping-additional-variables-to-features" id="toc-mapping-additional-variables-to-features" class="nav-link" data-scroll-target="#mapping-additional-variables-to-features"><span class="header-section-number">1.2</span> Mapping additional variables to features</a></li>
-  <li><a href="#plotting-linear-models" id="toc-plotting-linear-models" class="nav-link" data-scroll-target="#plotting-linear-models"><span class="header-section-number">1.3</span> Plotting linear models</a></li>
+  <li><a href="#mapping-additional-variables-to-features" id="toc-mapping-additional-variables-to-features" class="nav-link" data-scroll-target="#mapping-additional-variables-to-features">Mapping additional variables to features</a></li>
+  <li><a href="#plotting-linear-models" id="toc-plotting-linear-models" class="nav-link" data-scroll-target="#plotting-linear-models">Plotting linear models</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./plot_xy.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Plotting relationship between two variables</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./plot_xy.html">Plotting relationship between two variables</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Plotting relationship between two variables</span></h1>
+<h1 class="title"><span id="sec-scatterplot" class="quarto-section-identifier">Plotting relationship between two variables</span></h1>
 </div>
 
 
@@ -331,11 +331,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>In Workgroup #2, we introduced plotting in R with <code>ggplot2</code> package and practiced generating a plot in assignment #2.</p>
 <p>In this section, we will expand with a few additional concepts useful to explore visually the relationship between two variables.</p>
-<section id="scatterplot-with-two-variables" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="scatterplot-with-two-variables"><span class="header-section-number">1.1</span> Scatterplot with two variables</h2>
+<section id="scatterplot-with-two-variables" class="level2">
+<h2 class="anchored" data-anchor-id="scatterplot-with-two-variables">Scatterplot with two variables</h2>
 <hr>
-<section id="basic-scatterplot" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="basic-scatterplot"><span class="header-section-number">1.1.1</span> Basic scatterplot</h3>
+<section id="basic-scatterplot" class="level3">
+<h3 class="anchored" data-anchor-id="basic-scatterplot">Basic scatterplot</h3>
 <p>A&nbsp;<em>scatterplot</em>&nbsp;or <em>XY plot</em> displays the values of two variables along two axes, showing the relationship between them and possible correlations.</p>
 <p>Scatterplots can be generated in <code>ggplot</code> using the <code>geom_point()</code> function.</p>
 <p>Let’s look for an example at a file in the data directory at the <code>lexdec</code> in the <code>languageR</code> package as in Workgroup2 and explore the relationship between the lexical decision latency reaction time (<code>RT</code>) and the word <code>Frequency</code> .</p>
@@ -364,8 +364,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="overplotting" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="overplotting"><span class="header-section-number">1.1.2</span> Overplotting</h3>
+<section id="overplotting" class="level3">
+<h3 class="anchored" data-anchor-id="overplotting">Overplotting</h3>
 <p>A few things can be noticed on the plot above:</p>
 <ul>
 <li><p>There is not a continuous range of values of <code>Frequency</code> in the dataset, as it can be seen by the gaps between data. This is common in linguistics research, where we have limited examples of <em>continuous</em> predictors.</p></li>
@@ -410,8 +410,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="discrete-variables" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="discrete-variables"><span class="header-section-number">1.1.3</span> Discrete variables</h3>
+<section id="discrete-variables" class="level3">
+<h3 class="anchored" data-anchor-id="discrete-variables">Discrete variables</h3>
 <p>A common case in linguistics research is with Catergorical values with a limited set of levels. The scatter plot will then look like follows</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Class, <span class="at">y =</span> RT)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="dv">1</span><span class="sc">/</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -426,8 +426,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In those cases with very limited number of categories, a boxplot or violin plot will be a better option to display the relationship.</p>
 </section>
 </section>
-<section id="mapping-additional-variables-to-features" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="mapping-additional-variables-to-features"><span class="header-section-number">1.2</span> Mapping additional variables to features</h2>
+<section id="mapping-additional-variables-to-features" class="level2">
+<h2 class="anchored" data-anchor-id="mapping-additional-variables-to-features">Mapping additional variables to features</h2>
 <hr>
 <p>A scatterplot shows the relationship between two variables in X and Y, but it can be used to reflect the relationship with more variables by mapping them to specific asthetic features.</p>
 <p>Four commonly used:</p>
@@ -509,8 +509,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>From Data to Viz: <a href="https://www.data-to-viz.com/" class="uri">https://www.data-to-viz.com/</a></p>
 <hr>
 </section>
-<section id="plotting-linear-models" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="plotting-linear-models"><span class="header-section-number">1.3</span> Plotting linear models</h2>
+<section id="plotting-linear-models" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-linear-models">Plotting linear models</h2>
 <p>We will look in next workgroups at different ways to represent the results of linear modeling, but we introduce here a useful feature of <code>ggplot</code> to plot fits to the data as another layer.</p>
 <p>The function <code>geom_smooth()</code> adds a layer to a plot with aid the visualization of trends and relationships. It has two main arguments:</p>
 <ul>
@@ -968,7 +968,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   <div class="nav-page nav-page-next">
       <a href="./correlation.html" class="pagination-link" aria-label="Correlation">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Correlation</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Correlation</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
