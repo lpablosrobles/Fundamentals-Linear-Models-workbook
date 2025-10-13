@@ -28,6 +28,7 @@ In our running example:
 
 ```{r}
 #| echo: false
+#| library(tidyverse)
 ggplot(lexdec, aes(x = Frequency, y = RT)) + 
                 geom_point(alpha = 1/5) +
                 geom_smooth(method="lm")
