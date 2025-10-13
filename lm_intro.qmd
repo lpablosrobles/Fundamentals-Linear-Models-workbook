@@ -28,7 +28,7 @@ In our running example:
 
 ```{r}
 #| echo: false
-#| library(tidyverse)
+library(tidyverse)
 ggplot(lexdec, aes(x = Frequency, y = RT)) + 
                 geom_point(alpha = 1/5) +
                 geom_smooth(method="lm")
@@ -62,7 +62,7 @@ or to include **interactions** between predictors, for example:
 
 For now, we will focus on a single predictor.
 
-## Interpreting  `lm()` output
+## Interpreting `lm()` output
 
 ------------------------------------------------------------------------
 
