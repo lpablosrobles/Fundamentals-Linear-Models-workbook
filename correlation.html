@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 
-<title>Reading and Saving data in R – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>2&nbsp; Correlation – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,27 +56,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -86,8 +66,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./tidyverse_intro.html" rel="next">
-<link href="./using_libraries.html" rel="prev">
+<link href="./lm_intro.html" rel="next">
+<link href="./plot_xy.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -127,6 +107,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -139,7 +148,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./read_data.html">Reading and Saving data in R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./correlation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Correlation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -206,7 +215,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./read_data.html" class="sidebar-item-text sidebar-link active">
+  <a href="./read_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reading and Saving data in R</span></a>
   </div>
 </li>
@@ -276,7 +285,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./correlation.html" class="sidebar-item-text sidebar-link">
+  <a href="./correlation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
   </div>
 </li>
@@ -316,27 +325,16 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#working-directory-and-paths-in-r" id="toc-working-directory-and-paths-in-r" class="nav-link active" data-scroll-target="#working-directory-and-paths-in-r">Working directory and paths in R</a></li>
-  <li><a href="#sec-r-read" id="toc-sec-r-read" class="nav-link" data-scroll-target="#sec-r-read">Reading data from files</a>
-  <ul class="collapse">
-  <li><a href="#data-from-text-files" id="toc-data-from-text-files" class="nav-link" data-scroll-target="#data-from-text-files">Data from text files</a></li>
-  <li><a href="#data-from-csv-files" id="toc-data-from-csv-files" class="nav-link" data-scroll-target="#data-from-csv-files">Data from CSV files</a></li>
-  <li><a href="#data-from-excel-files" id="toc-data-from-excel-files" class="nav-link" data-scroll-target="#data-from-excel-files">Data from Excel files</a></li>
-  <li><a href="#data-in-r-files" id="toc-data-in-r-files" class="nav-link" data-scroll-target="#data-in-r-files">Data in R files</a></li>
-  <li><a href="#data-from-spss" id="toc-data-from-spss" class="nav-link" data-scroll-target="#data-from-spss">Data from SPSS</a></li>
-  <li><a href="#other-formats" id="toc-other-formats" class="nav-link" data-scroll-target="#other-formats">Other formats</a></li>
-  </ul></li>
-  <li><a href="#saving-data" id="toc-saving-data" class="nav-link" data-scroll-target="#saving-data">Saving data</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#pearsons-correlation-coefficient" id="toc-pearsons-correlation-coefficient" class="nav-link active" data-scroll-target="#pearsons-correlation-coefficient"><span class="header-section-number">2.1</span> Pearson’s correlation coefficient</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./read_data.html">Reading and Saving data in R</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./correlation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Correlation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Reading and Saving data in R</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Correlation</span></h1>
 </div>
 
 
@@ -353,252 +351,96 @@ div.csl-indent {
 </header>
 
 
-<hr>
-<p>We have seen how to access datasets contained in packages, but to analyze your own data you will need to load it in the RStudio environment.</p>
-<p>We will look in what follows at a few examples of loading data in different common formats (text files in general, excel files, files in SPSS format, R files).</p>
-<section id="working-directory-and-paths-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="working-directory-and-paths-in-r">Working directory and paths in R</h2>
-<hr>
-<p>Before entering into the details on the read and write of files, it is important to understand where the files are located and how to provide paths in R.</p>
-<p>Paths for files in R are relative to the “<em>Working Directory</em>”. To know which is the working directory, you can use the function <code>getwd()</code> or select the option “<em>Go to working directory</em>” in the files tab.</p>
-<p><img src="images/clipboard-2964102789.png" class="img-fluid"></p>
-<p>The paths of a file are relative to that directory. Considering this, in the examples and assignments in this course, we will load data in the <code>/data</code> folder as follows:</p>
-<p><code>'./data/FILE_NAME'</code></p>
-<p>The <code>./</code> in the path above indicates the working directory.</p>
-<p>When running commands loading or saving files, take care that you indicate the path correctly if you get an error.</p>
-</section>
-<section id="sec-r-read" class="level2">
-<h2 class="anchored" data-anchor-id="sec-r-read">Reading data from files</h2>
-<hr>
-<p>We cover below examples for <strong>importing data in R</strong>, covering the most common methods and packages.</p>
-<section id="data-from-text-files" class="level3">
-<h3 class="anchored" data-anchor-id="data-from-text-files">Data from text files</h3>
-<p>The most generic function to read data from a text file is <code>read.table()</code> . The arguments allow to define if the data includes a header (i.e.&nbsp;a first row with the names of the columns/variables) and the separator used.</p>
-<p>For example, let’s load a file in the <code>/data</code> directory containing the sample dataset from the previous exercise using the function below:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data_sample <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"./data/sample_wg1_text.txt"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data_sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  NounAnimacy NounGender NounLength NounFrequency
-1     animate   feminine          6           638
-2   inanimate  masculine          7           799
-3   inanimate     neuter          4           390
-4     animate  masculine          5           569
-5     animate   feminine          8           567
-6     animate   feminine          6           665</code></pre>
-</div>
-</div>
-</section>
-<section id="data-from-csv-files" class="level3">
-<h3 class="anchored" data-anchor-id="data-from-csv-files">Data from CSV files</h3>
-<p>Many experimental data is saved in a text or CSV (Comma separated) file. The best method to read data from these files is to use the <code>read_csv()</code> function in the <code>readr</code> package.</p>
-<p>Let’s see an example of usage loading the file in the <code>/data</code> directorate “<em>ELP_full_length_frequency.csv”</em> with data from a psycholinguistic study on the reading comprehension of words as a function of frequency part of the English Lexicon Project, described in the the <span class="citation" data-cites="winter2019statistics">Winter (<a href="references.html#ref-winter2019statistics" role="doc-biblioref">2019</a>)</span> textbook Chapter 4.1.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data_sample_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/ELP_full_length_frequency.csv"</span>,<span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_sample_csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  Word   Log10Freq length    RT
-  &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-1 zenith      1.34      5  754.
-2 zephyr      1.70      4  875.
-3 zeroed      1.30      5  929.
-4 zeros       1.70      5  625.
-5 zest        1.54      4  659.
-6 zigzag      1.36      6  785.</code></pre>
-</div>
-</div>
-<p>As you can see, the file was loaded with 33,057 observations!</p>
-<p>To free up memory, let’s remove the variable from the workspace using the <code>rm()</code> function (remove):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(data_sample_csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>If your data is tab-separated, you can use the function <code>read_tsv()</code> . By default, the functions expect that the first row contains the names of the columns/variables to be read. If that is not the case, you should modify the argument <code>col_names = FALSE</code> .</p>
-</section>
-<section id="data-from-excel-files" class="level3">
-<h3 class="anchored" data-anchor-id="data-from-excel-files">Data from Excel files</h3>
-<p>The best way to read Excel files is using the <code>readxl</code> package. If your file has several worksheets, you can use the <code>sheet</code> argument to specify either an index or the name of the worksheet to read.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load library</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using readxl</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>data_sample_excel <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./data/sample_wg1_excel.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>data_sample_excel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  NounAnimacy NounGender NounLength NounFrequency
-  &lt;chr&gt;       &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;
-1 animate     feminine            6           638
-2 inanimate   masculine           7           799
-3 inanimate   neuter              4           390
-4 animate     masculine           5           569
-5 animate     feminine            8           567
-6 animate     feminine            6           665</code></pre>
-</div>
-</div>
-</section>
-<section id="data-in-r-files" class="level3">
-<h3 class="anchored" data-anchor-id="data-in-r-files">Data in R files</h3>
-<p>Data can also be saved and loaded in <em>R format</em> directly. This is useful if you are performing your analysis in R to save data intermediate steps as it is a compact and efficient format, even though to share with other researchers and in open access journals you should export it to a more generic format.</p>
-<p>To illustrate again let’s load a file in the <code>/data</code> directory containing a sample real dataset from a Event Related Potential (ERP) study that we will use in some of the exercises in the course:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data_sample_r <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./data/eegSampleData.Rda"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_sample_r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       time Subject Condition       Fp1       Fpz       Fp2       AF3      AF4
-1 -0.200000       1     CondA 1.9596113 1.6237565 1.4964751 1.9707278 2.232514
-2 -0.198999       1     CondA 1.7536104 1.4013030 1.3669174 1.7740067 2.084792
-3 -0.197998       1     CondA 1.5272095 1.1631496 1.2091597 1.5532856 1.912671
-4 -0.196997       1     CondA 1.2834086 0.9148962 1.0254020 1.3115644 1.718250
-5 -0.195996       1     CondA 1.0260077 0.6621427 0.8183443 1.0523433 1.504029
-6 -0.194995       1     CondA 0.7589068 0.4100893 0.5914866 0.7800222 1.273008
-          F7          F5        F3        F1        Fz        F2        F4
-1  0.9002055  0.97041392 1.6839135 1.8026822 1.7678664 1.8301742 1.8249546
-2  0.7315209  0.80466543 1.5461834 1.6655317 1.6480326 1.7056625 1.6921552
-3  0.5449364  0.62021693 1.3802533 1.4985812 1.4956989 1.5476508 1.5259558
-4  0.3422518  0.41866843 1.1874231 1.3030307 1.3121651 1.3574391 1.3284565
-5  0.1255673  0.20221994 0.9697930 1.0812802 1.0997314 1.1373274 1.1027571
-6 -0.1025173 -0.02662856 0.7301629 0.8365297 0.8614976 0.8909157 0.8531577
-         F6        F8         FT7       FC5       FC3       FC1       FCz
-1 1.6807566 1.6442472  0.79175532 1.0834129 1.1766302 1.2950722 1.6606659
-2 1.5340938 1.4931450  0.62251420 0.9396381 1.0489977 1.1714287 1.5515010
-3 1.3574309 1.3124428  0.43667307 0.7727634 0.8951652 1.0198851 1.4089360
-4 1.1532681 1.1046406  0.23643195 0.5843886 0.7166327 0.8417415 1.2341711
-5 0.9250052 0.8733384  0.02489083 0.3771138 0.5154001 0.6391979 1.0294061
-6 0.6768424 0.6229362 -0.19425030 0.1538391 0.2946676 0.4151543 0.7976412
-        FC2      FC4       FC6       FT8         T7          C5        C3
-1 1.7052435 1.828386 1.6453833 1.5302436  0.6388098  0.82305823 1.1149519
-2 1.6106100 1.725298 1.5067077 1.3838023  0.4772181  0.66489982 1.0142226
-3 1.4794766 1.593309 1.3373322 1.2091609  0.2951264  0.48534141 0.8858932
-4 1.3130431 1.433921 1.1395566 1.0086196  0.0949347  0.28668300 0.7310638
-5 1.1138097 1.249232 0.9165811 0.7854783 -0.1200570  0.07182459 0.5512344
-6 0.8853762 1.042444 0.6724056 0.5438370 -0.3464487 -0.15573382 0.3492050
-         C1         Cz        C2        C4        C6        T8        TP7
-1 1.1306227 0.63096230 1.3182707 1.4574666 1.4729369 1.3580312 -0.1544125
-2 1.0314048 0.57397554 1.2505935 1.3564641 1.3762993 1.2646492 -0.2040742
-3 0.9031868 0.48648877 1.1480163 1.2251617 1.2511616 1.1442672 -0.2693359
-4 0.7472689 0.36920200 1.0112391 1.0652592 1.0988239 0.9982852 -0.3505976
-5 0.5654510 0.22341524 0.8417619 0.8787567 0.9212863 0.8285032 -0.4477593
-6 0.3606331 0.05132847 0.6424847 0.6691542 0.7215486 0.6379212 -0.5599209
-         CP5       CP3         CP1        CPz        CP2       CP4       CP6
-1 0.79635392 0.7767967  0.48835529 0.58856683 0.50392506 0.8973196 0.8844379
-2 0.69718724 0.6999467  0.42408573 0.53621461 0.46937197 0.8189115 0.8011065
-3 0.57452056 0.5954966  0.33161617 0.45326240 0.40481887 0.7127035 0.6903752
-4 0.42925389 0.4640466  0.21144661 0.33981018 0.31056577 0.5798955 0.5537438
-5 0.26278721 0.3069966  0.06507705 0.19715797 0.18771268 0.4227875 0.3934124
-6 0.07762053 0.1267466 -0.10529251 0.02740575 0.03845958 0.2442795 0.2123810
-        TP8          P7         P5          P3          P1          Pz
-1 0.9127783  0.44240355  0.5012748  0.50060479  0.43724552  0.44452279
-2 0.8270859  0.38499520  0.4463851  0.43989524  0.38284579  0.39195007
-3 0.7139935  0.30168685  0.3652955  0.35238568  0.30064606  0.30987735
-4 0.5753011  0.19277851  0.2583059  0.23837612  0.19084634  0.19880464
-5 0.4131088  0.05907016  0.1263162  0.09886657  0.05454661  0.05993192
-6 0.2306164 -0.09753819 -0.0289734 -0.06424299 -0.10655312 -0.10434080
-            P2        P4        P6        P8         PO7         PO5
-1  0.468759124 0.8508531 0.8558191 0.8671508  0.35547460  0.36233623
-2  0.432358313 0.7741135 0.7808388 0.7798563  0.29344668  0.29959166
-3  0.365657503 0.6698739 0.6783584 0.6649618  0.20641876  0.21124709
-4  0.268956693 0.5394343 0.5496781 0.5242673  0.09449085  0.09760252
-5  0.143555882 0.3848946 0.3967978 0.3598728 -0.04133707 -0.04054205
-6 -0.008344928 0.2089550 0.2223175 0.1750783 -0.19966498 -0.20118662
-          PO3         POz        PO4         PO6         PO8        CB1
-1  0.28232490 -0.03600213 -0.7460777  0.52166620  0.49329201 -0.2268531
-2  0.22316096 -0.06933023 -0.7465746  0.45118577  0.42236878 -0.2837141
-3  0.13819702 -0.13065833 -0.7646715  0.35510534  0.32644555 -0.3584751
-4  0.02763308 -0.21928642 -0.8008684  0.23462491  0.20662231 -0.4507361
-5 -0.10743085 -0.33401452 -0.8546652  0.09154448  0.06479908 -0.5599971
-6 -0.26529479 -0.47284262 -0.9249621 -0.07133595 -0.09642415 -0.6844582
-          O1         Oz         O2        CB2
-1 -0.2783048 -0.6701305 -0.8214062 -0.8811375
-2 -0.3294788 -0.6538060 -0.8241543 -0.8791028
-3 -0.4000527 -0.6546815 -0.8441024 -0.8940680
-4 -0.4900266 -0.6739570 -0.8817505 -0.9264333
-5 -0.5987006 -0.7125325 -0.9365985 -0.9760985
-6 -0.7245745 -0.7706080 -1.0072466 -1.0419638</code></pre>
-</div>
-</div>
-</section>
-<section id="data-from-spss" class="level3">
-<h3 class="anchored" data-anchor-id="data-from-spss">Data from SPSS</h3>
-<p>The <code>haven</code> package can be used to read directly <code>.sav</code> files from SPSS.</p>
-<p>As an example again, let’s open a file saved in SPSS from another ERP (Event Related Potential) study of code-switching in Dutch.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If not yet available, install the package using install.packages("haven")</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>data_sample_spss <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"./data/EEG_DataSet_LongFormat_pablos.sav"</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_sample_spss)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 6
-  Participant Language CS    Congruency Electrode Amplitude
-        &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;         &lt;dbl&gt;
-1           7 Dutch    no_CS congruent  Fp1           0.712
-2           7 Dutch    no_CS congruent  AF3           0.313
-3           7 Dutch    no_CS congruent  F7            0.982
-4           7 Dutch    no_CS congruent  F3            0.587
-5           7 Dutch    no_CS congruent  FC1           0.711
-6           7 Dutch    no_CS congruent  FC5           2.83 </code></pre>
-</div>
-</div>
-<p>Again to preserve memory, let’s clean the workspace by removing the variables we created using :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(data_sample_spss, data_sample_r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="other-formats" class="level3">
-<h3 class="anchored" data-anchor-id="other-formats">Other formats</h3>
-<p>In your own research, if you have data in other specific formats, you may have to develop your own function to read it, although it is highly likely there is already a solution available. Always search first in the internet… For example, imagine you have data in a file saved in the software Matlab, typing “read Matlab files in R” in any search engine points to the R package <a href="https://cran.r-project.org/web/packages/R.matlab/refman/R.matlab.html" title="R.matlab package"><code>R.matlab</code></a> that offers the functions <code>readMat()</code> and <code>writeMat()</code> to read and write respectively Matlab files.</p>
-<p>A few examples of useful packages for data reading in linguistics research are listed below:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Package</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="https://neuroconductor.org/package/eegUtils"><code>eegUtils</code></a></td>
-<td><p><strong>Utilities for</strong> <strong>Electroencephalographic (EEG) Analysis:</strong></p>
-<p>Includes import functions for EEG files from several EEG acquisition and analysis software suites: ‘BioSemi’ (.BDF), ‘Neuroscan’ (.CNT), ‘Brain Vision Analyzer’ (.VHDR), ‘EEGLAB’ (.set) and ‘Fieldtrip’ (.mat)</p></td>
-</tr>
-<tr class="even">
-<td><a href="https://cran.r-project.org/web/packages/rprime/vignettes/quick-start-demo.html"><code>rprime</code></a></td>
-<td><p>Package for parsing&nbsp;<code>.txt</code>&nbsp;generated by E-Prime, a program for running psychological experiments.</p>
-<p>Support functions to read and clean data created in E-Prime</p></td>
-</tr>
-<tr class="odd">
-<td><a href="https://langcog.github.io/childesr/index.html"><code>childesr</code></a></td>
-<td>Package to access data in the childes-db, an open database of child language datasets from the CHILDES (Child Language Data Exchange System) data bank.</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="saving-data" class="level1">
-<h1>Saving data</h1>
-<p>Similar functions to the ones discussed above are available to save data in different formats:</p>
+<p>Correlation is a measure of the dependence between two variables, and to which degree they are linearly related. It is not an indication of <u>causality</u> just of relationship.</p>
+<section id="pearsons-correlation-coefficient" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="pearsons-correlation-coefficient"><span class="header-section-number">2.1</span> Pearson’s correlation coefficient</h2>
+<p>The <strong><em>Pearson’s correlation coefficient</em></strong>, <span class="math inline">\(r\)</span>, is used to quantify the direction and magnitude of the association between two variables X, Y. It is calculated based in the sum of cross products of their values, normalized by their standard deviation:</p>
+<p><span class="math display">\[
+r= \frac{\sum_{i=1}^N (x_i-\bar{X})(y_i-\bar{Y})}{\sqrt{\sum_{i=1}^N (x_i-\bar{X})^2}\sqrt{\sum_{i=1}^N (y_i-\bar{Y})^2}}
+\]</span></p>
+<p>The coefficient takes values between -1 and 1:</p>
 <ul>
-<li><p>Save to R format: <code>saveRDS()</code></p></li>
-<li><p>Save to text format: <code>write.table()</code></p></li>
-<li><p>Save to Excel format: several packages are available, but I recommend using the <code>writexl</code> package that does not depend on other elements being installed in your computer. The function <code>write_xlsx()</code> can be used to save an excel file.</p></li>
-<li><p>Save to SPSS format: <code>write_sav()</code> from the <code>haven</code> package</p></li>
+<li><p>r=−1 a perfect negative relationship: when one variable increases the other one decreases.</p></li>
+<li><p>r = 1, a perfect positive relationship.</p></li>
+<li><p>r=0, indicates no relationship at all between the two variables</p></li>
 </ul>
-</section>
-<section id="section" class="level1">
-<h1></h1>
-
-
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-winter2019statistics" class="csl-entry" role="listitem">
-Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. Routledge.
+<p>The image below shows examples of correlation values and scatterplot of two variables in X and Y.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-446577215.png" class="img-fluid figure-img"></p>
+<figcaption>Pearson correlation coefficient</figcaption>
+</figure>
+</div>
+<p>In R, we can calculate the Pearson correlation coefficient using the <code>cor()</code> function.</p>
+<p>Continuing with the previous example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(languageR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(lexdec<span class="sc">$</span>Frequency, lexdec<span class="sc">$</span>RT, <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.2263358</code></pre>
 </div>
 </div>
+<p>The result, <span class="math inline">\(r=-0.23\)</span>, is negative, reflecting an inverse relationship (higher Frequency results in lower RT) and the level of correlation is moderate.</p>
+<p>A question however is how do we know that the calculated value is significant? A NHST test is performed following the approach defined in the lecture:</p>
+<p><img src="images/clipboard-1217780110.png" class="img-fluid"></p>
+<ul>
+<li><p><strong>Step 1</strong>: Define statistical hypotheses</p>
+<p>Our null hypothesis is that the two variables are uncorrelated, so <span class="math inline">\(r=0\)</span></p>
+<p><span class="math display">\[
+H_0: r=0 \\
+H_a: r\neq 0
+\]</span></p></li>
+<li><p><strong>Step 2:</strong> Define sampling distribution</p>
+<p>For the Pearson coefficient, <span class="math inline">\(r\)</span>, the sampling distribution is normal if with a mean <span class="math inline">\(\mu_{r}=0\)</span> if <span class="math inline">\(H_0\)</span> is true</p></li>
+<li><p><strong>Step 3</strong>: Identify the test statistic</p>
+<p>The test statistic is following a t-distribution with <span class="math inline">\(df = n-2\)</span> and value</p>
+<p><span class="math display">\[
+t=\frac{r\times\sqrt{n-2}}{\sqrt{1-r^2}}
+\]</span></p>
+<p>Note: details beyond the scope of the course.</p></li>
+</ul>
+<p>In the case our example, the number of data points, n, is <span class="math inline">\(n=1659\)</span></p>
+<pre class="{r} nrow(lexdec)}"><code></code></pre>
+<p>The t-statistics will be :</p>
+<p><span class="math display">\[ t= \frac{r\times \sqrt{n-2}}{\sqrt{1-r^2}}=\frac{-0.23 \times \sqrt{1659-2}}{\sqrt{1-(-0.23)^2}} = -9.46
+\]</span></p>
+<ul>
+<li><strong>Step 4:</strong> Determine critical value</li>
+</ul>
+<p>If we select a confidence level of 5%, <span class="math inline">\(\alpha = 0.05\)</span>, we can extract the value of <span class="math inline">\(t_{critical}\)</span> considering the <span class="math inline">\(df = 1659-2=1657\)</span>. This can be calculated in R using the function <code>qt()</code> that returns a value of the Student t distribution. Note that since we are running a two-tailed test, we use 0.025 for p (half of 0.05).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="at">p =</span> <span class="fl">0.025</span>, <span class="at">df =</span> <span class="dv">1657</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.961397</code></pre>
+</div>
+</div>
+<ul>
+<li><p><strong>Step 5:</strong> reach statistical conclusion:</p>
+<p><span class="math display">\[
+t_{value} = -9.62 \lt t_{critical} = -1.96
+\]</span></p></li>
+</ul>
+<p>The t-value is smaller than the critical value, so we reject the null hypothesis: there is a correlation between our variables.</p>
+<p>The complete process above, can be performed in R using the function <code>cor.test()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(lexdec<span class="sc">$</span>Frequency,lexdec<span class="sc">$</span>RT,<span class="at">method=</span><span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  lexdec$Frequency and lexdec$RT
+t = -9.4587, df = 1657, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.2715046 -0.1801720
+sample estimates:
+       cor 
+-0.2263358 </code></pre>
+</div>
+</div>
+<p>If we look at the results provided by the function, the calculated t-value, df and correlation coefficient are the same. In addition, the function returns a p-value (<span class="math inline">\(p&lt;0.001\)</span>) and a confidence interval for the correlation coefficient (<span class="math inline">\(95CI_r = [-0.27,-0.18]\)</span> )</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1003,13 +845,13 @@ Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./using_libraries.html" class="pagination-link" aria-label="📦 Libraries and Packages">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">📦 Libraries and Packages</span>
+      <a href="./plot_xy.html" class="pagination-link" aria-label="Plotting relationship between two variables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Plotting relationship between two variables</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./tidyverse_intro.html" class="pagination-link" aria-label="Introduction to tidyverse 1: data manipulation">
-        <span class="nav-page-text">Introduction to tidyverse 1: data manipulation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./lm_intro.html" class="pagination-link" aria-label="Linear Models in R with `lm()`">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Linear Models in R with <code>lm()</code></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

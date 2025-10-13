@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
+
 <title>Introduction to tidyverse 1: data manipulation – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
@@ -75,6 +78,7 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -94,7 +98,8 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -120,12 +125,20 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="site_libs/quarto-diagram/mermaid.min.js"></script><script src="site_libs/quarto-diagram/mermaid-init.js"></script><link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
 </head>
+
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -136,9 +149,13 @@ div.csl-indent {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
         <div class="sidebar-tools-main">
@@ -157,7 +174,7 @@ div.csl-indent {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -177,8 +194,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">✍️ R Syntax</span></a>
@@ -215,7 +232,7 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup2.html" class="sidebar-item-text sidebar-link">
@@ -224,8 +241,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data organization and transformation</span></a>
@@ -244,10 +261,35 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Workgroup 3: Simple Linear Regression with R</span></span>
+      <div class="sidebar-item-container"> 
+            <a href="./Workgroup3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workgroup 3: Simple Linear Regression with R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./plot_xy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Plotting relationship between two variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Correlation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lm_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Linear Models in R with <code>lm()</code></span></span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -268,38 +310,40 @@ div.csl-indent {
   </div>
 </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li>
-<a href="#what-is-the-tidyverse" id="toc-what-is-the-tidyverse" class="nav-link active" data-scroll-target="#what-is-the-tidyverse">🌐 <strong>What is the tidyverse?</strong></a>
+  <li><a href="#what-is-the-tidyverse" id="toc-what-is-the-tidyverse" class="nav-link active" data-scroll-target="#what-is-the-tidyverse">🌐 <strong>What is the tidyverse?</strong></a>
   <ul class="collapse">
-<li><a href="#why-use-tidyverse" id="toc-why-use-tidyverse" class="nav-link" data-scroll-target="#why-use-tidyverse"><strong>Why Use tidyverse?</strong></a></li>
+  <li><a href="#why-use-tidyverse" id="toc-why-use-tidyverse" class="nav-link" data-scroll-target="#why-use-tidyverse"><strong>Why Use tidyverse?</strong></a></li>
   <li><a href="#core-tidyverse-packages" id="toc-core-tidyverse-packages" class="nav-link" data-scroll-target="#core-tidyverse-packages">📦 <strong>Core tidyverse Packages</strong></a></li>
   <li><a href="#workflow-using-tidyverse" id="toc-workflow-using-tidyverse" class="nav-link" data-scroll-target="#workflow-using-tidyverse"><strong>Workflow Using tidyverse</strong></a></li>
-  </ul>
-</li>
+  </ul></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li>
-<a href="#a-grammar-of-data-manipulation" id="toc-a-grammar-of-data-manipulation" class="nav-link" data-scroll-target="#a-grammar-of-data-manipulation">A grammar of data manipulation</a>
+  <li><a href="#a-grammar-of-data-manipulation" id="toc-a-grammar-of-data-manipulation" class="nav-link" data-scroll-target="#a-grammar-of-data-manipulation">A grammar of data manipulation</a>
   <ul class="collapse">
-<li><a href="#selecting-variables-select" id="toc-selecting-variables-select" class="nav-link" data-scroll-target="#selecting-variables-select">Selecting variables: <code>select()</code></a></li>
+  <li><a href="#selecting-variables-select" id="toc-selecting-variables-select" class="nav-link" data-scroll-target="#selecting-variables-select">Selecting variables: <code>select()</code></a></li>
   <li><a href="#changing-variable-names-rename" id="toc-changing-variable-names-rename" class="nav-link" data-scroll-target="#changing-variable-names-rename">Changing variable names: <code>rename()</code></a></li>
   <li><a href="#moving-variable-position-relocate" id="toc-moving-variable-position-relocate" class="nav-link" data-scroll-target="#moving-variable-position-relocate">Moving variable position: <code>relocate()</code></a></li>
   <li><a href="#selecting-cases-filter" id="toc-selecting-cases-filter" class="nav-link" data-scroll-target="#selecting-cases-filter">Selecting cases: <code>filter()</code></a></li>
   <li><a href="#reordering-cases-arrange" id="toc-reordering-cases-arrange" class="nav-link" data-scroll-target="#reordering-cases-arrange">Reordering cases: <code>arrange()</code></a></li>
-  </ul>
-</li>
+  </ul></li>
   <li><a href="#pipe-operator-or" id="toc-pipe-operator-or" class="nav-link" data-scroll-target="#pipe-operator-or">Pipe operator (<code>%&gt;%</code> or <code>|&gt;</code> )</a></li>
-  </ul></nav>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./tidyverse_intro.html">Introduction to tidyverse 1: data manipulation</a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-tidyverse1" class="quarto-section-identifier">Introduction to tidyverse 1: data manipulation</span></h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup1.html">Workgroup 1: Introduction to R and RStudio</a></li><li class="breadcrumb-item"><a href="./tidyverse_intro.html">Introduction to tidyverse 1: data manipulation</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-the-r-language" class="quarto-section-identifier">Introduction to tidyverse 1: data manipulation</span></h1>
 </div>
 
 
@@ -313,26 +357,34 @@ div.csl-indent {
   
 
 
-</header><section id="what-is-the-tidyverse" class="level2"><h2 class="anchored" data-anchor-id="what-is-the-tidyverse">🌐 <strong>What is the tidyverse?</strong>
-</h2>
+</header>
+
+
+<section id="what-is-the-tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-tidyverse">🌐 <strong>What is the tidyverse?</strong></h2>
 <hr>
 <p>The <strong><code>tidyverse</code></strong> is a collection of R packages designed for <strong>data science</strong>. These packages share an underlying philosophy, grammar, and data structures, making it easier to learn and use them together. Tidyverse simplifies tasks like data manipulation, visualization, and modeling.</p>
 <p>A full description of the tidyverse packages and functions is available in <a href="https://dplyr.tidyverse.org/" class="uri">https://dplyr.tidyverse.org/</a></p>
-<section id="why-use-tidyverse" class="level3"><h3 class="anchored" data-anchor-id="why-use-tidyverse"><strong>Why Use tidyverse?</strong></h3>
+<section id="why-use-tidyverse" class="level3">
+<h3 class="anchored" data-anchor-id="why-use-tidyverse"><strong>Why Use tidyverse?</strong></h3>
 <p>Using the functions in tidyverse have a number of advantages versus the use of individual packages or the available base R functions:</p>
 <ul>
 <li><p>Consistent and readable syntax.</p></li>
 <li><p>Pipe operator (<code>%&gt;%</code>) for chaining operations (see later)</p></li>
 <li><p>Designed for tidy data principles as described in <span class="citation" data-cites="wickham2024r">Wickham, Çetinkaya-Rundel, and Grolemund (<a href="references.html#ref-wickham2024r" role="doc-biblioref">2024</a>)</span>.</p></li>
 <li><p>It has a strong user community and documentation.</p></li>
-</ul></section><section id="core-tidyverse-packages" class="level3"><h3 class="anchored" data-anchor-id="core-tidyverse-packages">📦 <strong>Core tidyverse Packages</strong>
-</h3>
+</ul>
+</section>
+<section id="core-tidyverse-packages" class="level3">
+<h3 class="anchored" data-anchor-id="core-tidyverse-packages">📦 <strong>Core tidyverse Packages</strong></h3>
 <p>When you install and load the <code>tidyverse</code> package, you get access to the core packages listed in the table below without needing to load them individually</p>
 <table class="caption-top table">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th>Package</th>
 <th>Usage</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><code>ggplot2</code></td>
@@ -369,12 +421,14 @@ div.csl-indent {
 </tbody>
 </table>
 <p>We have already seen <code>readr</code> when loading files. We will explore today the <code>tidyr</code> functions.</p>
-</section><section id="workflow-using-tidyverse" class="level3"><h3 class="anchored" data-anchor-id="workflow-using-tidyverse"><strong>Workflow Using tidyverse</strong></h3>
+</section>
+<section id="workflow-using-tidyverse" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-using-tidyverse"><strong>Workflow Using tidyverse</strong></h3>
 <p>A generic workflow using tidyverse can be represented as follows:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class="figure"></figure><p></p>
+<p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
   load["Load tidyverse"]
@@ -386,7 +440,7 @@ div.csl-indent {
   clean --&gt; plot
 </pre>
 </div>
-<p></p>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -405,62 +459,59 @@ Important
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load tidyverse</span></span>
-<span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tibble' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.3.3</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load tidyverse</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.2     ✔ tibble    3.3.0
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.4     
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Read data</span></span>
-<span></span>
-<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"./data/ELP_full_length_frequency.csv"</span>, show_col_types <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># filter, clean and transform data</span></span>
-<span></span>
-<span><span class="va">cleandata</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">length</span><span class="op">&gt;</span><span class="fl">3</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>rt_per_character <span class="op">=</span> <span class="va">RT</span> <span class="op">/</span> <span class="va">length</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Visualize</span></span>
-<span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">cleandata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Log10Freq</span>, y <span class="op">=</span> <span class="va">RT</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color<span class="op">=</span><span class="st">'grey'</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="st">"lm"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/ELP_full_length_frequency.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># filter, clean and transform data</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>cleandata <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(length<span class="sc">&gt;</span><span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rt_per_character =</span> RT <span class="sc">/</span> length)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cleandata, <span class="fu">aes</span>(<span class="at">x =</span> Log10Freq, <span class="at">y =</span> RT)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">'grey'</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="tidyverse_intro_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure">
+<p><img src="tidyverse_intro_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section></section><section id="section" class="level2"><h2 class="anchored" data-anchor-id="section"></h2>
-</section><section id="a-grammar-of-data-manipulation" class="level2"><h2 class="anchored" data-anchor-id="a-grammar-of-data-manipulation">A grammar of data manipulation</h2>
+</section>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="a-grammar-of-data-manipulation" class="level2">
+<h2 class="anchored" data-anchor-id="a-grammar-of-data-manipulation">A grammar of data manipulation</h2>
 <hr>
 <p><code>dplyr</code> is a package within the <code>tidyverse</code> set of functions that allow to manipulate data. You can think of the functions in the package as a sort of “<em>grammar of data manipulation</em>”, providing a consistent set of verbs that help you solve the most common data manipulation challenges:</p>
 <ul>
 <li><p><a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>mutate()</code></a> adds new variables that are functions of existing variables -&gt; operates on columns.</p></li>
 <li><p><a href="https://dplyr.tidyverse.org/reference/relocate.html"><code>relocate()</code></a>: moves variables to a different position (change order of columns) -&gt; operates on columns.</p></li>
 <li><p><a href="https://dplyr.tidyverse.org/reference/select.html"><code>select()</code></a> picks variables based on their names. -&gt; operates on columns.</p></li>
-<li><p><code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code>: change variable names -&gt; operates on columns</p></li>
+<li><p><code>rename()</code>: change variable names -&gt; operates on columns</p></li>
 <li><p><a href="https://dplyr.tidyverse.org/reference/arrange.html"><code>arrange()</code></a> changes the ordering of the rows. -&gt; operates on rows.</p></li>
 <li><p><a href="https://dplyr.tidyverse.org/reference/filter.html"><code>filter()</code></a> picks cases based on their values. -&gt; operates on rows.</p></li>
 <li><p><a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a> reduces multiple values down to a single summary (we will look at this in next workgroup).</p></li>
@@ -480,16 +531,14 @@ Note
 </div>
 <p>Let’s explore how to use the functions above with another of the datasets contained in the <code>languageR</code> package by <span class="citation" data-cites="Baayen_2008">Baayen (<a href="references.html#ref-Baayen_2008" role="doc-biblioref">2008</a>)</span>. We will use the <code>DurationsOnt</code> dataset that contains durational measurement of the Dutch prefix <em>-ont</em> from a study on a Spoken Dutch Corpus ( <span class="citation" data-cites="pluymaekers2005lexical">Pluymaekers, Ernestus, and Baayen (<a href="references.html#ref-pluymaekers2005lexical" role="doc-biblioref">2005</a>)</span>).</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#load library</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">languageR</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'languageR' was built under R version 4.3.3</code></pre>
-</div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#load dataset in the environment</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"durationsOnt"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#display the structure of the dataset</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">durationsOnt</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load library</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(languageR)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#load dataset in the environment</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"durationsOnt"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#display the structure of the dataset</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(durationsOnt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   102 obs. of  12 variables:
  $ Word                 : Factor w/ 102 levels "ontbeten","ontbijt",..: 1 2 3 4 5 6 7 8 9 10 ...
@@ -505,17 +554,20 @@ Note
  $ PlosivePresent       : Factor w/ 2 levels "no","yes": 1 1 1 1 1 1 1 1 1 1 ...
  $ SpeechRate           : num  3.92 6.88 3.53 5.39 6.73 ...</code></pre>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#look at the description of the variables</span></span>
-<span><span class="op">?</span><span class="va">durationsOnt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#look at the description of the variables</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>?durationsOnt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>starting httpd help server ... done</code></pre>
 </div>
-<section id="selecting-variables-select" class="level3"><h3 class="anchored" data-anchor-id="selecting-variables-select">Selecting variables: <code>select()</code>
-</h3>
+</div>
+<section id="selecting-variables-select" class="level3">
+<h3 class="anchored" data-anchor-id="selecting-variables-select">Selecting variables: <code>select()</code></h3>
 <hr>
-<p>The function <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> allows to choose a subset of variables (columns of interest). The function call includes as first parameter the dataset followed by the list of columns you would like to keep.</p>
+<p>The function <code>select()</code> allows to choose a subset of variables (columns of interest). The function call includes as first parameter the dataset followed by the list of columns you would like to keep.</p>
 <p>For this example we would like to look only at the duration of the Prefix in seconds and are not interested in the other variables.</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_simplified</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">durationsOnt</span>,  <span class="va">Word</span>, <span class="va">Frequency</span>, <span class="va">Speaker</span>, <span class="va">Sex</span>, <span class="va">YearOfBirth</span>, <span class="va">DurationOfPrefix</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">durationsOnt_simplified</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>durationsOnt_simplified <span class="ot">&lt;-</span> <span class="fu">select</span>(durationsOnt,  Word, Frequency, Speaker, Sex, YearOfBirth, DurationOfPrefix)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(durationsOnt_simplified)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Word Frequency Speaker    Sex YearOfBirth DurationOfPrefix
 24       ontbeten 3.0910425  N01143 female          72         0.113372
@@ -541,8 +593,8 @@ Tip
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_simplified</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">durationsOnt</span>,  <span class="va">Word</span><span class="op">:</span><span class="va">DurationOfPrefix</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">durationsOnt_simplified</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>durationsOnt_simplified <span class="ot">&lt;-</span> <span class="fu">select</span>(durationsOnt,  Word<span class="sc">:</span>DurationOfPrefix)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(durationsOnt_simplified)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Word Frequency Speaker    Sex YearOfBirth DurationOfPrefix
 24       ontbeten 3.0910425  N01143 female          72         0.113372
@@ -553,8 +605,9 @@ Tip
 21 ontbijtservies 0.6931472  N01134 female          70         0.176658</code></pre>
 </div>
 </div>
-</section><section id="changing-variable-names-rename" class="level3"><h3 class="anchored" data-anchor-id="changing-variable-names-rename">Changing variable names: <code>rename()</code>
-</h3>
+</section>
+<section id="changing-variable-names-rename" class="level3">
+<h3 class="anchored" data-anchor-id="changing-variable-names-rename">Changing variable names: <code>rename()</code></h3>
 <hr>
 <p>You can change the naming of the variable using rename as follows - You call the function with as first parameter the dataset and after with the list of variables to be renamed.\</p>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -571,8 +624,8 @@ Warning
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_simplified_renamed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="va">durationsOnt_simplified</span>, Gender <span class="op">=</span> <span class="va">Sex</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">durationsOnt_simplified_renamed</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>durationsOnt_simplified_renamed <span class="ot">&lt;-</span> <span class="fu">rename</span>(durationsOnt_simplified, <span class="at">Gender =</span> Sex)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(durationsOnt_simplified_renamed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Word Frequency Speaker Gender YearOfBirth DurationOfPrefix
 24       ontbeten 3.0910425  N01143 female          72         0.113372
@@ -583,14 +636,15 @@ Warning
 21 ontbijtservies 0.6931472  N01134 female          70         0.176658</code></pre>
 </div>
 </div>
-</section><section id="moving-variable-position-relocate" class="level3"><h3 class="anchored" data-anchor-id="moving-variable-position-relocate">Moving variable position: <code>relocate()</code>
-</h3>
+</section>
+<section id="moving-variable-position-relocate" class="level3">
+<h3 class="anchored" data-anchor-id="moving-variable-position-relocate">Moving variable position: <code>relocate()</code></h3>
 <hr>
-<p>With big datasets including many variables (columns), sometimes it is useful to change the order of the columns. This can be done with the <code><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate()</a></code> function.</p>
+<p>With big datasets including many variables (columns), sometimes it is useful to change the order of the columns. This can be done with the <code>relocate()</code> function.</p>
 <p>You call the function providing again as first parameter the dataset and then the column you want to move. By default the function will move the column specified to become the first. Let’s say that we want to have the S<em>peaker Identifier</em> as the first column, we will use the following:</p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_reordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">durationsOnt_simplified_renamed</span>, <span class="va">Speaker</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">durationsOnt_reordered</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>durationsOnt_reordered <span class="ot">&lt;-</span> <span class="fu">relocate</span>(durationsOnt_simplified_renamed, Speaker)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(durationsOnt_reordered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Speaker           Word Frequency Gender YearOfBirth DurationOfPrefix
 24  N01143       ontbeten 3.0910425 female          72         0.113372
@@ -603,8 +657,8 @@ Warning
 </div>
 <p>The Speaker variable is now the first. If we want to define a specific location, we can use the arguments <code>.after</code> or <code>.before</code> . For instance, if we want to move the Gender to be just after the Speaker column we will call the following:</p>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_reordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">durationsOnt_reordered</span>, <span class="va">Gender</span>, .after <span class="op">=</span> <span class="va">Speaker</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">durationsOnt_reordered</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>durationsOnt_reordered <span class="ot">&lt;-</span> <span class="fu">relocate</span>(durationsOnt_reordered, Gender, <span class="at">.after =</span> Speaker)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(durationsOnt_reordered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Speaker Gender           Word Frequency YearOfBirth DurationOfPrefix
 24  N01143 female       ontbeten 3.0910425          72         0.113372
@@ -616,29 +670,30 @@ Warning
 </div>
 </div>
 <p>Now that we have selected the variables that we want and in the order that we want them, let’s filter the data to select some cases</p>
-</section><section id="selecting-cases-filter" class="level3"><h3 class="anchored" data-anchor-id="selecting-cases-filter">Selecting cases: <code>filter()</code>
-</h3>
+</section>
+<section id="selecting-cases-filter" class="level3">
+<h3 class="anchored" data-anchor-id="selecting-cases-filter">Selecting cases: <code>filter()</code></h3>
 <hr>
-<p>We can select cases or observations based on a criteria using the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function. The filter function is called providing as a first parameter the dataset, followed by a <em>condition</em> or criteria to use for the selection.</p>
+<p>We can select cases or observations based on a criteria using the <code>filter()</code> function. The filter function is called providing as a first parameter the dataset, followed by a <em>condition</em> or criteria to use for the selection.</p>
 <p>Let’s say that we want to make an analysis on the duration of people born after 1970</p>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_reordered_filtered_age</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">durationsOnt_reordered</span>,<span class="va">YearOfBirth</span> <span class="op">&gt;</span> <span class="fl">70</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#check on the minimum value of the Year of Birth with the function min()</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">durationsOnt_reordered</span><span class="op">$</span><span class="va">YearOfBirth</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>durationsOnt_reordered_filtered_age <span class="ot">&lt;-</span> <span class="fu">filter</span>(durationsOnt_reordered,YearOfBirth <span class="sc">&gt;</span> <span class="dv">70</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#check on the minimum value of the Year of Birth with the function min()</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(durationsOnt_reordered<span class="sc">$</span>YearOfBirth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 23</code></pre>
 </div>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">durationsOnt_reordered_filtered_age</span><span class="op">$</span><span class="va">YearOfBirth</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(durationsOnt_reordered_filtered_age<span class="sc">$</span>YearOfBirth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 71</code></pre>
 </div>
 </div>
-<p>As you can see on the example, the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> selected the cases based on the condition specified.</p>
+<p>As you can see on the example, the <code>filter()</code> selected the cases based on the condition specified.</p>
 <p>If we wanted to select for example only the cases for Females, we will have used the filter as <code>Gender == "female"</code> . What about if we want to select the females born after 1970 in a single step? You can combine conditions using the operators <code>&amp;</code> (meaning “and” ) and <code>|</code> (meaning “or”). For example:</p>
 <div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_reordered_filtered_age_gender</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">durationsOnt_reordered</span>,<span class="op">(</span><span class="va">YearOfBirth</span> <span class="op">&gt;</span> <span class="fl">70</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">(</span><span class="va">Gender</span><span class="op">==</span><span class="st">"female"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">durationsOnt_reordered_filtered_age_gender</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>durationsOnt_reordered_filtered_age_gender <span class="ot">&lt;-</span> <span class="fu">filter</span>(durationsOnt_reordered,(YearOfBirth <span class="sc">&gt;</span> <span class="dv">70</span>) <span class="sc">&amp;</span> (Gender<span class="sc">==</span><span class="st">"female"</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(durationsOnt_reordered_filtered_age_gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Speaker Gender      Word Frequency YearOfBirth DurationOfPrefix
 24  N01143 female  ontbeten  3.091042          72         0.113372
@@ -649,12 +704,13 @@ Warning
 78  N01096 female  ontkende  2.833213          78         0.186745</code></pre>
 </div>
 </div>
-</section><section id="reordering-cases-arrange" class="level3"><h3 class="anchored" data-anchor-id="reordering-cases-arrange">Reordering cases: <code>arrange()</code>
-</h3>
-<p>Finally, the <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> function orders the dataset by a selected value. For example to order the dataframe by Frequency:</p>
+</section>
+<section id="reordering-cases-arrange" class="level3">
+<h3 class="anchored" data-anchor-id="reordering-cases-arrange">Reordering cases: <code>arrange()</code></h3>
+<p>Finally, the <code>arrange()</code> function orders the dataset by a selected value. For example to order the dataframe by Frequency:</p>
 <div class="cell">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_reordered_filtered_age_gender_ordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">durationsOnt_reordered_filtered_age_gender</span>, <span class="va">Frequency</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">durationsOnt_reordered_filtered_age_gender_ordered</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>durationsOnt_reordered_filtered_age_gender_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(durationsOnt_reordered_filtered_age_gender, Frequency)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(durationsOnt_reordered_filtered_age_gender_ordered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Speaker Gender             Word Frequency YearOfBirth DurationOfPrefix
 102  N01037 female ontstekingsvocht 0.0000000          81         0.099240
@@ -665,10 +721,10 @@ Warning
 55   N01065 female        onthullen 1.9459101          78         0.185638</code></pre>
 </div>
 </div>
-<p>What about if we want to use a <strong>reverse order</strong>? This can be done use the <code><a href="https://dplyr.tidyverse.org/reference/desc.html">desc()</a></code> modified on the variable to be used:</p>
+<p>What about if we want to use a <strong>reverse order</strong>? This can be done use the <code>desc()</code> modified on the variable to be used:</p>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_reordered_filtered_age_gender_ordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">durationsOnt_reordered_filtered_age_gender</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">Frequency</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">durationsOnt_reordered_filtered_age_gender_ordered</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>durationsOnt_reordered_filtered_age_gender_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(durationsOnt_reordered_filtered_age_gender, <span class="fu">desc</span>(Frequency))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(durationsOnt_reordered_filtered_age_gender_ordered)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Speaker Gender        Word Frequency YearOfBirth DurationOfPrefix
 71  N01041 female    ontstaan  6.068426          80         0.205519
@@ -679,22 +735,25 @@ Warning
 11  N01092 female ontzettende  4.189655          80         0.117997</code></pre>
 </div>
 </div>
-</section></section><section id="pipe-operator-or" class="level2"><h2 class="anchored" data-anchor-id="pipe-operator-or">Pipe operator (<code>%&gt;%</code> or <code>|&gt;</code> )</h2>
+</section>
+</section>
+<section id="pipe-operator-or" class="level2">
+<h2 class="anchored" data-anchor-id="pipe-operator-or">Pipe operator (<code>%&gt;%</code> or <code>|&gt;</code> )</h2>
 <hr>
 <p>As you can see, in all the examples above we pass as first argument to the function the dataframe on which we want to make the operation.</p>
 <p>Putting all the calls before together :</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_simplified</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">durationsOnt</span>,  <span class="va">Word</span><span class="op">:</span><span class="va">DurationOfPrefix</span><span class="op">)</span></span>
-<span><span class="va">durationsOnt_simplified_renamed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="va">durationsOnt_simplified</span>, Gender <span class="op">=</span> <span class="va">Sex</span><span class="op">)</span></span>
-<span><span class="va">durationsOnt_reordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">durationsOnt_simplified_renamed</span>, <span class="va">Speaker</span><span class="op">)</span></span>
-<span><span class="va">durationsOnt_reordered_filtered_age_gender</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">durationsOnt_reordered</span>,<span class="op">(</span><span class="va">YearOfBirth</span> <span class="op">&gt;</span> <span class="fl">70</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">(</span><span class="va">Gender</span><span class="op">==</span><span class="st">"female"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">durationsOnt_reordered_filtered_age_gender_ordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">durationsOnt_reordered_filtered_age_gender</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">Frequency</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>durationsOnt_simplified <span class="ot">&lt;-</span> <span class="fu">select</span>(durationsOnt,  Word<span class="sc">:</span>DurationOfPrefix)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>durationsOnt_simplified_renamed <span class="ot">&lt;-</span> <span class="fu">rename</span>(durationsOnt_simplified, <span class="at">Gender =</span> Sex)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>durationsOnt_reordered <span class="ot">&lt;-</span> <span class="fu">relocate</span>(durationsOnt_simplified_renamed, Speaker)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>durationsOnt_reordered_filtered_age_gender <span class="ot">&lt;-</span> <span class="fu">filter</span>(durationsOnt_reordered,(YearOfBirth <span class="sc">&gt;</span> <span class="dv">70</span>) <span class="sc">&amp;</span> (Gender<span class="sc">==</span><span class="st">"female"</span>))</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>durationsOnt_reordered_filtered_age_gender_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(durationsOnt_reordered_filtered_age_gender, <span class="fu">desc</span>(Frequency))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In this examples I created on every step a new variable with a different name to save the output of the functions, which created a lot of new variables. This might be useful only in cases when you want to save the intermediate steps. In reality this is rarely the case since anyway you can always execute again the complete flow if you want to change something, and it is a better practice.</p>
 <p>That being the case, we could just use on variable for example called <em><code>durationsOnt_processed</code></em> that we overwrite in every step, resulting in something like this:</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_processed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">durationsOnt</span>,  <span class="va">Word</span><span class="op">:</span><span class="va">DurationOfPrefix</span><span class="op">)</span></span>
-<span><span class="va">durationsOnt_processed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span><span class="va">durationsOnt_processed</span>, Gender <span class="op">=</span> <span class="va">Sex</span><span class="op">)</span></span>
-<span><span class="va">durationsOnt_processed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">durationsOnt_processed</span>, <span class="va">Speaker</span><span class="op">)</span></span>
-<span><span class="va">durationsOnt_processed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">durationsOnt_processed</span>,<span class="op">(</span><span class="va">YearOfBirth</span> <span class="op">&gt;</span> <span class="fl">70</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">(</span><span class="va">Gender</span><span class="op">==</span><span class="st">"female"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">durationsOnt_processed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">durationsOnt_processed</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">Frequency</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>durationsOnt_processed <span class="ot">&lt;-</span> <span class="fu">select</span>(durationsOnt,  Word<span class="sc">:</span>DurationOfPrefix)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>durationsOnt_processed <span class="ot">&lt;-</span> <span class="fu">rename</span>(durationsOnt_processed, <span class="at">Gender =</span> Sex)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>durationsOnt_processed <span class="ot">&lt;-</span> <span class="fu">relocate</span>(durationsOnt_processed, Speaker)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>durationsOnt_processed <span class="ot">&lt;-</span> <span class="fu">filter</span>(durationsOnt_processed,(YearOfBirth <span class="sc">&gt;</span> <span class="dv">70</span>) <span class="sc">&amp;</span> (Gender<span class="sc">==</span><span class="st">"female"</span>))</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>durationsOnt_processed <span class="ot">&lt;-</span> <span class="fu">arrange</span>(durationsOnt_processed, <span class="fu">desc</span>(Frequency))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In this process though, still everytime the output of the one call is the input for the next step (in the end it is an analysis <em>workflow</em>).</p>
 <p>If we were to write textually what we did to the data would be something like:</p>
 <blockquote class="blockquote">
@@ -710,14 +769,14 @@ Warning
 <p>The operator can be used with two syntax <code>%&gt;%</code> or the new <code>|&gt;</code> .</p>
 <p>Using this, the examples before could be executed as below.</p>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">durationsOnt_processed</span> <span class="op">&lt;-</span> <span class="va">durationsOnt</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Word</span><span class="op">:</span><span class="va">DurationOfPrefix</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>Gender <span class="op">=</span> <span class="va">Sex</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">Speaker</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">Gender</span>, .after <span class="op">=</span> <span class="va">Speaker</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">(</span><span class="va">YearOfBirth</span> <span class="op">&gt;</span> <span class="fl">70</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">(</span><span class="va">Gender</span><span class="op">==</span><span class="st">"female"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>                          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">Frequency</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">durationsOnt_processed</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>durationsOnt_processed <span class="ot">&lt;-</span> durationsOnt <span class="sc">%&gt;%</span> <span class="fu">select</span>(Word<span class="sc">:</span>DurationOfPrefix) <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">rename</span>(<span class="at">Gender =</span> Sex) <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">relocate</span>(Speaker) <span class="sc">%&gt;%</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">relocate</span>(Gender, <span class="at">.after =</span> Speaker) <span class="sc">%&gt;%</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">filter</span>((YearOfBirth <span class="sc">&gt;</span> <span class="dv">70</span>) <span class="sc">&amp;</span> (Gender<span class="sc">==</span><span class="st">"female"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">arrange</span>(<span class="fu">desc</span>(Frequency))</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(durationsOnt_processed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Speaker Gender        Word Frequency YearOfBirth DurationOfPrefix
 71  N01041 female    ontstaan  6.068426          80         0.205519
@@ -743,7 +802,10 @@ Pluymaekers, Mark, Mirjam Ernestus, and R Harald Baayen. 2005. <span>“Lexical 
 Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2024. <em>R for Data Science</em>. O’Reilly.
 </div>
 </div>
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1141,7 +1203,9 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2024. <em>R for 
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./read_data.html" class="pagination-link" aria-label="Reading and Saving data in R">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Reading and Saving data in R</span>
       </a>          
@@ -1153,7 +1217,8 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2024. <em>R for 
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Fundamentals of Linear Models Workbook was written by Dr.&nbsp;Leticia Pablos Robles</p>
 </div>   
@@ -1165,6 +1230,8 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2024. <em>R for 
 </div>
   </div>
 </footer>
+
+
 
 
 </body></html>
