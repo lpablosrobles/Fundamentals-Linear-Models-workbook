@@ -40,14 +40,14 @@ book:
         - assignment1_key.qmd 
         
     - part: Workgroup2.qmd
-       chapters:
+      chapters:
         - data_organization.qmd
         - data_visualization.qmd
         - descriptive_stats.qmd
 
         
     - part: Workgroup3.qmd
-       chapters:
+      chapters:
          - plot_xy.qmd
          - correlation.qmd
          - lm_intro.qmd
