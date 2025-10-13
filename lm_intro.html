@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 
-<title>3&nbsp; Linear Models in R with lm() – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Linear Models in R with lm() – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -148,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./lm_intro.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Linear Models in R with <code>lm()</code></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./lm_intro.html">Linear Models in R with <code>lm()</code></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -292,7 +292,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lm_intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Linear Models in R with <code>lm()</code></span></span></a>
+ <span class="menu-text">Linear Models in R with <code>lm()</code></span></a>
   </div>
 </li>
       </ul>
@@ -325,17 +325,22 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#formula-notation-in-r" id="toc-formula-notation-in-r" class="nav-link active" data-scroll-target="#formula-notation-in-r"><span class="header-section-number">3.1</span> Formula notation in R</a></li>
-  <li><a href="#interpreting-lm-output" id="toc-interpreting-lm-output" class="nav-link" data-scroll-target="#interpreting-lm-output"><span class="header-section-number">3.2</span> Interpreting <code>lm()</code> output</a></li>
+  <li><a href="#formula-notation-in-r" id="toc-formula-notation-in-r" class="nav-link active" data-scroll-target="#formula-notation-in-r">Formula notation in R</a></li>
+  <li><a href="#interpreting-lm-output" id="toc-interpreting-lm-output" class="nav-link" data-scroll-target="#interpreting-lm-output">Interpreting <code>lm()</code> output</a>
+  <ul class="collapse">
+  <li><a href="#model-residuals" id="toc-model-residuals" class="nav-link" data-scroll-target="#model-residuals">Model residuals</a></li>
+  <li><a href="#model-coefficients" id="toc-model-coefficients" class="nav-link" data-scroll-target="#model-coefficients">Model coefficients</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./lm_intro.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Linear Models in R with <code>lm()</code></span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./lm_intro.html">Linear Models in R with <code>lm()</code></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Linear Models in R with <code>lm()</code></span></h1>
+<h1 class="title"><span id="sec-lm-intro" class="quarto-section-identifier">Linear Models in R with <code>lm()</code></span></h1>
 </div>
 
 
@@ -354,17 +359,17 @@ window.Quarto = {
 
 <p>As explained in the lecture, a linear model of a dataset fits a line that minimizes the sum square errors between the predicted values and the data.</p>
 <p>The generic function in R used to calculate a linear model fit based on data is <code>lm()</code> with the main arguments <code>formula</code> and <code>data</code>.</p>
-<section id="formula-notation-in-r" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="formula-notation-in-r"><span class="header-section-number">3.1</span> Formula notation in R</h2>
+<section id="formula-notation-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="formula-notation-in-r">Formula notation in R</h2>
 <hr>
 <p>A linear model with one predictor variable can be in general expressed as:</p>
 <p><span class="math display">\[
-Y_i = \beta_0 + \beta_1X_i+ \epsilon_i
+Y_i = b_0 + b_1X_i+ \epsilon_i
 \]</span></p>
-<p>where <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are referred to as the <strong><em>coefficients</em></strong> of the model and <span class="math inline">\(\epsilon_i\)</span> is the <strong>error term</strong> of the fit.</p>
+<p>where <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are referred to as the <strong><em>coefficients</em></strong> of the model and <span class="math inline">\(\epsilon_i\)</span> is the <strong>error term</strong> of the fit.</p>
 <ul>
-<li><p><span class="math inline">\(\beta_0\)</span>: intercept</p></li>
-<li><p><span class="math inline">\(\beta_1\)</span>: slope</p></li>
+<li><p><span class="math inline">\(b_0\)</span>: intercept - represents the value of the outcome variable Y, when X=0.</p></li>
+<li><p><span class="math inline">\(b_1\)</span>: slope - represents the change on the value of Y, due to a change of 1 unit of the value of X.</p></li>
 </ul>
 <p>In our running example:</p>
 <div class="cell">
@@ -391,24 +396,24 @@ Y_i = \beta_0 + \beta_1X_i+ \epsilon_i
 </div>
 <p>We would like to build a model as :</p>
 <p><span class="math display">\[
-RT_i = \beta_0+\beta_1Frequency_i+\epsilon_i
+RT_i = b_0+b_1Frequency_i+\epsilon_i
 \]</span></p>
 <p>Models in R are specified using a notation in the form <code>response~terms</code> where <code>response</code> is the (numeric) dependent variable and <code>terms</code> are the linear predictors. A few notes:</p>
 <ul>
 <li><p>Formulas have an implicit intercept, so it is not necessary to include it.</p></li>
 <li><p>Error is considered by the function and calculated and it is also not included in the definition</p></li>
 </ul>
-<p>So both formulas below can represent our model :</p>
+<p>So both formulas below are equivalent and can represent our model :</p>
 <p><code>RT ~ Frequency</code></p>
 <p><code>RT ~ 1 + Frequency</code></p>
-<p>As we will see in future lectures, the formula can be extended to add more predictors:</p>
+<p>The formula can be extended to add more predictors (workgroup #4):</p>
 <p><code>RT ~ 1 + Frequency + NativeLanguage</code></p>
-<p>or to include <strong>interactions</strong> between predictors, for example:</p>
+<p>or to include <strong>interactions</strong> between predictors, using the operator <code>:</code> (workgroup #5):</p>
 <p><code>RT ~ 1 + Frequency:Length + NativeLanguage</code></p>
 <p>For now, we will focus on a single predictor.</p>
 </section>
-<section id="interpreting-lm-output" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="interpreting-lm-output"><span class="header-section-number">3.2</span> Interpreting <code>lm()</code> output</h2>
+<section id="interpreting-lm-output" class="level2">
+<h2 class="anchored" data-anchor-id="interpreting-lm-output">Interpreting <code>lm()</code> output</h2>
 <hr>
 <p>The function <code>lm()</code> has a simple nomenclature and usage. The data it returns is nevertheless extensive and we will focus on the interpretation of the output.</p>
 <p>Let’s look at out example:</p>
@@ -465,8 +470,99 @@ F-statistic: 89.47 on 1 and 1657 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>Let’s look at each of the output values individually:</p>
+<section id="model-residuals" class="level3">
+<h3 class="anchored" data-anchor-id="model-residuals">Model residuals</h3>
+<hr>
+<p>The first output of the function recalls the formula used for the fit and provides the 5-point summary of the model residuals.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1284915948.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<p>We will see in the next lecture that one of the conditions for the validity of a linear model is the normality (normal distribution) of the model residuals, with a mean around 0. The 5-point summary provides an indication, nevertheless a check should be performed on the data. The residuals are included in the data structure as output of the model in a field called <code>residuals</code> . We can plot those residuals using for example <code>qqplot()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(model1<span class="sc">$</span>residuals)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(model1<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lm_intro_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="model-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="model-coefficients">Model coefficients</h3>
+<hr>
+<p>The second part of the table, provides the <strong>coefficients</strong> :</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1865298031.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<p>The table includes the two coefficients (<span class="math inline">\(\beta_0\)</span> : intercept) and (<span class="math inline">\(\beta_1\)</span>: slope), and for each of them the following columns with the values and the results of a statistic test to check their significance.</p>
+<ul>
+<li><p><strong>Estimate</strong>: Coefficient value.</p></li>
+<li><p><strong>Std. Error:</strong> standard error of the coefficient estimate (<span class="math inline">\(\sigma_{\bar{b_i}}\)</span>)</p></li>
+<li><p><strong>t-value:</strong> t-statistic calculated based on the value, to test the significance of the coefficient</p>
+<p><span class="math display">\[
+t=\frac{\hat{b_i}}{\sigma_{\hat{b_i}}}
+\]</span></p></li>
+</ul>
+<p><span class="math display">\[
+H_0:b_i=0\\H_a:b_i \ne 0
+\]</span></p>
+<ul>
+<li><span class="math inline">\(Pr(&gt;|t|)\)</span> <strong>or</strong> <strong>p-value</strong>: probability of the t-value in case <span class="math inline">\(H_0\)</span> is true.</li>
+</ul>
+<p>From the above, in our example we can see that both coefficients are significantly different from 0, so the model is confirmed to be:</p>
+<p><span class="math display">\[
+RT_i = 6.59 -0.04\times Frequency_i+\epsilon_i
+\]</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Model validity and Intercept interpretation</strong>:</p>
+<p>A model is always valid around the values used to generate them, and it is important to be careful to interpret the outcome.</p>
+<p>The intercept value of 6.59 means that a word with a lemma log Frequency value of 0, is expected to have a logarithmic reaction time of 6.59 (in <code>lexdec</code> dataset both RT and Frequency are logarithmically transformed values) This might not make sense, as at words with extremely low frequency, the reaction time might be even longer.</p>
+<p>Consider the range of the data used to fit the model:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(lexdec<span class="sc">$</span>Frequency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.791759</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(lexdec<span class="sc">$</span>Frequency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.77191</code></pre>
+</div>
+</div>
+<p>We should not use the model to <strong><em>predict</em></strong> values beyond this range.</p>
+</div>
+</div>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
+<p>Data fit quality</p>
+<hr>
+<p>The statistical analysis shown before provides the significance assessment at <u><strong>individual coefficient</strong></u> level.</p>
+<p>The last section of the output on the other hand, provides the statistical assessment of the <u><strong>model as a whole</strong></u></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3283260128.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<p>We will describe these values in the next Lecture and Workgroup.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
