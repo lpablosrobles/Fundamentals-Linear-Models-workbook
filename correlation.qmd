@@ -66,7 +66,9 @@ A question however is how do we know that the calculated value is significant? A
 
 In the case our example, the number of data points, n, is $n=1659$
 
-`{r} nrow(lexdec)}`
+```{r}
+nrow(lexdec)
+```
 
 The t-statistics will be :
 
