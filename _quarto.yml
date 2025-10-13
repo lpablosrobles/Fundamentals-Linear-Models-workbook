@@ -52,8 +52,6 @@ book:
          - plot_xy.qmd
          - correlation.qmd
          - lm_intro.qmd
-         #- lm_formulas.qmd
-         #- lm_simple_regression.qmd
 
         
     - part: Workgroup4.qmd

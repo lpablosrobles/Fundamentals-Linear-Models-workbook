@@ -73,7 +73,13 @@ Let's look at out example:
 lm(RT~1+Frequency, data=lexdec)
 ```
 
-Running the `lm()` function returns a simple set of data, with the formula reflecting again and the value of the coefficients. The formula however calculates more elements. Instead, it is normally executed saving the output in a new variable.
+Running the `lm()` function returns a simple set of data, with the formula reflecting again and the value of the coefficients. This result means that our model would be written as
+
+$$
+RT_i = 6.59 -0.04\times Frequency_i+\epsilon_i
+$$
+
+The formula however calculates more elements. Instead, it is normally executed saving the output in a new variable.
 
 ```{r}
 model1 <- lm(RT~1+Frequency, data = lexdec)
@@ -88,3 +94,5 @@ A simple way to display the results is to call the `summary()` function on the d
 ```{r}
 summary(model1)
 ```
+
+Let's look at each of the output values individually:
