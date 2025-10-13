@@ -1,0 +1,98 @@
+---
+editor: visual
+---
+
+# Correlation
+
+Correlation is a measure of the dependence between two variables, and to which degree they are linearly related. It is not an indication of [causality]{.underline} just of relationship.
+
+## Pearson's correlation coefficient
+
+The ***Pearson's correlation coefficient***, $r$, is used to quantify the direction and magnitude of the association between two variables X, Y. It is calculated based in the sum of cross products of their values, normalized by their standard deviation:
+
+$$
+r= \frac{\sum_{i=1}^N (x_i-\bar{X})(y_i-\bar{Y})}{\sqrt{\sum_{i=1}^N (x_i-\bar{X})^2}\sqrt{\sum_{i=1}^N (y_i-\bar{Y})^2}}
+$$
+
+The coefficient takes values between -1 and 1:
+
+-   r=−1 a perfect negative relationship: when one variable increases the other one decreases.
+
+-   r = 1, a perfect positive relationship.
+
+-   r=0, indicates no relationship at all between the two variables
+
+The image below shows examples of correlation values and scatterplot of two variables in X and Y.
+
+![Pearson correlation coefficient](images/clipboard-446577215.png){fig-align="center"}
+
+In R, we can calculate the Pearson correlation coefficient using the `cor()` function.
+
+Continuing with the previous example:
+
+```{r}
+cor(lexdec$Frequency, lexdec$RT, method = "pearson")
+```
+
+The result, $r=-0.23$, is negative, reflecting an inverse relationship (higher Frequency results in lower RT) and the level of correlation is moderate.
+
+A question however is how do we know that the calculated value is significant? A NHST test is performed following the approach defined in the lecture:
+
+![](images/clipboard-1217780110.png)
+
+-   **Step 1**: Define statistical hypotheses
+
+    Our null hypothesis is that the two variables are uncorrelated, so $r=0$
+
+    $$
+    H_0: r=0 \\
+    H_a: r\neq 0
+    $$
+
+-   **Step 2:** Define sampling distribution
+
+    For the Pearson coefficient, $r$, the sampling distribution is normal if with a mean $\mu_{r}=0$ if $H_0$ is true
+
+-   **Step 3**: Identify the test statistic
+
+    The test statistic is following a t-distribution with $df = n-2$ and value
+
+    $$
+    t=\frac{r\times\sqrt{n-2}}{\sqrt{1-r^2}}
+    $$
+
+    Note: details beyond the scope of the course.
+
+In the case our example, the number of data points, n, is $n=1659$
+
+```{r} nrow(lexdec)}
+```
+
+The t-statistics will be :
+
+$$ t= \frac{r\times \sqrt{n-2}}{\sqrt{1-r^2}}=\frac{-0.23 \times \sqrt{1659-2}}{\sqrt{1-(-0.23)^2}} = -9.46 
+$$
+
+-   **Step 4:** Determine critical value
+
+If we select a confidence level of 5%, $\alpha = 0.05$, we can extract the value of $t_{critical}$ considering the $df = 1659-2=1657$. This can be calculated in R using the function `qt()` that returns a value of the Student t distribution. Note that since we are running a two-tailed test, we use 0.025 for p (half of 0.05).
+
+```{r}
+qt(p = 0.025, df = 1657)
+```
+
+-   **Step 5:** reach statistical conclusion:
+
+    $$
+    t_{value} = -9.62 \lt t_{critical} = -1.96
+    $$
+
+The t-value is smaller than the critical value, so we reject the null hypothesis: there is a correlation between our variables.
+
+The complete process above, can be performed in R using the function `cor.test()`
+
+```{r}
+cor.test(lexdec$Frequency,lexdec$RT,method="pearson")
+```
+
+If we look at the results provided by the function, the calculated t-value, df and correlation coefficient are the same. In addition, the function returns a p-value ($p<0.001$) and a confidence interval for the correlation coefficient ($95CI_r = [-0.27,-0.18]$ )

@@ -1,0 +1,150 @@
+---
+editor: visual
+---
+
+# Plotting relationship between two variables
+
+In Workgroup #2, we introduced plotting in R with `ggplot2` package and practiced generating a plot in assignment #2.
+
+In this section, we will expand with a few additional concepts useful to explore visually the relationship between two variables.
+
+## Scatterplot  with two variables
+
+------------------------------------------------------------------------
+
+### Basic scatterplot
+
+A *scatterplot* or *XY plot* displays the values of two variables along two axes, showing the relationship between them and possible correlations.
+
+Scatterplots can be generated in `ggplot` using the `geom_point()` function.
+
+Let's look for an example at a file in the data directory at the `lexdec` in the `languageR` package as in Workgroup2 and explore the relationship between the lexical decision latency reaction time (`RT`) and the word `Frequency` .
+
+```{r}
+library(languageR)
+library(tidyverse)
+
+ggplot(lexdec,  aes(x = Frequency, y = RT)) + geom_point()
+```
+
+### Overplotting
+
+A few things can be noticed on the plot above:
+
+-   There is not a continuous range of values of `Frequency` in the dataset, as it can be seen by the gaps between data. This is common in linguistics research, where we have limited examples of *continuous* predictors.
+
+-   Several points are 'overplotted' on the same are, thus not providing a clear view of where there are more data points.
+
+There are several ways to address this issue. We can change the shape of the data points from a solid circle to a hollow circle. The shape is controlled with the `shape` argument. The value for an empty circle is `shape = 1` . Shapes values are in the reference of the function, although it is not immediate to find. I leave here an image for reference:
+
+![From: https://ggplot2.tidyverse.org/articles/ggplot2-specs.html](images/clipboard-3169802769.png){style=".bordered{   border-style: solid;}" fig-align="center" width="400"}
+
+```{r}
+ggplot(lexdec,  aes(x = Frequency, y = RT)) + geom_point(shape = 1)
+```
+
+Now you can see the areas with bigger overlap of points in the center of the group.
+
+In case of a large dataset, it is bether to use the `alpha` (transparency) argument. This can be specified as a ratio. For example, a value `alpha = 1/5` is to be interpreted as "5 points to be overplotted to get a solid color".
+
+Compare the plots below with two different values
+
+```{r}
+ggplot(lexdec,  aes(x = Frequency, y = RT)) + geom_point(alpha = 1/5)
+ggplot(lexdec,  aes(x = Frequency, y = RT)) + geom_point(alpha = 1/10)
+```
+
+### Discrete variables
+
+A common case in linguistics research is with Catergorical values with a limited set of levels. The scatter plot will then look like follows
+
+```{r}
+ggplot(lexdec,  aes(x = Class, y = RT)) + geom_point(alpha=1/10)
+```
+
+In those cases with very limited number of categories, a boxplot or violin plot will be a better option to display the relationship.
+
+## Mapping additional variables to features
+
+------------------------------------------------------------------------
+
+A scatterplot shows the relationship between two variables in X and Y, but it can be used to reflect the relationship with more variables by mapping them to specific asthetic features.
+
+Four commonly used:
+
+-   Shape
+
+-   Color
+
+-   Size
+
+-   Transparency
+
+Let's add in the plots above on the `RT` relationship with `Frequency`, a mapping to the word semantic category in the variable `Class`.
+
+```{r}
+ggplot(lexdec,  aes(x = Frequency, y = RT,shape = Class)) + geom_point()
+ggplot(lexdec,  aes(x = Frequency, y = RT,color = Class)) + geom_point()
+ggplot(lexdec,  aes(x = Frequency, y = RT,size = Class)) + geom_point(alpha = 1/10)
+ggplot(lexdec,  aes(x = Frequency, y = RT,alpha = Class)) + geom_point()
+
+```
+
+We can also add two mapping to the same variable. For example, if we want both different colors and different shape of the data points we can do:
+
+```{r}
+ggplot(lexdec,  aes(x = Frequency, y = RT,color = Class, shape=Class)) + geom_point()
+
+```
+
+We can also add another variable, for example `NativeLanguage` encoding the native on non-native nature of the speakers. Readability of the graph may be difficult though .
+
+```{r}
+ggplot(lexdec,  aes(x = Frequency, y = RT,color = Class, alpha=NativeLanguage)) + geom_point() 
+```
+
+Always try different visualizations to find what is the best way to convey the message on your dataset.
+
+Good resource for inspiration and recommendations on data visualization types:
+
+R Graph Gallery: <https://r-graph-gallery.com/>
+
+From Data to Viz: <https://www.data-to-viz.com/>
+
+------------------------------------------------------------------------
+
+## Plotting linear models  
+
+We will look in next workgroups at different ways to represent the results of linear modeling, but we introduce here a useful feature of `ggplot` to plot fits to the data as another layer.
+
+The function `geom_smooth()` adds a layer to a plot with aid the visualization of trends and relationships. It has two main arguments:
+
+-   `method` : function to use to calculate the 'smoothed' version of the data. The value that is relevant to us is `method = 'lm'` , that would calculate a linear model fit and overplot it.
+
+-   `formula`: Formula of the linear fit model. The default value is `formula = y ~ x` . We will come back to this point in later lectures. For now we can use the default with no need to specify it.
+
+```{r}
+ggplot(lexdec, aes(x = Frequency, y = RT)) + 
+                geom_point(alpha = 1/5) +
+                geom_smooth(method="lm")
+```
+
+What we can see now in the plot is a linear fit to the data, showing a *negative correlation* between Frequency and RT, with higher frequency words (more common) showing faster reaction times.
+
+An interesting characteristic of this feature is that it applies the fit to the data as defined in ggplot `aes()`, so if we mapped another variable, like `NativeLanguage` to an aesthetic, we will get two fits, one per group:
+
+```{r}
+ggplot(lexdec, aes(x = Frequency, y = RT, color = NativeLanguage))+
+                geom_point() +
+                geom_smooth(method="lm")
+```
+
+The plot above shows :
+
+-   In general there is a trend that words are comprehended/processed faster the most frequent they are.
+
+-   The strength of this effect is more pronounced in Non-native English speakers.
+
+------------------------------------------------------------------------
+
+Now that we are able to *observe* the relationship between two variables let's move to quantifying it and assessing their statistical significance.

@@ -1,0 +1,90 @@
+---
+editor: visual
+---
+
+# Linear Models in R with `lm()`
+
+As explained in the lecture, a linear model of a dataset fits a line that minimizes the sum square errors between the predicted values and the data.
+
+The generic function in R used to calculate a linear model fit based on data is `lm()` with the main arguments `formula` and `data`.
+
+## Formula notation in R
+
+------------------------------------------------------------------------
+
+A linear model with one predictor variable can be in general expressed as:
+
+$$
+Y_i = \beta_0 + \beta_1X_i+ \epsilon_i
+$$
+
+where $\beta_0$ and $\beta_1$ are referred to as the ***coefficients*** of the model and $\epsilon_i$ is the **error term** of the fit.
+
+-   $\beta_0$: intercept
+
+-   $\beta_1$: slope
+
+In our running example:
+
+```{r}
+#| echo: false
+ggplot(lexdec, aes(x = Frequency, y = RT)) + 
+                geom_point(alpha = 1/5) +
+                geom_smooth(method="lm")
+```
+
+We would like to build a model as :
+
+$$
+RT_i = \beta_0+\beta_1Frequency_i+\epsilon_i
+$$
+
+Models in R are specified using a notation in the form `response~terms` where `response` is the (numeric) dependent variable and `terms` are the linear predictors. A few notes:
+
+-   Formulas have an implicit intercept, so it is not necessary to include it.
+
+-   Error is considered by the function and calculated and it is also not included in the definition
+
+So both formulas below can represent our model :
+
+`RT ~ Frequency`
+
+`RT ~ 1 + Frequency`
+
+As we will see in future lectures, the formula can be extended to add more predictors:
+
+`RT ~ 1 + Frequency + NativeLanguage`
+
+or to include **interactions** between predictors, for example:
+
+`RT ~ 1 + Frequency:Length + NativeLanguage`
+
+For now, we will focus on a single predictor.
+
+## Interpreting  `lm()` output
+
+------------------------------------------------------------------------
+
+The function `lm()` has a simple nomenclature and usage. The data it returns is nevertheless extensive and we will focus on the interpretation of the output.
+
+Let's look at out example:
+
+```{r}
+lm(RT~1+Frequency, data=lexdec)
+```
+
+Running the `lm()` function returns a simple set of data, with the formula reflecting again and the value of the coefficients. The formula however calculates more elements. Instead, it is normally executed saving the output in a new variable.
+
+```{r}
+model1 <- lm(RT~1+Frequency, data = lexdec)
+
+names(model1)
+```
+
+As we can see, the function returns a dataframe with many elements and variables. We will go through them at different points in the course.
+
+A simple way to display the results is to call the `summary()` function on the dataframe returned by `lm()` :
+
+```{r}
+summary(model1)
+```

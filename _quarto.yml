@@ -44,16 +44,16 @@ book:
          - data_organization.qmd
          - data_visualization.qmd
          - descriptive_stats.qmd
-         - assignment2_key.qmd
          #- assignment2_key.qmd
 
         
     - part: Workgroup3.qmd
-      # chapters:
-      #   - tidyverse_intro.qmd
-      #   - data_organization.qmd
-      #   - data_visualization.qmd
-      #   - descriptive_stats.qmd
+       chapters:
+         - plot_xy.qmd
+         - correlation.qmd
+         - lm_intro.qmd
+         #- lm_formulas.qmd
+         #- lm_simple_regression.qmd
 
         
     - part: Workgroup4.qmd
