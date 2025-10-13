@@ -2,7 +2,7 @@
 editor: visual
 ---
 
-# Linear Models in R with `lm()`
+# Linear Models in R with `lm()` {#sec-lm-intro .unnumbered}
 
 As explained in the lecture, a linear model of a dataset fits a line that minimizes the sum square errors between the predicted values and the data.
 
@@ -15,14 +15,14 @@ The generic function in R used to calculate a linear model fit based on data is 
 A linear model with one predictor variable can be in general expressed as:
 
 $$
-Y_i = \beta_0 + \beta_1X_i+ \epsilon_i
+Y_i = b_0 + b_1X_i+ \epsilon_i
 $$
 
-where $\beta_0$ and $\beta_1$ are referred to as the ***coefficients*** of the model and $\epsilon_i$ is the **error term** of the fit.
+where $b_0$ and $b_1$ are referred to as the ***coefficients*** of the model and $\epsilon_i$ is the **error term** of the fit.
 
--   $\beta_0$: intercept
+-   $b_0$: intercept - represents the value of the outcome variable Y, when X=0.
 
--   $\beta_1$: slope
+-   $b_1$: slope - represents the change on the value of Y, due to a change of 1 unit of the value of X.
 
 In our running example:
 
@@ -38,7 +38,7 @@ ggplot(lexdec, aes(x = Frequency, y = RT)) +
 We would like to build a model as :
 
 $$
-RT_i = \beta_0+\beta_1Frequency_i+\epsilon_i
+RT_i = b_0+b_1Frequency_i+\epsilon_i
 $$
 
 Models in R are specified using a notation in the form `response~terms` where `response` is the (numeric) dependent variable and `terms` are the linear predictors. A few notes:
@@ -47,17 +47,17 @@ Models in R are specified using a notation in the form `response~terms` where `r
 
 -   Error is considered by the function and calculated and it is also not included in the definition
 
-So both formulas below can represent our model :
+So both formulas below are equivalent and can represent our model :
 
 `RT ~ Frequency`
 
 `RT ~ 1 + Frequency`
 
-As we will see in future lectures, the formula can be extended to add more predictors:
+The formula can be extended to add more predictors (workgroup #4):
 
 `RT ~ 1 + Frequency + NativeLanguage`
 
-or to include **interactions** between predictors, for example:
+or to include **interactions** between predictors, using the operator `:` (workgroup #5):
 
 `RT ~ 1 + Frequency:Length + NativeLanguage`
 
@@ -98,3 +98,81 @@ summary(model1)
 ```
 
 Let's look at each of the output values individually:
+
+### Model residuals
+
+------------------------------------------------------------------------
+
+The first output of the function recalls the formula used for the fit and provides the 5-point summary of the model residuals.
+
+![](images/clipboard-1284915948.png){fig-align="center" width="400"}
+
+We will see in the next lecture that one of the conditions for the validity of a linear model is the normality (normal distribution) of the model residuals, with a mean around 0. The 5-point summary provides an indication, nevertheless a check should be performed on the data. The residuals are included in the data structure as output of the model in a field called `residuals` . We can plot those residuals using for example `qqplot()`
+
+```{r}
+qqnorm(model1$residuals)
+qqline(model1$residuals)
+
+```
+
+### Model coefficients
+
+------------------------------------------------------------------------
+
+The second part of the table, provides the **coefficients** :
+
+![](images/clipboard-1865298031.png){fig-align="center" width="400"}
+
+The table includes the two coefficients ($\beta_0$ : intercept) and ($\beta_1$: slope), and for each of them the following columns with the values and the results of a statistic test to check their significance.
+
+-   **Estimate**: Coefficient value.
+
+-   **Std. Error:** standard error of the coefficient estimate ($\sigma_{\bar{b_i}}$)
+
+-   **t-value:** t-statistic calculated based on the value, to test the significance of the coefficient
+
+    $$
+    t=\frac{\hat{b_i}}{\sigma_{\hat{b_i}}}
+    $$
+
+$$
+H_0:b_i=0\\H_a:b_i \ne 0
+$$
+
+-   $Pr(>|t|)$ **or** **p-value**: probability of the t-value in case $H_0$ is true.
+
+From the above, in our example we can see that both coefficients are significantly different from 0, so the model is confirmed to be:
+
+$$
+RT_i = 6.59 -0.04\times Frequency_i+\epsilon_i
+$$
+
+::: callout-important
+**Model validity and Intercept interpretation**:
+
+A model is always valid around the values used to generate them, and it is important to be careful to interpret the outcome.
+
+The intercept value of 6.59 means that a word with a lemma log Frequency value of 0, is expected to have a logarithmic reaction time of 6.59 (in `lexdec` dataset both RT and Frequency are logarithmically transformed values) This might not make sense, as at words with extremely low frequency, the reaction time might be even longer.
+
+Consider the range of the data used to fit the model:
+
+```{r}
+min(lexdec$Frequency)
+max(lexdec$Frequency)
+```
+
+We should not use the model to ***predict*** values beyond this range.
+:::
+
+### 
+Data fit quality
+
+------------------------------------------------------------------------
+
+The statistical analysis shown before provides the significance assessment at [**individual coefficient**]{.underline} level.
+
+The last section of the output on the other hand, provides the statistical assessment of the [**model as a whole**]{.underline}
+
+![](images/clipboard-3283260128.png){fig-align="center" width="400"}
+
+We will describe these values in the next Lecture and Workgroup.
