@@ -2,7 +2,7 @@
 editor: visual
 ---
 
-# Correlation
+# Correlation {#sec-correlation .unnumbered}
 
 Correlation is a measure of the dependence between two variables, and to which degree they are linearly related. It is not an indication of [causality]{.underline} just of relationship.
 
@@ -66,8 +66,7 @@ A question however is how do we know that the calculated value is significant? A
 
 In the case our example, the number of data points, n, is $n=1659$
 
-```{r} nrow(lexdec)}
-```
+`{r} nrow(lexdec)}`
 
 The t-statistics will be :
 

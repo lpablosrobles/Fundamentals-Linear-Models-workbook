@@ -2,13 +2,13 @@
 editor: visual
 ---
 
-# Plotting relationship between two variables
+# Plotting relationship between two variables {#sec-scatterplot .unnumbered}
 
 In Workgroup #2, we introduced plotting in R with `ggplot2` package and practiced generating a plot in assignment #2.
 
 In this section, we will expand with a few additional concepts useful to explore visually the relationship between two variables.
 
-## Scatterplot  with two variables
+## Scatterplot with two variables
 
 ------------------------------------------------------------------------
 
@@ -113,7 +113,7 @@ From Data to Viz: <https://www.data-to-viz.com/>
 
 ------------------------------------------------------------------------
 
-## Plotting linear models  
+## Plotting linear models
 
 We will look in next workgroups at different ways to represent the results of linear modeling, but we introduce here a useful feature of `ggplot` to plot fits to the data as another layer.
 
