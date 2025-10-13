@@ -31,6 +31,7 @@ In R, we can calculate the Pearson correlation coefficient using the `cor()` fun
 Continuing with the previous example:
 
 ```{r}
+library(languageR)
 cor(lexdec$Frequency, lexdec$RT, method = "pearson")
 ```
 
