@@ -318,8 +318,6 @@ basquenpi_data %>% filter( (RegionNumber == 5) & (RWRT < 2500) ) %>%
 
 #### 2.6.3. Create a boxplot for `RSRT`
 
-`{r} #Your code}`
-
 As in the previous section, we create now the boxplot for `RSRT` as follows:
 
 ```{r}
