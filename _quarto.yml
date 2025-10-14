@@ -44,6 +44,7 @@ book:
         - data_organization.qmd
         - data_visualization.qmd
         - descriptive_stats.qmd
+        - assignment2_key.qmd
 
         
     - part: Workgroup3.qmd

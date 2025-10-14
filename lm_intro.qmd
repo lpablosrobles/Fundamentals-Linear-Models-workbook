@@ -24,10 +24,18 @@ where $b_0$ and $b_1$ are referred to as the ***coefficients*** of the model and
 
 -   $b_1$: slope - represents the change on the value of Y, due to a change of 1 unit of the value of X.
 
+::: callout-note
+**Nomenclature**: Sometimes you will see a linear model with coefficients indicated with a "hat" notation ($\hat{}$). This is to reflect that the model we build is an *estimation* of the real model. So $b_0, b_1$ would represent the *population* parameters while $\hat{b}_0, \hat{b}_1$ would be the estimated parameters based on our sample.
+
+This is equivalent to the difference between the population and sample means ($\mu$ and $\bar{X}$) and standard deviation ($\sigma$ and $s$).
+:::
+
 In our running example:
 
 ```{r}
 #| echo: false
+#| message: false
+#| warning: false
 library(tidyverse)
 library(languageR)
 ggplot(lexdec, aes(x = Frequency, y = RT)) + 
@@ -107,13 +115,15 @@ The first output of the function recalls the formula used for the fit and provid
 
 ![](images/clipboard-1284915948.png){fig-align="center" width="400"}
 
-We will see in the next lecture that one of the conditions for the validity of a linear model is the normality (normal distribution) of the model residuals, with a mean around 0. The 5-point summary provides an indication, nevertheless a check should be performed on the data. The residuals are included in the data structure as output of the model in a field called `residuals` . We can plot those residuals using for example `qqplot()`
+We will see in the next lecture that one of the conditions for the validity of a linear model is the normality (normal distribution) of the model residuals, with a mean around 0. The 5-point summary provides an indication, nevertheless a check should be performed on the data. The residuals are included in the data structure as output of the model in a field called `residuals` . We can assess the normality of the residuals by for example using a Q-Q Plot as we described in workgroup #2.
 
 ```{r}
 qqnorm(model1$residuals)
 qqline(model1$residuals)
 
 ```
+
+The model residuals are still significantly deviating from normality. In Workgroup #4 we will explore in details the model assessment.
 
 ### Model coefficients
 
@@ -123,7 +133,7 @@ The second part of the table, provides the **coefficients** :
 
 ![](images/clipboard-1865298031.png){fig-align="center" width="400"}
 
-The table includes the two coefficients ($\beta_0$ : intercept) and ($\beta_1$: slope), and for each of them the following columns with the values and the results of a statistic test to check their significance.
+The table provides the two coefficients ($b_0$ : intercept) and ($b_1$: slope), and for each of them the following columns with the values and the results of a statistic test to check their significance.
 
 -   **Estimate**: Coefficient value.
 
@@ -165,6 +175,7 @@ We should not use the model to ***predict*** values beyond this range.
 :::
 
 ### 
+
 Data fit quality
 
 ------------------------------------------------------------------------

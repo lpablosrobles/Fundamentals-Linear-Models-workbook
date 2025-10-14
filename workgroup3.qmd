@@ -5,7 +5,7 @@ date-meta: 13/10/2025
 
 In this session we will start exploring the analysis of correlations between variables and applying the linear model concepts explained in the lecture with R.
 
-We start looking in a bit more detail into the visual exploration of relationships using scatterplots.
+We start by looking in a bit more detail into the visual exploration of relationships using scatter plots.
 
 # 🧠 Learning Objectives
 

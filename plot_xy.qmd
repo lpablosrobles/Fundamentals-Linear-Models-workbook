@@ -8,17 +8,17 @@ In Workgroup #2, we introduced plotting in R with `ggplot2` package and practice
 
 In this section, we will expand with a few additional concepts useful to explore visually the relationship between two variables.
 
-## Scatterplot with two variables
+## Scatter plot with two variables
 
 ------------------------------------------------------------------------
 
-### Basic scatterplot
+### Basic scatter plot
 
-A *scatterplot* or *XY plot* displays the values of two variables along two axes, showing the relationship between them and possible correlations.
+A scatter plot or *XY plot* displays the values of two variables along two axes, showing the relationship between them and possible correlations.
 
-Scatterplots can be generated in `ggplot` using the `geom_point()` function.
+Scatter plots can be generated in `ggplot` using the `geom_point()` function.
 
-Let's look for an example at a file in the data directory at the `lexdec` in the `languageR` package as in Workgroup2 and explore the relationship between the lexical decision latency reaction time (`RT`) and the word `Frequency` .
+Let's look again at the `lexdec` dataset in the `languageR` package as used Workgroup #2 and explore the relationship between the lexical decision latency reaction time (`RT`) and the word `Frequency` .
 
 ```{r}
 library(languageR)
@@ -27,25 +27,27 @@ library(tidyverse)
 ggplot(lexdec,  aes(x = Frequency, y = RT)) + geom_point()
 ```
 
-### Overplotting
-
 A few things can be noticed on the plot above:
 
--   There is not a continuous range of values of `Frequency` in the dataset, as it can be seen by the gaps between data. This is common in linguistics research, where we have limited examples of *continuous* predictors.
+-   There is not a continuous range of values of `Frequency` in the dataset, as it can be seen by the gaps between data. This is common in our field of research, where we have limited examples of *continuous* predictors, and those available like the word Frequency have several data points measured on the same value.
 
--   Several points are 'overplotted' on the same are, thus not providing a clear view of where there are more data points.
+-   Several points are 'overplotted' on the same area, thus not providing a clear view of around which values there are more data points.
 
-There are several ways to address this issue. We can change the shape of the data points from a solid circle to a hollow circle. The shape is controlled with the `shape` argument. The value for an empty circle is `shape = 1` . Shapes values are in the reference of the function, although it is not immediate to find. I leave here an image for reference:
+### Overplotting
 
-![From: https://ggplot2.tidyverse.org/articles/ggplot2-specs.html](images/clipboard-3169802769.png){style=".bordered{   border-style: solid;}" fig-align="center" width="400"}
+There are several ways to address overplotting and improve the visualization of the data.
+
+-   We can change the **shape** of the data points from a solid circle to a hollow circle. The shape is controlled with the `shape` argument. The value for an empty circle is `shape = 1` . Correspondence between values and shapes are in the reference manual of the function, although it is not immediate to find them. I leave here an image for reference:
+
+![From: <https://ggplot2.tidyverse.org/articles/ggplot2-specs.html>](images/clipboard-3169802769.png){style=".bordered{   border-style: solid;}" fig-align="center" width="400"}
 
 ```{r}
 ggplot(lexdec,  aes(x = Frequency, y = RT)) + geom_point(shape = 1)
 ```
 
-Now you can see the areas with bigger overlap of points in the center of the group.
+Now you can see there are areas with bigger overlap of points (more measurements) in the center band of the plot.
 
-In case of a large dataset, it is bether to use the `alpha` (transparency) argument. This can be specified as a ratio. For example, a value `alpha = 1/5` is to be interpreted as "5 points to be overplotted to get a solid color".
+In case of a large dataset, it is better to use the `alpha` (transparency) argument. This can be specified as a ratio. For example, a value `alpha = 1/5` is to be interpreted as "5 points to be overplotted to get a full solid color". That means that points are slightly transparent and overlapping them increases the shade.
 
 Compare the plots below with two different values
 
@@ -56,10 +58,10 @@ ggplot(lexdec,  aes(x = Frequency, y = RT)) + geom_point(alpha = 1/10)
 
 ### Discrete variables
 
-A common case in linguistics research is with Catergorical values with a limited set of levels. The scatter plot will then look like follows
+The most common case in linguistics research is the use of categorical predictors with a limited set of levels. A scatter plot with categorical data would look like the plot below, where we display the same Reaction Time data as a function of the word class.
 
 ```{r}
-ggplot(lexdec,  aes(x = Class, y = RT)) + geom_point(alpha=1/10)
+ggplot(lexdec,  aes(x = Class, y = RT)) + geom_point(alpha=1/50)
 ```
 
 In those cases with very limited number of categories, a boxplot or violin plot will be a better option to display the relationship.
@@ -68,7 +70,7 @@ In those cases with very limited number of categories, a boxplot or violin plot 
 
 ------------------------------------------------------------------------
 
-A scatterplot shows the relationship between two variables in X and Y, but it can be used to reflect the relationship with more variables by mapping them to specific asthetic features.
+A scatter plot shows the relationship between two variables in X and Y, but it can be used to reflect the relationship with more variables by mapping them to specific aesthetic features.
 
 Four commonly used:
 
@@ -105,7 +107,7 @@ ggplot(lexdec,  aes(x = Frequency, y = RT,color = Class, alpha=NativeLanguage)) 
 
 Always try different visualizations to find what is the best way to convey the message on your dataset.
 
-Good resource for inspiration and recommendations on data visualization types:
+Good resources for inspiration and recommendations on data visualization types:
 
 R Graph Gallery: <https://r-graph-gallery.com/>
 
