@@ -336,7 +336,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#model-residuals" id="toc-model-residuals" class="nav-link" data-scroll-target="#model-residuals">Model residuals</a></li>
   <li><a href="#model-coefficients" id="toc-model-coefficients" class="nav-link" data-scroll-target="#model-coefficients">Model coefficients</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#data-fit-quality" id="toc-data-fit-quality" class="nav-link" data-scroll-target="#data-fit-quality">Data fit quality</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -389,6 +389,7 @@ Note
 <div class="callout-body-container callout-body">
 <p><strong>Nomenclature</strong>: Sometimes you will see a linear model with coefficients indicated with a “hat” notation (<span class="math inline">\(\hat{}\)</span>). This is to reflect that the model we build is an <em>estimation</em> of the real model. So <span class="math inline">\(b_0, b_1\)</span> would represent the <em>population</em> parameters while <span class="math inline">\(\hat{b}_0, \hat{b}_1\)</span> would be the estimated parameters based on our sample.</p>
 <p>This is equivalent to the difference between the population and sample means (<span class="math inline">\(\mu\)</span> and <span class="math inline">\(\bar{X}\)</span>) and standard deviation (<span class="math inline">\(\sigma\)</span> and <span class="math inline">\(s\)</span>).</p>
+<p>In the course for simplicity I will use the non-hat notation.</p>
 </div>
 </div>
 <p>In our running example:</p>
@@ -512,14 +513,15 @@ F-statistic: 89.47 on 1 and 1657 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>The table provides the two coefficients (<span class="math inline">\(b_0\)</span> : intercept) and (<span class="math inline">\(b_1\)</span>: slope), and for each of them the following columns with the values and the results of a statistic test to check their significance.</p>
 <ul>
 <li><p><strong>Estimate</strong>: Coefficient value.</p></li>
-<li><p><strong>Std. Error:</strong> standard error of the coefficient estimate (<span class="math inline">\(\sigma_{\bar{b_i}}\)</span>)</p></li>
+<li><p><strong>Std. Error:</strong> standard error of the coefficient estimate (<span class="math inline">\(\sigma_{b_i}\)</span>)</p></li>
 <li><p><strong>t-value:</strong> t-statistic calculated based on the value, to test the significance of the coefficient</p>
 <p><span class="math display">\[
-t=\frac{\hat{b_i}}{\sigma_{\hat{b_i}}}
+t=\frac{b_i}{\sigma_{b_i}}
 \]</span></p></li>
 </ul>
 <p><span class="math display">\[
-H_0:b_i=0\\H_a:b_i \ne 0
+H_0:b_i=0\\
+H_a:b_i \ne 0
 \]</span></p>
 <ul>
 <li><span class="math inline">\(Pr(&gt;|t|)\)</span> <strong>or</strong> <strong>p-value</strong>: probability of the t-value in case <span class="math inline">\(H_0\)</span> is true.</li>
@@ -556,9 +558,8 @@ Important
 </div>
 </div>
 </section>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section"></h3>
-<p>Data fit quality</p>
+<section id="data-fit-quality" class="level3">
+<h3 class="anchored" data-anchor-id="data-fit-quality">Data fit quality</h3>
 <hr>
 <p>The statistical analysis shown before provides the significance assessment at <u><strong>individual coefficient</strong></u> level.</p>
 <p>The last section of the output on the other hand, provides the statistical assessment of the <u><strong>model as a whole</strong></u></p>
