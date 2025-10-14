@@ -237,6 +237,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment2_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Assignment #2 - Answer key</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -296,9 +302,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#scatterplot-with-two-variables" id="toc-scatterplot-with-two-variables" class="nav-link active" data-scroll-target="#scatterplot-with-two-variables">Scatterplot with two variables</a>
+  <li><a href="#scatter-plot-with-two-variables" id="toc-scatter-plot-with-two-variables" class="nav-link active" data-scroll-target="#scatter-plot-with-two-variables">Scatter plot with two variables</a>
   <ul class="collapse">
-  <li><a href="#basic-scatterplot" id="toc-basic-scatterplot" class="nav-link" data-scroll-target="#basic-scatterplot">Basic scatterplot</a></li>
+  <li><a href="#basic-scatter-plot" id="toc-basic-scatter-plot" class="nav-link" data-scroll-target="#basic-scatter-plot">Basic scatter plot</a></li>
   <li><a href="#overplotting" id="toc-overplotting" class="nav-link" data-scroll-target="#overplotting">Overplotting</a></li>
   <li><a href="#discrete-variables" id="toc-discrete-variables" class="nav-link" data-scroll-target="#discrete-variables">Discrete variables</a></li>
   </ul></li>
@@ -331,14 +337,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>In Workgroup #2, we introduced plotting in R with <code>ggplot2</code> package and practiced generating a plot in assignment #2.</p>
 <p>In this section, we will expand with a few additional concepts useful to explore visually the relationship between two variables.</p>
-<section id="scatterplot-with-two-variables" class="level2">
-<h2 class="anchored" data-anchor-id="scatterplot-with-two-variables">Scatterplot with two variables</h2>
+<section id="scatter-plot-with-two-variables" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plot-with-two-variables">Scatter plot with two variables</h2>
 <hr>
-<section id="basic-scatterplot" class="level3">
-<h3 class="anchored" data-anchor-id="basic-scatterplot">Basic scatterplot</h3>
-<p>A&nbsp;<em>scatterplot</em>&nbsp;or <em>XY plot</em> displays the values of two variables along two axes, showing the relationship between them and possible correlations.</p>
-<p>Scatterplots can be generated in <code>ggplot</code> using the <code>geom_point()</code> function.</p>
-<p>Let’s look for an example at a file in the data directory at the <code>lexdec</code> in the <code>languageR</code> package as in Workgroup2 and explore the relationship between the lexical decision latency reaction time (<code>RT</code>) and the word <code>Frequency</code> .</p>
+<section id="basic-scatter-plot" class="level3">
+<h3 class="anchored" data-anchor-id="basic-scatter-plot">Basic scatter plot</h3>
+<p>A&nbsp;scatter plot&nbsp;or <em>XY plot</em> displays the values of two variables along two axes, showing the relationship between them and possible correlations.</p>
+<p>Scatter plots can be generated in <code>ggplot</code> using the <code>geom_point()</code> function.</p>
+<p>Let’s look again at the <code>lexdec</code> dataset in the <code>languageR</code> package as used Workgroup #2 and explore the relationship between the lexical decision latency reaction time (<code>RT</code>) and the word <code>Frequency</code> .</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(languageR)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -363,19 +369,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>A few things can be noticed on the plot above:</p>
+<ul>
+<li><p>There is not a continuous range of values of <code>Frequency</code> in the dataset, as it can be seen by the gaps between data. This is common in our field of research, where we have limited examples of <em>continuous</em> predictors, and those available like the word Frequency have several data points measured on the same value.</p></li>
+<li><p>Several points are ‘overplotted’ on the same area, thus not providing a clear view of around which values there are more data points.</p></li>
+</ul>
 </section>
 <section id="overplotting" class="level3">
 <h3 class="anchored" data-anchor-id="overplotting">Overplotting</h3>
-<p>A few things can be noticed on the plot above:</p>
+<p>There are several ways to address overplotting and improve the visualization of the data.</p>
 <ul>
-<li><p>There is not a continuous range of values of <code>Frequency</code> in the dataset, as it can be seen by the gaps between data. This is common in linguistics research, where we have limited examples of <em>continuous</em> predictors.</p></li>
-<li><p>Several points are ‘overplotted’ on the same are, thus not providing a clear view of where there are more data points.</p></li>
+<li>We can change the <strong>shape</strong> of the data points from a solid circle to a hollow circle. The shape is controlled with the <code>shape</code> argument. The value for an empty circle is <code>shape = 1</code> . Correspondence between values and shapes are in the reference manual of the function, although it is not immediate to find them. I leave here an image for reference:</li>
 </ul>
-<p>There are several ways to address this issue. We can change the shape of the data points from a solid circle to a hollow circle. The shape is controlled with the <code>shape</code> argument. The value for an empty circle is <code>shape = 1</code> . Shapes values are in the reference of the function, although it is not immediate to find. I leave here an image for reference:</p>
 <div class="quarto-figure quarto-figure-center" style=".bordered{   border-style: solid;}">
 <figure class="figure">
 <p><img src="images/clipboard-3169802769.png" class="img-fluid figure-img" width="400"></p>
-<figcaption>From: https://ggplot2.tidyverse.org/articles/ggplot2-specs.html</figcaption>
+<figcaption>From: <a href="https://ggplot2.tidyverse.org/articles/ggplot2-specs.html" class="uri">https://ggplot2.tidyverse.org/articles/ggplot2-specs.html</a></figcaption>
 </figure>
 </div>
 <div class="cell">
@@ -388,8 +397,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Now you can see the areas with bigger overlap of points in the center of the group.</p>
-<p>In case of a large dataset, it is bether to use the <code>alpha</code> (transparency) argument. This can be specified as a ratio. For example, a value <code>alpha = 1/5</code> is to be interpreted as “5 points to be overplotted to get a solid color”.</p>
+<p>Now you can see there are areas with bigger overlap of points (more measurements) in the center band of the plot.</p>
+<p>In case of a large dataset, it is better to use the <code>alpha</code> (transparency) argument. This can be specified as a ratio. For example, a value <code>alpha = 1/5</code> is to be interpreted as “5 points to be overplotted to get a full solid color”. That means that points are slightly transparent and overlapping them increases the shade.</p>
 <p>Compare the plots below with two different values</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -412,9 +421,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="discrete-variables" class="level3">
 <h3 class="anchored" data-anchor-id="discrete-variables">Discrete variables</h3>
-<p>A common case in linguistics research is with Catergorical values with a limited set of levels. The scatter plot will then look like follows</p>
+<p>The most common case in linguistics research is the use of categorical predictors with a limited set of levels. A scatter plot with categorical data would look like the plot below, where we display the same Reaction Time data as a function of the word class.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Class, <span class="at">y =</span> RT)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="dv">1</span><span class="sc">/</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Class, <span class="at">y =</span> RT)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="dv">1</span><span class="sc">/</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -429,7 +438,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="mapping-additional-variables-to-features" class="level2">
 <h2 class="anchored" data-anchor-id="mapping-additional-variables-to-features">Mapping additional variables to features</h2>
 <hr>
-<p>A scatterplot shows the relationship between two variables in X and Y, but it can be used to reflect the relationship with more variables by mapping them to specific asthetic features.</p>
+<p>A scatter plot shows the relationship between two variables in X and Y, but it can be used to reflect the relationship with more variables by mapping them to specific aesthetic features.</p>
 <p>Four commonly used:</p>
 <ul>
 <li><p>Shape</p></li>
@@ -504,7 +513,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Always try different visualizations to find what is the best way to convey the message on your dataset.</p>
-<p>Good resource for inspiration and recommendations on data visualization types:</p>
+<p>Good resources for inspiration and recommendations on data visualization types:</p>
 <p>R Graph Gallery: <a href="https://r-graph-gallery.com/" class="uri">https://r-graph-gallery.com/</a></p>
 <p>From Data to Viz: <a href="https://www.data-to-viz.com/" class="uri">https://www.data-to-viz.com/</a></p>
 <hr>

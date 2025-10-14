@@ -266,6 +266,12 @@ window.Quarto = {
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment2_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Assignment #2 - Answer key</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -371,21 +377,22 @@ Y_i = b_0 + b_1X_i+ \epsilon_i
 <li><p><span class="math inline">\(b_0\)</span>: intercept - represents the value of the outcome variable Y, when X=0.</p></li>
 <li><p><span class="math inline">\(b_1\)</span>: slope - represents the change on the value of Y, due to a change of 1 unit of the value of X.</p></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Nomenclature</strong>: Sometimes you will see a linear model with coefficients indicated with a “hat” notation (<span class="math inline">\(\hat{}\)</span>). This is to reflect that the model we build is an <em>estimation</em> of the real model. So <span class="math inline">\(b_0, b_1\)</span> would represent the <em>population</em> parameters while <span class="math inline">\(\hat{b}_0, \hat{b}_1\)</span> would be the estimated parameters based on our sample.</p>
+<p>This is equivalent to the difference between the population and sample means (<span class="math inline">\(\mu\)</span> and <span class="math inline">\(\bar{X}\)</span>) and standard deviation (<span class="math inline">\(\sigma\)</span> and <span class="math inline">\(s\)</span>).</p>
+</div>
+</div>
 <p>In our running example:</p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.2
-✔ ggplot2   4.0.0     ✔ tibble    3.3.0
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.1.0     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
-`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -418,7 +425,7 @@ RT_i = b_0+b_1Frequency_i+\epsilon_i
 <p>The function <code>lm()</code> has a simple nomenclature and usage. The data it returns is nevertheless extensive and we will focus on the interpretation of the output.</p>
 <p>Let’s look at out example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Frequency, <span class="at">data=</span>lexdec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Frequency, <span class="at">data=</span>lexdec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -435,9 +442,9 @@ RT_i = 6.59 -0.04\times Frequency_i+\epsilon_i
 \]</span></p>
 <p>The formula however calculates more elements. Instead, it is normally executed saving the output in a new variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Frequency, <span class="at">data =</span> lexdec)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Frequency, <span class="at">data =</span> lexdec)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "coefficients"  "residuals"     "effects"       "rank"         
  [5] "fitted.values" "assign"        "qr"            "df.residual"  
@@ -447,7 +454,7 @@ RT_i = 6.59 -0.04\times Frequency_i+\epsilon_i
 <p>As we can see, the function returns a dataframe with many elements and variables. We will go through them at different points in the course.</p>
 <p>A simple way to display the results is to call the <code>summary()</code> function on the dataframe returned by <code>lm()</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -479,10 +486,10 @@ F-statistic: 89.47 on 1 and 1657 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p><img src="images/clipboard-1284915948.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
-<p>We will see in the next lecture that one of the conditions for the validity of a linear model is the normality (normal distribution) of the model residuals, with a mean around 0. The 5-point summary provides an indication, nevertheless a check should be performed on the data. The residuals are included in the data structure as output of the model in a field called <code>residuals</code> . We can plot those residuals using for example <code>qqplot()</code></p>
+<p>We will see in the next lecture that one of the conditions for the validity of a linear model is the normality (normal distribution) of the model residuals, with a mean around 0. The 5-point summary provides an indication, nevertheless a check should be performed on the data. The residuals are included in the data structure as output of the model in a field called <code>residuals</code> . We can assess the normality of the residuals by for example using a Q-Q Plot as we described in workgroup #2.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(model1<span class="sc">$</span>residuals)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(model1<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(model1<span class="sc">$</span>residuals)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(model1<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -491,6 +498,7 @@ F-statistic: 89.47 on 1 and 1657 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
+<p>The model residuals are still significantly deviating from normality. In Workgroup #4 we will explore in details the model assessment.</p>
 </section>
 <section id="model-coefficients" class="level3">
 <h3 class="anchored" data-anchor-id="model-coefficients">Model coefficients</h3>
@@ -501,7 +509,7 @@ F-statistic: 89.47 on 1 and 1657 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p><img src="images/clipboard-1865298031.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
-<p>The table includes the two coefficients (<span class="math inline">\(\beta_0\)</span> : intercept) and (<span class="math inline">\(\beta_1\)</span>: slope), and for each of them the following columns with the values and the results of a statistic test to check their significance.</p>
+<p>The table provides the two coefficients (<span class="math inline">\(b_0\)</span> : intercept) and (<span class="math inline">\(b_1\)</span>: slope), and for each of them the following columns with the values and the results of a statistic test to check their significance.</p>
 <ul>
 <li><p><strong>Estimate</strong>: Coefficient value.</p></li>
 <li><p><strong>Std. Error:</strong> standard error of the coefficient estimate (<span class="math inline">\(\sigma_{\bar{b_i}}\)</span>)</p></li>
@@ -535,11 +543,11 @@ Important
 <p>The intercept value of 6.59 means that a word with a lemma log Frequency value of 0, is expected to have a logarithmic reaction time of 6.59 (in <code>lexdec</code> dataset both RT and Frequency are logarithmically transformed values) This might not make sense, as at words with extremely low frequency, the reaction time might be even longer.</p>
 <p>Consider the range of the data used to fit the model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(lexdec<span class="sc">$</span>Frequency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(lexdec<span class="sc">$</span>Frequency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.791759</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(lexdec<span class="sc">$</span>Frequency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(lexdec<span class="sc">$</span>Frequency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7.77191</code></pre>
 </div>
