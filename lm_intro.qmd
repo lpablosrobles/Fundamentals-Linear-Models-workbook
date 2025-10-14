@@ -28,6 +28,8 @@ where $b_0$ and $b_1$ are referred to as the ***coefficients*** of the model and
 **Nomenclature**: Sometimes you will see a linear model with coefficients indicated with a "hat" notation ($\hat{}$). This is to reflect that the model we build is an *estimation* of the real model. So $b_0, b_1$ would represent the *population* parameters while $\hat{b}_0, \hat{b}_1$ would be the estimated parameters based on our sample.
 
 This is equivalent to the difference between the population and sample means ($\mu$ and $\bar{X}$) and standard deviation ($\sigma$ and $s$).
+
+In the course for simplicity I will use the non-hat notation.
 :::
 
 In our running example:
@@ -137,16 +139,17 @@ The table provides the two coefficients ($b_0$ : intercept) and ($b_1$: slope), 
 
 -   **Estimate**: Coefficient value.
 
--   **Std. Error:** standard error of the coefficient estimate ($\sigma_{\bar{b_i}}$)
+-   **Std. Error:** standard error of the coefficient estimate ($\sigma_{b_i}$)
 
 -   **t-value:** t-statistic calculated based on the value, to test the significance of the coefficient
 
     $$
-    t=\frac{\hat{b_i}}{\sigma_{\hat{b_i}}}
+    t=\frac{b_i}{\sigma_{b_i}}
     $$
 
 $$
-H_0:b_i=0\\H_a:b_i \ne 0
+H_0:b_i=0\\
+H_a:b_i \ne 0
 $$
 
 -   $Pr(>|t|)$ **or** **p-value**: probability of the t-value in case $H_0$ is true.
@@ -174,9 +177,7 @@ max(lexdec$Frequency)
 We should not use the model to ***predict*** values beyond this range.
 :::
 
-### 
-
-Data fit quality
+### Data fit quality
 
 ------------------------------------------------------------------------
 
