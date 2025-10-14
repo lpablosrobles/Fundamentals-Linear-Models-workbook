@@ -1,0 +1,120 @@
+---
+title: "Fundamentals of Linear Models 2025-2026 - Assignment #3"
+author: "ENTER YOUR NAME and STUDENT ID"
+date: "13/10/2025"
+output:
+  pdf_document: default
+  html_notebook: default
+editor:
+  visual
+---
+
+# Linear fitting with R
+
+------------------------------------------------------------------------
+
+## Task #1: Load required libraries
+
+Read through the assignment and load the libraries required.
+
+```{r}
+#load libraries
+
+
+```
+
+## Task #2: Open dataset 
+
+For this exercise we will use a simulated dataset from a hypothetical experiment measuring the duration of vowels during production, generated following an example from @winter2019statistics.
+
+The dataset is in the file `./data/extended_vowel_duration.csv` and contains data from 30 participants, each recorded pronouncing 20 different words.
+
+```{r}
+#Open file
+
+
+```
+
+The data contains the following columns:
+
+-    **SubjectID:** ID of the participant from 1 to 30
+
+-   **Word**: ID of the word from 1 to 20
+
+-   **logFreqs**: logarithmic word frequency
+
+-   **Duration:** vowel utterance duration measurement in milliseconds.
+
+The `SubjectID` and `Word` columns are numerical, but should be treated as factors. It would not affect this exercise, but it is good practice to define categorical factors when reading the data to avoid changing them inadvertently.
+
+Convert `SubjectID` and `Word` to factors
+
+```{r}
+
+
+```
+
+##  Task #3: Plot dataset
+
+Create a scatter plot of the measured vowel duration as a function of word frequency, including a linear fit.
+
+```{r}
+
+
+
+```
+
+Comment on the output:
+
+-   What can you observe from the plot?
+
+    ....
+
+-   What is the apparent relationship between logFreqs and Duration?
+
+    ....
+
+-   What sign would you expect for the Pearson correlation coefficient between the two variables?
+
+    ....
+
+## Task #4: Calculate correlation coefficient
+
+Calculate Pearson's correlation coefficient between `logFreqs` and `Duration`
+
+```{r}
+
+
+```
+
+-   Does the value match the sign expectation based on the graph?
+
+    ...
+
+### Task #4.1 (EXTRA CREDIT): Assess significance of the Correlation Coefficient
+
+Confirm the significance of the calculated correlation coefficient $r$, using the NHST methodology following the procedure we practiced in Workgroup 3.
+
+```{r}
+
+
+```
+
+Explain the result and write your justification. Describe what is your null hypothesis ($H_0$) and your alternate hypothesis ($H_a$) and your rationale to keep one or the other based on the result.
+
+## Task #5: Build a linear model based for vowel duration 
+
+Generate a linear model for the vowel duration to fit the observed data.
+
+```{r}
+
+
+```
+
+Write down your model, including coefficients used and what you can observe from the output
+
+...
+
+------------------------------------------------------------------------
+
+End of assignment 3
