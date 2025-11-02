@@ -1,5 +1,4 @@
 ---
-title: "Assignment #2 - Answer key"
 date: 10/10/2025
 ---
 
