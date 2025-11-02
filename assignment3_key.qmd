@@ -55,7 +55,7 @@ You were asked to create a scatter plot of the measured vowel duration as a func
 
 ```{r}
 
-df %>% ggplot(aes(x=logFreqs, y=Duration)) + 
+dfVowel %>% ggplot(aes(x=logFreqs, y=Duration)) + 
        geom_point(alpha = 1/4) +
        geom_smooth(method = "lm")
 
