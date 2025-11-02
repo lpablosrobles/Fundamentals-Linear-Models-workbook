@@ -22,7 +22,7 @@ The coefficient takes values between -1 and 1:
 
 -   r=0, indicates no relationship at all between the two variables
 
-The image below shows examples of correlation values and scatterplot of two variables in X and Y.
+The image below shows examples of correlation values and scatter plot of two variables in X and Y.
 
 ![Pearson correlation coefficient](images/clipboard-446577215.png){fig-align="center"}
 
@@ -52,7 +52,7 @@ A question however is how do we know that the calculated value is significant? A
 
 -   **Step 2:** Define sampling distribution
 
-    For the Pearson coefficient, $r$, the sampling distribution is normal if with a mean $\mu_{r}=0$ if $H_0$ is true
+    For the Pearson coefficient, $r$, the sampling distribution is normal with a mean $\mu_{r}=0$ if $H_0$ is true
 
 -   **Step 3**: Identify the test statistic
 

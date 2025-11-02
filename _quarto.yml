@@ -52,6 +52,7 @@ book:
          - plot_xy.qmd
          - correlation.qmd
          - lm_intro.qmd
+         - assignment3_key.qmd
 
         
     - part: Workgroup4.qmd
