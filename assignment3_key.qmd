@@ -12,6 +12,9 @@ editor: visual
 For this assignment we use `tidyverse`
 
 ```{r}
+#| message: false
+#| warning: false
+#| include: false
 #load libraries
 library(tidyverse)
 
@@ -159,7 +162,7 @@ cor.test(dfVowel$logFreqs,dfVowel$Duration)
 
 The function provides the same results as in the manual calculation, with the addition of providing a 95% Confidence Interval for the coefficient.
 
-::: {.callout-note style="color: DarkSeaGreen;"}
+::: {.callout-note style="background-color: DarkSeaGreen;"}
 ## Reporting correlation
 
 The results could be reported following APA style as:
