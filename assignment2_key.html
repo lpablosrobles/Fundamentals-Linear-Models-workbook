@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 <meta name="dcterms.date" content="2025-10-10">
-<title>1&nbsp; Assignment #2 - Answer key – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Assignment #2 Data Exploration with R - Answer Key – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -135,7 +135,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li><li class="breadcrumb-item"><a href="./assignment2_key.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Assignment #2 - Answer key</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li><li class="breadcrumb-item"><a href="./assignment2_key.html">Assignment #2 Data Exploration with R - Answer Key</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -252,7 +252,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assignment2_key.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Assignment #2 - Answer key</span></span></a>
+ <span class="menu-text">Assignment #2 Data Exploration with R - Answer Key</span></a>
   </div>
 </li>
       </ul>
@@ -319,38 +319,31 @@ window.Quarto = {
    
   <ul>
 <li>
-<a href="#assignment-2-data-exploration-with-r---answer-key" id="toc-assignment-2-data-exploration-with-r---answer-key" class="nav-link active" data-scroll-target="#assignment-2-data-exploration-with-r---answer-key">Assignment #2 Data Exploration with R - Answer Key</a>
+<a href="#task1-introduction-to-the-dataset" id="toc-task1-introduction-to-the-dataset" class="nav-link active" data-scroll-target="#task1-introduction-to-the-dataset">Task#1: Introduction to the dataset</a>
   <ul class="collapse">
-<li>
-<a href="#task1-introduction-to-the-dataset" id="toc-task1-introduction-to-the-dataset" class="nav-link" data-scroll-target="#task1-introduction-to-the-dataset"><span class="header-section-number">1.1</span> Task#1: Introduction to the dataset</a>
-  <ul class="collapse">
-<li><a href="#load-required-libraries-for-the-assignment" id="toc-load-required-libraries-for-the-assignment" class="nav-link" data-scroll-target="#load-required-libraries-for-the-assignment"><span class="header-section-number">1.1.1</span> 1.1 Load required libraries for the assignment</a></li>
-  <li><a href="#load-dataset" id="toc-load-dataset" class="nav-link" data-scroll-target="#load-dataset"><span class="header-section-number">1.1.2</span> 1.2 Load dataset</a></li>
+<li><a href="#load-required-libraries-for-the-assignment" id="toc-load-required-libraries-for-the-assignment" class="nav-link" data-scroll-target="#load-required-libraries-for-the-assignment">1.1 Load required libraries for the assignment</a></li>
+  <li><a href="#load-dataset" id="toc-load-dataset" class="nav-link" data-scroll-target="#load-dataset">1.2 Load dataset</a></li>
   </ul>
 </li>
   <li>
-<a href="#task2-explore-data-calculate-summary-statistics" id="toc-task2-explore-data-calculate-summary-statistics" class="nav-link" data-scroll-target="#task2-explore-data-calculate-summary-statistics"><span class="header-section-number">1.2</span> Task#2: Explore Data &amp; Calculate Summary Statistics</a>
+<a href="#task2-explore-data-calculate-summary-statistics" id="toc-task2-explore-data-calculate-summary-statistics" class="nav-link" data-scroll-target="#task2-explore-data-calculate-summary-statistics">Task#2: Explore Data &amp; Calculate Summary Statistics</a>
   <ul class="collapse">
-<li><a href="#select-a-subset-of-the-data" id="toc-select-a-subset-of-the-data" class="nav-link" data-scroll-target="#select-a-subset-of-the-data"><span class="header-section-number">1.2.1</span> 2.1 Select a subset of the data</a></li>
-  <li><a href="#plot-histograms-of-the-data." id="toc-plot-histograms-of-the-data." class="nav-link" data-scroll-target="#plot-histograms-of-the-data."><span class="header-section-number">1.2.2</span> 2.2 Plot histograms of the data.</a></li>
-  <li><a href="#calculate-skewness-and-kurtosis-for-both-rwrt-and-rsrt" id="toc-calculate-skewness-and-kurtosis-for-both-rwrt-and-rsrt" class="nav-link" data-scroll-target="#calculate-skewness-and-kurtosis-for-both-rwrt-and-rsrt"><span class="header-section-number">1.2.3</span> 2.3 Calculate Skewness and kurtosis for both RWRT and RSRT</a></li>
-  <li><a href="#2b3" id="toc-2b3" class="nav-link" data-scroll-target="#2b3"><span class="header-section-number">1.2.4</span> 2.4 Calculate mean and standard deviation</a></li>
-  <li><a href="#calculate-five-points-summary" id="toc-calculate-five-points-summary" class="nav-link" data-scroll-target="#calculate-five-points-summary"><span class="header-section-number">1.2.5</span> 2.5 Calculate five-points summary</a></li>
-  <li><a href="#produce-a-boxplot-for-rwrt" id="toc-produce-a-boxplot-for-rwrt" class="nav-link" data-scroll-target="#produce-a-boxplot-for-rwrt"><span class="header-section-number">1.2.6</span> 2.6 Produce a boxplot for RWRT</a></li>
-  <li><a href="#normality-checks" id="toc-normality-checks" class="nav-link" data-scroll-target="#normality-checks"><span class="header-section-number">1.2.7</span> 2.7 Normality checks</a></li>
+<li><a href="#select-a-subset-of-the-data" id="toc-select-a-subset-of-the-data" class="nav-link" data-scroll-target="#select-a-subset-of-the-data">2.1 Select a subset of the data</a></li>
+  <li><a href="#plot-histograms-of-the-data." id="toc-plot-histograms-of-the-data." class="nav-link" data-scroll-target="#plot-histograms-of-the-data.">2.2 Plot histograms of the data.</a></li>
+  <li><a href="#calculate-skewness-and-kurtosis-for-both-rwrt-and-rsrt" id="toc-calculate-skewness-and-kurtosis-for-both-rwrt-and-rsrt" class="nav-link" data-scroll-target="#calculate-skewness-and-kurtosis-for-both-rwrt-and-rsrt">2.3 Calculate Skewness and kurtosis for both RWRT and RSRT</a></li>
+  <li><a href="#2b3" id="toc-2b3" class="nav-link" data-scroll-target="#2b3">2.4 Calculate mean and standard deviation</a></li>
+  <li><a href="#calculate-five-points-summary" id="toc-calculate-five-points-summary" class="nav-link" data-scroll-target="#calculate-five-points-summary">2.5 Calculate five-points summary</a></li>
+  <li><a href="#produce-a-boxplot-for-rwrt" id="toc-produce-a-boxplot-for-rwrt" class="nav-link" data-scroll-target="#produce-a-boxplot-for-rwrt">2.6 Produce a boxplot for RWRT</a></li>
+  <li><a href="#normality-checks" id="toc-normality-checks" class="nav-link" data-scroll-target="#normality-checks">2.7 Normality checks</a></li>
   </ul>
 </li>
-  <li><a href="#task-3---calculate-data-summaries" id="toc-task-3---calculate-data-summaries" class="nav-link" data-scroll-target="#task-3---calculate-data-summaries"><span class="header-section-number">1.3</span> Task #3 - Calculate data summaries</a></li>
-  <li><a href="#extra-credit---task4-plotting-with-ggplot2" id="toc-extra-credit---task4-plotting-with-ggplot2" class="nav-link" data-scroll-target="#extra-credit---task4-plotting-with-ggplot2"><span class="header-section-number">1.4</span> EXTRA CREDIT - Task#4: Plotting with ggplot2</a></li>
-  </ul>
-</li>
+  <li><a href="#task-3---calculate-data-summaries" id="toc-task-3---calculate-data-summaries" class="nav-link" data-scroll-target="#task-3---calculate-data-summaries">Task #3 - Calculate data summaries</a></li>
+  <li><a href="#extra-credit---task4-plotting-with-ggplot2" id="toc-extra-credit---task4-plotting-with-ggplot2" class="nav-link" data-scroll-target="#extra-credit---task4-plotting-with-ggplot2">EXTRA CREDIT - Task#4: Plotting with ggplot2</a></li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li><li class="breadcrumb-item"><a href="./assignment2_key.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Assignment #2 - Answer key</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Assignment #2 - Answer key</span>
-</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li><li class="breadcrumb-item"><a href="./assignment2_key.html">Assignment #2 Data Exploration with R - Answer Key</a></li></ol></nav><div class="quarto-title">
+<h1 class="title">Assignment #2 Data Exploration with R - Answer Key</h1>
 </div>
 
 
@@ -370,17 +363,13 @@ window.Quarto = {
   
 
 
-</header><section id="assignment-2-data-exploration-with-r---answer-key" class="level1 unnumbered"><h1 class="unnumbered">Assignment #2 Data Exploration with R - Answer Key</h1>
-<hr>
-<section id="task1-introduction-to-the-dataset" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="task1-introduction-to-the-dataset">
-<span class="header-section-number">1.1</span> Task#1: Introduction to the dataset</h2>
+</header><hr>
+<section id="task1-introduction-to-the-dataset" class="level2"><h2 class="anchored" data-anchor-id="task1-introduction-to-the-dataset">Task#1: Introduction to the dataset</h2>
 <p>Exercises in this assignment used a dataset with real data subset from a real Self-Paced Reading study on Negative Polarity Items and complementizer agreement in Basque (see <a href="https://www.researchgate.net/profile/Francesca-Citron/publication/295663653_NEURAL_CORRELATES_OF_EMOTION_WORD_PROCESSING_THE_INTERACTION_BETWEEN_EMOTIONAL_VALENCE_AND_AROUSAL/links/5a9015a0aca272140561056f/NEURAL-CORRELATES-OF-EMOTION-WORD-PROCESSING-THE-INTERACTION-BETWEEN-EMOTIONAL-VALENCE-AND-AROUSAL.pdf#page=75">Pablos, L., &amp; Saddy, D. (2009)</a>. Negative polarity items and complementizer agreement in Basque. in Alter, K., Horne, M., Lindgren, M., Roll, M., &amp; von Koss Torkildsen, J<em>.(Eds.), Papers from Brain Talk: Discourse with and in the Brain.</em> The 1st Birgit Rausing Language Program Conference in Linguistics. Lund: Lund University, Media Tryck. ISBN: 978-91-633-5561-5.)</p>
 <p><strong>This data is a real set with the outputs generated by the software <a href="https://tedlab.mit.edu/~dr/Linger/"><em>Linger</em></a> created by the MIT Ted Lab to easily conduct Self Paced reading experiments</strong></p>
-<section id="load-required-libraries-for-the-assignment" class="level3" data-number="1.1.1"><h3 data-number="1.1.1" class="anchored" data-anchor-id="load-required-libraries-for-the-assignment">
-<span class="header-section-number">1.1.1</span> 1.1 Load required libraries for the assignment</h3>
+<section id="load-required-libraries-for-the-assignment" class="level3"><h3 class="anchored" data-anchor-id="load-required-libraries-for-the-assignment">1.1 Load required libraries for the assignment</h3>
 <p>The packages required for this assignment are <code>tidyverse</code> and <code>moments</code> for the kurtosis and skewness calculations.</p>
-</section><section id="load-dataset" class="level3" data-number="1.1.2"><h3 data-number="1.1.2" class="anchored" data-anchor-id="load-dataset">
-<span class="header-section-number">1.1.2</span> 1.2 Load dataset</h3>
+</section><section id="load-dataset" class="level3"><h3 class="anchored" data-anchor-id="load-dataset">1.2 Load dataset</h3>
 <p>The data for the exercise is contained in the file <code>BasqueNPI.Rda</code> in the <code>/data</code> folder.</p>
 <p>This is a R format file, containing a data table. The data was saved using <code><a href="https://rdrr.io/r/base/readRDS.html">saveRDS()</a></code> function so it can be read using <code><a href="https://rdrr.io/r/base/readRDS.html">readRDS()</a></code> as described in the <a href="https://lpablosrobles.github.io/Fundamentals-Linear-Models-workbook/read_data.html#sec-r-read">first workgroup section describing how to load a R format file</a>.</p>
 <div class="cell">
@@ -452,10 +441,8 @@ Caution
 <li><p><strong>RSZS</strong> – Z-Score of the residual reading time</p></li>
 <li><p><strong>QPCT</strong> – Correctness of the comprehension response (100 – correct; 0 – incorrect)</p></li>
 </ul>
-<hr></section></section><section id="task2-explore-data-calculate-summary-statistics" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="task2-explore-data-calculate-summary-statistics">
-<span class="header-section-number">1.2</span> Task#2: Explore Data &amp; Calculate Summary Statistics</h2>
-<section id="select-a-subset-of-the-data" class="level3" data-number="1.2.1"><h3 data-number="1.2.1" class="anchored" data-anchor-id="select-a-subset-of-the-data">
-<span class="header-section-number">1.2.1</span> 2.1 Select a subset of the data</h3>
+<hr></section></section><section id="task2-explore-data-calculate-summary-statistics" class="level2"><h2 class="anchored" data-anchor-id="task2-explore-data-calculate-summary-statistics">Task#2: Explore Data &amp; Calculate Summary Statistics</h2>
+<section id="select-a-subset-of-the-data" class="level3"><h3 class="anchored" data-anchor-id="select-a-subset-of-the-data">2.1 Select a subset of the data</h3>
 <p>Select a subset of data with only the target items from the experiment</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Your code</span></span>
@@ -478,10 +465,8 @@ Caution
 6 -0.301 -115.11 -0.243  100             NPI           Partitive</code></pre>
 </div>
 </div>
-</section><section id="plot-histograms-of-the-data." class="level3" data-number="1.2.2"><h3 data-number="1.2.2" class="anchored" data-anchor-id="plot-histograms-of-the-data.">
-<span class="header-section-number">1.2.2</span> 2.2 Plot histograms of the data.</h3>
-<section id="plot-histogram-of-raw-reading-time-rwrt" class="level4" data-number="1.2.2.1"><h4 data-number="1.2.2.1" class="anchored" data-anchor-id="plot-histogram-of-raw-reading-time-rwrt">
-<span class="header-section-number">1.2.2.1</span> Plot histogram of Raw Reading Time (RWRT)</h4>
+</section><section id="plot-histograms-of-the-data." class="level3"><h3 class="anchored" data-anchor-id="plot-histograms-of-the-data.">2.2 Plot histograms of the data.</h3>
+<section id="plot-histogram-of-raw-reading-time-rwrt" class="level4"><h4 class="anchored" data-anchor-id="plot-histogram-of-raw-reading-time-rwrt">Plot histogram of Raw Reading Time (RWRT)</h4>
 <p>To plot a histogram of the <strong>Raw Reading Time (RWRT)</strong> we use <code>ggplot()</code></p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Plot histogram</span></span>
@@ -551,8 +536,7 @@ Caution
 </div>
 </div>
 <p>Removing data points with RWRT &gt; 3000, only results in 0.6% of the data being discarded.</p>
-</section><section id="plot-a-histogram-of-the-residual-reading-time-rsrt" class="level4" data-number="1.2.2.2"><h4 data-number="1.2.2.2" class="anchored" data-anchor-id="plot-a-histogram-of-the-residual-reading-time-rsrt">
-<span class="header-section-number">1.2.2.2</span> Plot a histogram of the <u><strong>Residual Reading Time (RSRT)</strong></u>
+</section><section id="plot-a-histogram-of-the-residual-reading-time-rsrt" class="level4"><h4 class="anchored" data-anchor-id="plot-a-histogram-of-the-residual-reading-time-rsrt">Plot a histogram of the <u><strong>Residual Reading Time (RSRT)</strong></u>
 </h4>
 <p>The Residual Reading Time (RSRT) is a way to correct for sentence length, word length, and individual differences between participants’ reading speeds. It is referenced to the average reading time per participant, and can have negative values (indicating faster reading than the average). We will look at the way it is calculated in an assignment once we have gone over the principles of regression.</p>
 <p>For the purpose of this exercise we can plot the histogram to compare with the RWRT.</p>
@@ -581,8 +565,7 @@ Caution
 </div>
 </li>
 <li><p>,We can see that the distribution is centered around 0 and still skewed to the right.</p></li>
-</ul></section></section><section id="calculate-skewness-and-kurtosis-for-both-rwrt-and-rsrt" class="level3" data-number="1.2.3"><h3 data-number="1.2.3" class="anchored" data-anchor-id="calculate-skewness-and-kurtosis-for-both-rwrt-and-rsrt">
-<span class="header-section-number">1.2.3</span> 2.3 Calculate Skewness and kurtosis for both RWRT and RSRT</h3>
+</ul></section></section><section id="calculate-skewness-and-kurtosis-for-both-rwrt-and-rsrt" class="level3"><h3 class="anchored" data-anchor-id="calculate-skewness-and-kurtosis-for-both-rwrt-and-rsrt">2.3 Calculate Skewness and kurtosis for both RWRT and RSRT</h3>
 <p>Skewness and kurtosis values using the functions with the same name in the library <code>moments</code>.</p>
 <p>Calculate Skewness for RWRT</p>
 <div class="cell">
@@ -642,8 +625,7 @@ Caution
 </div>
 </div>
 <p>The value show that the distribution is closer to a normal (not normal though) in both measures after the filtering as expected.</p>
-</section><section id="2b3" class="level3" data-number="1.2.4"><h3 data-number="1.2.4" class="anchored" data-anchor-id="2b3">
-<span class="header-section-number">1.2.4</span> 2.4 Calculate mean and standard deviation</h3>
+</section><section id="2b3" class="level3"><h3 class="anchored" data-anchor-id="2b3">2.4 Calculate mean and standard deviation</h3>
 <p>Calculate the mean and standard deviation of the Raw Reading Time (RWRT) for the different experimental conditions <u><strong>in Region Number 5</strong></u> to generate a summary table.</p>
 <p>There are many ways to do this in R. Below we include one way using tidyverse summarize function:</p>
 <div class="cell">
@@ -748,8 +730,7 @@ the `.groups` argument.</code></pre>
 <td style="text-align: center;">274.91</td>
 </tr>
 </tbody>
-</table></section><section id="calculate-five-points-summary" class="level3" data-number="1.2.5"><h3 data-number="1.2.5" class="anchored" data-anchor-id="calculate-five-points-summary">
-<span class="header-section-number">1.2.5</span> 2.5 Calculate five-points summary</h3>
+</table></section><section id="calculate-five-points-summary" class="level3"><h3 class="anchored" data-anchor-id="calculate-five-points-summary">2.5 Calculate five-points summary</h3>
 <p>Calculate and create a table with the five-point summary (i.e., min, max, median, 1st quartile(Q1) and 3rd quartile(Q3)) for the <u><strong>Residual Reading Time (RSRT)</strong></u> for the following subset of data:</p>
 <ul>
 <li>EmbeddedSubject = NP</li>
@@ -781,10 +762,8 @@ the `.groups` argument.</code></pre>
 <td>-90.13</td>
 <td>120.08</td>
 </tr></tbody>
-</table></section><section id="produce-a-boxplot-for-rwrt" class="level3" data-number="1.2.6"><h3 data-number="1.2.6" class="anchored" data-anchor-id="produce-a-boxplot-for-rwrt">
-<span class="header-section-number">1.2.6</span> 2.6 Produce a boxplot for RWRT</h3>
-<section id="create-a-boxplot-for-rsrt" class="level4" data-number="1.2.6.1"><h4 data-number="1.2.6.1" class="anchored" data-anchor-id="create-a-boxplot-for-rsrt">
-<span class="header-section-number">1.2.6.1</span> 2.6.1. Create a boxplot for RSRT</h4>
+</table></section><section id="produce-a-boxplot-for-rwrt" class="level3"><h3 class="anchored" data-anchor-id="produce-a-boxplot-for-rwrt">2.6 Produce a boxplot for RWRT</h3>
+<section id="create-a-boxplot-for-rsrt" class="level4"><h4 class="anchored" data-anchor-id="create-a-boxplot-for-rsrt">2.6.1. Create a boxplot for RSRT</h4>
 <p>Produce a <u><strong>boxplot for the RWRT</strong></u> in different conditions reflected in the table of task 2.4: in Region 5, for the conditions Declarative NP, Declarative NPI, Partitive NP, Partitive NPI.</p>
 <div class="cell">
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">basquenpi_data</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">RegionNumber</span> <span class="op">==</span> <span class="fl">5</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
@@ -827,8 +806,7 @@ the `.groups` argument.</code></pre>
 </div>
 </div>
 </div>
-</section><section id="create-a-boxplot-for-rsrt-1" class="level4" data-number="1.2.6.2"><h4 data-number="1.2.6.2" class="anchored" data-anchor-id="create-a-boxplot-for-rsrt-1">
-<span class="header-section-number">1.2.6.2</span> 2.6.3. Create a boxplot for <code>RSRT</code>
+</section><section id="create-a-boxplot-for-rsrt-1" class="level4"><h4 class="anchored" data-anchor-id="create-a-boxplot-for-rsrt-1">2.6.3. Create a boxplot for <code>RSRT</code>
 </h4>
 <p>As in the previous section, we create now the boxplot for <code>RSRT</code> as follows:</p>
 <div class="cell">
@@ -852,13 +830,11 @@ the `.groups` argument.</code></pre>
 </div>
 </div>
 </div>
-</section><section id="comment-on-the-differences-between-the-rwrt-and-rsrt-plot." class="level4" data-number="1.2.6.3"><h4 data-number="1.2.6.3" class="anchored" data-anchor-id="comment-on-the-differences-between-the-rwrt-and-rsrt-plot.">
-<span class="header-section-number">1.2.6.3</span> 2.6.4. Comment on the differences between the RWRT and RSRT plot.</h4>
+</section><section id="comment-on-the-differences-between-the-rwrt-and-rsrt-plot." class="level4"><h4 class="anchored" data-anchor-id="comment-on-the-differences-between-the-rwrt-and-rsrt-plot.">2.6.4. Comment on the differences between the RWRT and RSRT plot.</h4>
 <ul>
 <li>In the RWRT plots it can be seen that NPI conditions hae lower dispersion than NP conditions (boxes are smaller)</li>
 <li>the RSRT is centered around 0 ms, as expected, however there are still a very significant number of outliers, with residuals over 1000 ms. This requires assessment during data analysis. We will look at this in future assignments.</li>
-</ul></section></section><section id="normality-checks" class="level3" data-number="1.2.7"><h3 data-number="1.2.7" class="anchored" data-anchor-id="normality-checks">
-<span class="header-section-number">1.2.7</span> 2.7 Normality checks</h3>
+</ul></section></section><section id="normality-checks" class="level3"><h3 class="anchored" data-anchor-id="normality-checks">2.7 Normality checks</h3>
 <p>To check the distribution of the data, we saw in the lecture that a Quantile-Quantile Plot (qqplot) can be used. The function <code><a href="https://rdrr.io/r/stats/qqnorm.html">qqplot()</a></code> is generic and compares some data with any type of distribution. To compare your data with a normal distribution and check normality, you can use <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code>.</p>
 <p>We generate the Quartile-Quartile plot for RWRT using the command below</p>
 <div class="cell">
@@ -898,8 +874,7 @@ Note
 </div>
 </div>
 <p>Although the plot is more linear, still deviates from the normal distribution.</p>
-<hr></section></section><section id="task-3---calculate-data-summaries" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="task-3---calculate-data-summaries">
-<span class="header-section-number">1.3</span> Task #3 - Calculate data summaries</h2>
+<hr></section></section><section id="task-3---calculate-data-summaries" class="level2"><h2 class="anchored" data-anchor-id="task-3---calculate-data-summaries">Task #3 - Calculate data summaries</h2>
 <p>The assignment asked to generate a summary dataframe (<em><code>basquenpi_data_summary</code></em> ) using the <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, <code>group_by()</code> and <code>summarize()</code>functions in <code>dplyr</code> with the data grouped by the factors <code>RegionNumber</code>, <code>EmbeddedSubject</code> and <code>AgreementMorphology</code>, and summarized via the addition of columns specifying the mean and standard deviations of the <u><strong>Raw Reading Time</strong></u> and <u><strong>Residual Reading Time</strong>.</u></p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -953,8 +928,7 @@ You can override using the `.groups` argument.</code></pre>
 20 NP              Partitive                     10    865.  560.   56.2   562.</code></pre>
 </div>
 </div>
-<hr></section><section id="extra-credit---task4-plotting-with-ggplot2" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="extra-credit---task4-plotting-with-ggplot2">
-<span class="header-section-number">1.4</span> EXTRA CREDIT - Task#4: Plotting with ggplot2</h2>
+<hr></section><section id="extra-credit---task4-plotting-with-ggplot2" class="level2"><h2 class="anchored" data-anchor-id="extra-credit---task4-plotting-with-ggplot2">EXTRA CREDIT - Task#4: Plotting with ggplot2</h2>
 <p>The plot we want to create shows the mean <code>RWRT</code> for each region for the conditions where <code>EmbeddedSubject==NP</code>, for the two different levels of <code>AgreementMorphology</code>.</p>
 <p>We present below the step-by-step code to build up the plot, and at the end we put it all together in a single code line.</p>
 <p>From the dataframe created in <a href="#3b2">task 3.2</a> first we select the subset of cases where <em><code>EmbeddedSubject==NP</code></em></p>
@@ -1114,7 +1088,7 @@ You can override using the `.groups` argument.</code></pre>
 <p>End of the assignment #2</p>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();

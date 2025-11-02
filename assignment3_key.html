@@ -272,7 +272,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assignment2_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Assignment #2 - Answer key</span></span></a>
+ <span class="menu-text">Assignment #2 Data Exploration with R - Answer Key</span></a>
   </div>
 </li>
       </ul>
@@ -375,11 +375,15 @@ window.Quarto = {
 </header><hr>
 <section id="task-1-load-required-libraries" class="level2"><h2 class="anchored" data-anchor-id="task-1-load-required-libraries">Task #1: Load required libraries</h2>
 <p>For this assignment we use <code>tidyverse</code></p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#load libraries</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section><section id="task-2-open-dataset" class="level2"><h2 class="anchored" data-anchor-id="task-2-open-dataset">Task #2: Open dataset</h2>
 <p>For this exercise we used a simulated dataset from a hypothetical experiment measuring the duration of vowels during production, generated following an example from <span class="citation" data-cites="winter2019statistics">Winter (<a href="references.html#ref-winter2019statistics" role="doc-biblioref">2019</a>)</span>.</p>
 <p>The dataset is in the file <code>./data/extended_vowel_duration.csv</code> and contains data from 30 participants, each recorded pronouncing 20 different words.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Open file</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Open file</span></span>
 <span><span class="va">dfVowel</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">'./data/extended_vowel_duration.csv'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The data contains the following columns:</p>
@@ -392,15 +396,15 @@ window.Quarto = {
 <p>The <code>SubjectID</code> and <code>Word</code> columns are numerical, but should be treated as factors. It would not affect this exercise, but it is good practice to define categorical factors when reading the data to avoid changing them inadvertently.</p>
 <p>Convert <code>SubjectID</code> and <code>Word</code> to factors</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfVowel</span><span class="op">$</span><span class="va">SubjectID</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">dfVowel</span><span class="op">$</span><span class="va">SubjectID</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfVowel</span><span class="op">$</span><span class="va">SubjectID</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">dfVowel</span><span class="op">$</span><span class="va">SubjectID</span><span class="op">)</span></span>
 <span><span class="va">dfVowel</span><span class="op">$</span><span class="va">Word</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">dfVowel</span><span class="op">$</span><span class="va">Word</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="task-3-plot-dataset" class="level2"><h2 class="anchored" data-anchor-id="task-3-plot-dataset">Task #3: Plot dataset</h2>
 <p>You were asked to create a scatter plot of the measured vowel duration as a function of word frequency, including a linear fit. As per the example in the workgroup, we use <code>ggplot</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfVowel</span> <span class="op">%&gt;%</span> <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">logFreqs</span>, y<span class="op">=</span><span class="va">Duration</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>       <span class="fu">geom_point</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span>
-<span>       <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfVowel</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">logFreqs</span>, y<span class="op">=</span><span class="va">Duration</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -418,7 +422,7 @@ window.Quarto = {
 </ul></section><section id="task-4-calculate-correlation-coefficient" class="level2"><h2 class="anchored" data-anchor-id="task-4-calculate-correlation-coefficient">Task #4: Calculate correlation coefficient</h2>
 <p>Calculate Pearson’s correlation coefficient between <code>logFreqs</code> and <code>Duration</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">r</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">dfVowel</span><span class="op">$</span><span class="va">logFreqs</span>, <span class="va">dfVowel</span><span class="op">$</span><span class="va">Duration</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">r</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">dfVowel</span><span class="op">$</span><span class="va">logFreqs</span>, <span class="va">dfVowel</span><span class="op">$</span><span class="va">Duration</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.6745614</code></pre>
@@ -454,11 +458,11 @@ t=\frac{r\times\sqrt{n-2}}{\sqrt{1-r^2}}
 </ul>
 <p>In the exercise, the number of data points, n, is <span class="math inline">\(n=600\)</span></p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">dfVowel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">dfVowel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The t-statistics will be :</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span> <span class="va">t_stat</span> <span class="op">=</span> <span class="op">(</span><span class="va">r</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">-</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">r</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span> <span class="va">t_stat</span> <span class="op">=</span> <span class="op">(</span><span class="va">r</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">-</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">r</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span>
 <span> <span class="va">t_stat</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -22.34534</code></pre>
@@ -485,7 +489,7 @@ Important
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.025</span>, df <span class="op">=</span> <span class="fl">598</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.025</span>, df <span class="op">=</span> <span class="fl">598</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.963939</code></pre>
 </div>
@@ -516,7 +520,7 @@ Note
 </h4>
 <p>The same test of significance can be done using the function available in R:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span><span class="va">dfVowel</span><span class="op">$</span><span class="va">logFreqs</span>,<span class="va">dfVowel</span><span class="op">$</span><span class="va">Duration</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span><span class="va">dfVowel</span><span class="op">$</span><span class="va">logFreqs</span>,<span class="va">dfVowel</span><span class="op">$</span><span class="va">Duration</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -532,7 +536,7 @@ sample estimates:
 </div>
 </div>
 <p>The function provides the same results as in the manual calculation, with the addition of providing a 95% Confidence Interval for the coefficient.</p>
-<div class="callout callout-style-default callout-note callout-titled" style="background-color: DarkSeaGreen;">
+<div class="callout callout-style-default callout-note callout-titled" style="background-color: HoneyDew;">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -549,7 +553,7 @@ Reporting correlation
 </section></section></section><section id="task-5-build-a-linear-model-based-for-vowel-duration" class="level2"><h2 class="anchored" data-anchor-id="task-5-build-a-linear-model-based-for-vowel-duration">Task #5: Build a linear model based for vowel duration</h2>
 <p>To generate a linear model for the vowel duration as a function of frequency we use the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function.</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Duration</span><span class="op">~</span><span class="va">logFreqs</span>, data <span class="op">=</span> <span class="va">dfVowel</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Duration</span><span class="op">~</span><span class="va">logFreqs</span>, data <span class="op">=</span> <span class="va">dfVowel</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -574,7 +578,7 @@ F-statistic: 499.3 on 1 and 598 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>Note that the above produces the same output as if using the model with an explicit intercept:</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Duration</span><span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">logFreqs</span>, data <span class="op">=</span> <span class="va">dfVowel</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Duration</span><span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">logFreqs</span>, data <span class="op">=</span> <span class="va">dfVowel</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
