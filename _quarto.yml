@@ -56,7 +56,7 @@ book:
 
         
     - part: Workgroup4.qmd
-       chapters: 
+      chapters: 
          - model_fit.qmd
       #   - using_libraries.qmd
       #   - tidyverse_intro.qmd
