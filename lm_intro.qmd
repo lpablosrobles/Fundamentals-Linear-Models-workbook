@@ -2,7 +2,7 @@
 editor: visual
 ---
 
-# Linear Models in R with `lm()` {#sec-lm-intro .unnumbered}
+# Linear Models in R with *lm()* {#sec-lm-intro .unnumbered}
 
 As explained in the lecture, a linear model of a dataset fits a line that minimizes the sum square errors between the predicted values and the data.
 
