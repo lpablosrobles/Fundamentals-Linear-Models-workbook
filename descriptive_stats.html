@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
+
 <title>Descriptive Statistics – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
@@ -55,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -74,7 +78,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -100,7 +105,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -126,11 +136,15 @@ window.Quarto = {
   typesetMath
 };
 </script>
+
 </head>
+
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -141,9 +155,13 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
         <div class="sidebar-tools-main">
@@ -162,7 +180,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -182,8 +200,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">✍️ R Syntax</span></a>
@@ -220,7 +238,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup2.html" class="sidebar-item-text sidebar-link">
@@ -229,8 +247,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data organization and transformation</span></a>
@@ -255,7 +273,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup3.html" class="sidebar-item-text sidebar-link">
@@ -264,8 +282,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./plot_xy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plotting relationship between two variables</span></a>
@@ -280,7 +298,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lm_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Linear Models in R with <code></code></span></a><code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>
+ <span class="menu-text">Linear Models in R with <em>lm()</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -290,10 +308,23 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Workgroup 4: Simple Linear Regression II</span></span>
+      <div class="sidebar-item-container"> 
+            <a href="./Workgroup4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workgroup 4: Simple Linear Regression II</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./model_fit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Model output</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -310,43 +341,43 @@ window.Quarto = {
   </div>
 </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li>
-<a href="#measures-of-central-tendency" id="toc-measures-of-central-tendency" class="nav-link active" data-scroll-target="#measures-of-central-tendency">Measures of central tendency</a>
+  <li><a href="#measures-of-central-tendency" id="toc-measures-of-central-tendency" class="nav-link active" data-scroll-target="#measures-of-central-tendency">Measures of central tendency</a>
   <ul class="collapse">
-<li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean">Mean</a></li>
+  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean">Mean</a></li>
   <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">Median</a></li>
   <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode">Mode</a></li>
-  </ul>
-</li>
+  </ul></li>
   <li><a href="#point-summaries" id="toc-point-summaries" class="nav-link" data-scroll-target="#point-summaries">5-point summaries</a></li>
-  <li>
-<a href="#measures-of-dispersion" id="toc-measures-of-dispersion" class="nav-link" data-scroll-target="#measures-of-dispersion">Measures of dispersion</a>
+  <li><a href="#measures-of-dispersion" id="toc-measures-of-dispersion" class="nav-link" data-scroll-target="#measures-of-dispersion">Measures of dispersion</a>
   <ul class="collapse">
-<li><a href="#standard-deviation-and-variance" id="toc-standard-deviation-and-variance" class="nav-link" data-scroll-target="#standard-deviation-and-variance">Standard deviation and variance</a></li>
-  </ul>
-</li>
+  <li><a href="#standard-deviation-and-variance" id="toc-standard-deviation-and-variance" class="nav-link" data-scroll-target="#standard-deviation-and-variance">Standard deviation and variance</a></li>
+  </ul></li>
   <li><a href="#data-summaries-with-tidyverse" id="toc-data-summaries-with-tidyverse" class="nav-link" data-scroll-target="#data-summaries-with-tidyverse">Data summaries with <code>tidyverse</code></a></li>
   <li><a href="#reporting-summary-descriptive-statistics" id="toc-reporting-summary-descriptive-statistics" class="nav-link" data-scroll-target="#reporting-summary-descriptive-statistics">Reporting Summary Descriptive Statistics</a></li>
-  <li>
-<a href="#data-normality-checks" id="toc-data-normality-checks" class="nav-link" data-scroll-target="#data-normality-checks">Data Normality checks</a>
+  <li><a href="#data-normality-checks" id="toc-data-normality-checks" class="nav-link" data-scroll-target="#data-normality-checks">Data Normality checks</a>
   <ul class="collapse">
-<li><a href="#skewness-and-kurtosis" id="toc-skewness-and-kurtosis" class="nav-link" data-scroll-target="#skewness-and-kurtosis">Skewness and Kurtosis</a></li>
+  <li><a href="#skewness-and-kurtosis" id="toc-skewness-and-kurtosis" class="nav-link" data-scroll-target="#skewness-and-kurtosis">Skewness and Kurtosis</a></li>
   <li><a href="#q-q-plots" id="toc-q-q-plots" class="nav-link" data-scroll-target="#q-q-plots">Q-Q plots</a></li>
   <li><a href="#shapiro-wilk-tests" id="toc-shapiro-wilk-tests" class="nav-link" data-scroll-target="#shapiro-wilk-tests">Shapiro-Wilk tests</a></li>
-  </ul>
-</li>
+  </ul></li>
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  </ul></nav>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li><li class="breadcrumb-item"><a href="./descriptive_stats.html">Descriptive Statistics</a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup2.html">Workgroup 2: Data Exploration with R</a></li><li class="breadcrumb-item"><a href="./descriptive_stats.html">Descriptive Statistics</a></li></ol></nav>
+<div class="quarto-title">
 <h1 class="title">Descriptive Statistics</h1>
 </div>
 
@@ -361,178 +392,182 @@ window.Quarto = {
   
 
 
-</header><section id="measures-of-central-tendency" class="level2"><h2 class="anchored" data-anchor-id="measures-of-central-tendency">Measures of central tendency</h2>
+</header>
+
+
+<section id="measures-of-central-tendency" class="level2">
+<h2 class="anchored" data-anchor-id="measures-of-central-tendency">Measures of central tendency</h2>
 <p>We described in the lecture three main measures of central tendency: the <strong>mean</strong>, the <strong>median</strong> and the <strong>mode</strong>.</p>
-<section id="mean" class="level3"><h3 class="anchored" data-anchor-id="mean">Mean</h3>
+<section id="mean" class="level3">
+<h3 class="anchored" data-anchor-id="mean">Mean</h3>
 <p>The mean is described in mathematically as:</p>
 <p><span class="math display">\[
 \overline{X}=\frac{\sum_{i=1}^{N}{X_i}}{N}
 \]</span></p>
-<p>If we have a list of numbers, we could calculate it using the function <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code> as in</p>
+<p>If we have a list of numbers, we could calculate it using the function <code>sum()</code> as in</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">8</span>,<span class="fl">2</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">/</span> <span class="fl">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">2</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x) <span class="sc">/</span> <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.166667</code></pre>
 </div>
 </div>
-<p>There is however a built in function <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> that does this calculation:</p>
+<p>There is however a built in function <code>mean()</code> that does this calculation:</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.166667</code></pre>
 </div>
 </div>
-</section><section id="median" class="level3"><h3 class="anchored" data-anchor-id="median">Median</h3>
-<p>Similarly, the median can be calculated by ranking the values and selecting those in the middle, but there is a convenience function <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code></p>
+</section>
+<section id="median" class="level3">
+<h3 class="anchored" data-anchor-id="median">Median</h3>
+<p>Similarly, the median can be calculated by ranking the values and selecting those in the middle, but there is a convenience function <code>median()</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
 <p>If we have a dataset with a large outlier, the median is a more robust measurement of central tendency compared to the mean.</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">8</span>,<span class="fl">2</span>,<span class="fl">200</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">2</span>,<span class="dv">200</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 32.14286</code></pre>
 </div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
 </div>
-</section><section id="mode" class="level3"><h3 class="anchored" data-anchor-id="mode">Mode</h3>
-<p>There is no built in function to calculate the mode in R. It is simply the value repeated the most in a dataset. The function <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> can be used to create a count of the number of elements in a dataframe as a function of variable (so-called <em>contingency tables</em>). We will see in the next sections how to do that with tidyverse.</p>
-</section></section><section id="point-summaries" class="level2"><h2 class="anchored" data-anchor-id="point-summaries">5-point summaries</h2>
+</section>
+<section id="mode" class="level3">
+<h3 class="anchored" data-anchor-id="mode">Mode</h3>
+<p>There is no built in function to calculate the mode in R. It is simply the value repeated the most in a dataset. The function <code>table()</code> can be used to create a count of the number of elements in a dataframe as a function of variable (so-called <em>contingency tables</em>). We will see in the next sections how to do that with tidyverse.</p>
+</section>
+</section>
+<section id="point-summaries" class="level2">
+<h2 class="anchored" data-anchor-id="point-summaries">5-point summaries</h2>
 <p>There are several ways to calculate the five point summaries discussed in the lecture for a dataset. Using individual functions:</p>
 <ul>
-<li><p><code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code> : minimum of a set of numbers</p></li>
-<li><p><code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code> : maximum of a set of numbers</p></li>
-<li>
-<p><code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code> : calculates the quantile based on a threshold.</p>
+<li><p><code>min()</code> : minimum of a set of numbers</p></li>
+<li><p><code>max()</code> : maximum of a set of numbers</p></li>
+<li><p><code>quantile()</code> : calculates the quantile based on a threshold.</p>
 <ul>
 <li><p><code>quantile(x, prob=0.25)</code> provides the first quartile Q1</p></li>
 <li><p><code>quantile(x, prob=0.75)</code> provides the third quartile Q3</p></li>
 <li><p><code>quantile(x, prob=0.5)</code> corresponds to the median</p></li>
-</ul>
-</li>
-<li><p><code><a href="https://rdrr.io/r/stats/IQR.html">IQR()</a></code> : provides the Inter-Quartile Range, that is equivalent to Q3 - Q1</p></li>
-<li><p><code><a href="https://rdrr.io/r/base/range.html">range()</a></code> : difference between maximum and minimum values</p></li>
+</ul></li>
+<li><p><code>IQR()</code> : provides the Inter-Quartile Range, that is equivalent to Q3 - Q1</p></li>
+<li><p><code>range()</code> : difference between maximum and minimum values</p></li>
 <li><p>mean()</p></li>
 <li><p>median()</p></li>
 </ul>
 <p>Taking again the example of the <code>lexdec</code> dataset and the Reaction Time <code>RT</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">languageR</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'languageR' was built under R version 4.3.3</code></pre>
-</div>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(languageR)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(lexdec)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(lexdec<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.828946</code></pre>
 </div>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(lexdec<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7.587311</code></pre>
 </div>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(lexdec<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.828946 7.587311</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span>, prob <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(lexdec<span class="sc">$</span>RT, <span class="at">prob =</span> <span class="fl">0.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     25% 
 6.214608 </code></pre>
 </div>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span>, prob <span class="op">=</span> <span class="fl">0.75</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(lexdec<span class="sc">$</span>RT, <span class="at">prob =</span> <span class="fl">0.75</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    75% 
 6.50204 </code></pre>
 </div>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#IQR calculated from quantiles</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span>, prob <span class="op">=</span> <span class="fl">0.75</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span>, prob <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#IQR calculated from quantiles</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(lexdec<span class="sc">$</span>RT, <span class="at">prob =</span> <span class="fl">0.75</span>) <span class="sc">-</span> <span class="fu">quantile</span>(lexdec<span class="sc">$</span>RT, <span class="at">prob =</span> <span class="fl">0.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     75% 
 0.287432 </code></pre>
 </div>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/IQR.html">IQR</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(lexdec<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.287432</code></pre>
 </div>
 </div>
-<p>However, most of the values above can be calculated using the convenient <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function</p>
+<p>However, most of the values above can be calculated using the convenient <code>summary()</code> function</p>
 <div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lexdec<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   5.829   6.215   6.346   6.385   6.502   7.587 </code></pre>
 </div>
 </div>
-</section><section id="measures-of-dispersion" class="level2"><h2 class="anchored" data-anchor-id="measures-of-dispersion">Measures of dispersion</h2>
-<section id="standard-deviation-and-variance" class="level3"><h3 class="anchored" data-anchor-id="standard-deviation-and-variance">Standard deviation and variance</h3>
+</section>
+<section id="measures-of-dispersion" class="level2">
+<h2 class="anchored" data-anchor-id="measures-of-dispersion">Measures of dispersion</h2>
+<section id="standard-deviation-and-variance" class="level3">
+<h3 class="anchored" data-anchor-id="standard-deviation-and-variance">Standard deviation and variance</h3>
 <p>As described in the lecture the standard deviation of a dataset is calculated as follows:</p>
 <ul>
 <li><p>for the full population: <span class="math inline">\(\sigma = \sqrt{\frac{\sum_{i=1}^{N}{(X_i-\mu)^2}}{N}}\)</span></p></li>
 <li><p>for a sample of the population with the un-biased estimator: <span class="math inline">\(s = \sqrt{\frac{\sum_{i=1}^{N}{(X_i-\overline{X})^2}}{N-1}}\)</span></p></li>
 </ul>
-<p>In R, the function <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> calculates the <u>sample standard deviation</u><em>.</em> There is no built in function to calculate the full population <span class="math inline">\(\sigma\)</span> , but in general, for N &gt; 30 they are very close</p>
+<p>In R, the function <code>sd()</code> calculates the <u>sample standard deviation</u><em>.</em> There is no built in function to calculate the full population <span class="math inline">\(\sigma\)</span> , but in general, for N &gt; 30 they are very close</p>
 <div class="cell">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(lexdec<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2415091</code></pre>
 </div>
 </div>
-</section></section><section id="data-summaries-with-tidyverse" class="level2"><h2 class="anchored" data-anchor-id="data-summaries-with-tidyverse">Data summaries with <code>tidyverse</code>
-</h2>
+</section>
+</section>
+<section id="data-summaries-with-tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="data-summaries-with-tidyverse">Data summaries with <code>tidyverse</code></h2>
 <p>In most cases, we have a most complex data structure where we want to calculate the summary statistics not only globally but in several cases of conditions.</p>
-<p>For example, if we want to calculate the average and number of cases of the Reaction Time in the lexdec dataset for Male and Female and also between Native and non-native English speakers. We could perform it by individually filtering each group combination and calculating the mean and number of cases (<code><a href="https://rdrr.io/r/base/length.html">length()</a></code> provides the number of rows) as below:</p>
+<p>For example, if we want to calculate the average and number of cases of the Reaction Time in the lexdec dataset for Male and Female and also between Native and non-native English speakers. We could perform it by individually filtering each group combination and calculating the mean and number of cases (<code>length()</code> provides the number of rows) as below:</p>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tibble' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.3.3</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.2     ✔ tibble    3.3.0
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.4     
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Male and Native English Speaker</span></span>
-<span><span class="va">lexdec_M_english</span> <span class="op">&lt;-</span> <span class="va">lexdec</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span> <span class="op">(</span><span class="va">Sex</span><span class="op">==</span><span class="st">"M"</span><span class="op">)</span> <span class="op">&amp;</span> <span class="op">(</span><span class="va">NativeLanguage</span><span class="op">==</span><span class="st">"English"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">lexdec_M_english</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Male and Native English Speaker</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>lexdec_M_english <span class="ot">&lt;-</span> lexdec <span class="sc">%&gt;%</span> <span class="fu">filter</span>( (Sex<span class="sc">==</span><span class="st">"M"</span>) <span class="sc">&amp;</span> (NativeLanguage<span class="sc">==</span><span class="st">"English"</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(lexdec_M_english<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6.361977</code></pre>
 </div>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">lexdec_M_english</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(lexdec_M_english<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 395</code></pre>
 </div>
 </div>
 <p>And this should be repeated for each of the four groups (Male-English, Male-Other, Female-English, Female-Other)</p>
-<p>R has several ways to simplify these calculations. We will look at the approach with tidyverse packages by making use of the functions <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code>.</p>
-<p><code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> allows to specify grouping variables that would be applied to the next operation on the pipe. The function <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> allows to create summary variables with the statistics of choice, including mean, sd, IQR, median, min, max, etc… (look at the online help).</p>
+<p>R has several ways to simplify these calculations. We will look at the approach with tidyverse packages by making use of the functions <code>group_by()</code> and <code>summarize()</code>.</p>
+<p><code>group_by()</code> allows to specify grouping variables that would be applied to the next operation on the pipe. The function <code>summarize()</code> allows to create summary variables with the statistics of choice, including mean, sd, IQR, median, min, max, etc… (look at the online help).</p>
 <p>The two functions can be combined as in the example below, where we group by Sex and NativeLanguage and ask to create three columns with names <code>numObs</code> , <code>avgRT</code> and <code>sdRT</code> containing the number of observations, mean Reaction Time and Standard Deviation Time respectively.</p>
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Sex</span>, <span class="va">NativeLanguage</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>           <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span> numObs <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>, avgRT <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">RT</span><span class="op">)</span>, sdRT <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">RT</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>lexdec <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Sex, NativeLanguage) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>           <span class="fu">summarize</span>( <span class="at">numObs =</span> <span class="fu">n</span>(), <span class="at">avgRT =</span> <span class="fu">mean</span>(RT), <span class="at">sdRT =</span> <span class="fu">sd</span>(RT))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'Sex'. You can override using the `.groups`
 argument.</code></pre>
@@ -554,8 +589,8 @@ s_{\overline{X}} = \frac{s}{\sqrt{N}}
 \]</span></p>
 <p>We can extend the function above to add a column with the SE calculation, which can be done on the basis of the new columns sdRT and numObs:</p>
 <div class="cell">
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Sex</span>, <span class="va">NativeLanguage</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>           <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span> numObs <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>, avgRT <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">RT</span><span class="op">)</span>, sdRT <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">RT</span><span class="op">)</span>, seRT <span class="op">=</span> <span class="va">sdRT</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">numObs</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>lexdec <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Sex, NativeLanguage) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>           <span class="fu">summarize</span>( <span class="at">numObs =</span> <span class="fu">n</span>(), <span class="at">avgRT =</span> <span class="fu">mean</span>(RT), <span class="at">sdRT =</span> <span class="fu">sd</span>(RT), <span class="at">seRT =</span> sdRT <span class="sc">/</span> <span class="fu">sqrt</span>(numObs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'Sex'. You can override using the `.groups`
 argument.</code></pre>
@@ -571,7 +606,9 @@ argument.</code></pre>
 4 M     Other             158  6.50 0.224 0.0178 </code></pre>
 </div>
 </div>
-</section><section id="reporting-summary-descriptive-statistics" class="level2"><h2 class="anchored" data-anchor-id="reporting-summary-descriptive-statistics">Reporting Summary Descriptive Statistics</h2>
+</section>
+<section id="reporting-summary-descriptive-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-summary-descriptive-statistics">Reporting Summary Descriptive Statistics</h2>
 <p>For the reporting of each group of data, either a tabular form or descriptive paragraph can be used, providing the values as calculated. An example for the <em><code>lexdec</code></em> example we used could be as follows:</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -587,61 +624,65 @@ Note
 </div>
 </div>
 <p>Note that the mean is denoted by a capital <em>M</em>. In this case we don’t have yet a statistical analysis to determine if the difference observed is significant. That should be reported as well and we will address it in the next lectures.</p>
-</section><section id="data-normality-checks" class="level2"><h2 class="anchored" data-anchor-id="data-normality-checks">Data Normality checks</h2>
+</section>
+<section id="data-normality-checks" class="level2">
+<h2 class="anchored" data-anchor-id="data-normality-checks">Data Normality checks</h2>
 <p>We mentioned in the lectures the importance to be able to check the normality of data or, as we will see of the residuals of a model fit, to ensure that our conclusions based on the statistical assessment of the results of a linear model are valid. In this section we briefly present how to perform in R some of the measures to determine deviation from normality.</p>
-<section id="skewness-and-kurtosis" class="level3"><h3 class="anchored" data-anchor-id="skewness-and-kurtosis">Skewness and Kurtosis</h3>
+<section id="skewness-and-kurtosis" class="level3">
+<h3 class="anchored" data-anchor-id="skewness-and-kurtosis">Skewness and Kurtosis</h3>
 <p>Skewness and Kurtosis of a distribution can be computed using functions in the <code>moments</code> package. Before using it, we have to install the package</p>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#install.packages("moments")</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.r-project.org">moments</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'moments' was built under R version 4.3.3</code></pre>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("moments")</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(moments)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>The functions are easily called, <code><a href="https://rdrr.io/pkg/moments/man/kurtosis.html">kurtosis()</a></code> and <code><a href="https://rdrr.io/pkg/moments/man/skewness.html">skewness()</a></code> . Let’s see an example based on the <code>lexdec</code> dataset:</p>
+<p>The functions are easily called, <code>kurtosis()</code> and <code>skewness()</code> . Let’s see an example based on the <code>lexdec</code> dataset:</p>
 <div class="cell">
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/moments/man/skewness.html">skewness</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skewness</span>(lexdec<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.9930124</code></pre>
 </div>
 </div>
 <p>A positive number implies a right-tailed distribution. If we plot again the histogram for the RT data, this is clearly visible.</p>
 <div class="cell">
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">RT</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">70</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>lexdec <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>RT)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">70</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="descriptive_stats_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure">
+<p><img src="descriptive_stats_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>If now we calculate the kurtosis:</p>
 <div class="cell">
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/moments/man/kurtosis.html">kurtosis</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kurtosis</span>(lexdec<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.405579</code></pre>
 </div>
 </div>
 <p>A positive value indicates a distribution that is more concentrated in the center than a normal distribution.</p>
 <p>So both measures point to a distribution deviating from normality on the data.</p>
-</section><section id="q-q-plots" class="level3"><h3 class="anchored" data-anchor-id="q-q-plots">Q-Q plots</h3>
+</section>
+<section id="q-q-plots" class="level3">
+<h3 class="anchored" data-anchor-id="q-q-plots">Q-Q plots</h3>
 <p>A Q-Q plot or “Quantile-Quantile” Plot, can be used to compare two distributions. It plots the quantiles from the measured data against what a theoretical or other distribution quantile would look like.</p>
-<p>A straight line implies that the two distributions compared are very similar. this is done in R using the <code><a href="https://rdrr.io/r/stats/qqnorm.html">qqplot()</a></code> function. To test for normality, we want to compare the data against a thoretical normal distribution. This a particular case implemented with the function <code><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm()</a></code> .</p>
+<p>A straight line implies that the two distributions compared are very similar. this is done in R using the <code>qqplot()</code> function. To test for normality, we want to compare the data against a thoretical normal distribution. This a particular case implemented with the function <code>qqnorm()</code> .</p>
 <p>If we look in our running example</p>
 <div class="cell">
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(lexdec<span class="sc">$</span>RT)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(lexdec<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="descriptive_stats_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure">
+<p><img src="descriptive_stats_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p><code><a href="https://rdrr.io/r/stats/qqnorm.html">qqline()</a></code> adds a reference line for comparison. Clearly the data deviates from the line noting again the non-normality of the data.</p>
-<p>An alternative to the above two commands is to use the <code><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot()</a></code> function in the <code>car</code> package that produces charts with an error area more adequate for publication and reporting.</p>
+<p><code>qqline()</code> adds a reference line for comparison. Clearly the data deviates from the line noting again the non-normality of the data.</p>
+<p>An alternative to the above two commands is to use the <code>qqPlot()</code> function in the <code>car</code> package that produces charts with an error area more adequate for publication and reporting.</p>
 <div class="cell">
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: carData</code></pre>
 </div>
@@ -659,10 +700,11 @@ Attaching package: 'car'</code></pre>
 
     some</code></pre>
 </div>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqPlot</span>(lexdec<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="descriptive_stats_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure">
+<p><img src="descriptive_stats_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -670,11 +712,13 @@ Attaching package: 'car'</code></pre>
 <pre><code>[1] 1273  750</code></pre>
 </div>
 </div>
-</section><section id="shapiro-wilk-tests" class="level3"><h3 class="anchored" data-anchor-id="shapiro-wilk-tests">Shapiro-Wilk tests</h3>
+</section>
+<section id="shapiro-wilk-tests" class="level3">
+<h3 class="anchored" data-anchor-id="shapiro-wilk-tests">Shapiro-Wilk tests</h3>
 <p>Finally, a number of tests can be used to provide a quantified assessment of the normality or not of the data.</p>
-<p>Here we present the Shapiro-Wilk test. This test considers a null hypothesis that the data is normally distributed. A significant outcome implies that the null hypothesis is not maintained and that the data is not normally distributed. It is implemented by the <code><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test()</a></code> function</p>
+<p>Here we present the Shapiro-Wilk test. This test considers a null hypothesis that the data is normally distributed. A significant outcome implies that the null hypothesis is not maintained and that the data is not normally distributed. It is implemented by the <code>shapiro.test()</code> function</p>
 <div class="cell">
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(lexdec<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -684,10 +728,16 @@ W = 0.94738, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>A p-value lower than a defined threshold implies that the null hypothesis is rejected. In this case, p&lt;0.001 so we will assess the data as not being normally distributed.</p>
-</section></section><section id="section" class="level2"><h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1085,7 +1135,9 @@ W = 0.94738, p-value &lt; 2.2e-16</code></pre>
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./data_visualization.html" class="pagination-link" aria-label="📊Data visualization in R">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">📊Data visualization in R</span>
       </a>          
@@ -1097,7 +1149,8 @@ W = 0.94738, p-value &lt; 2.2e-16</code></pre>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Fundamentals of Linear Models Workbook was written by Dr.&nbsp;Leticia Pablos Robles</p>
 </div>   
@@ -1109,6 +1162,8 @@ W = 0.94738, p-value &lt; 2.2e-16</code></pre>
 </div>
   </div>
 </footer>
+
+
 
 
 </body></html>

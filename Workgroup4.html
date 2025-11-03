@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
+<meta name="dcterms.date" content="01/11/202">
 
 <title>Workgroup 4: Simple Linear Regression II – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
@@ -31,7 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Workgroup5.html" rel="next">
+<link href="./model_fit.html" rel="next">
 <link href="./assignment3_key.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -43,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -234,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lm_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Linear Models in R with <code>lm()</code></span></a>
+ <span class="menu-text">Linear Models in R with <em>lm()</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -246,8 +247,21 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Workgroup 4: Simple Linear Regression II</span></span>
+      <div class="sidebar-item-container"> 
+            <a href="./Workgroup4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Workgroup 4: Simple Linear Regression II</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./model_fit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Model output</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -268,8 +282,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">🧠 Learning Objectives</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -283,12 +303,6 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Leticia Pablos Robles </p>
-          </div>
-  </div>
     
   
     
@@ -299,21 +313,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Workgroup 4 material to be published in the coming weeks
-</div>
-</div>
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
+<p>In this session we will continue to look at the interpretation of simple linear regression models outputs, including the quality of the data fit and the checking of model assumptions.</p>
+<p>We also look at examples of models with a binary categorical predictor and the interpretation of its coefficients.</p>
+<section id="learning-objectives" class="level1">
+<h1>🧠 Learning Objectives</h1>
+<p>By the end of this lesson, you will be able to:</p>
+<ul>
+<li><p>Understand the quality of a model fit.</p></li>
+<li><p>Check linear model assumptions.</p></li>
+<li><p>Fit and interpret linear model with categorical predictors using <code>lm()</code></p></li>
+<li><p>Report simple linear model results.</p></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -722,8 +735,8 @@ Workgroup 4 material to be published in the coming weeks
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Workgroup5.html" class="pagination-link" aria-label="Workgroup 5: Multiple Regression with R">
-        <span class="nav-page-text">Workgroup 5: Multiple Regression with R</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./model_fit.html" class="pagination-link" aria-label="Linear Model output">
+        <span class="nav-page-text">Linear Model output</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
