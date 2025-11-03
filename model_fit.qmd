@@ -79,7 +79,7 @@ r^2
 
 In the output of the model summary function there is another value labelled [**Adjusted R-squared**]{.underline}
 
-![](images/clipboard-4186363721.png){fig-align="center" width="500"}
+![](images/clipboard-3805672897.png){fig-align="center" width="500"}
 
 The $R^2_{Adjusted}$ value is a correction applied to the case where more than one predictor variable is included in the model as we will see in the next lectures. It prevents the $R^2$ value to increase with additional predictors while not improving the model fit. The adjustment is based on the number of data points (*N*) and the number of predictors (*K*):
 
@@ -95,7 +95,7 @@ For the cases we have seen so far with $K=1$, the values are not too different.
 
 The F-statistic displayed at the end of the output is from the so-called [**F-test for regression**]{.underline}.
 
-![](images/clipboard-1877512505.png){fig-align="center" width="500"}
+![](images/clipboard-2088562208.png){fig-align="center" width="500"}
 
 In essence, the test follows a NHST to identify if any regression slope coefficient (other than the intercept) is different from 0.
 
