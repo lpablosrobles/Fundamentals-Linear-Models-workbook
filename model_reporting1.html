@@ -404,7 +404,7 @@ window.Quarto = {
 <li><p><strong>Individual predictors:</strong></p>
 <ul>
 <li><p>For each predictor report: coefficient value (also called <em>unstandardized beta</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>), the Confidence Interval, t-statistic and p-value.</p>
-<p>e.g.: “<em>It was found that</em> <em>[Predictor variable] significantly predicted [response variable] (</em><span class="math inline">\(\beta=..., CI=[..,..],p=...)\)</span>.</p></li>
+<p>e.g.: “<em>It was found that</em> <em>[Predictor variable] significantly predicted [response variable] (</em><span class="math inline">\(\beta=..., CI=[..,..],t=...,p=...)\)</span>.</p></li>
 </ul></li>
 <li><p><strong>Assumptions check:</strong> explain how you checked assumptions, including if any data transformation was required, etc.</p></li>
 </ul>
@@ -459,12 +459,12 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Simple linear regression was to assess the relationship between <em>vowel production Duration</em> and the logarithmically transformed <em>frequency</em> of the word produced. Assumption checks revealed no violations in normality and homoscedasticity, as indicated by the residual plots and non significant results from the Shapiro-Wilk test.</p>
+<p>Simple linear regression was performed to assess the relationship between <em>vowel production Duration</em> and the logarithmically transformed <em>frequency</em> of the word produced. Assumption checks revealed no violations in normality and homoscedasticity, as indicated by the residual plots and non significant results from the Shapiro-Wilk test.</p>
 <p>After transformation, the fitted regression model was:</p>
 <p><span class="math display">\[
 Duration = b_0+b_1 \times Frequency
 \]</span></p>
-<p>The model explained <span class="math inline">\(55\%\)</span> of the variance in vowel duration ($F(1,598)=499.30, p&lt;.001, R^2=0.45). It was found that the logarithmic transformed word Frequency significantly predicted the vowel duration (<span class="math inline">\(\beta = -5.64\)</span>, <span class="math inline">\(95\%CI[-6.13,-5.14]\)</span>, <span class="math inline">\(p&lt;.001\)</span>).</p>
+<p>The model explained <span class="math inline">\(55\%\)</span> of the variance in vowel duration ( <span class="math inline">\(F(1,598)=449.30\)</span> <span class="math inline">\(,p&lt;.001,R^2=0.45\)</span>). It was found that the logarithmic transformed word Frequency significantly predicted the vowel duration (<span class="math inline">\(\beta = -5.64\)</span>, <span class="math inline">\(95\%CI[-6.13,-5.14]\)</span>, <span class="math inline">\(t=136.52, p&lt;.001\)</span>).</p>
 </div>
 </div>
 

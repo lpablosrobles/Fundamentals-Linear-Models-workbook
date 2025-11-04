@@ -569,7 +569,7 @@ MS_{mod} = \frac{SS_{mod}}{df_{mod}} = \frac{SS_{mod}}{K} \\\\ MS_{res} = \frac{
 </div>
 <p>As you can see, the value is the same as in the output from model fit in the figure above.</p>
 <ul>
-<li><p>Step 4: determine the critical value. Here the F-distribution in R can be calculated with the function <code>qf()</code> (similar to the function <code>qt()</code> that we used to determine the critical t-value in the Pearson’s coefficient significant testing). Three arguments are required: the confidence level (0.05), and the two degrees of freedom (</p>
+<li><p>Step 4: determine the critical value. Here the F-distribution in R can be calculated with the function <code>qf()</code> (similar to the function <code>qt()</code> that we used to determine the critical t-value in the Pearson’s coefficient significant testing). Three arguments are required: the probability (1- confidence level, so 1-0.05), and the two degrees of freedom (k, N-k-1), where k is the number of predictors and N the number of samples.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>F_critical<span class="ot">&lt;-</span><span class="fu">qf</span>(<span class="dv">1</span><span class="fl">-0.05</span>,<span class="dv">1</span>,<span class="dv">600-1-1</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>F_critical</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -579,7 +579,7 @@ MS_{mod} = \frac{SS_{mod}}{df_{mod}} = \frac{SS_{mod}}{K} \\\\ MS_{res} = \frac{
 </div></li>
 <li><p>Step 5: reach statistical conclusion</p></li>
 </ul>
-<p>The calculated F-value is much higher than the threshold above, therefore, the null hypothesis is rejected and the model is better than the model with only an intercept.</p>
+<p>The calculated F-value is much higher than the threshold F_critical, therefore, the null hypothesis is rejected and the model is better than the model with only an intercept.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
