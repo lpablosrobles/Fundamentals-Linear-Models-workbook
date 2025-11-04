@@ -13,7 +13,9 @@ To use `ggplot()` to display the fit line with categorical predictors, you have 
 :::
 
 ```{r}
+#| warning: false
 library(languageR)
+library(tidyverse)
 ggplot(lexdec,  aes(x = NativeLanguage, y = RT)) + geom_point(alpha=1/50) + geom_smooth(aes(group=1),method="lm")
 ```
 
