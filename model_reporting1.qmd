@@ -2,7 +2,7 @@
 editor: visual
 ---
 
-# Simple Linear Model reporting
+# Simple Linear Model reporting {.unnumbered}
 
 A report of the results of linear models should include the following elements:
 

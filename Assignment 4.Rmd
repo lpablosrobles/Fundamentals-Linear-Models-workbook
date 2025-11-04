@@ -1,0 +1,132 @@
+---
+title: "Fundamentals of Linear Models 2025 - 2026 - Assignment #4"
+author: "ENTER YOUR NAME and STUDENT ID"
+date: "2025-11-04"
+output:
+  pdf_document: default
+  html_notebook: default
+editor:
+  visual
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Linear fitting with R II
+
+------------------------------------------------------------------------
+
+Read through the assignment and load the relevant packages
+
+```{r}
+#load packages
+
+
+```
+
+## Task#1 - Load and explore dataset
+
+For the analysis in this assignment you will use again a subset of the real data from a Self-Paced Reading study on Negative Polarity Items and complementizer agreement in Basque (see Pablos, L., & Saddy, D. (2009). Negative polarity items and complementizer agreement in Basque. Brain Talk, 61.)
+
+Load the data provided in the file `BasqueNPISampleEx5.Rda` :
+
+```{r}
+
+
+
+```
+
+The data file contains only the data from Region Number 8 (complementizer position), which was considered the “critical region” for analysis in the experiment.
+
+The dataframe includes the following variables:
+
+-   **Item** – Factor identifying the sentence used (coded as a number from 1 to 72).
+-   **Subject** – Factor identifying the participant on the experiment (coded as a number from 1 to 32)
+-   **EmbeddedSubject** – Factor/predictor indicating the nature of the embedded subject with the following levels:
+    -   NP – for target sentences with a Noun Phrase as subject
+    -   NPI – for target sentences with a Negative Polarity Item as subject
+-   **Agreement Morphology** – Factor/predictor indicating the nature of agreement with the following levels:
+    -   Declarative – for target sentences that contained a complementizer with declarative morphology
+    -   Partitive – for target sentences that contained a complementizer with partitive morphology
+-   **Condition**: Factor/predictor indicating the condition of the experiment with four levels (“A”,”B”,”C”,”D”). This factor was introduced for the exercises in this assignment. The conditions correspond to combinations of the two factors before:</span>
+    -   A: NPI – Partitive
+    -   B: NPI – Declarative
+    -   C: NP – Partitive
+    -   D: NP-Declarative
+-   **Word** – Actual word presented
+-   **RegionNumber** – Region number for the analysis of the reading time ( = 8 in this experiment)
+-   **RWRT** – Raw (recorded) Reading Time of the word
+-   **RWZS** – Z-Score of the raw reading time
+-   **RSRT** – Calculated Residual Reading Time
+-   **RSZS** – Z-Score of the residual reading time
+-   **QPCT** – Measured response accuracy for each item with two possible values (100 or 0)
+
+## Task#2 - Linear Model RWRT
+
+------------------------------------------------------------------------
+
+-   **Tasks# 2.1** Plot the relationship between the Raw Reading Time `RWRT` and the `EmbeddedSubject` predictor.
+
+```{r}
+
+
+
+```
+
+-   **Task# 2.2** Create a linear model of `RWRT` with `EmbeddedSubject` as predictor
+
+```{r}
+
+
+
+```
+
+\- Write down the fitted model, describing the coefficients and fit quality
+
+....
+
+....
+
+\- Provide the predicted values from the model for the two levels of the `EmbeddedSubject` factor.
+
+EmbeddedSubject = NP (reference value 0):
+
+EmbeddedSubject = NPI (value 1):
+
+-   **Task# 2.3** Compare the model created in Task 2.2 with a *null model* with only an intercept , using `anova()`, `AIC()` and `BIC()`
+
+```{r}
+
+
+```
+
+\- Describe your observations.
+
+....
+
+....
+
+-   **Task# 2.4** Check the linear model assumptions
+
+```{r}
+
+
+
+```
+
+-   **Task# 2.5** Write a paragraph report of the analysis as per the guidelines and example and Workgroup 4
+
+    > *Report*: .....
+
+## Task#3 (Extra credit): Linear model for RSRT
+
+------------------------------------------------------------------------
+
+**Task# 3.1** Repeat all the steps in Task# 2 for the Residual Reading Time `RSRT` instead of `RWRT`
+
+....
+
+**Task#3.2** Describe your observations on the main differences in the results of the analysis between Tasks 2 and 3.
+
+....
