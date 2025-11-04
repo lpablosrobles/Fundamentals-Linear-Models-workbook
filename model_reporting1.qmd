@@ -54,5 +54,5 @@ $$
 Duration = b_0+b_1 \times Frequency
 $$
 
-The model explained $55\%$ of the variance in vowel duration (\$F(1,598)=499.30, p\<.001, R\^2=0.45). It was found that the logarithmic transformed word Frequency significantly predicted the vowel duration ( $\beta = -5.64, 95\%CI[-6.13,-5.14],p<.001)$ .
+The model explained $55\%$ of the variance in vowel duration (\$F(1,598)=499.30, p\<.001, R\^2=0.45). It was found that the logarithmic transformed word Frequency significantly predicted the vowel duration ($\beta = -5.64$, $95\%CI[-6.13,-5.14]$, $p<.001$).
 :::

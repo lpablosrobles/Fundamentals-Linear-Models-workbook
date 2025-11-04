@@ -2,7 +2,7 @@
 editor: visual
 ---
 
-# Linear Model with Categorical predictors
+# Linear Model with Categorical predictors {.unnumbered}
 
 Up to now we have been looking at model fits with continuous predictors. In a large majority of linguistics research however, we use predictors that are not continuous but rather categorical in nature.
 
