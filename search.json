@@ -851,56 +851,56 @@
   {
     "objectID": "model_categorical.html",
     "href": "model_categorical.html",
-    "title": "1  Linear Model with Categorical predictors",
+    "title": "Linear Model with Categorical predictors",
     "section": "",
-    "text": "1.1 Categorical predictor with two levels\nUp to now we have been looking at model fits with continuous predictors. In a large majority of linguistics research however, we use predictors that are not continuous but rather categorical in nature.\nWe already showed an example in Workgroup 2 of plotting the relationship between a categorical predictor and the outcome variable.\nWhen we fit a model, R applies dummy coding to represent the levels of a categorical factor.\nIn case of a categorical predictor with two levels, R uses a single dummy variable with two values. In the example above:\nIf we fit a linear model, it will have the following expression:\n\\[\nRT_i = b_0 + b_1 \\times NativeLanguage_i\n\\]\nWhen NativeLanguage = 0 (English), the model becomes \\(RT = b_0+b_1\\times0 = b_0\\). This implies that the intercept (\\(b_0\\)) will represent the value for English.\nWhen NativeLanguage =1 (Other), the model becomes \\(RT = b_0+b_1\\times1=b_0+b_1\\). That means that the slope (\\(b_1\\)) represents the change for the Other category with respect to English.\nLet’s look at how this appears if we fit a model in R:\nm1&lt;-lm(RT~1+NativeLanguage, data = lexdec)\nsummary(m1)\n\n\nCall:\nlm(formula = RT ~ 1 + NativeLanguage, data = lexdec)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.56877 -0.15289 -0.03231  0.11480  1.11318 \n\nCoefficients:\n                    Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)         6.318309   0.007435  849.78   &lt;2e-16 ***\nNativeLanguageOther 0.155821   0.011358   13.72   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.2289 on 1657 degrees of freedom\nMultiple R-squared:  0.102, Adjusted R-squared:  0.1015 \nF-statistic: 188.2 on 1 and 1657 DF,  p-value: &lt; 2.2e-16\nWhat you see on the output above is that we have the (Intercept) value, as for continuous predictors, but the parameter for the predictor is now called NativeLanguageOther. That is to indicate that the dummy variable created has a value 1 for the “Other” level.\nSo our model would be:\n\\[RT = 6.32+0.16\\times NativeLanguageOther\\] The fitted values for each of the levels of the variable would be:\n\\[\nRT_{English} = 6.32 \\\\\\\\ RT_{Other}=6.32+0.16 = 6.48\n\\]",
+    "text": "Categorical predictor with two levels\nUp to now we have been looking at model fits with continuous predictors. In a large majority of linguistics research however, we use predictors that are not continuous but rather categorical in nature.\nWe already showed an example in Workgroup 2 of plotting the relationship between a categorical predictor and the outcome variable.\nWhen we fit a model, R applies dummy coding to represent the levels of a categorical factor.\nIn case of a categorical predictor with two levels, R uses a single dummy variable with two values. In the example above:\nIf we fit a linear model, it will have the following expression:\n\\[\nRT_i = b_0 + b_1 \\times NativeLanguage_i\n\\]\nWhen NativeLanguage = 0 (English), the model becomes \\(RT = b_0+b_1\\times0 = b_0\\). This implies that the intercept (\\(b_0\\)) will represent the value for English.\nWhen NativeLanguage =1 (Other), the model becomes \\(RT = b_0+b_1\\times1=b_0+b_1\\). That means that the slope (\\(b_1\\)) represents the change for the Other category with respect to English.\nLet’s look at how this appears if we fit a model in R:\nm1&lt;-lm(RT~1+NativeLanguage, data = lexdec)\nsummary(m1)\n\n\nCall:\nlm(formula = RT ~ 1 + NativeLanguage, data = lexdec)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.56877 -0.15289 -0.03231  0.11480  1.11318 \n\nCoefficients:\n                    Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)         6.318309   0.007435  849.78   &lt;2e-16 ***\nNativeLanguageOther 0.155821   0.011358   13.72   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.2289 on 1657 degrees of freedom\nMultiple R-squared:  0.102, Adjusted R-squared:  0.1015 \nF-statistic: 188.2 on 1 and 1657 DF,  p-value: &lt; 2.2e-16\nWhat you see on the output above is that we have the (Intercept) value, as for continuous predictors, but the parameter for the predictor is now called NativeLanguageOther. That is to indicate that the dummy variable created has a value 1 for the “Other” level.\nSo our model would be:\n\\[RT = 6.32+0.16\\times NativeLanguageOther\\] The fitted values for each of the levels of the variable would be:\n\\[\nRT_{English} = 6.32 \\\\\\\\ RT_{Other}=6.32+0.16 = 6.48\n\\]",
     "crumbs": [
       "Workgroup 4: Simple Linear Regression II",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Linear Model with Categorical predictors</span>"
+      "Linear Model with Categorical predictors"
     ]
   },
   {
     "objectID": "model_categorical.html#categorical-predictor-with-two-levels",
     "href": "model_categorical.html#categorical-predictor-with-two-levels",
-    "title": "1  Linear Model with Categorical predictors",
+    "title": "Linear Model with Categorical predictors",
     "section": "",
     "text": "NativeLanguage = 0, represents “English”\nNativeLanguage = 1, represents “Other”",
     "crumbs": [
       "Workgroup 4: Simple Linear Regression II",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Linear Model with Categorical predictors</span>"
+      "Linear Model with Categorical predictors"
     ]
   },
   {
     "objectID": "model_categorical.html#categorical-predictor-with-more-than-two-levels",
     "href": "model_categorical.html#categorical-predictor-with-more-than-two-levels",
-    "title": "1  Linear Model with Categorical predictors",
-    "section": "1.2 Categorical predictor with more than two levels",
-    "text": "1.2 Categorical predictor with more than two levels\n\nWhen the categorical predictor has more than two levels, R creates a number of dummy variables to encode them. The number of variables used in the number of levels - 1.\nLet’s assume that NativeLanguage in the lexical decision experiment had three levels: English, Dutch, Other. R will use to Dummy Variables: NativeLanguageDutch and NativeLanguageOther .\n\n\n\n\nNativeLanguageDutch\nNativeLanguageOther\n\n\n\n\nEnglish\n0\n0\n\n\nDutch\n1\n0\n\n\nOther\n0\n1\n\n\n\nSo a model would look as follows:\n\\[\nRT = b_0 + b_1\\times NativeLanguageDutch + b_2\\times NativeLanguageOther\n\\]\nWe will treat these models with more than one predictor in the next lessons on Multiple Linear Regression.",
+    "title": "Linear Model with Categorical predictors",
+    "section": "Categorical predictor with more than two levels",
+    "text": "Categorical predictor with more than two levels\n\nWhen the categorical predictor has more than two levels, R creates a number of dummy variables to encode them. The number of variables used in the number of levels - 1.\nLet’s assume that NativeLanguage in the lexical decision experiment had three levels: English, Dutch, Other. R will use to Dummy Variables: NativeLanguageDutch and NativeLanguageOther .\n\n\n\n\nNativeLanguageDutch\nNativeLanguageOther\n\n\n\n\nEnglish\n0\n0\n\n\nDutch\n1\n0\n\n\nOther\n0\n1\n\n\n\nSo a model would look as follows:\n\\[\nRT = b_0 + b_1\\times NativeLanguageDutch + b_2\\times NativeLanguageOther\n\\]\nWe will treat these models with more than one predictor in the next lessons on Multiple Linear Regression.",
     "crumbs": [
       "Workgroup 4: Simple Linear Regression II",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Linear Model with Categorical predictors</span>"
+      "Linear Model with Categorical predictors"
     ]
   },
   {
     "objectID": "model_reporting1.html",
     "href": "model_reporting1.html",
-    "title": "2  Simple Linear Model reporting",
+    "title": "Simple Linear Model reporting",
     "section": "",
     "text": "A report of the results of linear models should include the following elements:\nLet’s look at an example based again on the example on assignment 3:\nThe result contains all the information required, with the exception of the Confidence Interval for the logFreqs coefficient.\nThis can be conveniently extracted using the function confint() that takes a model as a parameter.\nThe reporting of the analysis could be written as follows:",
     "crumbs": [
       "Workgroup 4: Simple Linear Regression II",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Simple Linear Model reporting</span>"
+      "Simple Linear Model reporting"
     ]
   },
   {
     "objectID": "model_reporting1.html#footnotes",
     "href": "model_reporting1.html#footnotes",
-    "title": "2  Simple Linear Model reporting",
+    "title": "Simple Linear Model reporting",
     "section": "",
     "text": "We will discussed standardized coefficient values in the next workgroups on multiple regression.↩︎",
     "crumbs": [
       "Workgroup 4: Simple Linear Regression II",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Simple Linear Model reporting</span>"
+      "Simple Linear Model reporting"
     ]
   },
   {

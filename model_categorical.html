@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 
-<title>1&nbsp; Linear Model with Categorical predictors – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Linear Model with Categorical predictors – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -148,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_categorical.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Linear Model with Categorical predictors</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_categorical.html">Linear Model with Categorical predictors</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -339,13 +339,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_categorical.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Linear Model with Categorical predictors</span></span></a>
+ <span class="menu-text">Linear Model with Categorical predictors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_reporting1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Linear Model reporting</span></span></a>
+ <span class="menu-text">Simple Linear Model reporting</span></a>
   </div>
 </li>
       </ul>
@@ -374,17 +374,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#categorical-predictor-with-two-levels" id="toc-categorical-predictor-with-two-levels" class="nav-link active" data-scroll-target="#categorical-predictor-with-two-levels"><span class="header-section-number">1.1</span> Categorical predictor with two levels</a></li>
-  <li><a href="#categorical-predictor-with-more-than-two-levels" id="toc-categorical-predictor-with-more-than-two-levels" class="nav-link" data-scroll-target="#categorical-predictor-with-more-than-two-levels"><span class="header-section-number">1.2</span> Categorical predictor with more than two levels</a></li>
+  <li><a href="#categorical-predictor-with-two-levels" id="toc-categorical-predictor-with-two-levels" class="nav-link active" data-scroll-target="#categorical-predictor-with-two-levels">Categorical predictor with two levels</a></li>
+  <li><a href="#categorical-predictor-with-more-than-two-levels" id="toc-categorical-predictor-with-more-than-two-levels" class="nav-link" data-scroll-target="#categorical-predictor-with-more-than-two-levels">Categorical predictor with more than two levels</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_categorical.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Linear Model with Categorical predictors</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_categorical.html">Linear Model with Categorical predictors</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Linear Model with Categorical predictors</span></h1>
+<h1 class="title">Linear Model with Categorical predictors</h1>
 </div>
 
 
@@ -429,8 +429,8 @@ Warning
 </div>
 </div>
 <p>When we fit a model, R applies <strong>dummy coding</strong> to represent the levels of a categorical factor.</p>
-<section id="categorical-predictor-with-two-levels" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="categorical-predictor-with-two-levels"><span class="header-section-number">1.1</span> Categorical predictor with two levels</h2>
+<section id="categorical-predictor-with-two-levels" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-predictor-with-two-levels">Categorical predictor with two levels</h2>
 <hr>
 <p>In case of a categorical predictor with two levels, R uses a single dummy variable with two values. In the example above:</p>
 <ul>
@@ -475,8 +475,8 @@ F-statistic: 188.2 on 1 and 1657 DF,  p-value: &lt; 2.2e-16</code></pre>
 RT_{English} = 6.32 \\\\ RT_{Other}=6.32+0.16 = 6.48
 \]</span></p>
 </section>
-<section id="categorical-predictor-with-more-than-two-levels" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="categorical-predictor-with-more-than-two-levels"><span class="header-section-number">1.2</span> Categorical predictor with more than two levels</h2>
+<section id="categorical-predictor-with-more-than-two-levels" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-predictor-with-more-than-two-levels">Categorical predictor with more than two levels</h2>
 <hr>
 <p>When the categorical predictor has more than two levels, R creates a number of dummy variables to encode them. The number of variables used in the number of levels - 1.</p>
 <p>Let’s assume that <code>NativeLanguage</code> in the lexical decision experiment had three levels: English, Dutch, Other. R will use to Dummy Variables: <code>NativeLanguageDutch</code> and <code>NativeLanguageOther</code> .</p>
@@ -923,7 +923,7 @@ RT = b_0 + b_1\times NativeLanguageDutch + b_2\times NativeLanguageOther
   </div>
   <div class="nav-page nav-page-next">
       <a href="./model_reporting1.html" class="pagination-link" aria-label="Simple Linear Model reporting">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Linear Model reporting</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Simple Linear Model reporting</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
