@@ -131,7 +131,11 @@ $$
 The mean standard error are calculated from the Sum-squared errors and the degrees of freedom. The degrees of freedom of a model is the number of predictors (*K*), while for the residuals, the degrees of freedom depends on the number of data points (*N*-K-1).
 
 $$
-MS_{mod} = \frac{SS_{mod}}{df_{mod}} = \frac{SS_{mod}}{K} \\\\ MS_{res} = \frac{SS_{res}}{df_{res}}=\frac{SS_{res}}{N-K-1}
+MS_{mod} = \frac{SS_{mod}}{df_{mod}} = \frac{SS_{mod}}{K}
+$$
+
+$$
+MS_{res} = \frac{SS_{res}}{df_{res}}=\frac{SS_{res}}{N-K-1}
 $$
 
 In our example, $N=600, K=1$, and $SS_{mod}$ we can calculate:
