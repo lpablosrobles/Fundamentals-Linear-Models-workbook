@@ -20,7 +20,7 @@ We can compare which models best fits the data by comparing the amount of residu
 
 We will look in the following sections to three other methods: i) model comparison based on F-test, ii) based on Akaike's Information Criterion (AIC) and iii) based on Bayesian Information Criterion (BIC).
 
-## Model comparison based on F-test 
+## Model comparison based on F-test
 
 ------------------------------------------------------------------------
 

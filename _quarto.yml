@@ -58,6 +58,8 @@ book:
     - part: Workgroup4.qmd
       chapters: 
          - model_fit.qmd
+         - model_comparison.qmd
+         - model_assumptions.qmd
       #   - using_libraries.qmd
       #   - tidyverse_intro.qmd
       #   - read_data.qmd
