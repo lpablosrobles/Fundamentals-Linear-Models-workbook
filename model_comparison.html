@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 
-<title>Workgroup 6: Multiple Regression with R II – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Model selection – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,8 +66,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./Workgroup5.html" rel="prev">
+<link href="./model_assumptions.html" rel="next">
+<link href="./model_fit.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -72,6 +107,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -84,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_comparison.html">Model selection</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -262,7 +326,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_comparison.html" class="sidebar-item-text sidebar-link">
+  <a href="./model_comparison.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Model selection</span></a>
   </div>
 </li>
@@ -293,27 +357,29 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#model-comparison-based-on-f-test" id="toc-model-comparison-based-on-f-test" class="nav-link active" data-scroll-target="#model-comparison-based-on-f-test">Model comparison based on F-test</a></li>
+  <li><a href="#akaike-information-criterion-aic" id="toc-akaike-information-criterion-aic" class="nav-link" data-scroll-target="#akaike-information-criterion-aic">Akaike Information Criterion (AIC)</a></li>
+  <li><a href="#bayesian-information-criterion-bic" id="toc-bayesian-information-criterion-bic" class="nav-link" data-scroll-target="#bayesian-information-criterion-bic">Bayesian Information Criterion (BIC)</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_comparison.html">Model selection</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Workgroup 6: Multiple Regression with R II</h1>
+<h1 class="title">Model selection</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Leticia Pablos Robles </p>
-          </div>
-  </div>
     
   
     
@@ -324,21 +390,132 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Up to now we have created a model fitting data with one predictor, trying to assess whether it explains the data “better” than a simpler model simply based on the mean of the data.</p>
+<p>We can write the two models as:</p>
+<ul>
+<li><p><em>Null</em> model, or intercept only:</p>
+<p><span class="math inline">\(Y_i = b_0 + \epsilon_i\)</span></p></li>
+<li><p>Linear model with predictor X:</p>
+<p><span class="math inline">\(Y_i = b_0+b_1X_i+\epsilon_i\)</span></p></li>
+</ul>
+<p>We can compare which models best fits the data by comparing the amount of residual variance explained by one or the other, as measured by the <span class="math inline">\(R^2\)</span> parameter. However, as explained in the previous section, the <span class="math inline">\(R^2\)</span> value tends to improve as we add more parameters to the model, while their explanation value is not improved.</p>
+<p>We will look in the following sections to three other methods: i) model comparison based on F-test, ii) based on Akaike’s Information Criterion (AIC) and iii) based on Bayesian Information Criterion (BIC).</p>
+<section id="model-comparison-based-on-f-test" class="level2">
+<h2 class="anchored" data-anchor-id="model-comparison-based-on-f-test">Model comparison based on F-test</h2>
+<hr>
+<p>One approach to check if adding elements to a model improve the model fit is to make a F-test of the difference in residual Sum of Squares.</p>
+<p>This can be done using the <code>anova()</code> function.</p>
+<p>As example, let’s again look at the data from Assignment 3 and create two models, one with only the intercept (null model), and one with our predictor (<code>logFreqs</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dfVowel<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">'./data/extended_vowel_duration.csv'</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>null_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Duration<span class="sc">~</span><span class="dv">1</span>,<span class="at">data=</span>dfVowel)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Duration<span class="sc">~</span>logFreqs, <span class="at">data =</span> dfVowel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can compare if there is a significant difference between the two models residual sum of squares.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(null_model, mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: Duration ~ 1
+Model 2: Duration ~ logFreqs
+  Res.Df     RSS Df Sum of Sq      F    Pr(&gt;F)    
+1    599 1994385                                  
+2    598 1086874  1    907511 499.31 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>The output of the <code>anova()</code> function call, provides a F-test comparing the two models provided as input.</p>
+<p>What we can observed in this case is that the F test value is <span class="math inline">\(F(1,598) = 499.31, p&lt;.01\)</span> indicating that there is a significant difference in the unexplained variance between both models. In other words, introducing the <code>logFreqs</code> predictor improved the model fit.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Workgroup 6 material to be published in the coming weeks
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Note that in this case, with a single predictor, the value of this test is the same as the F-value provided by <code>lm()</code> when fitting a model to data and explained in the previous section:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Duration ~ logFreqs, data = dfVowel)
 
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-122.464  -27.642    0.916   29.627  127.628 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 307.5055     2.2525  136.52   &lt;2e-16 ***
+logFreqs     -5.6397     0.2524  -22.34   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 42.63 on 598 degrees of freedom
+Multiple R-squared:  0.455, Adjusted R-squared:  0.4541 
+F-statistic: 499.3 on 1 and 598 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
+</div>
+</div>
+<p>Although this might is a trivial example with a single predictor, as we will see in the next lessons, model comparison will be extensively used when evaluating the explanatory value of more than one variable in Multiple Regression models.</p>
+</section>
+<section id="akaike-information-criterion-aic" class="level2">
+<h2 class="anchored" data-anchor-id="akaike-information-criterion-aic">Akaike Information Criterion (AIC)</h2>
+<hr>
+<p>The model comparison based on F-test using <code>anova()</code> allows us to evaluate if adding a predictor term changes the model fit.</p>
+<p>A mathematical indicator that can be used to evaluate a model performance is the Akaike Information Criterion (AIC).</p>
+<p>Details of the AIC mathematical basis are beyond the objectives of this course and are not required for its use in model selection, but the basic ideas are the following:</p>
+<ul>
+<li><p>AIC estimates the prediction error of a model</p></li>
+<li><p>A lower AIC indicates a model with less information loss, therefore a better fit to the data.</p></li>
+<li><p>AIC balances goodness of fit and simplicity of the model, avoiding overfitting.</p></li>
+</ul>
+<p>We will come back to overfitting in the following lessons on Multiple Linear Regression.</p>
+<p>To calculate the AIC value, we use the <code>AIC()</code> function (in capital letters). You can pass as arguments to the function more than one model, which will provide as output a table with the comparison of the values. In our running example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(null_model,mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           df      AIC
+null_model  2 6572.076
+mod         3 6209.858</code></pre>
+</div>
+</div>
+<p>As you can see, the model with the <code>logFreqs</code> predictor has a lower AIC (6209) that the null model (6572) confirming it is better explaining the data.</p>
+<p>Note that the absolute value of AIC has no practical significance, but it is used always as a <strong>relative</strong> comparison between two or more models.</p>
+<p><strong>Criteria:</strong> a change in AIC between models &gt;2 is considered significant (corresponds to ~35% probability that the lower AIC model improves the explanatory power of the model).</p>
+</section>
+<section id="bayesian-information-criterion-bic" class="level2">
+<h2 class="anchored" data-anchor-id="bayesian-information-criterion-bic">Bayesian Information Criterion (BIC)</h2>
+<hr>
+<p>A similar indicator to AIC is the Bayesian Information Criterion (BIC). Again the details are beyond the scope of this course, but a few characteristics:</p>
+<ul>
+<li><p>BIC based on Bayesian framework</p></li>
+<li><p>Lower BIC indicates a better model fit</p></li>
+<li><p>Penalized strongly complex models, so it is more adequate to select the simplest possible model explaining the data.</p></li>
+</ul>
+<p>It is implemented in R by the <code>BIC()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BIC</span>(null_model,mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           df      BIC
+null_model  2 6580.870
+mod         3 6223.049</code></pre>
+</div>
+</div>
+<p>Again in this case, the model with <code>logFreqs</code> predictor has a lower BIC than the null model.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -742,13 +919,13 @@ Workgroup 6 material to be published in the coming weeks
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Workgroup5.html" class="pagination-link" aria-label="Workgroup 5: Multiple Regression with R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Workgroup 5: Multiple Regression with R</span>
+      <a href="./model_fit.html" class="pagination-link" aria-label="Linear Model output">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Linear Model output</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./model_assumptions.html" class="pagination-link" aria-label="Model assumptions">
+        <span class="nav-page-text">Model assumptions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
