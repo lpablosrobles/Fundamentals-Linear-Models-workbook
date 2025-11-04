@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 
-<title>Plotting relationship between two variables – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>2&nbsp; Simple Linear Model reporting – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +66,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./correlation.html" rel="next">
-<link href="./Workgroup3.html" rel="prev">
+<link href="./Workgroup5.html" rel="next">
+<link href="./model_categorical.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -107,6 +107,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -119,7 +148,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./plot_xy.html">Plotting relationship between two variables</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_reporting1.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Linear Model reporting</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -256,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./plot_xy.html" class="sidebar-item-text sidebar-link active">
+  <a href="./plot_xy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plotting relationship between two variables</span></a>
   </div>
 </li>
@@ -315,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_reporting1.html" class="sidebar-item-text sidebar-link">
+  <a href="./model_reporting1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Linear Model reporting</span></span></a>
   </div>
 </li>
@@ -340,28 +369,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#scatter-plot-with-two-variables" id="toc-scatter-plot-with-two-variables" class="nav-link active" data-scroll-target="#scatter-plot-with-two-variables">Scatter plot with two variables</a>
-  <ul class="collapse">
-  <li><a href="#basic-scatter-plot" id="toc-basic-scatter-plot" class="nav-link" data-scroll-target="#basic-scatter-plot">Basic scatter plot</a></li>
-  <li><a href="#overplotting" id="toc-overplotting" class="nav-link" data-scroll-target="#overplotting">Overplotting</a></li>
-  <li><a href="#discrete-variables" id="toc-discrete-variables" class="nav-link" data-scroll-target="#discrete-variables">Discrete variables</a></li>
-  </ul></li>
-  <li><a href="#mapping-additional-variables-to-features" id="toc-mapping-additional-variables-to-features" class="nav-link" data-scroll-target="#mapping-additional-variables-to-features">Mapping additional variables to features</a></li>
-  <li><a href="#plotting-linear-models" id="toc-plotting-linear-models" class="nav-link" data-scroll-target="#plotting-linear-models">Plotting linear models</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./plot_xy.html">Plotting relationship between two variables</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_reporting1.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Linear Model reporting</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-scatterplot" class="quarto-section-identifier">Plotting relationship between two variables</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Simple Linear Model reporting</span></h1>
 </div>
 
 
@@ -378,238 +394,86 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In Workgroup #2, we introduced plotting in R with <code>ggplot2</code> package and practiced generating a plot in assignment #2.</p>
-<p>In this section, we will expand with a few additional concepts useful to explore visually the relationship between two variables.</p>
-<section id="scatter-plot-with-two-variables" class="level2">
-<h2 class="anchored" data-anchor-id="scatter-plot-with-two-variables">Scatter plot with two variables</h2>
-<hr>
-<section id="basic-scatter-plot" class="level3">
-<h3 class="anchored" data-anchor-id="basic-scatter-plot">Basic scatter plot</h3>
-<p>A&nbsp;scatter plot&nbsp;or <em>XY plot</em> displays the values of two variables along two axes, showing the relationship between them and possible correlations.</p>
-<p>Scatter plots can be generated in <code>ggplot</code> using the <code>geom_point()</code> function.</p>
-<p>Let’s look again at the <code>lexdec</code> dataset in the <code>languageR</code> package as used Workgroup #2 and explore the relationship between the lexical decision latency reaction time (<code>RT</code>) and the word <code>Frequency</code> .</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(languageR)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.2
-✔ ggplot2   4.0.0     ✔ tibble    3.3.0
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.1.0     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>A few things can be noticed on the plot above:</p>
+<p>A report of the results of linear models should include the following elements:</p>
 <ul>
-<li><p>There is not a continuous range of values of <code>Frequency</code> in the dataset, as it can be seen by the gaps between data. This is common in our field of research, where we have limited examples of <em>continuous</em> predictors, and those available like the word Frequency have several data points measured on the same value.</p></li>
-<li><p>Several points are ‘overplotted’ on the same area, thus not providing a clear view of around which values there are more data points.</p></li>
-</ul>
-</section>
-<section id="overplotting" class="level3">
-<h3 class="anchored" data-anchor-id="overplotting">Overplotting</h3>
-<p>There are several ways to address overplotting and improve the visualization of the data.</p>
+<li><p><strong>Model description</strong></p>
 <ul>
-<li>We can change the <strong>shape</strong> of the data points from a solid circle to a hollow circle. The shape is controlled with the <code>shape</code> argument. The value for an empty circle is <code>shape = 1</code> . Correspondence between values and shapes are in the reference manual of the function, although it is not immediate to find them. I leave here an image for reference:</li>
-</ul>
-<div class="quarto-figure quarto-figure-center" style=".bordered{   border-style: solid;}">
-<figure class="figure">
-<p><img src="images/clipboard-3169802769.png" class="img-fluid figure-img" width="400"></p>
-<figcaption>From: <a href="https://ggplot2.tidyverse.org/articles/ggplot2-specs.html" class="uri">https://ggplot2.tidyverse.org/articles/ggplot2-specs.html</a></figcaption>
-</figure>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Now you can see there are areas with bigger overlap of points (more measurements) in the center band of the plot.</p>
-<p>In case of a large dataset, it is better to use the <code>alpha</code> (transparency) argument. This can be specified as a ratio. For example, a value <code>alpha = 1/5</code> is to be interpreted as “5 points to be overplotted to get a full solid color”. That means that points are slightly transparent and overlapping them increases the shade.</p>
-<p>Compare the plots below with two different values</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="discrete-variables" class="level3">
-<h3 class="anchored" data-anchor-id="discrete-variables">Discrete variables</h3>
-<p>The most common case in linguistics research is the use of categorical predictors with a limited set of levels. A scatter plot with categorical data would look like the plot below, where we display the same Reaction Time data as a function of the word class.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Class, <span class="at">y =</span> RT)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="dv">1</span><span class="sc">/</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>In those cases with very limited number of categories, a boxplot or violin plot will be a better option to display the relationship.</p>
-</section>
-</section>
-<section id="mapping-additional-variables-to-features" class="level2">
-<h2 class="anchored" data-anchor-id="mapping-additional-variables-to-features">Mapping additional variables to features</h2>
-<hr>
-<p>A scatter plot shows the relationship between two variables in X and Y, but it can be used to reflect the relationship with more variables by mapping them to specific aesthetic features.</p>
-<p>Four commonly used:</p>
+<li><p>Descriptive sentence on the modeled data and predictor: <em>A</em> <em>simple linear regression analysis was used to test if [Outcome Variable] significantly predicted [Predictor Variable]</em></p></li>
+<li><p>Model summary overall fit including <em>R2</em> and <em>F-test</em> results. <em>The model explained …% of the variance in [Outcome variable], F(df1, df2)=…, p&lt;…, R2 =…“</em></p></li>
+</ul></li>
+<li><p><strong>Individual predictors:</strong></p>
 <ul>
-<li><p>Shape</p></li>
-<li><p>Color</p></li>
-<li><p>Size</p></li>
-<li><p>Transparency</p></li>
+<li><p>For each predictor report: coefficient value (also called <em>unstandardized beta</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>), the Confidence Interval, t-statistic and p-value.</p>
+<p>e.g.: “<em>It was found that</em> <em>[Predictor variable] significantly predicted [response variable] (</em><span class="math inline">\(\beta=..., CI=[..,..],p=...)\)</span>.</p></li>
+</ul></li>
+<li><p><strong>Assumptions check:</strong> explain how you checked assumptions, including if any data transformation was required, etc.</p></li>
 </ul>
-<p>Let’s add in the plots above on the <code>RT</code> relationship with <code>Frequency</code>, a mapping to the word semantic category in the variable <code>Class</code>.</p>
+<p>Let’s look at an example based again on the example on assignment 3:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT,<span class="at">shape =</span> Class)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dfVowel<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">'./data/extended_vowel_duration.csv'</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>null_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Duration<span class="sc">~</span><span class="dv">1</span>,<span class="at">data=</span>dfVowel)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Duration<span class="sc">~</span>logFreqs, <span class="at">data =</span> dfVowel)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Duration ~ logFreqs, data = dfVowel)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-122.464  -27.642    0.916   29.627  127.628 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 307.5055     2.2525  136.52   &lt;2e-16 ***
+logFreqs     -5.6397     0.2524  -22.34   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 42.63 on 598 degrees of freedom
+Multiple R-squared:  0.455, Adjusted R-squared:  0.4541 
+F-statistic: 499.3 on 1 and 598 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT,<span class="at">color =</span> Class)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT,<span class="at">size =</span> Class)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using size for a discrete variable is not advised.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT,<span class="at">alpha =</span> Class)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using alpha for a discrete variable is not advised.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-5-4.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>We can also add two mapping to the same variable. For example, if we want both different colors and different shape of the data points we can do:</p>
+<p>The result contains all the information required, with the exception of the Confidence Interval for the logFreqs coefficient.</p>
+<p>This can be conveniently extracted using the function <code>confint()</code> that takes a model as a parameter.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT,<span class="at">color =</span> Class, <span class="at">shape=</span>Class)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                2.5 %     97.5 %
+(Intercept) 303.08169 311.929267
+logFreqs     -6.13534  -5.143996</code></pre>
 </div>
 </div>
+<p>The reporting of the analysis could be written as follows:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>We can also add another variable, for example <code>NativeLanguage</code> encoding the native on non-native nature of the speakers. Readability of the graph may be difficult though .</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec,  <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT,<span class="at">color =</span> Class, <span class="at">alpha=</span>NativeLanguage)) <span class="sc">+</span> <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using alpha for a discrete variable is not advised.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
-</div>
-<p>Always try different visualizations to find what is the best way to convey the message on your dataset.</p>
-<p>Good resources for inspiration and recommendations on data visualization types:</p>
-<p>R Graph Gallery: <a href="https://r-graph-gallery.com/" class="uri">https://r-graph-gallery.com/</a></p>
-<p>From Data to Viz: <a href="https://www.data-to-viz.com/" class="uri">https://www.data-to-viz.com/</a></p>
-<hr>
-</section>
-<section id="plotting-linear-models" class="level2">
-<h2 class="anchored" data-anchor-id="plotting-linear-models">Plotting linear models</h2>
-<p>We will look in next workgroups at different ways to represent the results of linear modeling, but we introduce here a useful feature of <code>ggplot</code> to plot fits to the data as another layer.</p>
-<p>The function <code>geom_smooth()</code> adds a layer to a plot with aid the visualization of trends and relationships. It has two main arguments:</p>
-<ul>
-<li><p><code>method</code> : function to use to calculate the ‘smoothed’ version of the data. The value that is relevant to us is <code>method = 'lm'</code> , that would calculate a linear model fit and overplot it.</p></li>
-<li><p><code>formula</code>: Formula of the linear fit model. The default value is <code>formula = y ~ x</code> . We will come back to this point in later lectures. For now we can use the default with no need to specify it.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec, <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT)) <span class="sc">+</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="callout-body-container callout-body">
+<p>Simple linear regression was to assess the relationship between <em>vowel production Duration</em> and the logarithmically transformed <em>frequency</em> of the word produced. Assumption checks revealed no violations in normality and homoscedasticity, as indicated by the residual plots and non significant results from the Shapiro-Wilk test.</p>
+<p>After transformation, the fitted regression model was:</p>
+<p><span class="math display">\[
+Duration = b_0+b_1 \times Frequency
+\]</span></p>
+<p>The model explained <span class="math inline">\(55\%\)</span> of the variance in vowel duration ($F(1,598)=499.30, p&lt;.001, R^2=0.45). It was found that the logarithmic transformed word Frequency significantly predicted the vowel duration ( <span class="math inline">\(\beta = -5.64, 95\%CI[-6.13,-5.14],p&lt;.001)\)</span> .</p>
 </div>
 </div>
-</div>
-<p>What we can see now in the plot is a linear fit to the data, showing a <em>negative correlation</em> between Frequency and RT, with higher frequency words (more common) showing faster reaction times.</p>
-<p>An interesting characteristic of this feature is that it applies the fit to the data as defined in ggplot <code>aes()</code>, so if we mapped another variable, like <code>NativeLanguage</code> to an aesthetic, we will get two fits, one per group:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lexdec, <span class="fu">aes</span>(<span class="at">x =</span> Frequency, <span class="at">y =</span> RT, <span class="at">color =</span> NativeLanguage))<span class="sc">+</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="plot_xy_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The plot above shows :</p>
-<ul>
-<li><p>In general there is a trend that words are comprehended/processed faster the most frequent they are.</p></li>
-<li><p>The strength of this effect is more pronounced in Non-native English speakers.</p></li>
-</ul>
-<hr>
-<p>Now that we are able to <em>observe</em> the relationship between two variables let’s move to quantifying it and assessing their statistical significance.</p>
 
 
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>We will discussed standardized coefficient values in the next workgroups on multiple regression.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1014,13 +878,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Workgroup3.html" class="pagination-link" aria-label="Workgroup 3: Simple Linear Regression with R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Workgroup 3: Simple Linear Regression with R</span>
+      <a href="./model_categorical.html" class="pagination-link" aria-label="Linear Model with Categorical predictors">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Linear Model with Categorical predictors</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./correlation.html" class="pagination-link" aria-label="Correlation">
-        <span class="nav-page-text">Correlation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Workgroup5.html" class="pagination-link" aria-label="Workgroup 5: Multiple Regression with R">
+        <span class="nav-page-text">Workgroup 5: Multiple Regression with R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
