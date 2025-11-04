@@ -16,7 +16,7 @@ A report of the results of linear models should include the following elements:
 
     -   For each predictor report: coefficient value (also called *unstandardized beta*[^model_reporting1-1]), the Confidence Interval, t-statistic and p-value.
 
-        e.g.: "*It was found that* *\[Predictor variable\] significantly predicted \[response variable\] (*$\beta=..., CI=[..,..],p=...)$.
+        e.g.: "*It was found that* *\[Predictor variable\] significantly predicted \[response variable\] (*$\beta=..., CI=[..,..],t=...,p=...)$.
 
 -   **Assumptions check:** explain how you checked assumptions, including if any data transformation was required, etc.
 
@@ -46,7 +46,7 @@ confint(mod)
 The reporting of the analysis could be written as follows:
 
 ::: callout-note
-Simple linear regression was to assess the relationship between *vowel production Duration* and the logarithmically transformed *frequency* of the word produced. Assumption checks revealed no violations in normality and homoscedasticity, as indicated by the residual plots and non significant results from the Shapiro-Wilk test.
+Simple linear regression was performed to assess the relationship between *vowel production Duration* and the logarithmically transformed *frequency* of the word produced. Assumption checks revealed no violations in normality and homoscedasticity, as indicated by the residual plots and non significant results from the Shapiro-Wilk test.
 
 After transformation, the fitted regression model was:
 
@@ -54,5 +54,5 @@ $$
 Duration = b_0+b_1 \times Frequency
 $$
 
-The model explained $55\%$ of the variance in vowel duration (\$F(1,598)=499.30, p\<.001, R\^2=0.45). It was found that the logarithmic transformed word Frequency significantly predicted the vowel duration ($\beta = -5.64$, $95\%CI[-6.13,-5.14]$, $p<.001$).
+The model explained $55\%$ of the variance in vowel duration ( $F(1,598)=449.30$ $,p<.001,R^2=0.45$). It was found that the logarithmic transformed word Frequency significantly predicted the vowel duration ($\beta = -5.64$, $95\%CI[-6.13,-5.14]$, $t=136.52, p<.001$).
 :::
