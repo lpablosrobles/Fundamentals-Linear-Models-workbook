@@ -147,7 +147,7 @@ F_val
 
 As you can see, the value is the same as in the output from model fit in the figure above.
 
--   Step 4: determine the critical value. Here the F-distribution in R can be calculated with the function `qf()` (similar to the function `qt()` that we used to determine the critical t-value in the Pearson's coefficient significant testing). Three arguments are required: the confidence level (0.05), and the two degrees of freedom (
+-   Step 4: determine the critical value. Here the F-distribution in R can be calculated with the function `qf()` (similar to the function `qt()` that we used to determine the critical t-value in the Pearson's coefficient significant testing). Three arguments are required: the probability (1- confidence level, so 1-0.05), and the two degrees of freedom (k, N-k-1), where k is the number of predictors and N the number of samples.
 
     ```{r}
     F_critical<-qf(1-0.05,1,600-1-1)
@@ -156,7 +156,7 @@ As you can see, the value is the same as in the output from model fit in the fig
 
 -   Step 5: reach statistical conclusion
 
-The calculated F-value is much higher than the threshold above, therefore, the null hypothesis is rejected and the model is better than the model with only an intercept.
+The calculated F-value is much higher than the threshold F_critical, therefore, the null hypothesis is rejected and the model is better than the model with only an intercept.
 
 ::: callout-important
 Note that the example above was intended for you to know where the numbers come from in the R output. You will not have to make the calculations step by step, as the `lm()` function already provides it in the output.

@@ -18,7 +18,7 @@ We can write the two models as:
 
 We can compare which models best fits the data by comparing the amount of residual variance explained by one or the other, as measured by the $R^2$ parameter. However, as explained in the previous section, the $R^2$ value tends to improve as we add more parameters to the model, while their explanation value is not improved.
 
-We will look in the following sections to three other methods: i) model comparison based on F-test, ii) based on Akaike's Information Criterion (AIC) and iii) based on Bayesian Information Criterion (BIC).
+We will look in the following sections to three other methods: model comparison i) based on F-test, ii) based on Akaike's Information Criterion (AIC) and iii) based on Bayesian Information Criterion (BIC).
 
 ## Model comparison based on F-test
 

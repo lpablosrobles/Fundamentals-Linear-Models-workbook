@@ -55,7 +55,11 @@ So our model would be:
 $$RT = 6.32+0.16\times NativeLanguageOther$$ The fitted values for each of the levels of the variable would be:
 
 $$
-RT_{English} = 6.32 \\\\ RT_{Other}=6.32+0.16 = 6.48
+RT_{English} = 6.32+0.16 \times 0=6.32
+$$
+
+$$
+RT_{Other}=6.32+0.16 \times 1= 6.48
 $$
 
 ## Categorical predictor with more than two levels
