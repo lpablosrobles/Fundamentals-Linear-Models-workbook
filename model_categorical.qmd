@@ -1,0 +1,79 @@
+---
+editor: visual
+---
+
+# Linear Model with Categorical predictors
+
+Up to now we have been looking at model fits with continuous predictors. In a large majority of linguistics research however, we use predictors that are not continuous but rather categorical in nature.
+
+We already showed an example in Workgroup 2 of plotting the relationship between a categorical predictor and the outcome variable.
+
+::: callout-warning
+To use `ggplot()` to display the fit line with categorical predictors, you have to add to the `geom_smooth()` function the `aes(group=1)` argument as per below.
+:::
+
+```{r}
+library(languageR)
+ggplot(lexdec,  aes(x = NativeLanguage, y = RT)) + geom_point(alpha=1/50) + geom_smooth(aes(group=1),method="lm")
+```
+
+When we fit a model, R applies **dummy coding** to represent the levels of a categorical factor.
+
+## Categorical predictor with two levels
+
+------------------------------------------------------------------------
+
+In case of a categorical predictor with two levels, R uses a single dummy variable with two values. In the example above:
+
+-   NativeLanguage = 0, represents "English"
+
+-   NativeLanguage = 1, represents "Other"
+
+If we fit a linear model, it will have the following expression:
+
+$$
+RT_i = b_0 + b_1 \times NativeLanguage_i
+$$
+
+When NativeLanguage = 0 (English), the model becomes $RT = b_0+b_1\times0 = b_0$. This implies that the *intercept* ($b_0$) will represent the value for English.
+
+When NativeLanguage =1 (Other), the model becomes $RT = b_0+b_1\times1=b_0+b_1$. That means that the *slope (*$b_1$) represents the ***change*** for the Other category with respect to English.
+
+Let's look at how this appears if we fit a model in R:
+
+```{r}
+m1<-lm(RT~1+NativeLanguage, data = lexdec)
+summary(m1)
+```
+
+What you see on the output above is that we have the *(Intercept)* value, as for continuous predictors, but the parameter for the predictor is now called `NativeLanguageOther`. That is to indicate that the dummy variable created has a value 1 for the "Other" level.
+
+So our model would be:
+
+$$RT = 6.32+0.16\times NativeLanguageOther$$ The fitted values for each of the levels of the variable would be:
+
+$$
+RT_{English} = 6.32 \\\\ RT_{Other}=6.32+0.16 = 6.48
+$$
+
+## Categorical predictor with more than two levels
+
+------------------------------------------------------------------------
+
+When the categorical predictor has more than two levels, R creates a number of dummy variables to encode them. The number of variables used in the number of levels - 1.
+
+Let's assume that `NativeLanguage` in the lexical decision experiment had three levels: English, Dutch, Other. R will use to Dummy Variables: `NativeLanguageDutch` and `NativeLanguageOther` .
+
+|             | NativeLanguageDutch | NativeLanguageOther |
+|-------------|---------------------|---------------------|
+| **English** | 0                   | 0                   |
+| **Dutch**   | 1                   | 0                   |
+| **Other**   | 0                   | 1                   |
+
+So a model would look as follows:
+
+$$
+RT = b_0 + b_1\times NativeLanguageDutch + b_2\times NativeLanguageOther
+$$
+
+We will treat these models with more than one predictor in the next lessons on ***Multiple Linear Regression***.

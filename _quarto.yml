@@ -60,6 +60,7 @@ book:
          - model_fit.qmd
          - model_comparison.qmd
          - model_assumptions.qmd
+         - model_categorical.qmd
       #   - using_libraries.qmd
       #   - tidyverse_intro.qmd
       #   - read_data.qmd
