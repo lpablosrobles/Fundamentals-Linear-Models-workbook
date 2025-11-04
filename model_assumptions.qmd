@@ -147,6 +147,7 @@ This can be done using the functions `ncvTest()` function in the `car()` package
 `ncvTest()` performs a *Non-constant Variance Score Test*. A significant test implies that the variance is not constant and the assumption is therefore not met. If we apply to the model for the data in Assignment 3, we see that the test is not significant (p = .42), implying the assumption is met.
 
 ```{r}
+library(car)
 ncvTest(mod)
 ```
 
