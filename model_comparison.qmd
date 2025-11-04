@@ -1,0 +1,111 @@
+---
+editor: visual
+---
+
+# Model selection {.unnumbered}
+
+Up to now we have created a model fitting data with one predictor, trying to assess whether it explains the data "better" than a simpler model simply based on the mean of the data.
+
+We can write the two models as:
+
+-   *Null* model, or intercept only:
+
+    $Y_i = b_0 + \epsilon_i$
+
+-   Linear model with predictor X:
+
+    $Y_i = b_0+b_1X_i+\epsilon_i$
+
+We can compare which models best fits the data by comparing the amount of residual variance explained by one or the other, as measured by the $R^2$ parameter. However, as explained in the previous section, the $R^2$ value tends to improve as we add more parameters to the model, while their explanation value is not improved.
+
+We will look in the following sections to three other methods: i) model comparison based on F-test, ii) based on Akaike's Information Criterion (AIC) and iii) based on Bayesian Information Criterion (BIC).
+
+## Model comparison based on F-test 
+
+------------------------------------------------------------------------
+
+One approach to check if adding elements to a model improve the model fit is to make a F-test of the difference in residual Sum of Squares.
+
+This can be done using the `anova()` function.
+
+As example, let's again look at the data from Assignment 3 and create two models, one with only the intercept (null model), and one with our predictor (`logFreqs`)
+
+```{r}
+#| warning: false
+library(tidyverse)
+
+dfVowel<-read.csv('./data/extended_vowel_duration.csv')
+
+null_model <- lm(Duration~1,data=dfVowel)
+mod <- lm(Duration~logFreqs, data = dfVowel)
+```
+
+We can compare if there is a significant difference between the two models residual sum of squares.
+
+```{r}
+anova(null_model, mod)
+```
+
+The output of the `anova()` function call, provides a F-test comparing the two models provided as input.
+
+What we can observed in this case is that the F test value is $F(1,598) = 499.31, p<.01$ indicating that there is a significant difference in the unexplained variance between both models. In other words, introducing the `logFreqs` predictor improved the model fit.
+
+::: callout-note
+Note that in this case, with a single predictor, the value of this test is the same as the F-value provided by `lm()` when fitting a model to data and explained in the previous section:
+
+```{r}
+summary(mod)
+```
+:::
+
+Although this might is a trivial example with a single predictor, as we will see in the next lessons, model comparison will be extensively used when evaluating the explanatory value of more than one variable in Multiple Regression models.
+
+## Akaike Information Criterion (AIC)
+
+------------------------------------------------------------------------
+
+The model comparison based on F-test using `anova()` allows us to evaluate if adding a predictor term changes the model fit.
+
+A mathematical indicator that can be used to evaluate a model performance is the Akaike Information Criterion (AIC).
+
+Details of the AIC mathematical basis are beyond the objectives of this course and are not required for its use in model selection, but the basic ideas are the following:
+
+-   AIC estimates the prediction error of a model
+
+-   A lower AIC indicates a model with less information loss, therefore a better fit to the data.
+
+-   AIC balances goodness of fit and simplicity of the model, avoiding overfitting.
+
+We will come back to overfitting in the following lessons on Multiple Linear Regression.
+
+To calculate the AIC value, we use the `AIC()` function (in capital letters). You can pass as arguments to the function more than one model, which will provide as output a table with the comparison of the values. In our running example:
+
+```{r}
+AIC(null_model,mod)
+```
+
+As you can see, the model with the `logFreqs` predictor has a lower AIC (6209) that the null model (6572) confirming it is better explaining the data.
+
+Note that the absolute value of AIC has no practical significance, but it is used always as a **relative** comparison between two or more models.
+
+**Criteria:** a change in AIC between models \>2 is considered significant (corresponds to \~35% probability that the lower AIC model improves the explanatory power of the model).
+
+## Bayesian Information Criterion (BIC)
+
+------------------------------------------------------------------------
+
+A similar indicator to AIC is the Bayesian Information Criterion (BIC). Again the details are beyond the scope of this course, but a few characteristics:
+
+-   BIC based on Bayesian framework
+
+-   Lower BIC indicates a better model fit
+
+-   Penalized strongly complex models, so it is more adequate to select the simplest possible model explaining the data.
+
+It is implemented in R by the `BIC()` function:
+
+```{r}
+BIC(null_model,mod)
+```
+
+Again in this case, the model with `logFreqs` predictor has a lower BIC than the null model.
