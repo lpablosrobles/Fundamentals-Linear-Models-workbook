@@ -1,5 +1,6 @@
 ---
-title: "Untitled"
+date: 18/11/2025
+editor: visual
 ---
 
 # Assignment #4 - Linear fitting with R II {.unnumbered}

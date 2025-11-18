@@ -23,7 +23,7 @@ Read through the assignment and load the libraries required.
 
 ```
 
-## Task #2: Open dataset 
+## Task #2: Open dataset
 
 For this exercise we will use a simulated dataset from a hypothetical experiment measuring the duration of vowels during production, generated following an example from @winter2019statistics.
 
@@ -37,7 +37,7 @@ The dataset is in the file `./data/extended_vowel_duration.csv` and contains dat
 
 The data contains the following columns:
 
--    **SubjectID:** ID of the participant from 1 to 30
+-   **SubjectID:** ID of the participant from 1 to 30
 
 -   **Word**: ID of the word from 1 to 20
 
@@ -54,7 +54,7 @@ Convert `SubjectID` and `Word` to factors
 
 ```
 
-##  Task #3: Plot dataset
+## Task #3: Plot dataset
 
 Create a scatter plot of the measured vowel duration as a function of word frequency, including a linear fit.
 
@@ -102,7 +102,7 @@ Confirm the significance of the calculated correlation coefficient $r$, using th
 
 Explain the result and write your justification. Describe what is your null hypothesis ($H_0$) and your alternate hypothesis ($H_a$) and your rationale to keep one or the other based on the result.
 
-## Task #5: Build a linear model based for vowel duration 
+## Task #5: Build a linear model based for vowel duration
 
 Generate a linear model for the vowel duration to fit the observed data.
 
