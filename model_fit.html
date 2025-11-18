@@ -348,6 +348,12 @@ window.Quarto = {
  <span class="menu-text">Simple Linear Model reporting</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment4_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Untitled</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -553,7 +559,10 @@ F = \frac{MS_{mod}}{MS_{res}}
 \]</span></p>
 <p>The mean standard error are calculated from the Sum-squared errors and the degrees of freedom. The degrees of freedom of a model is the number of predictors (<em>K</em>), while for the residuals, the degrees of freedom depends on the number of data points (<em>N</em>-K-1).</p>
 <p><span class="math display">\[
-MS_{mod} = \frac{SS_{mod}}{df_{mod}} = \frac{SS_{mod}}{K} \\\\ MS_{res} = \frac{SS_{res}}{df_{res}}=\frac{SS_{res}}{N-K-1}
+MS_{mod} = \frac{SS_{mod}}{df_{mod}} = \frac{SS_{mod}}{K}
+\]</span></p>
+<p><span class="math display">\[
+MS_{res} = \frac{SS_{res}}{df_{res}}=\frac{SS_{res}}{N-K-1}
 \]</span></p>
 <p>In our example, <span class="math inline">\(N=600, K=1\)</span>, and <span class="math inline">\(SS_{mod}\)</span> we can calculate:</p>
 <div class="cell">
