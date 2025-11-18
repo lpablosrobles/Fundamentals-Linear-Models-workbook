@@ -148,7 +148,9 @@ The table provides the two coefficients ($b_0$ : intercept) and ($b_1$: slope), 
     $$
 
 $$
-H_0:b_i=0\\
+H_0:b_i=0
+$$
+$$
 H_a:b_i \ne 0
 $$
 

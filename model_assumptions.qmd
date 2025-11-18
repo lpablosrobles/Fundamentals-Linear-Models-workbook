@@ -124,10 +124,6 @@ The model normality of residuals assumptions are met in this example data.
 In real world data, this is not always the case though. Looking instead to the ELP data, we see a clear deviation from the residuals' normality assumption.
 
 ```{r}
-library(languageR)
-
-model1<-lm(RT~Frequency, data=lexdec)
-
 hist(elp_model$residuals)
 plot(elp_model, which = 2)
 ```

@@ -1,0 +1,318 @@
+---
+title: "Untitled"
+---
+
+# Assignment #4 - Linear fitting with R II {.unnumbered}
+
+------------------------------------------------------------------------
+
+First we load the relevant packages
+
+```{r}
+#load packages
+library(tidyverse)
+library(car) #used for the model assumptions checking
+```
+
+## Task#1 - Load and explore dataset
+
+For the analysis in this assignment we use again a subset of the real data from a Self-Paced Reading study on Negative Polarity Items and complementizer agreement in Basque (see Pablos, L., & Saddy, D. (2009). Negative polarity items and complementizer agreement in Basque. Brain Talk, 61.)
+
+Load the data provided in the file `BasqueNPISampleEx5.Rda` :
+
+::: callout-caution
+In this exercise, the data was inadvertently saved using the `save()` function. Using `save()` and `load()` saves and loads all the variables in the environment. In this case it will load in the environment a variable called `basquenpi_Ex5`
+:::
+
+```{r}
+load('./data/BasqueNPISampleEx5.Rda')
+```
+
+The `basquenpi_Ex5` data frame contains only the data from Region Number 8 (complementizer position), which was considered the “critical region” for analysis in the experiment.
+
+The dataframe includes the following variables:
+
+-   **Item** – Factor identifying the sentence used (coded as a number from 1 to 72).
+-   **Subject** – Factor identifying the participant on the experiment (coded as a number from 1 to 32)
+-   **EmbeddedSubject** – Factor/predictor indicating the nature of the embedded subject with the following levels:
+    -   NP – for target sentences with a Noun Phrase as subject
+    -   NPI – for target sentences with a Negative Polarity Item as subject
+-   **Agreement Morphology** – Factor/predictor indicating the nature of agreement with the following levels:
+    -   Declarative – for target sentences that contained a complementizer with declarative morphology
+    -   Partitive – for target sentences that contained a complementizer with partitive morphology
+-   **Condition**: Factor/predictor indicating the condition of the experiment with four levels (“A”,”B”,”C”,”D”). This factor was introduced for the exercises in this assignment. The conditions correspond to combinations of the two factors before:</span>
+    -   A: NPI – Partitive
+    -   B: NPI – Declarative
+    -   C: NP – Partitive
+    -   D: NP-Declarative
+-   **Word** – Actual word presented
+-   **RegionNumber** – Region number for the analysis of the reading time ( = 8 in this experiment)
+-   **RWRT** – Raw (recorded) Reading Time of the word
+-   **RWZS** – Z-Score of the raw reading time
+-   **RSRT** – Calculated Residual Reading Time
+-   **RSZS** – Z-Score of the residual reading time
+-   **QPCT** – Measured response accuracy for each item with two possible values (100 or 0)
+
+## Task#2 - Linear Model RWRT
+
+------------------------------------------------------------------------
+
+-   **Tasks# 2.1** Plot the relationship between the Raw Reading Time `RWRT` and the `EmbeddedSubject` predictor.
+
+This can be done with `ggplot()` as described in the workgroup.
+
+```{r}
+basquenpi_Ex5 %>% ggplot(aes(x=EmbeddedSubject, y = RWRT)) + 
+  geom_point() + geom_smooth(aes(group=1),method="lm")
+```
+
+-   **Task# 2.2** Create a linear model of `RWRT` with `EmbeddedSubject` as predictor
+
+```{r}
+
+m1<-lm(RWRT~EmbeddedSubject, data=basquenpi_Ex5)
+summary(m1)
+confint(m1)
+```
+
+\- Write down the fitted model, describing the coefficients and fit quality
+
+The model that has been fit is:
+
+$$
+RWRT_i = 564.28+68.38\times EmbeddedSubject +\epsilon_i
+$$
+
+-   The coefficient for `EmbeddedSubject` is significant, meaning that it is different from 0 ($b=68.38,95\%CI[23.15,113.60], t(2.968), p=0.003$) and contributes to the model explanatory power.
+
+-   Also the F-statistics shows that the model is significantly better than a model where the slop coefficient is zero ( $F(766,1)=8.81,p=0.03$ ).
+
+-   Nevertheless the quality of the fit shows that only \~1% of the residuals variance is explained by the model ( $R^2=0.011$ ). This indicates that the current model does not have a high explanatory power.
+
+\- Provide the predicted values from the model for the two levels of the `EmbeddedSubject` factor.
+
+EmbeddedSubject = NP (reference value 0): corresponds to the intercept: 564.28 ms
+
+EmbeddedSubject = NPI (value 1): corresponds to the $b_0+b_1=564.28+68.38 = 632.66 ms$
+
+**Task# 2.3** Compare the model created in Task 2.2 with a *null model* with only an intercept , using `anova()`, `AIC()` and `BIC()`
+
+We create a null model first
+
+```{r}
+m0<-lm(RWRT~1, data=basquenpi_Ex5)
+summary(m0)
+```
+
+Let's compare now the models:
+
+```{r}
+anova(m0,m1)
+BIC(m0,m1)
+AIC(m0,m1)
+```
+
+\- Describe your observations.
+
+-   Looking at the results of `anova(m0,m1)` : The result shows that there is a significance difference between the two models ( $F(766,1)=8.81,p=0.03$ ). Note that this is the same result produced by `summary(m1)`, which produces a test against the null models. we will see that the use of `anova()` is more relevant when comparing models with different predictors between them for model selection.
+
+-   Using the AIC and BIC factors, we see that in both cases the values are lower for the m1 model, confirming that part of the residual variance can be explained by the `EmbeddedSubject` factor, although the difference is not too significant, particularly in BIC.
+
+$$
+AIC_{m_0}=11046.65> AIC_{m_1}=11039.87$$
+
+$$
+BIC_{m_0}=11055.94>BIC_{m_1}=11053.80
+$$
+
+::: callout-tip
+**Criteria for selection based on BIC**:
+
+There is not a universal criteria on how to select models based on BIC in terms of how big a difference between values matter. A commonly use criteria is the one proposed and justified in @raftery1995bayesian providing the strength of the evidence to select a model:
+
+-   BIC difference 0-2 : Weak evidence
+
+-   BIC difference 2-6: Positive evidence
+
+-   BIC difference 6-10: Strong evidence
+
+-   BIC difference \>10: Very strong evidence
+:::
+
+**Task# 2.4** Check the linear model assumptions
+
+We checked the assumptions two ways: looking at the residuals linearity and homoscedasticity
+
+```{r}
+plot(m1,which=2)
+ncvTest(m1)
+```
+
+As can be seen from the assumptions checking, there is a significant deviation from the assumptions both of normality and uniformity in the variance of residuals. These strongly suggest that the model can not explain the data adequately and that there is a a likely need for data transformation, since the relationship is not linear with the predictor.
+
+-   **Task# 2.5** Write a paragraph report of the analysis as per the guidelines and example and Workgroup 4
+
+    > *Report*:
+    >
+    > Simple linear regression was performed to assess the relationship between the *Reading Time* measured in milliseconds and the nature of the *Embedded Subject* (NPI or NP).
+    >
+    > The fitted regression model was:
+    >
+    > $$
+    > RWRT_i = 564.28+68.38\times EmbeddedSubject +\epsilon_i
+    > $$
+    >
+    > It was found that the nature of the Embedded Subject significantly affected the reading time ($\beta = 68.38$, $95\%CI[23.15,113.60]$, $t=2.97, p=0.003$). Nevertheless, the model explained only $1\%$ of the variance in the reading time ( $F(766,1)=8.81,p=0.03,R^2=0.011$) and the model assumption checking revealed significant deviations from both the residual normality and heteroscedasticity, so the analysis should be revised.
+
+## Task#3 (Extra credit): Linear model for RSRT
+
+------------------------------------------------------------------------
+
+**Task# 3.1** Repeat all the steps in Task# 2 for the Residual Reading Time `RSRT` instead of `RWRT`
+
+We start by creating the model for `RSRT`
+
+```{r}
+mRS0<-lm(RSRT~1,data=basquenpi_Ex5)
+mRS1<-lm(RSRT~EmbeddedSubject,data=basquenpi_Ex5)
+summary(mRS1)
+```
+
+The fitted model is:
+
+$$
+RSRT_i = -55.74+68.38\times EmbeddedSubject +\epsilon_i
+$$
+The fit can be visualized as:
+
+```{r}
+basquenpi_Ex5 %>% ggplot(aes(x=EmbeddedSubject, y = RSRT)) + 
+  geom_point() + geom_smooth(aes(group=1),method="lm")
+```
+
+Comparison with the null model:
+
+```{r}
+anova(mRS0,mRS1)
+BIC(mRS0,mRS1)
+AIC(mRS0,mRS1)
+```
+
+With again similar results as in the RWRT.
+
+We finally check the model assumptions:
+
+```{r}
+plot(mRS1,which=2)
+ncvTest(mRS1)
+```
+
+**Task#3.2** Describe your observations on the main differences in the results of the analysis between Tasks 2 and 3.
+
+-   The results are similar in both fits.
+
+-   In particular the slope coefficient (effect of predictor `RSRT` ) is the same as in the case of the `RWRT`.
+
+-   Considering that `RSRT` represents the corrected reading times accounting for the word duration, that correction did not improve the model fit neither improved the model validity as seen in the model assumptions checking.
+
+## Data filtering and transformation
+
+------------------------------------------------------------------------
+
+The exercise above was intended to show a typical case with data from a real experiment, where we often encounter issues with the data failing to meet model assumptions. It is very important to check them to avoid making false claims or drawing incorrect conclusions.
+
+Now, how will we deal with this sort of problems? I show below a normal process for data analysis.
+
+1.  **Data cleaning**: It is common to clean the data before performing the final analysis. A typical approach would be to remove outliers at a certain threshold. For example, we could remove the points a few standard deviations away from the mean. Note doing that we are implicitly assuming normality of the data, so it is good to check how many data points would be removed in that case. In the dataframe, we have a conveniently calculated parameter `RWZS` that provides for each data point the z-score, i.e., the number of standard deviations a value is away from the mean.
+
+    ::: callout-tip
+    This is automatically produced by the output of the Linger experimental software package, but you could easily reproduce it by a simple function call as `mutate(RWZS = (RWRT-mean(RWRT))/sd(RWRT))`.
+    :::
+
+Let's filter the data using a z-score limit of 3:
+
+```{r}
+dfFiltered <- basquenpi_Ex5 %>% filter(RWZS<3 & RWZS>-3)
+```
+
+We check of the amount of data filtered with this threshold:
+
+```{r}
+(nrow(basquenpi_Ex5)-nrow(dfFiltered))/nrow(basquenpi_Ex5)
+```
+
+We see that we have removed only around 2.2% of the data.
+
+2.   **Data transformation:** with the filtering above, we still have a significantly skewed data, which in most cases results in non-normality of the residuals.
+
+```{r}
+dfFiltered %>% ggplot(aes(x=RWRT)) +
+  geom_histogram(color="#e9ecef", bins=40) +
+  theme_classic()
+```
+
+In these cases, we 'transform' the data to try to normalize the distribution. Reading and reaction times are normally right skewed, and a typical transformation is to use an **inverse transformation**: $1/RT$.
+
+Let's see what is the distribution in our case of $1/RWRT$.
+
+```{r}
+dfFiltered %>% ggplot(aes(x=1/RWRT)) +
+  geom_histogram(color="#e9ecef", bins=40) +
+  theme_classic()
+```
+
+It is more normal without the skew observed in the raw data.
+
+Let's fit a model on the inverse of the reading time as filtered above:
+
+```{r}
+mTransformed<-lm(1/RWRT~EmbeddedSubject,data=dfFiltered)
+summary(mTransformed)
+confint(mTransformed)
+```
+
+We still see a significant effect of the `EmbeddedSubject` factor, with the model performing better than the null model (as per the F-statistic above).
+
+```{r}
+dfFiltered %>% ggplot(aes(x=EmbeddedSubject, y = 1/RWRT)) + 
+  geom_point() + geom_smooth(aes(group=1),method="lm")
+```
+
+Let's now check the model assumptions:
+
+```{r}
+plot(mTransformed,which=2)
+ncvTest(mTransformed)
+```
+
+As you can see, now the normality of residuals is maintained as well as the homogeneity of variance. We can use this model to make claims on our data and report it.
+
+$$
+1/RWRT_i = (2.06\times10^{-3})-(1.81\times10^{-4}) \times EmbeddedSubject +\epsilon_i
+$$
+
+The interpretation of the coefficients when using a transformation can not be done directly. You can calculate the predicted value in each case and transform it back to report. For example the value when `EmbeddedSubject=NP` would be:
+
+$1/RWRT_{NP} = (2.06\times10^{-3})-(1.81\times10^{-4})\times0=2.06\times10^{-3}\implies RWRT_{NP} = 1/(2.06\times10^{-3})=485.44ms$
+
+Note that we resolved the issue of the model validity, but still, the model created only explains $~2\%$ of the variance in the data, which suggest that other explanatory predictors are likely to be needed, or that the random part of the data is dominant (no effect of the manipulation).
+
+A complete reporting for this analysis would be
+
+> *Report*:
+>
+> Simple linear regression was performed to assess the relationship between the *Reading Time* measured in milliseconds and the nature of the *Embedded Subject* (NPI or NP).
+>
+> The fitted regression model was:
+>
+> $$
+> RWRT_i = 564.28+68.38\times EmbeddedSubject +\epsilon_i
+> $$
+>
+> Model assumption checking revealed significant deviations from both the residual normality and heteroscedasticity, so an inverse transformation was applied to the data and a new regression analysis performed with the following resulting model fit:
+>
+> $$
+> 1/RWRT_i = (2.06\times10^{-3})-(1.81\times10^{-4}) \times EmbeddedSubject +\epsilon_i
+> $$
+>
+> It was found that the nature of the Embedded Subject significantly affected the reading time at the complementizer position ( $\beta=-1.81\times10^{-4},95\%CI[-2.68\times10^{-4},-9.42\times10^{-5}],p<.001$). Nevertheless, the model explained only $2.18\%$ of the variance in the reading time ( $F(749,1)=16.74,p<.001,R^2=0.022$).
