@@ -1,8 +1,24 @@
 ---
 title: "Workgroup 5: Multiple Regression with R"
-author: "Leticia Pablos Robles"
+date: 24/11/2025
 ---
 
-::: callout-note
-## Workgroup 5 material to be published in the coming weeks
-:::
+In this session we will examine how to execute and interpret multiple linear regression models.
+
+As described in the lecture, multiple linera regression allows us to create models to predict a continuous outcome using **two or more predictors (categorical or continuous)** or in the case of a **single categorical predictor with more** **than two levels.**
+
+We will look at examples of models with a combination of categorical and continuous predictor and the interpretation of its coefficients in each of the cases.
+
+# 🧠 Learning Objectives {.unnumbered}
+
+By the end of this lesson, you will be able to:
+
+-   Fit and interpret a multiple linear model with categorical and continuous predictors using `lm()` .
+
+-   Understand concept of main effects and marginal means.
+
+-   Visualize models with several predictors.
+
+-   Perform post-hoc tests to evaluate the effects.
+
+-   Report multiple linear model results.
