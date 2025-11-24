@@ -1,0 +1,32 @@
+---
+editor: "visual"
+date: 24/11/2025
+---
+
+# Modeling interactions in linear models {.unnumbered}
+
+### Interpretation
+
+-    `freq:classverb` = difference in the slope of frequency for verbs vs. nouns.
+
+    If significant, it means the slope of frequency depends on lexical class.
+
+## Visualising the Interaction
+
+We can plot predicted values to make interpretation clearer.
+
+Writing
+
+newdat \<- expand_grid(\
+freq = seq(min(dat\$freq), max(dat\$freq), length.out = 30),\
+class = levels(dat\$class)\
+) %\>%\
+mutate(pred = predict(m3, newdata = .))
+
+ggplot(dat, aes(freq, rt, color = class)) +\
+geom_point(alpha = 0.4) +\
+geom_line(data = newdat, aes(y = pred), size = 1.2) +\
+labs(title = "Interaction Between Frequency and Class",\
+y = "Predicted Reaction Time (ms)")
+
+Text

@@ -1,0 +1,12 @@
+---
+editor: "visual"
+date: 24/11/2025
+---
+
+# Post-hoc testing based on Estimated Marginal Means
+
+------------------------------------------------------------------------
+
+In the previous example, our linear model `RWRT ~ Condition` provided us the intercept (average value of `RWRT` in conditionA), and the relative effect of conditions B, C and D with respect to A. We also computed based on the model the **predicted** value of the average on those conditions, but could no determine easily the comparison between all the conditions.
+
+Traditionally we refer to **post-hoc testing** as an statistical significance test to be performed to determine which specific levels have significant differences between their means. We can performed those tests based on the empirical data itself, or based on the predicted values from the model. **Estimated marginal means** **(EMM)** (see or least-squares means are derived by using a model to make predictions over averaged over one or more of the predictors. The main benefit of performing **post-hoc tests based on EMMs** is that the influence of other factors in the model is considered (accounting for covariates)

@@ -1,0 +1,142 @@
+---
+editor: "visual"
+date: 24/11/2025
+---
+
+# Multiple Linear Regression with Categorical predictor with more than two levels {.unnumbered}
+
+We will use the following packages:
+
+```{r}
+library(tidyverse)
+library(broom)
+library(languageR) 
+```
+
+## Model fit and coefficient interpretation
+
+------------------------------------------------------------------------
+
+As described in the lecture, when R fits a model with a categorical variable with more than one level, it creates **dummy variables** to represent the different value combinations.
+
+Let's look at an example based on the `basquenpi_Ex5` dataframe used in Assignment#4, filtering outlier data points with RWRT\>2000 ms
+
+```{r}
+load('./data/BasqueNPISampleEx5.Rda')
+dfFiltered<-basquenpi_Ex5 %>% filter(RWRT<2000)
+```
+
+In this case, we will use the `Condition` factor that encodes the different experimental manipulations with four levels: A, B, C, D
+
+```{r}
+str(dfFiltered)
+```
+
+Let's visualize the dataset using `ggplot` and the `geom_boxplot()` function this time. We also filter outliers above 2500ms:
+
+```{r}
+dfFiltered %>% ggplot(aes(x=Condition, y=RWRT)) + 
+  geom_boxplot() +theme_classic()
+```
+
+The graph shows an apparent difference in the medians of the different conditions. To assess if this difference is significant, we fit a model for `RWRT` as a function of `Condition`:
+
+::: callout-important
+For the example we are ignoring by now the model assumptions. For the dataset in reality we saw in assignment 4 that an inverse data transformation (1/RWRT) is required, but to illustrate the interpretation of the coefficients we will run the example without transforming it.
+:::
+
+```{r}
+m1<-lm(RWRT~1+Condition, data=dfFiltered)
+summary(m1)
+```
+
+What can be observed from the output?
+
+-   Most of the elements are the same as in the simple linear models we saw before, with the exception of additional coefficients. R has created a model with the following **dummy variables**:
+
+$$
+RWRT = b_o+b_1 \times ConditionB+b_2\times ConditionC+b_3\times ConditionD = 626.39-26.69\times ConditionB-29.86\times ConditionC-111.24\times ConditionD
+$$
+
+his allows to encode the Condition levels as follows:
+
+|               | ConditionB | ConditionC | ConditionD |
+|---------------|:----------:|:----------:|:----------:|
+| Condition = A |     0      |     0      |     0      |
+| Condition = B |     1      |     0      |     0      |
+| Condition = C |     0      |     1      |     0      |
+| Condition = D |     0      |     0      |     1      |
+
+So what is the meaning for each of the coefficients?
+
+-   $b_0$: the intercept, corresponds to the **predicted** value when Condition = A: 626.39 ms
+
+-   $b_1$: corresponds to the change of Condition B [with respect to the baseline condition (Condition A)]{.underline} when the other variables are 0, so the **predicted** value for Condition = B is: $626.39-26.69=599.7$
+
+-   $b_2$: corresponds to the change of Condition C [with respect to the baseline condition (Condition A)]{.underline} when the other variables are 0, so the **predicted** value for Condition = C is: $626.39-29.86=596.53$
+
+-   $b_3$: corresponds to the change of Condition D [with respect to the baseline condition (Condition A)]{.underline} when the other variables are 0, so the **predicted** value for Condition = D is: $626.39-111.24=515.15$
+
+What is the meaning of the statistic and p-value?: As in the linear model, the t-statistic presented for each coefficient is:
+
+$$
+t_{b_i} = \frac{b_i}{SE_{b_i}}
+$$
+
+And it tests the hypothesis $H_0: b_i\ne0$. From the output, we see that only `ConditionD` has a significant test (p\<0.001), implying that only that coefficient is significantly different than 0.
+
+That is clearly visible If we show the confident interval for all coefficients, where only `ConditionD` and the intercept show values not including 0.
+
+```{r}
+confint(m1)
+```
+
+So based on the above output, we can conclude the following (pending model assumptions checking)
+
+-   There is a relationship between **RWRT** and **Condition.**
+
+-   Condition = D is significantly different than the reference condition (Condition = A).
+
+-   Conditions B and C do not significantly differ from the reference condition A.
+
+-   We cannot say whether there is a difference between Conditions B, C and D.
+
+As in the case of categorical predictors with two levels, R considers the first level of the categorical value as the reference.
+
+## Contrast coding in R 
+
+------------------------------------------------------------------------
+
+R uses **treatment (dummy) coding** by default:
+
+-    The *first level* alphabetically is the **reference**.
+
+-   Coefficients for other levels represent differences from the reference.
+
+To check the coding we can use the `contrasts` functions, that reproduces the table we showed above.
+
+```{r}
+contrasts(dfFiltered$Condition)
+```
+
+To change the reference level we can use `relevel` . Let's say that we want to make Condition = B our reference:
+
+```{r}
+dfFiltered2 <- dfFiltered %>% mutate(Condition = relevel(Condition, "B"))
+contrasts(dfFiltered2$Condition)
+```
+
+If now we fit the same model on this dataset, the coefficients will be different and so will be the dummy variables encoded:
+
+```{r}
+m2<-lm(RWRT~1+Condition, data=dfFiltered2)
+summary(m2)
+```
+
+As you can observe the coefficients values have changed, and also our interpretation. Not we can say that Condition = D is significantly different from Condition = B (reference now).
+
+The above are all examples of **dummy coding**, but there are several contrasts schemes that can be used to yield relevant coefficients values with comparisons of interest. The approach is complex and requires to be careful for adequate interpretation, and it is beyond the scope of this course. If you want to explore further look at the following link:
+
+[UCLA - Advance Research Computing: R Library Contrast Coding Systems for categorical variables](https://stats.oarc.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/)
+
+Instead, to examine the difference between the different levels of a predictor , we will look at **post-hoc tests based on marginal means**.
