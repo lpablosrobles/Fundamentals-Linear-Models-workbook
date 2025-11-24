@@ -7,9 +7,11 @@ date: 24/11/2025
 
 ### Interpretation
 
--    `freq:classverb` = difference in the slope of frequency for verbs vs. nouns.
+-   `freq:classverb` = difference in the slope of frequency for verbs vs. nouns.
 
-    If significant, it means the slope of frequency depends on lexical class.
+```         
+If significant, it means the slope of frequency depends on lexical class.
+```
 
 ## Visualising the Interaction
 

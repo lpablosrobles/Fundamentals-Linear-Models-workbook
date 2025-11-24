@@ -71,7 +71,7 @@ So what is the meaning for each of the coefficients?
 
 -   $b_0$: the intercept, corresponds to the **predicted** value when Condition = A: 626.39 ms
 
--   $b_1$: corresponds to the change of Condition B [with respect to the baseline condition (Condition A)]{.underline} when the other variables are 0, so the **predicted** value for Condition = B is: $626.39-26.69=599.7$
+-   $b_1$: corresponds to the change of Condition B [with respect to the baseline condition (Condition A)]{.underline} when the other variables are 0, so the **predicted** value for Condition = B is: $626.39-29.69=596.7$
 
 -   $b_2$: corresponds to the change of Condition C [with respect to the baseline condition (Condition A)]{.underline} when the other variables are 0, so the **predicted** value for Condition = C is: $626.39-29.86=596.53$
 
@@ -103,13 +103,13 @@ So based on the above output, we can conclude the following (pending model assum
 
 As in the case of categorical predictors with two levels, R considers the first level of the categorical value as the reference.
 
-## Contrast coding in R 
+## Contrast coding in R
 
 ------------------------------------------------------------------------
 
 R uses **treatment (dummy) coding** by default:
 
--    The *first level* alphabetically is the **reference**.
+-   The *first level* alphabetically is the **reference**.
 
 -   Coefficients for other levels represent differences from the reference.
 

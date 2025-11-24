@@ -68,8 +68,10 @@ book:
       #   - read_data.qmd
     
     - part: Workgroup5.qmd
-      # chapters: 
-      #   - intro_to_r.qmd
+      chapters: 
+         - model_multiple.qmd
+         - model_posthoc.qmd
+         - model_multiple2.qmd
       #   - using_libraries.qmd
       #   - tidyverse_intro.qmd
       #   - read_data.qmd
