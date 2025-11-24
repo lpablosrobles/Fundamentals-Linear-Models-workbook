@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
+<meta name="dcterms.date" content="2026-12-11">
 
-<title>Simple Linear Model reporting – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Multiple Linear Regression with several predictors – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +57,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -66,8 +87,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./assignment4_key.html" rel="next">
-<link href="./model_categorical.html" rel="prev">
+<link href="./Workgroup6.html" rel="next">
+<link href="./model_posthoc.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -148,7 +169,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_reporting1.html">Simple Linear Model reporting</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup5.html">Workgroup 5: Multiple Regression with R</a></li><li class="breadcrumb-item"><a href="./model_multiple2.html">Multiple Linear Regression with several predictors</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -344,7 +365,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_reporting1.html" class="sidebar-item-text sidebar-link active">
+  <a href="./model_reporting1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Simple Linear Model reporting</span></a>
   </div>
 </li>
@@ -379,7 +400,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_multiple2.html" class="sidebar-item-text sidebar-link">
+  <a href="./model_multiple2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Multiple Linear Regression with several predictors</span></a>
   </div>
 </li>
@@ -400,15 +421,27 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#multiple-linear-regression-with-continuous-predictors" id="toc-multiple-linear-regression-with-continuous-predictors" class="nav-link active" data-scroll-target="#multiple-linear-regression-with-continuous-predictors">Multiple Linear Regression with continuous predictors</a>
+  <ul class="collapse">
+  <li><a href="#model-visualization-with-two-continuous-predictors" id="toc-model-visualization-with-two-continuous-predictors" class="nav-link" data-scroll-target="#model-visualization-with-two-continuous-predictors">Model visualization with two continuous predictors</a></li>
+  <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection">Model Selection</a></li>
+  <li><a href="#effect-size-and-standardized-coefficients" id="toc-effect-size-and-standardized-coefficients" class="nav-link" data-scroll-target="#effect-size-and-standardized-coefficients">Effect size and standardized coefficients</a></li>
+  </ul></li>
+  <li><a href="#multiple-linear-regression-with-continuous-and-categorical-predictors" id="toc-multiple-linear-regression-with-continuous-and-categorical-predictors" class="nav-link" data-scroll-target="#multiple-linear-regression-with-continuous-and-categorical-predictors">Multiple Linear Regression with continuous and categorical predictors</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_reporting1.html">Simple Linear Model reporting</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup5.html">Workgroup 5: Multiple Regression with R</a></li><li class="breadcrumb-item"><a href="./model_multiple2.html">Multiple Linear Regression with several predictors</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Simple Linear Model reporting</h1>
+<h1 class="title">Multiple Linear Regression with several predictors</h1>
 </div>
 
 
@@ -416,6 +449,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 11, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -425,61 +464,210 @@ window.Quarto = {
 </header>
 
 
-<p>A report of the results of linear models should include the following elements:</p>
-<ul>
-<li><p><strong>Model description</strong></p>
-<ul>
-<li><p>Descriptive sentence on the modeled data and predictor: <em>A</em> <em>simple linear regression analysis was used to test if [Outcome Variable] significantly predicted [Predictor Variable]</em></p></li>
-<li><p>Model summary overall fit including <em>R2</em> and <em>F-test</em> results. <em>The model explained …% of the variance in [Outcome variable], F(df1, df2)=…, p&lt;…, R2 =…“</em></p></li>
-</ul></li>
-<li><p><strong>Individual predictors:</strong></p>
-<ul>
-<li><p>For each predictor report: coefficient value (also called <em>unstandardized beta</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>), the Confidence Interval, t-statistic and p-value.</p>
-<p>e.g.: “<em>It was found that</em> <em>[Predictor variable] significantly predicted [response variable] (</em><span class="math inline">\(\beta=..., CI=[..,..],t=...,p=...)\)</span>.</p></li>
-</ul></li>
-<li><p><strong>Assumptions check:</strong> explain how you checked assumptions, including if any data transformation was required, etc.</p></li>
-</ul>
-<p>Let’s look at an example based again on the example on assignment 3:</p>
+<p>We look in the next sections at examples and outputs of different combinations of models with more than one predictor, still without considering interactions between them (interactions we will cover in Lecture 6 and Workgroup 6).</p>
+<section id="multiple-linear-regression-with-continuous-predictors" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-linear-regression-with-continuous-predictors">Multiple Linear Regression with continuous predictors</h2>
+<hr>
+<p>To illustrate the examples, let’s use the data file from <span class="citation" data-cites="winter2019statistics">Winter (<a href="references.html#ref-winter2019statistics" role="doc-biblioref">2019</a>)</span> “ELP_full_length_frequency.csv”</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dfVowel<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">'./data/extended_vowel_duration.csv'</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>null_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Duration<span class="sc">~</span><span class="dv">1</span>,<span class="at">data=</span>dfVowel)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Duration<span class="sc">~</span>logFreqs, <span class="at">data =</span> dfVowel)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dfELP<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">'./data/ELP_full_length_frequency.csv'</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dfELP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Word Log10Freq length     RT
+1 zenith  1.342423      5 753.69
+2 zephyr  1.698970      4 874.58
+3 zeroed  1.301030      5 929.23
+4  zeros  1.698970      5 625.09
+5   zest  1.544068      4 658.82
+6 zigzag  1.361728      6 785.26</code></pre>
+</div>
+</div>
+<p>We want to check if the Reading Time (<code>RT</code>) can be predicted based on the word length <strong>and</strong> word frequency, so we fit a model with two predictors:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>m_ex1<span class="ot">&lt;-</span><span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Log10Freq<span class="sc">+</span>length,<span class="at">data=</span>dfELP)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_ex1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = Duration ~ logFreqs, data = dfVowel)
+lm(formula = RT ~ 1 + Log10Freq + length, data = dfELP)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--122.464  -27.642    0.916   29.627  127.628 
+    Min      1Q  Median      3Q     Max 
+-410.24  -60.52   -9.71   48.01  705.53 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 307.5055     2.2525  136.52   &lt;2e-16 ***
-logFreqs     -5.6397     0.2524  -22.34   &lt;2e-16 ***
+(Intercept) 748.4261     2.1761  343.92   &lt;2e-16 ***
+Log10Freq   -68.0225     0.5939 -114.54   &lt;2e-16 ***
+length       19.4583     0.2377   81.86   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 42.63 on 598 degrees of freedom
-Multiple R-squared:  0.455, Adjusted R-squared:  0.4541 
-F-statistic: 499.3 on 1 and 598 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 89.09 on 33072 degrees of freedom
+Multiple R-squared:  0.4873,    Adjusted R-squared:  0.4873 
+F-statistic: 1.572e+04 on 2 and 33072 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>The result contains all the information required, with the exception of the Confidence Interval for the logFreqs coefficient.</p>
-<p>This can be conveniently extracted using the function <code>confint()</code> that takes a model as a parameter.</p>
+<p>The fitted model is:</p>
+<p><span class="math display">\[
+RT =748.43-68.02\times Log10Freq+19.46\times length
+\]</span></p>
+<p>Let’s check what every coefficient means:</p>
+<ul>
+<li><p><span class="math inline">\(b_0\)</span> - intercept: corresponds to the reading time when considering a word of 0 length and 0 frequency. As discussed in previous workgroups, the intercept in this cases does not have a real meaning as we can’t use the model to interpolate beyond the input data range. The intercept is in this case a mathematical construct of the fitted line.</p></li>
+<li><p><span class="math inline">\(b_1\)</span> - slope coefficient for <em>Log10Freq</em>. Represents the change in RT for a change of one unit in Log10Freq <strong>at a constant value of <em>length</em></strong>.</p></li>
+<li><p><span class="math inline">\(b_2\)</span> - slope coefficient for <em>length</em>. Represents the change in RT for a change of one unit in word length <strong>at a constant value of <em>Log10Freq</em></strong>.</p></li>
+</ul>
+<p>We can use the model to <strong>predict</strong> values for a particular set of values. E.g., if we had a word of length = 4, with a log Frequency value of Log10Freq=1.6, the predicted RT would be:</p>
+<p><span class="math display">\[RT=748.43-68.02\times1.6+19.46\times 4=717.44\]</span></p>
+<p>The function <code>predict</code> can be used to predict values based on a model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>new <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Log10Freq=</span><span class="fu">c</span>(<span class="fl">1.6</span>),<span class="at">length=</span><span class="fu">c</span>(<span class="dv">4</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m_ex1,new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                2.5 %     97.5 %
-(Intercept) 303.08169 311.929267
-logFreqs     -6.13534  -5.143996</code></pre>
+<pre><code>       1 
+717.4233 </code></pre>
 </div>
 </div>
-<p>The reporting of the analysis could be written as follows:</p>
+<p>Which provides the same value<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>The model statistics are as per previous examples, where <span class="math inline">\(R^2_{adj} = 0.487\)</span>, indicates the model explains ~48% of the variance in the data, and the statistic <span class="math inline">\(F(2,33072)=15720,p&lt;.001\)</span> indicates that the model is significant compared with a null model with intercept only.</p>
+<section id="model-visualization-with-two-continuous-predictors" class="level3">
+<h3 class="anchored" data-anchor-id="model-visualization-with-two-continuous-predictors">Model visualization with two continuous predictors</h3>
+<p>A model as the one build without any interaction, is to be interpreted as follows:</p>
+<ul>
+<li><p>Given a certain value of one of the continuous predictors, we will have a curve predicting the change with the other predictor. E.g. if we consider words of lengths 2, 5 and 10, the model specifies the following fits:</p>
+<p><span class="math display">\[
+RT_{length=2}=748.43-68.02\times Log10Freq+19.46\times2=787.35-68.02\times Log10Freq
+\]</span></p></li>
+</ul>
+<p><span class="math display">\[
+RT_{length=5}=748.43-68.02\times Log10Freq+19.46\times5=845.73-68.02\times Log10Freq
+\]</span></p>
+<p><span class="math display">\[
+RT_{length=10} = 748.43-68.02\times Log10Freq+19.46\times10 =943.02-68.02\times Log10Freq
+\]</span></p>
+<p>All the models above are lines with the same negative slope and with different intercepts.</p>
+<p>This can not be easily visualized using <code>ggplot()</code> , but there is a function in the package <code>ggiraphExtra</code> developed to do that. To try it, install the package first as:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggiraphExtra"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then use the <code>ggPredict</code> function to plot the model with two variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggiraphExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggiraphExtra' was built under R version 4.5.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(m_ex1,<span class="at">terms=</span><span class="fu">c</span>(<span class="st">"length"</span>,<span class="st">"Log10Freq"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
+ℹ Please use tidy evaluation idioms with `aes()`.
+ℹ See also `vignette("ggplot2-in-packages")` for more information.
+ℹ The deprecated feature was likely used in the ggiraphExtra package.
+  Please report the issue to the authors.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="model_multiple2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As you can see, the plot represents the model at a number of values of <code>length</code>.</p>
+</section>
+<section id="model-selection" class="level3">
+<h3 class="anchored" data-anchor-id="model-selection">Model Selection</h3>
+<p>The coefficients statistiscs shows that both coefficients are significantly different from 0, indicating that the RT depends on both logarithmically transformed frequency and length.</p>
+<p>Let’s compare the model with simple linear regression models with only one of the predictors:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>m_1<span class="ot">&lt;-</span><span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Log10Freq, <span class="at">data=</span>dfELP)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>m_2<span class="ot">&lt;-</span><span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>length,<span class="at">data=</span>dfELP)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m_1,m_ex1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: RT ~ 1 + Log10Freq
+Model 2: RT ~ 1 + Log10Freq + length
+  Res.Df       RSS Df Sum of Sq      F    Pr(&gt;F)    
+1  33073 315655743                                  
+2  33072 262475389  1  53180354 6700.7 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m_2,m_ex1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: RT ~ 1 + length
+Model 2: RT ~ 1 + Log10Freq + length
+  Res.Df       RSS Df Sum of Sq     F    Pr(&gt;F)    
+1  33073 366604248                                 
+2  33072 262475389  1 104128859 13120 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(m_1,m_2,m_ex1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      df      AIC
+m_1    3 396955.8
+m_2    3 401904.9
+m_ex1  4 390855.7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BIC</span>(m_1,m_2,m_ex1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      df      BIC
+m_1    3 396981.1
+m_2    3 401930.1
+m_ex1  4 390889.3</code></pre>
+</div>
+</div>
+<p>As we can see from the <code>anova()</code>, <code>BIC()</code> and <code>AIC()</code> results, the model with both predictors is preferable compared with with the simple linear models.</p>
+</section>
+<section id="effect-size-and-standardized-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="effect-size-and-standardized-coefficients">Effect size and standardized coefficients</h3>
+<p>One issue with the fitting of model with several predictors on different scales, is that is not possible to compare the relative effect of each of them. What affects more the Reading Time? the word frequency or the length? Frequency and length are variables in different scales and cannot be directly compared.</p>
+<p>To do that, we can use the concept of <strong>standardized coefficients</strong>. These coefficients are calculated by fitting a model to the standardized transformed predictors. For each predictor we calculate the z-score, by removing the mean and dividing by the standard deviation of the predictor. We do the same for the dependent variable.</p>
+<p>This can be done by the <code>scale()</code> function. If we do a fit as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>m_std<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="fu">scale</span>(RT)<span class="sc">~</span><span class="fu">scale</span>(Log10Freq)<span class="sc">+</span><span class="fu">scale</span>(length),<span class="at">data=</span>dfELP)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_std)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = scale(RT) ~ scale(Log10Freq) + scale(length), data = dfELP)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.2974 -0.4864 -0.0781  0.3859  5.6709 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       1.135e-15  3.937e-03    0.00        1    
+scale(Log10Freq) -4.873e-01  4.254e-03 -114.54   &lt;2e-16 ***
+scale(length)     3.482e-01  4.254e-03   81.86   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.7161 on 33072 degrees of freedom
+Multiple R-squared:  0.4873,    Adjusted R-squared:  0.4873 
+F-statistic: 1.572e+04 on 2 and 33072 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(m_std)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                        2.5 %       97.5 %
+(Intercept)      -0.007717201  0.007717201
+scale(Log10Freq) -0.495642949 -0.478965763
+scale(length)     0.339910785  0.356587971</code></pre>
+</div>
+</div>
+<p>As you can see, the F-statistic is the same, but now the coefficients have a different interpretation:</p>
+<ul>
+<li><p><span class="math inline">\(\beta_0\)</span> - The intercept is 0, as the output has been scaled to have zero mean.</p></li>
+<li><p><span class="math inline">\(\beta_1\)</span> - The slope for <strong><em>Log10Freq</em></strong> is -0.487, which indicates that a change in 1-standard deviation of <strong><em>Log10Freq</em></strong> results in a negative change of 0.487 standard deviations in RT, for a fixed length.</p></li>
+<li><p><span class="math inline">\(\beta_2\)</span> - The slope for <strong><em>length</em></strong> is 0.348, which indicates that a change in 1-standard deviation of <strong><em>length</em></strong> results in a positive change of 0.348 standard deviations in RT.</p></li>
+</ul>
+<p>Now we can directly compare as they are all expressed in standard deviations. The effect size of <em>Log10Freq</em> is stronger than that of <em>length</em>, since it results in a larger change in RT.</p>
+<p>Standardized coefficients are also called <strong>beta coefficients</strong> and make sense with continuous variables, where a change of 1-standard deviation has a meaning. This is obviously not the case with categorical predictors.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -490,20 +678,90 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Simple linear regression was performed to assess the relationship between <em>vowel production Duration</em> and the logarithmically transformed <em>frequency</em> of the word produced. Assumption checks revealed no violations in normality and homoscedasticity, as indicated by the residual plots and non significant results from the Shapiro-Wilk test.</p>
-<p>After transformation, the fitted regression model was:</p>
-<p><span class="math display">\[
-Duration = b_0+b_1 \times Frequency
-\]</span></p>
-<p>The model explained <span class="math inline">\(55\%\)</span> of the variance in vowel duration ( <span class="math inline">\(F(1,598)=449.30\)</span> <span class="math inline">\(,p&lt;.001,R^2=0.45\)</span>). It was found that the logarithmic transformed word Frequency significantly predicted the vowel duration (<span class="math inline">\(\beta = -5.64\)</span>, <span class="math inline">\(95\%CI[-6.13,-5.14]\)</span>, <span class="math inline">\(t=136.52, p&lt;.001\)</span>).</p>
+<p><strong>Reporting of standardized coefficients</strong></p>
+<p>When calculating standardized coefficients report is as per previous examples, but use the notation.</p>
+<p>Ex: Reading time exhibited a significant relationship with both the logarithmically transformed Frequency (<span class="math inline">\(\beta=-0.49,t(33072)=-114.54,95\%CI[-0.496,-0.479], p&lt;.001\)</span>) and word length (<span class="math inline">\(\beta=0.35,t(33072)=81.86,95\%CI[0.340,0.357], p&lt;.001\)</span>).</p>
 </div>
 </div>
+</section>
+</section>
+<section id="multiple-linear-regression-with-continuous-and-categorical-predictors" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-linear-regression-with-continuous-and-categorical-predictors">Multiple Linear Regression with continuous and categorical predictors</h2>
+<hr>
+<p>All the principles discussed in the sections below apply in the case of a continuous and a categorical predictor.</p>
+<p>In case of a categorical predictor, often the concept of <strong>discriminator predictor</strong> is used.</p>
+<p>Let’s look at an example with the <code>lexdec</code> dataframe in the <code>languageR</code> package and fit a model on the Reading Time as a function of <code>Frequency</code> and <code>NativeLanguage</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(languageR)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"lexdec"</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>m_ex2<span class="ot">&lt;-</span><span class="fu">lm</span>(RT<span class="sc">~</span>Frequency<span class="sc">+</span>NativeLanguage, <span class="at">data=</span>lexdec)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_ex2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = RT ~ Frequency + NativeLanguage, data = lexdec)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.64311 -0.14750 -0.03046  0.11347  1.05578 
+
+Coefficients:
+                     Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)          6.521998   0.021594  302.03   &lt;2e-16 ***
+Frequency           -0.042872   0.004283  -10.01   &lt;2e-16 ***
+NativeLanguageOther  0.155821   0.011032   14.12   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2224 on 1656 degrees of freedom
+Multiple R-squared:  0.1532,    Adjusted R-squared:  0.1522 
+F-statistic: 149.8 on 2 and 1656 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(m_ex2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                         2.5 %      97.5 %
+(Intercept)          6.4796443  6.56435160
+Frequency           -0.0512729 -0.03447073
+NativeLanguageOther  0.1341827  0.17745967</code></pre>
+</div>
+</div>
+<p>The fitted model is:</p>
+<p><span class="math display">\[ RT =6.52-0.043\times Frequency+0.156\times NativeLanguageOther\]</span></p>
+<p>Let’s check what every coefficient means:</p>
+<ul>
+<li><p><span class="math inline">\(b_0\)</span> - intercept: corresponds to the reading time when considering an <strong><em>English</em></strong> <strong><em>native</em></strong> of 0 frequency.</p></li>
+<li><p><span class="math inline">\(b_1\)</span> - slope coefficient for <em>Frequency</em>. Represents the change in RT for a change of one unit in Log10Freq <strong>for an English native</strong>.</p></li>
+<li><p><span class="math inline">\(b_2\)</span> - slope coefficient for <em>length</em>. Represents the change in RT for <strong>non-English native languages</strong> <strong>at a constant value of <em>Frequency</em></strong>.</p></li>
+</ul>
+<p>The interpretation is easier if we plot it again using <code>ggPredict</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(m_ex2,<span class="at">terms=</span><span class="fu">c</span>(<span class="st">"Frequency"</span>,<span class="st">"NativeLanguage"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="model_multiple2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>What you can see from the output is that there are two curves, one for each level of the <code>NativeLanguage</code> factor, so we can consider that the model represents two curves with same slope and two different intercepts:</p>
+<p><span class="math display">\[ RT_{English} =6.52-0.043\times Frequency+0.156\times 0 = 6.52-0.043\times Frequency\]</span></p>
+<p><span class="math display">\[ RT_{Other} =6.52-0.043\times Frequency+0.156\times 1 = 6.36-0.043\times Frequency\]</span></p>
+<p>All other concepts from previous examples apply.</p>
+<p>And that is all for this workgroup. Next weeks we will look at the last topic of the course adding interactions between predictors to our models.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-winter2019statistics" class="csl-entry" role="listitem">
+Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. Routledge.
+</div>
+</div>
+</section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>We will discussed standardized coefficient values in the next workgroups on multiple regression.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>actually not exactly the same, but very close. This is due to rounding in the model parameters above<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -909,13 +1167,13 @@ Duration = b_0+b_1 \times Frequency
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./model_categorical.html" class="pagination-link" aria-label="Linear Model with Categorical predictors">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Linear Model with Categorical predictors</span>
+      <a href="./model_posthoc.html" class="pagination-link" aria-label="Post-hoc testing based on Estimated Marginal Means">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Post-hoc testing based on Estimated Marginal Means</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./assignment4_key.html" class="pagination-link" aria-label="Assignment #4 - Linear fitting with R II">
-        <span class="nav-page-text">Assignment #4 - Linear fitting with R II</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Workgroup6.html" class="pagination-link" aria-label="Workgroup 6: Multiple Regression with R II">
+        <span class="nav-page-text">Workgroup 6: Multiple Regression with R II</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

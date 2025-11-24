@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
+<meta name="dcterms.date" content="2026-12-11">
 
-<title>Simple Linear Model reporting – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Post-hoc testing based on Estimated Marginal Means – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +57,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -66,8 +87,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./assignment4_key.html" rel="next">
-<link href="./model_categorical.html" rel="prev">
+<link href="./model_multiple2.html" rel="next">
+<link href="./model_multiple.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -148,7 +169,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_reporting1.html">Simple Linear Model reporting</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup5.html">Workgroup 5: Multiple Regression with R</a></li><li class="breadcrumb-item"><a href="./model_posthoc.html">Post-hoc testing based on Estimated Marginal Means</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -344,7 +365,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_reporting1.html" class="sidebar-item-text sidebar-link active">
+  <a href="./model_reporting1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Simple Linear Model reporting</span></a>
   </div>
 </li>
@@ -373,7 +394,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_posthoc.html" class="sidebar-item-text sidebar-link">
+  <a href="./model_posthoc.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Post-hoc testing based on Estimated Marginal Means</span></a>
   </div>
 </li>
@@ -400,15 +421,23 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#calculate-marginal-means" id="toc-calculate-marginal-means" class="nav-link active" data-scroll-target="#calculate-marginal-means">Calculate marginal means</a></li>
+  <li><a href="#post-hoc-pairwise-comparisons" id="toc-post-hoc-pairwise-comparisons" class="nav-link" data-scroll-target="#post-hoc-pairwise-comparisons">Post-hoc pairwise comparisons</a></li>
+  <li><a href="#reporting-post-hoc-results" id="toc-reporting-post-hoc-results" class="nav-link" data-scroll-target="#reporting-post-hoc-results">Reporting post-hoc results</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_reporting1.html">Simple Linear Model reporting</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup5.html">Workgroup 5: Multiple Regression with R</a></li><li class="breadcrumb-item"><a href="./model_posthoc.html">Post-hoc testing based on Estimated Marginal Means</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Simple Linear Model reporting</h1>
+<h1 class="title">Post-hoc testing based on Estimated Marginal Means</h1>
 </div>
 
 
@@ -416,6 +445,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 11, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -425,61 +460,9 @@ window.Quarto = {
 </header>
 
 
-<p>A report of the results of linear models should include the following elements:</p>
-<ul>
-<li><p><strong>Model description</strong></p>
-<ul>
-<li><p>Descriptive sentence on the modeled data and predictor: <em>A</em> <em>simple linear regression analysis was used to test if [Outcome Variable] significantly predicted [Predictor Variable]</em></p></li>
-<li><p>Model summary overall fit including <em>R2</em> and <em>F-test</em> results. <em>The model explained …% of the variance in [Outcome variable], F(df1, df2)=…, p&lt;…, R2 =…“</em></p></li>
-</ul></li>
-<li><p><strong>Individual predictors:</strong></p>
-<ul>
-<li><p>For each predictor report: coefficient value (also called <em>unstandardized beta</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>), the Confidence Interval, t-statistic and p-value.</p>
-<p>e.g.: “<em>It was found that</em> <em>[Predictor variable] significantly predicted [response variable] (</em><span class="math inline">\(\beta=..., CI=[..,..],t=...,p=...)\)</span>.</p></li>
-</ul></li>
-<li><p><strong>Assumptions check:</strong> explain how you checked assumptions, including if any data transformation was required, etc.</p></li>
-</ul>
-<p>Let’s look at an example based again on the example on assignment 3:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dfVowel<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">'./data/extended_vowel_duration.csv'</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>null_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Duration<span class="sc">~</span><span class="dv">1</span>,<span class="at">data=</span>dfVowel)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Duration<span class="sc">~</span>logFreqs, <span class="at">data =</span> dfVowel)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = Duration ~ logFreqs, data = dfVowel)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--122.464  -27.642    0.916   29.627  127.628 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 307.5055     2.2525  136.52   &lt;2e-16 ***
-logFreqs     -5.6397     0.2524  -22.34   &lt;2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 42.63 on 598 degrees of freedom
-Multiple R-squared:  0.455, Adjusted R-squared:  0.4541 
-F-statistic: 499.3 on 1 and 598 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-</div>
-<p>The result contains all the information required, with the exception of the Confidence Interval for the logFreqs coefficient.</p>
-<p>This can be conveniently extracted using the function <code>confint()</code> that takes a model as a parameter.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                2.5 %     97.5 %
-(Intercept) 303.08169 311.929267
-logFreqs     -6.13534  -5.143996</code></pre>
-</div>
-</div>
-<p>The reporting of the analysis could be written as follows:</p>
+<hr>
+<p>In the previous example, our linear model <code>RWRT ~ Condition</code> provided us the intercept (average value of <code>RWRT</code> in conditionA), and the relative effect of conditions B, C and D with respect to A. We also computed based on the model the <strong>predicted</strong> value of the average on those conditions, but could no determine easily the comparison between all the conditions.</p>
+<p>Traditionally we refer to <strong>post-hoc testing</strong> as an statistical significance test to be performed to determine which specific levels have significant differences between their means. We can performed those tests based on the empirical data itself, or based on the predicted values from the model. <strong>Estimated marginal means</strong> <strong>(EMM)</strong> (<span class="citation" data-cites="Searle01111980">(<a href="references.html#ref-Searle01111980" role="doc-biblioref">Searle, Speed, and Milliken 1980</a>)</span>) or least-squares means are derived by using a model to make predictions over averaged over one or more of the predictors. The main benefit of performing <strong>post-hoc tests based on EMMs</strong> is that the influence of other factors in the model is considered (accounting for covariates).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -490,21 +473,215 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Simple linear regression was performed to assess the relationship between <em>vowel production Duration</em> and the logarithmically transformed <em>frequency</em> of the word produced. Assumption checks revealed no violations in normality and homoscedasticity, as indicated by the residual plots and non significant results from the Shapiro-Wilk test.</p>
-<p>After transformation, the fitted regression model was:</p>
-<p><span class="math display">\[
-Duration = b_0+b_1 \times Frequency
-\]</span></p>
-<p>The model explained <span class="math inline">\(55\%\)</span> of the variance in vowel duration ( <span class="math inline">\(F(1,598)=449.30\)</span> <span class="math inline">\(,p&lt;.001,R^2=0.45\)</span>). It was found that the logarithmic transformed word Frequency significantly predicted the vowel duration (<span class="math inline">\(\beta = -5.64\)</span>, <span class="math inline">\(95\%CI[-6.13,-5.14]\)</span>, <span class="math inline">\(t=136.52, p&lt;.001\)</span>).</p>
+<p>The main package implementing marginal means calculations is called <code>emmeans</code> (<span class="citation" data-cites="emmeans">(<a href="references.html#ref-emmeans" role="doc-biblioref">Lenth and Piaskowski 2025</a>)</span>). There are however other convenient package created based on that one to simplify the process of creating model predictions as the package <code>modelbased</code> (<span class="citation" data-cites="modelbasedPackage">(<a href="references.html#ref-modelbasedPackage" role="doc-biblioref">Makowski et al. 2025</a>)</span>). As it is the case with the <code>tidyverse</code> framework, a framework to facility data analysis and visualization called <code>easystat</code> (<span class="citation" data-cites="easystats">(<a href="references.html#ref-easystats" role="doc-biblioref">Lüdecke et al. 2022</a>)</span>) has been created that puts together a number of useful packages and it is growing by the day.</p>
 </div>
 </div>
-
-
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<p>Let’s use <code>modelbased</code> for our exercises here. First install the package if not installed yet.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"easystats"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Load the library <code>modelbased</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelbased)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'modelbased' was built under R version 4.5.2</code></pre>
+</div>
+</div>
+<section id="calculate-marginal-means" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-marginal-means">Calculate marginal means</h2>
 <hr>
-<ol>
-<li id="fn1"><p>We will discussed standardized coefficient values in the next workgroups on multiple regression.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
+<p>On our example based on the filtered <code>basquenpi_Ex5</code> data, we can calculate the marginal means for each level of the Condition factor using the function <code>emmeans()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>m1<span class="ot">&lt;-</span><span class="fu">lm</span>(RWRT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Condition, <span class="at">data=</span>dfFiltered)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = RWRT ~ 1 + Condition, data = dfFiltered)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-403.39 -153.39  -74.53   86.04 1295.30 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   626.39      17.80  35.191  &lt; 2e-16 ***
+ConditionB    -29.69      25.27  -1.175    0.240    
+ConditionC    -29.86      25.24  -1.183    0.237    
+ConditionD   -111.24      25.17  -4.419 1.14e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 246.6 on 759 degrees of freedom
+Multiple R-squared:  0.0277,    Adjusted R-squared:  0.02386 
+F-statistic: 7.207 on 3 and 759 DF,  p-value: 8.973e-05</code></pre>
+</div>
+</div>
+<p>We can calculate the marginal means as:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>means<span class="ot">&lt;-</span><span class="fu">estimate_means</span>(m1, <span class="at">by =</span> <span class="st">"Condition"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>means</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Estimated Marginal Means
+
+Condition |   Mean |    SE |           95% CI | t(759)
+------------------------------------------------------
+A         | 626.39 | 17.80 | [591.45, 661.33] |  35.19
+B         | 596.70 | 17.94 | [561.48, 631.92] |  33.26
+C         | 596.53 | 17.89 | [561.41, 631.66] |  33.34
+D         | 515.15 | 17.80 | [480.21, 550.09] |  28.94
+
+Variable predicted: RWRT
+Predictors modulated: Condition</code></pre>
+</div>
+</div>
+<p>As you can see, the values are the same as we calculated based on the formula and the table also reports the confidence intervals. This is the case in this example, where the marginal means and observed means will be the same in the absence of other predictors.</p>
+<p>The library includes an implementation of graphical representation of the marginal means, that allows for a quick display using the <code>plot()</code> function on the object returned by <code>estimate_means()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(means) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="model_posthoc_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="post-hoc-pairwise-comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="post-hoc-pairwise-comparisons">Post-hoc pairwise comparisons</h2>
+<hr>
+<p>We can calculate the contrasts and significance between the different variables using the function <code>estimate_contrasts()</code> from the same package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>comparisons <span class="ot">&lt;-</span> <span class="fu">estimate_contrasts</span>(m1, <span class="at">contrast=</span><span class="st">"Condition"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>comparisons</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Marginal Contrasts Analysis
+
+Level1 | Level2 | Difference |    SE |            95% CI |    t(759) |      p
+-----------------------------------------------------------------------------
+B      | A      |     -29.69 | 25.27 | [ -79.30,  19.92] |     -1.17 |  0.240
+C      | A      |     -29.86 | 25.24 | [ -79.41,  19.69] |     -1.18 |  0.237
+D      | A      |    -111.24 | 25.17 | [-160.66, -61.82] |     -4.42 | &lt; .001
+C      | B      |      -0.17 | 25.34 | [ -49.91,  49.57] | -6.58e-03 |  0.995
+D      | B      |     -81.55 | 25.27 | [-131.16, -31.94] |     -3.23 |  0.001
+D      | C      |     -81.38 | 25.24 | [-130.93, -31.83] |     -3.22 |  0.001
+
+Variable predicted: RWRT
+Predictors contrasted: Condition
+p-values are uncorrected.</code></pre>
+</div>
+</div>
+<p>Now we have a full pair-wise comparison of all conditions in the data. From the table above we can see that the following contrasts are significant: D vs A, D vs B, D vs C. So the Condition = D seems to be performing differently that the other three.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Note:</strong> The output above indicates on the bottom: “p-values are uncorrected”.</p>
+<p>When making multiple comparisons, we increase the risk to introduce Type I errors. This can be prevented by adding a correction factor to account for the multiple comparisons. This is done using the “<code>p_adjust</code>” argument.</p>
+</div>
+</div>
+<p>There are several adjustments for multiple correction. Two of the more popular are Bonferroni and Tukey.</p>
+<p>The <strong>Bonferroni correction</strong> changes the limit of significance based on the number of comparisons performed. If our significance <span class="math inline">\(\alpha=0.05\)</span>, and we perform 6 comparisons, we would consider a value significant only if <span class="math inline">\(p&lt;\alpha_{bonferroni}\text{, with } \alpha_{bonferroni}=\alpha / 6=0.05/6=0.008\)</span>.</p>
+<p>Equivalent to the above is to calculate an “adjusted” p-value, calculated by multiplying the uncorrected p-value by the number of comparisons. This is what the function does when specifying a correction:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>comparisons <span class="ot">&lt;-</span> <span class="fu">estimate_contrasts</span>(m1, <span class="at">contrast=</span><span class="st">"Condition"</span>, <span class="at">p_adjust =</span> <span class="st">"bonferroni"</span>,<span class="at">backend =</span> <span class="st">"emmeans"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>comparisons</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Marginal Contrasts Analysis
+
+Level1 | Level2 | Difference |           95% CI |    SE |   t(759) |      p
+---------------------------------------------------------------------------
+A      | B      |      29.69 | [-37.16,  96.54] | 25.27 |     1.17 | &gt; .999
+A      | C      |      29.86 | [-36.90,  96.62] | 25.24 |     1.18 | &gt; .999
+A      | D      |     111.24 | [ 44.65, 177.83] | 25.17 |     4.42 | &lt; .001
+B      | C      |       0.17 | [-66.86,  67.19] | 25.34 | 6.58e-03 | &gt; .999
+B      | D      |      81.55 | [ 14.70, 148.40] | 25.27 |     3.23 |  0.008
+C      | D      |      81.38 | [ 14.62, 148.14] | 25.24 |     3.22 |  0.008
+
+Variable predicted: RWRT
+Predictors contrasted: Condition
+p-value adjustment method: Bonferroni</code></pre>
+</div>
+</div>
+<p>Another approach to correcting for multiple comparisons is a <strong>Tukey’s adjusted p-value</strong> (referred to as Tukey’s Honestly Significant Difference Test HSD, or ‘Tukey test’). The idea is common to the Bonferroni t-tests but in this case it is done by using a modified t-test, with a t-distribution called the ‘studentised range distribution’.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>comparisons <span class="ot">&lt;-</span> <span class="fu">estimate_contrasts</span>(m1, <span class="at">contrast=</span><span class="st">"Condition"</span>, <span class="at">p_adjust =</span> <span class="st">"tukey"</span>,<span class="at">backend =</span> <span class="st">"emmeans"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>comparisons</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Marginal Contrasts Analysis
+
+Level1 | Level2 | Difference |           95% CI |    SE |   t(759) |      p
+---------------------------------------------------------------------------
+A      | B      |      29.69 | [-35.38,  94.76] | 25.27 |     1.17 |  0.643
+A      | C      |      29.86 | [-35.12,  94.84] | 25.24 |     1.18 |  0.638
+A      | D      |     111.24 | [ 46.43, 176.05] | 25.17 |     4.42 | &lt; .001
+B      | C      |       0.17 | [-65.07,  65.41] | 25.34 | 6.58e-03 | &gt; .999
+B      | D      |      81.55 | [ 16.48, 146.62] | 25.27 |     3.23 |  0.007
+C      | D      |      81.38 | [ 16.40, 146.36] | 25.24 |     3.22 |  0.007
+
+Variable predicted: RWRT
+Predictors contrasted: Condition
+p-value adjustment method: Tukey</code></pre>
+</div>
+</div>
+</section>
+<section id="reporting-post-hoc-results" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-post-hoc-results">Reporting post-hoc results</h2>
+<hr>
+<p>When reporting a post-hoc result include the following elements:</p>
+<ul>
+<li><p>Report that you used Estimated Marginal Means (EMM) as post-hoc test.</p></li>
+<li><p>Describe if the EMM was adjusted for a covariate (we will look at this point later when more than one predictor is used).</p></li>
+<li><p>If reporting a comparison, include the test statistic (<em>t</em>), degrees of freedom and p-value.</p></li>
+<li><p>If reporting a table of the EMMs, include the adjusted means, the SE or Confidence Interval.</p></li>
+<li><p>In comparisons specify the correction applied to account for multiple comparisons.</p></li>
+</ul>
+<p>Example reporting of the analysis performed:</p>
+<blockquote class="blockquote">
+<p>“A linear regression analysis was conducted to examine the effect of Condition (&lt;&lt;<em>here you will explain the nature of your experimental manipulation&gt;&gt;)</em> on the observed Raw Reading Time. Results indicated a significant effect for Condition, <span class="math inline">\(F(3,759)=7.207, p&lt;.001\)</span>.</p>
+<p>To examine the nature of the effect, estimated means were calculated. The results show that that the estimated reading time was different across conditions:</p>
+<ul>
+<li><p>Condition A (<span class="math inline">\(M=626.29ms,SE=17.80, 95\%CI[591.45,661.33]\)</span>)</p></li>
+<li><p>Condition B (<span class="math inline">\(M=596.70ms,SE=17.94, 95\%CI[561.48,631.92]\)</span>)</p></li>
+<li><p>Condition C (<span class="math inline">\(M=596.53ms,SE=17.89, 95\%CI[561.41,631.66]\)</span>)</p></li>
+<li><p>Condition D (<span class="math inline">\(M=515.15ms,SE=17.80, 95\%CI[480.21,550.09]\)</span>)</p></li>
+</ul>
+<p>Post-hoc comparisons using Bonferroni correction showed that the estimated reading time for Condition D was significantly lower than Condition A (<span class="math inline">\(t(759)=-4.42, p&lt;.001)\)</span>, Condition B (<span class="math inline">\(t(759)=-3.23,p=.001\)</span>) and Condition C (<span class="math inline">\(t(759)=-3.22,p=.001\)</span>) . The larger difference was between conditions A and D (<span class="math inline">\(-111.24ms,95\%CI[-160.66,-61.82]\)</span>.</p>
+</blockquote>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As mentioned above, the reporting should also include a check of the model assumptions to ensure the validity of the conclusions.</p>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-emmeans" class="csl-entry" role="listitem">
+Lenth, Russell V., and Julia Piaskowski. 2025. <em>Emmeans: Estimated Marginal Means, Aka Least-Squares Means</em>. <a href="https://rvlenth.github.io/emmeans/">https://rvlenth.github.io/emmeans/</a>.
+</div>
+<div id="ref-easystats" class="csl-entry" role="listitem">
+Lüdecke, Daniel, Mattan S. Ben-Shachar, Indrajeet Patil, Brenton M. Wiernik, Etienne Bacher, Rémi Thériault, and Dominique Makowski. 2022. <span>“Easystats: Framework for Easy Statistical Modeling, Visualization, and Reporting.”</span> <em>CRAN</em>. <a href="https://doi.org/10.32614/CRAN.package.easystats">https://doi.org/10.32614/CRAN.package.easystats</a>.
+</div>
+<div id="ref-modelbasedPackage" class="csl-entry" role="listitem">
+Makowski, Dominique, Mattan S. Ben-Shachar, Brenton M. Wiernik, Indrajeet Patil, Rémi Thériault, and Daniel Lüdecke. 2025. <span>“<span class="nocase">modelbased</span>: An <span>R</span> Package to Make the Most Out of Your Statistical Models Through Marginal Means, Marginal Effects, and Model Predictions.”</span> <em>Journal of Open Source Software</em> 10 (109): 7969. <a href="https://doi.org/10.21105/joss.07969">https://doi.org/10.21105/joss.07969</a>.
+</div>
+<div id="ref-Searle01111980" class="csl-entry" role="listitem">
+Searle, S. R., F. M. Speed, and G. A. Milliken. 1980. <span>“Population Marginal Means in the Linear Model: An Alternative to Least Squares Means.”</span> <em>The American Statistician</em> 34 (4): 216–21. <a href="https://doi.org/10.1080/00031305.1980.10483031">https://doi.org/10.1080/00031305.1980.10483031</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -909,13 +1086,13 @@ Duration = b_0+b_1 \times Frequency
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./model_categorical.html" class="pagination-link" aria-label="Linear Model with Categorical predictors">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Linear Model with Categorical predictors</span>
+      <a href="./model_multiple.html" class="pagination-link" aria-label="Multiple Linear Regression with Categorical predictor with more than two levels">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Multiple Linear Regression with Categorical predictor with more than two levels</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./assignment4_key.html" class="pagination-link" aria-label="Assignment #4 - Linear fitting with R II">
-        <span class="nav-page-text">Assignment #4 - Linear fitting with R II</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./model_multiple2.html" class="pagination-link" aria-label="Multiple Linear Regression with several predictors">
+        <span class="nav-page-text">Multiple Linear Regression with several predictors</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
