@@ -90,6 +90,14 @@ This can not be easily visualized using `ggplot()` , but there is a function in 
 install.packages("ggiraphExtra")
 ```
 
+::: callout-note
+You may have to also have to update a related library using:
+
+`install.packages("htmltools")`
+
+If asked to restart the R session say "Yes"
+:::
+
 Then use the `ggPredict` function to plot the model with two variables.
 
 ```{r}

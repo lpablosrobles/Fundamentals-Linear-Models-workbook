@@ -130,7 +130,7 @@ Example reporting of the analysis performed:
 >
 > -   Condition D ($M=515.15ms,SE=17.80, 95\%CI[480.21,550.09]$)
 >
-> Post-hoc comparisons using Bonferroni correction showed that the estimated reading time for Condition D was significantly lower than Condition A ($t(759)=-4.42, p<.001)$, Condition B ($t(759)=-3.23,p=.001$) and Condition C ($t(759)=-3.22,p=.001$) . The larger difference was between conditions A and D ($-111.24ms,95\%CI[-160.66,-61.82]$.
+> Post-hoc comparisons using Bonferroni correction showed that the estimated reading time for Condition D was significantly lower than Condition A ($t(759)=-4.42, p<.001)$, Condition B ($t(759)=-3.23,p=.001$) and Condition C ($t(759)=-3.22,p=.001$) . The larger difference was between conditions A and D ($111.24ms,95\%CI[44.65,177.83]$).
 
 ::: callout-caution
 As mentioned above, the reporting should also include a check of the model assumptions to ensure the validity of the conclusions.

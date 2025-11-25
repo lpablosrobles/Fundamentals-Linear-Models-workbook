@@ -103,9 +103,9 @@ Calculate average of data in the N400 window by averaging all points from 250 to
 
 ```
 
-## Task#3: Create a linear model of the Average Voltage 
+## Task#3: Create a linear model of the Average Voltage
 
-### Task#3.1: Fz Electrode 
+### Task#3.1: Fz Electrode
 
 -   Select the data in the **Fz electrode**
 
@@ -116,7 +116,7 @@ Calculate average of data in the N400 window by averaging all points from 250 to
 
 ```
 
-### Task#3.2: Cz Electrode 
+### Task#3.2: Cz Electrode
 
 Repeat the above for the Cz electrode
 
@@ -164,7 +164,7 @@ Describe the model and report the results:
 
 ....
 
-## Task #5 (Assignment#6 / [**After Workgroup 6**]{.underline}):  Multiple Regression with two factors
+## Task #5 (Assignment#6 / [**After Workgroup 6**]{.underline}): Multiple Regression with two factors
 
 **Note:** If you did not manage to perform Extra Credit Task#4, look at the answer key for Assignment #5
 
