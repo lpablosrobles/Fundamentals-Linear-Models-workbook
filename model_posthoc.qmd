@@ -1,12 +1,137 @@
 ---
 editor: "visual"
 date: 24/11/2025
+bibliography: references.bib
 ---
 
-# Post-hoc testing based on Estimated Marginal Means
+# Post-hoc testing based on Estimated Marginal Means {.unnumbered}
 
 ------------------------------------------------------------------------
 
 In the previous example, our linear model `RWRT ~ Condition` provided us the intercept (average value of `RWRT` in conditionA), and the relative effect of conditions B, C and D with respect to A. We also computed based on the model the **predicted** value of the average on those conditions, but could no determine easily the comparison between all the conditions.
 
-Traditionally we refer to **post-hoc testing** as an statistical significance test to be performed to determine which specific levels have significant differences between their means. We can performed those tests based on the empirical data itself, or based on the predicted values from the model. **Estimated marginal means** **(EMM)** (see or least-squares means are derived by using a model to make predictions over averaged over one or more of the predictors. The main benefit of performing **post-hoc tests based on EMMs** is that the influence of other factors in the model is considered (accounting for covariates)
+Traditionally we refer to **post-hoc testing** as an statistical significance test to be performed to determine which specific levels have significant differences between their means. We can performed those tests based on the empirical data itself, or based on the predicted values from the model. **Estimated marginal means** **(EMM)** ([@Searle01111980]) or least-squares means are derived by using a model to make predictions averaged over one or more of predictors. The main benefit of performing **post-hoc tests based on EMMs** is that the influence of other factors in the model is considered (accounting for covariates).
+
+::: callout-note
+The main package implementing marginal means calculations is called `emmeans` ([@emmeans]). There are however other convenient package created based on that one to simplify the process of creating model predictions as the package `modelbased` ([@modelbasedPackage]). As it is the case with the `tidyverse` framework, a framework to facilitate data analysis and visualization called `easystat` ([@easystats]) has been created that puts together a number of useful packages and it is growing by the day.
+:::
+
+Let's use `modelbased` for our exercises here. First install the package if not installed yet.
+
+``` r
+install.packages("easystats")
+```
+
+Load the library `modelbased`:
+
+```{r}
+library(modelbased)
+```
+
+## Calculate marginal means
+
+------------------------------------------------------------------------
+
+On our example based on the filtered `basquenpi_Ex5` data, we can calculate the marginal means for each level of the Condition factor using the function `estimate_means()`
+
+```{r}
+#| include: false
+
+library(tidyverse)
+load("./data/BasqueNPISampleEx5.Rda")
+
+dfFiltered<-basquenpi_Ex5 %>% filter(RWRT<2000)
+```
+
+```{r}
+m1<-lm(RWRT~1+Condition, data=dfFiltered)
+summary(m1)
+```
+
+We can calculate the marginal means as:
+
+```{r}
+means<-estimate_means(m1, by = "Condition")
+means
+```
+
+As you can see, the values of the means are the same as we calculated based on the formula and the table also reports the confidence intervals. This is the case in this example, where the marginal means and observed means will be the same in the absence of other predictors.
+
+The library includes an implementation of graphical representation of the marginal means, that allows for a quick display using the `plot()` function on the object returned by `estimate_means()`.
+
+```{r}
+plot(means) + theme_minimal()
+```
+
+## Post-hoc pairwise comparisons
+
+------------------------------------------------------------------------
+
+We can calculate the contrasts and significance between the different variables using the function `estimate_contrasts()` from the same package.
+
+```{r}
+comparisons <- estimate_contrasts(m1, contrast="Condition")
+comparisons
+```
+
+Now we have a full pair-wise comparison of all conditions in the data. From the table above we can see that the following contrasts are significant: D vs A, D vs B, D vs C. So the Condition = D seems to be performing differently that the other three.
+
+::: callout-warning
+**Note:** The output above indicates on the bottom: "p-values are uncorrected".
+
+When making multiple comparisons, we increase the risk to introduce Type I errors. This can be prevented by adding a correction factor to account for the multiple comparisons. This is done using the "`p_adjust`" argument.
+:::
+
+There are several adjustments for multiple correction. Two of the more popular are Bonferroni and Tukey.
+
+The **Bonferroni correction** changes the limit of significance based on the number of comparisons performed. If our significance $\alpha=0.05$, and we perform 6 comparisons, we would consider a value significant only if $p<\alpha_{bonferroni}\text{, with } \alpha_{bonferroni}=\alpha / 6=0.05/6=0.008$.
+
+Equivalent to the above is to calculate an "adjusted" p-value, calculated by multiplying the uncorrected p-value by the number of comparisons. This is what the function does when specifying a correction:
+
+```{r}
+comparisons <- estimate_contrasts(m1, contrast="Condition", p_adjust = "bonferroni",backend = "emmeans")
+comparisons
+```
+
+Another approach to correcting for multiple comparisons is a **Tukey’s adjusted p-value** (referred to as Tukey’s Honestly Significant Difference Test HSD, or ‘Tukey test’). The idea is common to the Bonferroni t-tests but in this case it is done by using a modified t-test, with a t-distribution called the ‘studentised range distribution’.
+
+```{r}
+comparisons <- estimate_contrasts(m1, contrast="Condition", p_adjust = "tukey",backend = "emmeans")
+comparisons
+```
+
+## Reporting post-hoc results
+
+------------------------------------------------------------------------
+
+When reporting a post-hoc result include the following elements:
+
+-   Report that you used Estimated Marginal Means (EMM) as post-hoc test.
+
+-   Describe if the EMM was adjusted for a covariate (we will look at this point later when more than one predictor is used).
+
+-   If reporting a comparison, include the test statistic (*t*), degrees of freedom and p-value.
+
+-   If reporting a table of the EMMs, include the adjusted means, the SE or Confidence Interval.
+
+-   In comparisons specify the correction applied to account for multiple comparisons.
+
+Example reporting of the analysis performed:
+
+> "A linear regression analysis was conducted to examine the effect of Condition (\<\<*here you will explain the nature of your experimental manipulation\>\>)* on the observed Raw Reading Time. Results indicated a significant effect for Condition, $F(3,759)=7.207, p<.001$.
+>
+> To examine the nature of the effect, estimated means were calculated. The results show that that the estimated reading time was different across conditions:
+>
+> -   Condition A ($M=626.29ms,SE=17.80, 95\%CI[591.45,661.33]$)
+>
+> -   Condition B ($M=596.70ms,SE=17.94, 95\%CI[561.48,631.92]$)
+>
+> -   Condition C ($M=596.53ms,SE=17.89, 95\%CI[561.41,631.66]$)
+>
+> -   Condition D ($M=515.15ms,SE=17.80, 95\%CI[480.21,550.09]$)
+>
+> Post-hoc comparisons using Bonferroni correction showed that the estimated reading time for Condition D was significantly lower than Condition A ($t(759)=-4.42, p<.001)$, Condition B ($t(759)=-3.23,p=.001$) and Condition C ($t(759)=-3.22,p=.001$) . The larger difference was between conditions A and D ($-111.24ms,95\%CI[-160.66,-61.82]$.
+
+::: callout-caution
+As mentioned above, the reporting should also include a check of the model assumptions to ensure the validity of the conclusions.
+:::

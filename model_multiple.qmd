@@ -83,7 +83,7 @@ $$
 t_{b_i} = \frac{b_i}{SE_{b_i}}
 $$
 
-And it tests the hypothesis $H_0: b_i\ne0$. From the output, we see that only `ConditionD` has a significant test (p\<0.001), implying that only that coefficient is significantly different than 0.
+And it tests the hypothesis $H_0: b_i=0$. From the output, we see that only `ConditionD` has a significant test (p\<0.001), implying that only that coefficient is significantly different than 0.
 
 That is clearly visible If we show the confident interval for all coefficients, where only `ConditionD` and the intercept show values not including 0.
 
