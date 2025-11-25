@@ -1,0 +1,184 @@
+---
+title: "Fundamentals of Linear Models 2025 - 2026 - Assignment #5"
+author: "ENTER YOUR NAME and STUDENT ID"
+date: "2025-11-25"
+output:
+  pdf_document: default
+  html_notebook: default
+editor:
+  visual
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# An EEG Processing Pipeline
+
+In this assignment we will emulate a full EEG data processing pipeline using the concepts introduced across the different workgroups.
+
+::: {style="color: red"}
+**Note:** Task#5 is intended as Assignment#6, to be performed and handed-out after Workgroup #6
+:::
+
+Read through the assignment and load the relevant packages:
+
+```{r}
+# load required libraries
+```
+
+## Task #1: Read dataframe
+
+For the assignment we will use a large file containing real EEG data from 17 subjects collected across 4 experimental conditions.
+
+The data is contained in the file `/data/eegSampleData.Rda` .
+
+Load the data into the environment using `readRDS()`
+
+```{r}
+# read data
+
+
+```
+
+The data file contains the following columns:
+
+-   **time:** numerical time vector in seconds of the collected data with respect to the visual trigger, ranging from -0.2 (200ms before the trigger) to 0.8 (800 ms after the trigger)
+
+-   **Subject**: Factor with 17 levels from "1" to "17" indicating the participant
+
+-   **Condition:** categorical factor with 4 levels: "CondA", "CondB", "CondC" and "CondD"
+
+-   **Fp1 to CB2:** 62 columns with voltage values measured at each electrode on the EEG collection.
+
+## **Task#2: Summarize and reorganize the data**
+
+We want to Evaluate the presence or absence of a N400 Event Related Potential (ERP) on the dataset. The N400 component appears in the range of 250 to 550ms after the stimulus onset, and it is considered a broad central-anterior component.
+
+In order to do that we have to perform the following:
+
+-   Calculate the average voltage in the time window 250-550ms for all Electrodes.
+
+-   Select the relevant Regions of Interest:
+
+    -   **Anterior:** electrodes F1, F2, F3, F4, F5, F6, Fz
+
+    -   **Central:** electrodes C1, C2, C3, C4, C5, C6, Cz
+
+-   Compare the average voltage across experimental conditions against the **Control Condition**, which in this case is **Condition D**
+
+### Task #2.1: Subset data
+
+Select subset of the data for the analysis:
+
+-   Time in the range 0.250 to 0.550 s
+
+-   Electrodes for the Anterior and Central regions defined above.
+
+```{r}
+
+
+
+```
+
+**Note:** This is a large dataset so I recommend to clean the environment often and to unload the data when not used using `rm()`
+
+### Task #2.2: Rearrange the data from wide to long format
+
+Convert the data from wide to long format using the steps practiced in Workgroup 2: <https://lpablosrobles.github.io/Fundamentals-Linear-Models-workbook/data_organization.html>
+
+Tip: You want to end up with a dataframe with the following columns: *time, Subject, Condition, Electrode, AvgVoltage*
+
+```{r}
+
+
+```
+
+### Task #2.3: Calculate data averages in the N400 window
+
+Calculate average of data in the N400 window by averaging all points from 250 to 550 ms (already selected before)
+
+```{r}
+
+
+```
+
+## Task#3: Create a linear model of the Average Voltage 
+
+### Task#3.1: Fz Electrode 
+
+-   Select the data in the **Fz electrode**
+
+-   Create a model to investigate if the AverageVoltage on the Fz electrode in the N400 window is related to the **Condition** factor.
+
+```{r}
+
+
+```
+
+### Task#3.2: Cz Electrode 
+
+Repeat the above for the Cz electrode
+
+-   Select the data in the **Cz electrode**
+
+-   Create a model to investigate if the AverageVoltage on the Fz electrode in the N400 window is related to the **Condition** factor.
+
+```{r}
+
+
+```
+
+### Task #3.3: Report the models for both Fz and Cz:
+
+Report the results of the analysis performed in the APA format described in the lecture including if necessary any post-hoc analysis performed if needed to compare against the [**reference Condition D**]{.underline}
+
+....
+
+### EXTRA CREDIT: Task #4 Create factor encoding Region of interest.
+
+### Task 4.1: Create new factor
+
+Create a new variable with a factor to encode the **Region of Interest called ROI** based on the criteria defined above and two levels:
+
+-   **Anterior:** electrodes F1, F2, F3, F4, F5, F6, Fz
+
+-   **Central:** electrodes C1, C2, C3, C4, C5, C6, Cz
+
+Tip: You can create a variable as a function of the value of another variable using `case_when()` . Read the following page for instructions : <https://www.statology.org/conditional-mutating-r/>
+
+```{r}
+
+```
+
+### Task 4.2: Multiple linear regression
+
+-   Create a model to investigate if the AverageVoltage on the in the N400 window is related to the **Condition** and **ROI** predictors.
+
+```{r}
+
+
+```
+
+Describe the model and report the results:
+
+....
+
+## Task #5 (Assignment#6 / [**After Workgroup 6**]{.underline}):  Multiple Regression with two factors
+
+**Note:** If you did not manage to perform Extra Credit Task#4, look at the answer key for Assignment #5
+
+### **Task #5.1: Model with interactions**
+
+Model the N400 window average voltage from the previous tasks including two predictors: **Condition** and **ROI** and their interaction.
+
+```{r}
+
+
+```
+
+### Task #5.2: Report the analysis
+
+Report the analysis including all results, model quality checks and any post-hoc analysis performed:
+
+....
