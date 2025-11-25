@@ -596,7 +596,7 @@ RWRT = b_o+b_1 \times ConditionB+b_2\times ConditionC+b_3\times ConditionD = 626
 <p><span class="math display">\[
 t_{b_i} = \frac{b_i}{SE_{b_i}}
 \]</span></p>
-<p>And it tests the hypothesis <span class="math inline">\(H_0: b_i\ne0\)</span>. From the output, we see that only <code>ConditionD</code> has a significant test (p&lt;0.001), implying that only that coefficient is significantly different than 0.</p>
+<p>And it tests the hypothesis <span class="math inline">\(H_0: b_i=0\)</span>. From the output, we see that only <code>ConditionD</code> has a significant test (p&lt;0.001), implying that only that coefficient is significantly different than 0.</p>
 <p>That is clearly visible If we show the confident interval for all coefficients, where only <code>ConditionD</code> and the intercept show values not including 0.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

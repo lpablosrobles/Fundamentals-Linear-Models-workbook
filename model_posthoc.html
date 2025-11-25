@@ -462,7 +462,7 @@ window.Quarto = {
 
 <hr>
 <p>In the previous example, our linear model <code>RWRT ~ Condition</code> provided us the intercept (average value of <code>RWRT</code> in conditionA), and the relative effect of conditions B, C and D with respect to A. We also computed based on the model the <strong>predicted</strong> value of the average on those conditions, but could no determine easily the comparison between all the conditions.</p>
-<p>Traditionally we refer to <strong>post-hoc testing</strong> as an statistical significance test to be performed to determine which specific levels have significant differences between their means. We can performed those tests based on the empirical data itself, or based on the predicted values from the model. <strong>Estimated marginal means</strong> <strong>(EMM)</strong> (<span class="citation" data-cites="Searle01111980">(<a href="references.html#ref-Searle01111980" role="doc-biblioref">Searle, Speed, and Milliken 1980</a>)</span>) or least-squares means are derived by using a model to make predictions over averaged over one or more of the predictors. The main benefit of performing <strong>post-hoc tests based on EMMs</strong> is that the influence of other factors in the model is considered (accounting for covariates).</p>
+<p>Traditionally we refer to <strong>post-hoc testing</strong> as an statistical significance test to be performed to determine which specific levels have significant differences between their means. We can performed those tests based on the empirical data itself, or based on the predicted values from the model. <strong>Estimated marginal means</strong> <strong>(EMM)</strong> (<span class="citation" data-cites="Searle01111980">(<a href="references.html#ref-Searle01111980" role="doc-biblioref">Searle, Speed, and Milliken 1980</a>)</span>) or least-squares means are derived by using a model to make predictions averaged over one or more of predictors. The main benefit of performing <strong>post-hoc tests based on EMMs</strong> is that the influence of other factors in the model is considered (accounting for covariates).</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -473,7 +473,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The main package implementing marginal means calculations is called <code>emmeans</code> (<span class="citation" data-cites="emmeans">(<a href="references.html#ref-emmeans" role="doc-biblioref">Lenth and Piaskowski 2025</a>)</span>). There are however other convenient package created based on that one to simplify the process of creating model predictions as the package <code>modelbased</code> (<span class="citation" data-cites="modelbasedPackage">(<a href="references.html#ref-modelbasedPackage" role="doc-biblioref">Makowski et al. 2025</a>)</span>). As it is the case with the <code>tidyverse</code> framework, a framework to facility data analysis and visualization called <code>easystat</code> (<span class="citation" data-cites="easystats">(<a href="references.html#ref-easystats" role="doc-biblioref">Lüdecke et al. 2022</a>)</span>) has been created that puts together a number of useful packages and it is growing by the day.</p>
+<p>The main package implementing marginal means calculations is called <code>emmeans</code> (<span class="citation" data-cites="emmeans">(<a href="references.html#ref-emmeans" role="doc-biblioref">Lenth and Piaskowski 2025</a>)</span>). There are however other convenient package created based on that one to simplify the process of creating model predictions as the package <code>modelbased</code> (<span class="citation" data-cites="modelbasedPackage">(<a href="references.html#ref-modelbasedPackage" role="doc-biblioref">Makowski et al. 2025</a>)</span>). As it is the case with the <code>tidyverse</code> framework, a framework to facilitate data analysis and visualization called <code>easystat</code> (<span class="citation" data-cites="easystats">(<a href="references.html#ref-easystats" role="doc-biblioref">Lüdecke et al. 2022</a>)</span>) has been created that puts together a number of useful packages and it is growing by the day.</p>
 </div>
 </div>
 <p>Let’s use <code>modelbased</code> for our exercises here. First install the package if not installed yet.</p>
@@ -488,7 +488,7 @@ Note
 <section id="calculate-marginal-means" class="level2">
 <h2 class="anchored" data-anchor-id="calculate-marginal-means">Calculate marginal means</h2>
 <hr>
-<p>On our example based on the filtered <code>basquenpi_Ex5</code> data, we can calculate the marginal means for each level of the Condition factor using the function <code>emmeans()</code></p>
+<p>On our example based on the filtered <code>basquenpi_Ex5</code> data, we can calculate the marginal means for each level of the Condition factor using the function <code>estimate_means()</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>m1<span class="ot">&lt;-</span><span class="fu">lm</span>(RWRT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Condition, <span class="at">data=</span>dfFiltered)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -533,7 +533,7 @@ Variable predicted: RWRT
 Predictors modulated: Condition</code></pre>
 </div>
 </div>
-<p>As you can see, the values are the same as we calculated based on the formula and the table also reports the confidence intervals. This is the case in this example, where the marginal means and observed means will be the same in the absence of other predictors.</p>
+<p>As you can see, the values of the means are the same as we calculated based on the formula and the table also reports the confidence intervals. This is the case in this example, where the marginal means and observed means will be the same in the absence of other predictors.</p>
 <p>The library includes an implementation of graphical representation of the marginal means, that allows for a quick display using the <code>plot()</code> function on the object returned by <code>estimate_means()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(means) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -651,7 +651,7 @@ p-value adjustment method: Tukey</code></pre>
 <li><p>Condition C (<span class="math inline">\(M=596.53ms,SE=17.89, 95\%CI[561.41,631.66]\)</span>)</p></li>
 <li><p>Condition D (<span class="math inline">\(M=515.15ms,SE=17.80, 95\%CI[480.21,550.09]\)</span>)</p></li>
 </ul>
-<p>Post-hoc comparisons using Bonferroni correction showed that the estimated reading time for Condition D was significantly lower than Condition A (<span class="math inline">\(t(759)=-4.42, p&lt;.001)\)</span>, Condition B (<span class="math inline">\(t(759)=-3.23,p=.001\)</span>) and Condition C (<span class="math inline">\(t(759)=-3.22,p=.001\)</span>) . The larger difference was between conditions A and D (<span class="math inline">\(-111.24ms,95\%CI[-160.66,-61.82]\)</span>.</p>
+<p>Post-hoc comparisons using Bonferroni correction showed that the estimated reading time for Condition D was significantly lower than Condition A (<span class="math inline">\(t(759)=-4.42, p&lt;.001)\)</span>, Condition B (<span class="math inline">\(t(759)=-3.23,p=.001\)</span>) and Condition C (<span class="math inline">\(t(759)=-3.22,p=.001\)</span>) . The larger difference was between conditions A and D (<span class="math inline">\(111.24ms,95\%CI[44.65,177.83]\)</span>).</p>
 </blockquote>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
