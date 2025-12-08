@@ -78,10 +78,10 @@ book:
       #   - read_data.qmd
         
     - part: Workgroup6.qmd
-      chapters:
-          - model_interactions.qmd
-          - model_contrasts.qmd
-          - model_vif.qmd
+      #chapters:
+      #    - model_interactions.qmd
+      #    - model_contrasts.qmd
+      #    - model_vif.qmd
       #   - intro_to_r.qmd
       #   - using_libraries.qmd
       #   - tidyverse_intro.qmd
