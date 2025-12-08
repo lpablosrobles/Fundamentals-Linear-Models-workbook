@@ -3,7 +3,7 @@ date: 08/12/2025
 editor: visual
 ---
 
-# An EEG Processing Pipeline
+# An EEG Processing Pipeline {.unnumbered}
 
 In this assignment we intended to emulate a full EEG data processing pipeline using the concepts introduced across the different workgroups.
 
