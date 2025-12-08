@@ -72,12 +72,16 @@ book:
          - model_multiple.qmd
          - model_posthoc.qmd
          - model_multiple2.qmd
+         - assignment5_key.qmd
       #   - using_libraries.qmd
       #   - tidyverse_intro.qmd
       #   - read_data.qmd
         
     - part: Workgroup6.qmd
-      # chapters: 
+      chapters:
+          - model_interactions.qmd
+          - model_contrasts.qmd
+          - model_vif.qmd
       #   - intro_to_r.qmd
       #   - using_libraries.qmd
       #   - tidyverse_intro.qmd
