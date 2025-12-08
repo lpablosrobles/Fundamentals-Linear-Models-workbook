@@ -183,8 +183,7 @@ The fitted model is:
 
 $$
 RSRT_i = -55.74+68.38\times EmbeddedSubject +\epsilon_i
-$$
-The fit can be visualized as:
+$$ The fit can be visualized as:
 
 ```{r}
 basquenpi_Ex5 %>% ggplot(aes(x=EmbeddedSubject, y = RSRT)) + 
@@ -244,7 +243,7 @@ We check of the amount of data filtered with this threshold:
 
 We see that we have removed only around 2.2% of the data.
 
-2.   **Data transformation:** with the filtering above, we still have a significantly skewed data, which in most cases results in non-normality of the residuals.
+2.  **Data transformation:** with the filtering above, we still have a significantly skewed data, which in most cases results in non-normality of the residuals.
 
 ```{r}
 dfFiltered %>% ggplot(aes(x=RWRT)) +
