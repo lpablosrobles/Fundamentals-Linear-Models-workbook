@@ -372,7 +372,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assignment4_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #4 - Linear fitting with R II</span></a>
+ <span class="menu-text">Assignment #4 - Linear fitting with R II - Answer Key</span></a>
   </div>
 </li>
       </ul>
@@ -436,7 +436,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_multicollinearity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Multicollinearity and Interaction Models</span></span></a>
+ <span class="menu-text">Multicollinearity</span></a>
   </div>
 </li>
       </ul>
@@ -462,7 +462,10 @@ window.Quarto = {
   <li><a href="#centering-continuous-predictors" id="toc-centering-continuous-predictors" class="nav-link" data-scroll-target="#centering-continuous-predictors">Centering continuous predictors</a></li>
   <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection">Model selection</a></li>
   </ul></li>
-  <li><a href="#interaction-with-two-categorical-predictors-categoricalcategorical" id="toc-interaction-with-two-categorical-predictors-categoricalcategorical" class="nav-link" data-scroll-target="#interaction-with-two-categorical-predictors-categoricalcategorical">Interaction with two categorical predictors (Categorical*Categorical)</a></li>
+  <li><a href="#interaction-with-two-categorical-predictors-categoricalcategorical" id="toc-interaction-with-two-categorical-predictors-categoricalcategorical" class="nav-link" data-scroll-target="#interaction-with-two-categorical-predictors-categoricalcategorical">Interaction with two categorical predictors (Categorical*Categorical)</a>
+  <ul class="collapse">
+  <li><a href="#model-reporting" id="toc-model-reporting" class="nav-link" data-scroll-target="#model-reporting">Model reporting</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -718,13 +721,13 @@ m2_c  5 4301.488</code></pre>
 <li>Declarative – for target sentences that contained a complementizer with declarative morphology</li>
 <li>Partitive – for target sentences that contained a complementizer with partitive morphology</li>
 </ul></li>
-<li><strong>RWRT</strong> – Raw (recorded) Reading Time of the word</li>
-<li><strong>InvRWRT</strong> - Inverse Raw Reading Time</li>
+<li><strong>RWRT</strong> – Raw (recorded) Reading Time of the word [milliseconds]</li>
+<li><strong>InvRWRT</strong> - Inverse Raw Reading Time [in seconds]</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dataBasque<span class="ot">&lt;-</span>basquenpi_Ex5 <span class="sc">%&gt;%</span> </span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Item, Subject, EmbeddedSubject, AgreementMorphology, RWRT) <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">InvRWRT=</span><span class="dv">1</span><span class="sc">/</span>RWRT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">InvRWRT=</span><span class="dv">1</span><span class="sc">/</span>(RWRT<span class="sc">/</span><span class="dv">1000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Again, let’s fit a model with interaction and a model without and compare them.</p>
 <div class="cell">
@@ -739,18 +742,18 @@ lm(formula = InvRWRT ~ EmbeddedSubject + AgreementMorphology,
     data = dataBasque)
 
 Residuals:
-       Min         1Q     Median         3Q        Max 
--1.727e-03 -4.210e-04  1.369e-05  3.843e-04  2.709e-03 
+     Min       1Q   Median       3Q      Max 
+-1.72727 -0.42095  0.01369  0.38429  2.70877 
 
 Coefficients:
-                               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                   0.0021049  0.0000394  53.422  &lt; 2e-16 ***
-EmbeddedSubjectNPI           -0.0001757  0.0000455  -3.862 0.000122 ***
-AgreementMorphologyPartitive -0.0001537  0.0000455  -3.378 0.000766 ***
+                             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                    2.1050     0.0394  53.422  &lt; 2e-16 ***
+EmbeddedSubjectNPI            -0.1757     0.0455  -3.862 0.000122 ***
+AgreementMorphologyPartitive  -0.1537     0.0455  -3.378 0.000766 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.0006304 on 765 degrees of freedom
+Residual standard error: 0.6304 on 765 degrees of freedom
 Multiple R-squared:  0.03327,   Adjusted R-squared:  0.03074 
 F-statistic: 13.16 on 2 and 765 DF,  p-value: 2.394e-06</code></pre>
 </div>
@@ -759,12 +762,12 @@ F-statistic: 13.16 on 2 and 765 DF,  p-value: 2.394e-06</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Estimated Marginal Means
 
-EmbeddedSubject | AgreementMorphology |     Mean |       SE |       95% CI | t(765)
------------------------------------------------------------------------------------
-NP              | Declarative         | 2.10e-03 | 3.94e-05 | [0.00, 0.00] |  53.42
-NPI             | Declarative         | 1.93e-03 | 3.94e-05 | [0.00, 0.00] |  48.96
-NP              | Partitive           | 1.95e-03 | 3.94e-05 | [0.00, 0.00] |  49.52
-NPI             | Partitive           | 1.78e-03 | 3.94e-05 | [0.00, 0.00] |  45.06
+EmbeddedSubject | AgreementMorphology | Mean |   SE |       95% CI | t(765)
+---------------------------------------------------------------------------
+NP              | Declarative         | 2.10 | 0.04 | [2.03, 2.18] |  53.42
+NPI             | Declarative         | 1.93 | 0.04 | [1.85, 2.01] |  48.96
+NP              | Partitive           | 1.95 | 0.04 | [1.87, 2.03] |  49.52
+NPI             | Partitive           | 1.78 | 0.04 | [1.70, 1.85] |  45.06
 
 Variable predicted: InvRWRT
 Predictors modulated: EmbeddedSubject, AgreementMorphology</code></pre>
@@ -789,15 +792,15 @@ lm(formula = InvRWRT ~ EmbeddedSubject * AgreementMorphology,
     data = dataBasque)
 
 Residuals:
-       Min         1Q     Median         3Q        Max 
--1.694e-03 -4.445e-04  3.515e-05  3.968e-04  2.676e-03 
+     Min       1Q   Median       3Q      Max 
+-1.69400 -0.44454  0.03515  0.39684  2.67551 
 
 Coefficients:
-                                                  Estimate Std. Error t value
-(Intercept)                                      2.138e-03  4.546e-05  47.031
-EmbeddedSubjectNPI                              -2.422e-04  6.430e-05  -3.768
-AgreementMorphologyPartitive                    -2.202e-04  6.430e-05  -3.426
-EmbeddedSubjectNPI:AgreementMorphologyPartitive  1.331e-04  9.093e-05   1.463
+                                                Estimate Std. Error t value
+(Intercept)                                      2.13822    0.04546  47.031
+EmbeddedSubjectNPI                              -0.24224    0.06430  -3.768
+AgreementMorphologyPartitive                    -0.22025    0.06430  -3.426
+EmbeddedSubjectNPI:AgreementMorphologyPartitive  0.13307    0.09093   1.463
                                                 Pr(&gt;|t|)    
 (Intercept)                                      &lt; 2e-16 ***
 EmbeddedSubjectNPI                              0.000177 ***
@@ -806,26 +809,34 @@ EmbeddedSubjectNPI:AgreementMorphologyPartitive 0.143754
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.00063 on 764 degrees of freedom
+Residual standard error: 0.63 on 764 degrees of freedom
 Multiple R-squared:  0.03597,   Adjusted R-squared:  0.03219 
 F-statistic: 9.503 on 3 and 764 DF,  p-value: 3.618e-06</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>emm_basque_2<span class="ot">&lt;-</span><span class="fu">estimate_means</span>(mbasque_2, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"EmbeddedSubject"</span>,<span class="st">"AgreementMorphology"</span>))</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>emm_basque_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mbasque_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                      2.5 %      97.5 %
+(Intercept)                                      2.04897153  2.22747080
+EmbeddedSubjectNPI                              -0.36846214 -0.11602605
+AgreementMorphologyPartitive                    -0.34646508 -0.09402899
+EmbeddedSubjectNPI:AgreementMorphologyPartitive -0.04542944  0.31156911</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>emm_basque_2<span class="ot">&lt;-</span><span class="fu">estimate_means</span>(mbasque_2, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"EmbeddedSubject"</span>,<span class="st">"AgreementMorphology"</span>))</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>emm_basque_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Estimated Marginal Means
 
-EmbeddedSubject | AgreementMorphology |     Mean |       SE |       95% CI | t(764)
------------------------------------------------------------------------------------
-NP              | Declarative         | 2.14e-03 | 4.55e-05 | [0.00, 0.00] |  47.03
-NPI             | Declarative         | 1.90e-03 | 4.55e-05 | [0.00, 0.00] |  41.70
-NP              | Partitive           | 1.92e-03 | 4.55e-05 | [0.00, 0.00] |  42.19
-NPI             | Partitive           | 1.81e-03 | 4.55e-05 | [0.00, 0.00] |  39.79
+EmbeddedSubject | AgreementMorphology | Mean |   SE |       95% CI | t(764)
+---------------------------------------------------------------------------
+NP              | Declarative         | 2.14 | 0.05 | [2.05, 2.23] |  47.03
+NPI             | Declarative         | 1.90 | 0.05 | [1.81, 1.99] |  41.70
+NP              | Partitive           | 1.92 | 0.05 | [1.83, 2.01] |  42.19
+NPI             | Partitive           | 1.81 | 0.05 | [1.72, 1.90] |  39.79
 
 Variable predicted: InvRWRT
 Predictors modulated: EmbeddedSubject, AgreementMorphology</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(emm_basque_2) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(emm_basque_2) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -836,7 +847,7 @@ Predictors modulated: EmbeddedSubject, AgreementMorphology</code></pre>
 </div>
 <p>As you can see, the “slopes” of the effect and coefficient values have change, and so is the interpretation.</p>
 <p>The fitted model is:</p>
-<p><span class="math display">\[ (1/RWRT)=(2.138\times10^{-3})-(2.422\times10^{-4})\times EmbeddedSubject_{NPI}-(2.202\times10^{-4})\times AgreementMorphology_{Partitive}+(1.331\times10^{-4})\times EmbeddedSubject_{NPI}\times AgreementMorphology_{Partitive}\]</span></p>
+<p><span class="math display">\[ (1/RWRT)=2.138-2.422\times EmbeddedSubject_{NPI}-2.220\times AgreementMorphology_{Partitive}+0.133\times EmbeddedSubject_{NPI}\times AgreementMorphology_{Partitive}\]</span></p>
 <p>Let’s check what every coefficient means:</p>
 <ul>
 <li><p><span class="math inline">\(b_0\)</span> - intercept: corresponds to the Inverse Raw Reading Time for the reference cell in the design: <strong><em>EmbeddedSubject = NP</em></strong> (<code>EmbeddedSubjectNPI=0</code>) and <strong><em>AgreementMorphology = Declarative</em></strong> (<code>AgreementMorphologyPartitive=0</code>).</p></li>
@@ -885,6 +896,90 @@ Important
 <p>We look at how to evaluate main effects in the next section on Contrast Coding.</p>
 </div>
 </div>
+<section id="model-reporting" class="level3">
+<h3 class="anchored" data-anchor-id="model-reporting">Model reporting</h3>
+<hr>
+<p>Finally, to wrap-up we describe what should be included when reporting a model with interactions:</p>
+<ul>
+<li><p><strong>Report Overall Model:</strong> State the model’s significance and fit (<span class="math inline">\(F, df, p, R^2,R^2_{adj}\)</span>)</p></li>
+<li><p><strong>Provide Table of Coefficients:</strong> Use a table for detailed results.</p>
+<ul>
+<li><p><strong>Columns:</strong> Unstandardized Coefficients (<em>b</em>), Standard Error (<em>SE</em>), <em>t</em>, <em>p</em>, 95% Confidence Interval (<em>CI</em>).</p></li>
+<li><p><strong>Rows:</strong> Intercept, predictors, and the Interaction Terms</p></li>
+<li><p><strong>Italics:</strong> Italicize statistical symbols like <em>b</em>, <em>SE</em>, <em>t</em>, <em>p</em>, <em>M</em>, <em>SD</em>, <em>R²</em>.</p></li>
+</ul></li>
+<li><p><strong>Significant Interaction:</strong> If the interaction <em>p</em>-value is significant (e.g., &lt; .05), explain that the effect.</p>
+<ul>
+<li>Report the unstandardized coefficients for the interaction (<em>B</em><sub>interaction</sub>) and the main effect it modifies (<em>B</em><sub>IV1</sub>).</li>
+</ul></li>
+<li><p><strong>Explain effects:</strong></p>
+<ul>
+<li><p>When including a continuous predictor and a categorical predictor as moderator describe and plot the slopes at meaningful predicted values to illustrate the interaction</p></li>
+<li><p>With categorical predictors report the Estimated Marginal Means at the specific categories of the predictors.</p></li>
+</ul></li>
+<li><p>If using data transformation, report coefficients directly from the model in transformed units, but Marginal Means in back-transformed units.</p></li>
+</ul>
+<p>Example:</p>
+<blockquote class="blockquote">
+<p>Multiple linear regression was performed to assess the relationship between the <em>Reading Time</em> measured in milliseconds and the nature of the <em>Embedded Subject</em> (NPI or NP) and the <em>Morphological Agreement</em> (Declarative or Partitive).</p>
+<p>Raw Reading Time (RWRT) data was transformed using an inverse transformation to address deviations from linear model assumptions observed after fit of RWRT. The model’s intercept</p>
+<p>The model (formula: 1/RWRT ~ EmbeddedSubject * AgreementMorphology), explains a statistically significant although weak proportion of the data variance (<span class="math inline">\(F(3,764)=9.50,p&lt;.001,R^2=0.03\)</span>). The model was fit using treatment coding, with the model’s intercept corresponding to the reference condition <em>EmbeddedSubject = NP</em> and <em>AgreementMorphology = Declarative</em>.</p>
+<p>The table below summarizes the coefficients of the model:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>term</th>
+<th>b*</th>
+<th>SE</th>
+<th>t</th>
+<th>p</th>
+<th>95%CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td>2.14</td>
+<td>0.045</td>
+<td>47.0</td>
+<td>&lt;.001</td>
+<td>[2.05, 2.23]</td>
+</tr>
+<tr class="even">
+<td>EmbeddedSubject_NPI</td>
+<td>-0.24</td>
+<td>0.064</td>
+<td>-3.77</td>
+<td>&lt;.001</td>
+<td>[-0.37, -0.12]</td>
+</tr>
+<tr class="odd">
+<td>AgreementMorphology_Partitive</td>
+<td>-0.22</td>
+<td>0.064</td>
+<td>-3.43</td>
+<td>&lt;.001</td>
+<td>[-0.35, -0.09]</td>
+</tr>
+<tr class="even">
+<td>EmbeddedSubject_NPI:AgreementMorphology_Partitive</td>
+<td>0.13</td>
+<td>0.09</td>
+<td>1.45</td>
+<td>0.144</td>
+<td>[-0.05, 0.31]</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -898,6 +993,7 @@ Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. 
 Winter, Bodo, Marcus Perlman, Lynn K Perry, and Gary Lupyan. 2017. <span>“Which Words Are Most Iconic? Iconicity in English Sensory Words.”</span> <em>Interaction Studies</em> 18 (3): 443–64.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->

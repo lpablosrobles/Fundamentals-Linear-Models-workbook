@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
+<meta name="dcterms.date" content="2025-08-12">
 
-<title>1&nbsp; Multicollinearity and Interaction Models – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Multicollinearity – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_multicollinearity.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Multicollinearity and Interaction Models</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_multicollinearity.html">Multicollinearity</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -322,7 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assignment4_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #4 - Linear fitting with R II</span></a>
+ <span class="menu-text">Assignment #4 - Linear fitting with R II - Answer Key</span></a>
   </div>
 </li>
       </ul>
@@ -386,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_multicollinearity.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Multicollinearity and Interaction Models</span></span></a>
+ <span class="menu-text">Multicollinearity</span></a>
   </div>
 </li>
       </ul>
@@ -407,22 +408,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#multicollinearity" id="toc-multicollinearity" class="nav-link active" data-scroll-target="#multicollinearity">Multicollinearity</a>
-  <ul class="collapse">
-  <li><a href="#correlation-assessment-using-vif" id="toc-correlation-assessment-using-vif" class="nav-link" data-scroll-target="#correlation-assessment-using-vif"><span class="header-section-number">1.1</span> Correlation assessment using VIF</a></li>
-  <li><a href="#multicollinearity-in-interaction-models" id="toc-multicollinearity-in-interaction-models" class="nav-link" data-scroll-target="#multicollinearity-in-interaction-models"><span class="header-section-number">1.2</span> Multicollinearity in Interaction Models</a></li>
-  </ul></li>
-  <li><a href="#summary-of-best-practices" id="toc-summary-of-best-practices" class="nav-link" data-scroll-target="#summary-of-best-practices"><span class="header-section-number">2</span> Summary of best practices</a></li>
-  <li><a href="#reporting-example" id="toc-reporting-example" class="nav-link" data-scroll-target="#reporting-example"><span class="header-section-number">3</span> Reporting Example</a></li>
+  <li><a href="#correlation-assessment-using-vif" id="toc-correlation-assessment-using-vif" class="nav-link active" data-scroll-target="#correlation-assessment-using-vif">Correlation assessment using VIF</a></li>
+  <li><a href="#multicollinearity-in-interaction-models" id="toc-multicollinearity-in-interaction-models" class="nav-link" data-scroll-target="#multicollinearity-in-interaction-models">Multicollinearity in Interaction Models</a></li>
+  <li><a href="#summary-of-best-practices" id="toc-summary-of-best-practices" class="nav-link" data-scroll-target="#summary-of-best-practices">Summary of best practices</a></li>
+  <li><a href="#reporting-example" id="toc-reporting-example" class="nav-link" data-scroll-target="#reporting-example">Reporting Example</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_multicollinearity.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Multicollinearity and Interaction Models</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_multicollinearity.html">Multicollinearity</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Multicollinearity and Interaction Models</span></h1>
+<h1 class="title">Multicollinearity</h1>
 </div>
 
 
@@ -430,6 +428,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 12, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -439,8 +443,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="multicollinearity" class="level1 unnumbered">
-<h1 class="unnumbered">Multicollinearity</h1>
 <p>Multicollinearity occurs when predictors in a regression model are highly correlated. This is common in variables as for example Frequency, Word Length or Predictability (shorted words are less frequent and more predictable than long words).</p>
 <p>Fitting a model with two predictors that vary together creates problems</p>
 <ul>
@@ -454,8 +456,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(languageR)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(lexdec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="correlation-assessment-using-vif" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="correlation-assessment-using-vif"><span class="header-section-number">1.1</span> Correlation assessment using VIF</h2>
+<section id="correlation-assessment-using-vif" class="level2">
+<h2 class="anchored" data-anchor-id="correlation-assessment-using-vif">Correlation assessment using VIF</h2>
 <p>Variance Inflation Factor (VIF) quantifies how much variance of a coefficient is inflated due to correlation. The VIF is calculated trying to create a regression against other predictors <strong>VIF = 1 / (1 - R²)</strong>.</p>
 <ul>
 <li>A high R² for a predictor means it’s predictable by others (high multicollinearity), which inflates its VIF, making its coefficient unstable.&nbsp;</li>
@@ -469,13 +471,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>We calculate it with the <code>vif()</code> function in the <code>car</code> model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: carData</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(RT <span class="sc">~</span> Frequency <span class="sc">+</span> FamilySize <span class="sc">+</span> Length, <span class="at">data =</span> lexdec)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(RT <span class="sc">~</span> Frequency <span class="sc">+</span> FamilySize <span class="sc">+</span> Length, <span class="at">data =</span> lexdec)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Frequency FamilySize     Length 
   2.002928   2.733769   1.675048 </code></pre>
@@ -483,17 +483,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <hr>
 </section>
-<section id="multicollinearity-in-interaction-models" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="multicollinearity-in-interaction-models"><span class="header-section-number">1.2</span> Multicollinearity in Interaction Models</h2>
+<section id="multicollinearity-in-interaction-models" class="level2">
+<h2 class="anchored" data-anchor-id="multicollinearity-in-interaction-models">Multicollinearity in Interaction Models</h2>
 <p>Interaction terms are inherently correlated with their main components, and values would be higher.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mod2<span class="ot">&lt;-</span><span class="fu">lm</span>(RT<span class="sc">~</span>FamilySize<span class="sc">+</span>Frequency<span class="sc">*</span>Length, <span class="at">data=</span>lexdec)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>there are higher-order terms (interactions) in this model
-consider setting type = 'predictor'; see ?vif</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mod2<span class="ot">&lt;-</span><span class="fu">lm</span>(RT<span class="sc">~</span>FamilySize<span class="sc">+</span>Frequency<span class="sc">*</span>Length, <span class="at">data=</span>lexdec)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      FamilySize        Frequency           Length Frequency:Length 
         3.965852        22.759448        19.434428        23.051442 </code></pre>
@@ -501,15 +497,11 @@ consider setting type = 'predictor'; see ?vif</code></pre>
 </div>
 <p>As the interactions are introduced, the variance inflation increases. In those cases, it is recommended to center all continuous variables. Centering removes the impact on the variance.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>lexdec<span class="sc">$</span>Frequency_c <span class="ot">&lt;-</span> lexdec<span class="sc">$</span>Frequency <span class="sc">-</span> <span class="fu">mean</span>(lexdec<span class="sc">$</span>Frequency)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>lexdec<span class="sc">$</span>Length_c <span class="ot">&lt;-</span> lexdec<span class="sc">$</span>Length <span class="sc">-</span> <span class="fu">mean</span>(lexdec<span class="sc">$</span>Length)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(RT <span class="sc">~</span> Frequency_c <span class="sc">*</span> Length_c, <span class="at">data =</span> lexdec)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mod3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>there are higher-order terms (interactions) in this model
-consider setting type = 'predictor'; see ?vif</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lexdec<span class="sc">$</span>Frequency_c <span class="ot">&lt;-</span> lexdec<span class="sc">$</span>Frequency <span class="sc">-</span> <span class="fu">mean</span>(lexdec<span class="sc">$</span>Frequency)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>lexdec<span class="sc">$</span>Length_c <span class="ot">&lt;-</span> lexdec<span class="sc">$</span>Length <span class="sc">-</span> <span class="fu">mean</span>(lexdec<span class="sc">$</span>Length)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(RT <span class="sc">~</span> Frequency_c <span class="sc">*</span> Length_c, <span class="at">data =</span> lexdec)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mod3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         Frequency_c             Length_c Frequency_c:Length_c 
             1.234799             1.234283             1.010100 </code></pre>
@@ -517,9 +509,8 @@ consider setting type = 'predictor'; see ?vif</code></pre>
 </div>
 <hr>
 </section>
-</section>
-<section id="summary-of-best-practices" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Summary of best practices</h1>
+<section id="summary-of-best-practices" class="level1">
+<h1>Summary of best practices</h1>
 <ul>
 <li><strong>Center continuous predictors</strong> before interaction creation</li>
 <li><strong>Sum-code categorical variables</strong></li>
@@ -527,8 +518,8 @@ consider setting type = 'predictor'; see ?vif</code></pre>
 </ul>
 <hr>
 </section>
-<section id="reporting-example" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Reporting Example</h1>
+<section id="reporting-example" class="level1">
+<h1>Reporting Example</h1>
 <blockquote class="blockquote">
 <p>Predictors were centered before computing the interaction. VIF values for main effects were below 2, and the interaction term showed also a low VIF = 1.01.</p>
 </blockquote>
