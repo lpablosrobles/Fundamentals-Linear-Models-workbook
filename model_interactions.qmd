@@ -1,34 +1,238 @@
 ---
 editor: "visual"
-date: 24/11/2025
+date: 08/12/2025
+bibliography: references.bib
+execute:
+  echo: true
+  warning: false
+  message: false
 ---
 
-# Modeling interactions in linear models {.unnumbered}
+# Multiple Linear Regression: Interactions
 
-### Interpretation
+As described during the last lecture, interactions in a model reflect that the effect of one predictor depends on the level (categorical) or value (continuous) of one or more other predictors.
 
--   `freq:classverb` = difference in the slope of frequency for verbs vs. nouns.
+With two predictors, we discussed a model including and interaction between two predictors $X_1$ and $X_2$ would look as follows:
 
-```         
-If significant, it means the slope of frequency depends on lexical class.
+$$
+Y=b_0+b_1X_1+b_2X_2+b_3X_1X_2
+$$
+
+with $b_3$ coefficient indicating the strength of the interaction.
+
+Let's look at a few examples of two combinations of predictors.
+
+------------------------------------------------------------------------
+
+## Interaction with one categorical and one continuous predictor (Categorical\*Continuous)
+
+To illustrate this, we use the Iconicity model as described in [@winter2019statistics Chapter 8.2, based on the study in [@winter2017words]. Read through the book chapters to see a similar analysis.
+
+Bodo Winter made all data used in the book available in an Open Source Foundation (OSF) directory, from which it can be downloaded directly from R.
+
+```{r}
+iconicity<-read.csv('https://osf.io/43btm/download')
 ```
 
-## Visualising the Interaction
+Description of the dataset (see full details in Chapter 6 of [@winter2019statistics]:
 
-We can plot predicted values to make interpretation clearer.
+-   **Iconicity**: degree to which a word form resembles the meaning of a word, based on a rating scale. E.g: onomatopoeic words such as bang and beep are iconic because they imitate the sounds these words describe. This is the measured or outcome variable.
 
-Writing
+-   **SER:** Sensory experience rating for a particular word as extracted from a rating study.
 
-newdat \<- expand_grid(\
-freq = seq(min(dat\$freq), max(dat\$freq), length.out = 30),\
-class = levels(dat\$class)\
-) %\>%\
-mutate(pred = predict(m3, newdata = .))
+-   **POS (Part of Speech):** Lexical categoryPosition in the sentence where the word was used.
 
-ggplot(dat, aes(freq, rt, color = class)) +\
-geom_point(alpha = 0.4) +\
-geom_line(data = newdat, aes(y = pred), size = 1.2) +\
-labs(title = "Interaction Between Frequency and Class",\
-y = "Predicted Reaction Time (ms)")
+For the analysis we will look at a subset of Noun and Verb.
 
-Text
+```{r}
+icon<-iconicity %>% filter(POS %in% c("Noun","Verb"))
+```
+
+If we fit a model with both `SER` and `POS` as predictors as a reference and look at the effects:
+
+```{r}
+#| warning: false
+library(ggeffects)
+library(ggiraphExtra)
+
+m1<-lm(Iconicity~POS+SER,data=icon)
+summary(m1)
+
+ggPredict(m1, terms=c("POS","SER"),se = TRUE) + theme_classic()
+
+```
+
+Interpretation of the plot and coefficients are as per last lecture, with same slope (effect of `SER`) for both levels of `POS` but with a shift between them.
+
+Let's look now at what happens if we introduce the interaction in the model:
+
+```{r}
+#| warning: false
+m2<-lm(Iconicity~POS*SER,data=icon)
+summary(m2)
+
+ggPredict(m2, terms=c("POS","SER"),se = TRUE) + theme_classic()
+```
+
+As you can see, allowing the model fit to account for an interaction allows a variability of the slope or effect of `SER` for each of the levels of the other predictor. The **two lines are not parallel** now. The sensory experience has a different impact on Iconicity for Nouns compared to Verbs.
+
+Ignoring a data interaction when present in the data leads to incorrect interpretation of the fit results.
+
+The fitted model is:
+
+$$ Iconicity=0.274-0.955\times POS_{Verb}+0.118\times SER+0.508\times POS_{Verb}\times SER$$
+
+Let's check what every coefficient means:
+
+-   $b_0$ - intercept: corresponds to the Iconicity for a ***Noun*** (POS=0) for a word with Sensory Experience Rating = 0. Note that this is not directly interpretable, since SER=0 is not even possible for this rating.
+
+-   $b_1$ - slope coefficient for *POS*. Represents the effect in the Noun-Verb difference ***for words*** ***with SER=0***. If you were to extend the plot above to the left to SER = 0, you can see that the lines for Verb would be below the line for Noun.
+
+-   $b_2$ - slope coefficient for *SER*. Represents the slope of the SER **only in the case that POS=0 (Noun)**. So 0.118 is the slope of the red curve
+
+-   $b_3$ - indicates the change in the slope of *SER* when **POS=1 (Verb)**, so the slope of the green curve is $b_2+b_3=0.118+0.508=0.626$.
+
+### Centering continuous predictors
+
+------------------------------------------------------------------------
+
+A simpler way to interpret intercepts when involving continuous predictors can be done if the predictors are **centered.**
+
+Centering predictors involves substracting the mean from all the values. It does not affect the model fit quality, but the coefficients become directly interpretable. Let's create a new variable centering `SER` called `SER_c` and fit a new model with the centered variable
+
+```{r}
+#| warning: false
+icon<-icon %>%
+  mutate(SER_c=SER-mean(SER, na.rm=TRUE))
+
+m2_c<-lm(Iconicity~POS*SER_c, data=icon)
+summary(m2_c)
+
+
+ggPredict(m2_c, terms=c("POS","SER"),se = TRUE) + theme_classic()
+```
+
+The fitted model is:
+
+$$ Iconicity=0.664+0.724\times POS_{Verb}+0.118\times SER_c+0.508\times POS_{Verb}\times SER_c$$
+
+Let's check what every coefficient means:
+
+-   $b_0$ - intercept: corresponds to the Iconicity for a ***Noun*** (POS=0) for a word with **average SER** (SER_c=0). This has not a direct interpretation.
+
+-   $b_1$ - slope coefficient for *POS*. Represents the effect in the Noun-Verb difference ***for words*** ***with average SER***.
+
+-   $b_2$ - slope coefficient for *SER*. Represents the slope of the SER **only in the case that POS=0 (Noun)**. Same as before.
+
+-   $b_3$ - indicates the change in the slope of *SER* when **POS=1 (Verb)**. Same as before.
+
+### Model selection
+
+------------------------------------------------------------------------
+
+The model coefficients show significant **simple effects** and **interactions**, and it shows to improve the variance explained compared with a model without interactions.
+
+To compare them we can also perform a model comparison as shown in previous workgroups:
+
+```{r}
+# model without interaction with centered variable
+m1_c<-lm(Iconicity~POS+SER_c,data=icon)
+
+anova(m1_c,m2_c)
+AIC(m1_c,m2_c)
+BIC(m1_c,m2_c)
+```
+
+All three test identify a significant improvement of the model fit including the interaction.
+
+## Interaction with two categorical predictors (Categorical\*Categorical)
+
+------------------------------------------------------------------------
+
+For this example, we will use again the subset of the real data from a Self-Paced Reading study on Negative Polarity Items and complementizer agreement in Basque [@pablos2009negative].
+
+```{r}
+load('./data/BasqueNPISampleEx5.Rda')
+```
+
+The `basquenpi_Ex5` data frame contains only the data from Region Number 8 (complementizer position), which was considered the “critical region” for analysis in the experiment.
+
+From the dataframe, we will select a subset of the data columns for the analysis and introduce a transformation to inverse Reading Time (1/RWRT) to normalize the data as discussed in the assignment
+
+-   **Subject** – Factor identifying the participant on the experiment (coded as a number from 1 to 32)
+-   **EmbeddedSubject** – Factor/predictor indicating the nature of the embedded subject with the following levels:
+    -   NP – for target sentences with a Noun Phrase as subject
+    -   NPI – for target sentences with a Negative Polarity Item as subject
+-   **Agreement Morphology** – Factor/predictor indicating the nature of agreement with the following levels:
+    -   Declarative – for target sentences that contained a complementizer with declarative morphology
+    -   Partitive – for target sentences that contained a complementizer with partitive morphology
+-   **RWRT** – Raw (recorded) Reading Time of the word
+-   **InvRWRT** - Inverse Raw Reading Time
+
+```{r}
+dataBasque<-basquenpi_Ex5 %>% 
+  select(Item, Subject, EmbeddedSubject, AgreementMorphology, RWRT) %>%
+  mutate(InvRWRT=1/RWRT)
+```
+
+Again, let's fit a model with interaction and a model without and compare them.
+
+```{r}
+#| warning: false
+mbasque_1<-lm(InvRWRT~EmbeddedSubject+AgreementMorphology, data=dataBasque)
+summary(mbasque_1)
+
+emm_basque_1<-estimate_means(mbasque_1, by=c("EmbeddedSubject","AgreementMorphology"))
+emm_basque_1
+
+plot(emm_basque_1) + theme_classic()
+
+```
+
+And now with the interaction:
+
+```{r}
+#| warning: false
+mbasque_2<-lm(InvRWRT~EmbeddedSubject*AgreementMorphology, data=dataBasque)
+summary(mbasque_2)
+
+emm_basque_2<-estimate_means(mbasque_2, by=c("EmbeddedSubject","AgreementMorphology"))
+emm_basque_2
+
+plot(emm_basque_2) + theme_classic()
+
+```
+
+As you can see, the "slopes" of the effect and coefficient values have change, and so is the interpretation.
+
+The fitted model is:
+
+$$ (1/RWRT)=(2.138\times10^{-3})-(2.422\times10^{-4})\times EmbeddedSubject_{NPI}-(2.202\times10^{-4})\times AgreementMorphology_{Partitive}+(1.331\times10^{-4})\times EmbeddedSubject_{NPI}\times AgreementMorphology_{Partitive}$$
+
+Let's check what every coefficient means:
+
+-   $b_0$ - intercept: corresponds to the Inverse Raw Reading Time for the reference cell in the design: ***EmbeddedSubject = NP*** (`EmbeddedSubjectNPI=0`) and ***AgreementMorphology = Declarative*** (`AgreementMorphologyPartitive=0`).
+
+-   $b_1$ - slope coefficient for *EmbeddedSubject*. Represents the effect in the InvRWRT ***for EmbeddedSubject=NPI*** [compared with the reference]{.underline} cell (NP, Declarative), while ***AgreementMorphology = Declarative***
+
+-   $b_2$ - slope coefficient for *AgreementMorphology*. Represents the change in InvRWRT ***for AgreementMorphology = Partitive*** [compared with the reference]{.underline} cell (NP, Declarative), while ***EmbeddedSubject = NP***
+
+-   $b_3$ - indicates the change with respect to other coefficients when ***EmbeddedSubject=NPI and AgreementMorphology = Partitive***
+
+So the estimated values are the following:
+
+|  |  |  |
+|----|----|----|
+|  | **Agreement Morphology = Declarative** | **Agreement Morphology = Partitive** |
+| **Embedded Subject = NP** | $b_0$ | $b_0+b_2$ |
+| **Embedded Subject = NPI** | $b_0+b_1$ | $b_0+b_1+b_2+b_3$ |
+
+::: callout-important
+**Simple effects vs Main effects**
+
+The effects defined by $b_1$ and $b_2$ are called **simple effects** as they represent the impact of a particular variable [for a specific level of the other predictor.]{.underline}
+
+In general, in research what is of interest is the effect of a predictor [on the average response]{.underline} independently of the other predictors, which is referred to as **main effects.**
+
+We look at how to evaluate main effects in the next section on Contrast Coding.
+:::

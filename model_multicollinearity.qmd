@@ -1,0 +1,84 @@
+---
+title: "Multicollinearity and Interaction Models"
+format: html
+---
+
+# Multicollinearity {.unnumbered}
+
+Multicollinearity occurs when predictors in a regression model are highly correlated. This is common in variables as for example Frequency, Word Length or Predictability (shorted words are less frequent and more predictable than long words).
+
+Fitting a model with two predictors that vary together creates problems
+
+-   Inflated standard errors
+-   Unstable coefficient signs
+-   Difficulty interpreting effects
+-   Lower statistical power
+
+Let's examine examine relationships among using the `lexdec` dataset Frequency, FamilySize, WordLength, and logRT.
+
+```{r}
+library(languageR)
+data(lexdec)
+```
+
+## Correlation assessment using VIF
+
+Variance Inflation Factor (VIF) quantifies how much variance of a coefficient is inflated due to correlation. The VIF is calculated trying to create a regression against other predictors **VIF = 1 / (1 - R²)**.
+
+-   A high R² for a predictor means it's predictable by others (high multicollinearity), which inflates its VIF, making its coefficient unstable. 
+
+Interpretation guidelines:
+
+-   **VIF = 1:** No multicollinearity; the predictor is independent.
+
+-   **1 \< VIF \< 5:** Moderate multicollinearity; generally not a serious problem.
+
+-   **VIF \> 5:** Potentially severe multicollinearity; coefficients and p-values may be unreliable, warranting investigation.
+
+-   **VIF \> 10:** Serious multicollinearity; the model is likely unstable, and the predictor might need removal or transformation. 
+
+We calculate it with the `vif()` function in the `car` model.
+
+```{r}
+library(car)
+
+mod1 <- lm(RT ~ Frequency + FamilySize + Length, data = lexdec)
+
+vif(mod1)
+```
+
+------------------------------------------------------------------------
+
+## Multicollinearity in Interaction Models
+
+Interaction terms are inherently correlated with their main components, and values would be higher.
+
+```{r}
+mod2<-lm(RT~FamilySize+Frequency*Length, data=lexdec)
+
+vif(mod2)
+```
+
+As the interactions are introduced, the variance inflation increases. In those cases, it is recommended to center all continuous variables. Centering removes the impact on the variance.
+
+```{r}
+lexdec$Frequency_c <- lexdec$Frequency - mean(lexdec$Frequency)
+lexdec$Length_c <- lexdec$Length - mean(lexdec$Length)
+
+mod3 <- lm(RT ~ Frequency_c * Length_c, data = lexdec)
+vif(mod3)
+```
+
+------------------------------------------------------------------------
+
+# Summary of best practices
+
+-   **Center continuous predictors** before interaction creation
+-   **Sum-code categorical variables**
+-   Report modeling decisions clearly
+
+------------------------------------------------------------------------
+
+# Reporting Example
+
+> Predictors were centered before computing the interaction. VIF values for main effects were below 2, and the interaction term showed also a low VIF = 1.01.

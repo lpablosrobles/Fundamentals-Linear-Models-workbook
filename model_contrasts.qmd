@@ -1,0 +1,128 @@
+---
+editor: "visual"
+date: 08/12/2025
+bibliography: references.bib
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+# Treatment Coding vs. Sum Coding
+
+We discussed briefly in Workgroup 5 the concept of [contrast coding](https://lpablosrobles.github.io/Fundamentals-Linear-Models-workbook/model_multiple.html) of categorical variables.
+
+In all the work up to now we have looked at **dummy or treatment coding**, where categorical predictors are coded considering a [reference]{.underline} value against which the others are compared.
+
+This coding is useful in many experimental designs where we have a control condition. It is however more difficult to assess **main effects** in the case of multiple predictors, i.e., the individual effect of a predictor independently from the value of other predictors. This can be done using **Sum coding** (also called **effect coding**).
+
+In **Sum coding**, categorical variables are encoded in such a way that the [intercept is the **grand mean**]{.underline} across all predictors, and comparisons between different levels of a given predictor are comparisons to the grand mean. This allows to interpret the coefficients directly as **main effects.**
+
+| Coding system | What comparisons represent | Intercept represents |
+|---------------|----------------------------|----------------------|
+| Treatment     | Each level vs reference    | Reference mean       |
+| Sum           | Level vs grand mean        | Grand mean           |
+
+------------------------------------------------------------------------
+
+## Setting contrasts
+
+Treatment contrasts can be set using the function `contrasts()` together with the functions `contr.treatment()` and `contr.sum()` respectively for treatment and sum contrasts. The functions take as argument the number of levels fo the variables. You have to set the contrasts before model fitting.
+
+In the previous example based on the Basque NPI study:
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(ggeffects)
+library(ggiraphExtra)
+
+load('./data/BasqueNPISampleEx5.Rda')
+dataBasque<-basquenpi_Ex5 %>% 
+  select(Item, Subject, EmbeddedSubject, AgreementMorphology, RWRT) %>%
+  mutate(InvRWRT=1/RWRT)
+```
+
+To set sum contrasts to the `EmbeddedSubject` and `AgreementMorphology` predictors we will do the following:
+
+```{r}
+contrasts(dataBasque$EmbeddedSubject) <- contr.sum(2)
+contrasts(dataBasque$AgreementMorphology) <- contr.sum(2)
+contrasts(dataBasque$EmbeddedSubject)
+```
+
+This will code the dummy variables as follows:
+
+|   | Embedded Subject = NP | Embedded Subject = NPI |
+|------------------------|-----------------------------|------------------------------------|
+| EmbeddedSubjectNPI | +1 | -1 |
+|  | **AgreementMorphology = Declarative** | **AgreementMorphology = Partitive** |
+| AgreementMorphologyPartitive | +1 | -1 |
+
+With that coding, a model as follows:
+
+$$
+1/RWRT = b_0+b_1\times EmbeddedSubject_{NPI}+b_2\times AgreementMorphology_{Partitive}+b_3\times EmbeddedSubject_{NPI}\times AgreementMorphology_{Partitive}
+$$
+
+If now we fit a model and compare with the previous output:
+
+```{r}
+m_sum <- lm(InvRWRT~EmbeddedSubject*AgreementMorphology, data=dataBasque)
+summary(m_sum)
+```
+
+Interpretation of coefficients
+
+-   $b_0$ - Intercept = grand mean across all four cells (NP-Declarative, NP-Partitive, NPI-Declarative, NPI-Partitive)
+
+-   $b_1$ - EmbeddedSubject **main effect**= half the difference between two levels of EmbeddedSubject
+
+-   $b_2$ - AgreementMorphology **main effect**= half the difference between two levels of AgreementMorphology
+
+-   $b_3$ - Effect of interaction: 1/4th of the full interaction.
+
+------------------------------------------------------------------------
+
+## Recovering Cell Means
+
+Predicted means can be calculated based on the encoding:
+
+| Condition                  | Predicted Mean (Marginal Means) |
+|----------------------------|---------------------------------|
+| NP (+1), Declarative (+1)  | $b_0+b_1+b_2+b_3$               |
+| NP (+1), Partitive (−1)    | $b_0+b_1-b_2-b_3$               |
+| NPI (−1), Declarative (+1) | $b_0-b_1+b_2-b_3$               |
+| NPI (−1), Partitive (−1)   | $b_0-b_1-b_2+b_3$               |
+
+As per the table you can recover the interpretation of the coefficients:
+
+-   The grand mean is the average of the four means above is the sum of all, divided by 4:
+
+    $$
+    \frac{(b_0+b_1+b_2+b_3)+(b_0+b_1-b_2-b_3)+(b_0-b_1+b_2-b_3)+(b_0-b_1-b_2+b_3)}{4}=\frac{4b_0}{4}=b_0
+    $$
+
+    So this confirms the interpretation of the intercept.
+
+-   Similarly, if we want to see the effect of the EmbeddedSubject, we can calculate the difference between the means of NP conditions and NPI conditions:
+
+    $$
+    \frac{(b_0+b_1+b_2+b_3)+(b_0+b_1-b_2-b_3)}{2}-\frac{(b_0-b_1+b_2-b_3)+(b_0-b_1-b_2+b_3)}{2}=2b_1
+    $$
+
+    Again, that shows that $b_1$ is half the difference between the average of the two levels.
+
+A similar calculation can be done for the other elements.
+
+------------------------------------------------------------------------
+
+# APA Reporting including coding
+
+In the reporting, in case of sum coding this should be reported, for example as:
+
+> A linear regression was performed on the inverse transformed Raw Reading Time. Using sum coding, significant main effects of *EmbeddedSubject* (*b* = -2.422e-4, *SE=6.43e-5,* *p* \< .001) and *AgreementMorphology* (*b* = -2.202e-4, *SE=6.43e-5,* *p* \< .001) were observed.\
+> The interaction between both predictors did not reach significance (*b* = *1.331e-4, SE= 9.093e-5,* *p* = 0.143).
+
+------------------------------------------------------------------------
