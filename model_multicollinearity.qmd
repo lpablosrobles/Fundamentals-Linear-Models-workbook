@@ -1,6 +1,11 @@
 ---
-title: "Multicollinearity and Interaction Models"
-format: html
+editor: "visual"
+date: 08/12/2025
+bibliography: references.bib
+execute:
+  echo: true
+  warning: false
+  message: false
 ---
 
 # Multicollinearity {.unnumbered}

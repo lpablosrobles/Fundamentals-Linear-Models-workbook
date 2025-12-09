@@ -5,7 +5,7 @@ date: 24/11/2025
 
 In this session we will examine how to execute and interpret multiple linear regression models.
 
-As described in the lecture, multiple linera regression allows us to create models to predict a continuous outcome using **two or more predictors (categorical or continuous)** or in the case of a **single categorical predictor with more** **than two levels.**
+As described in the lecture, multiple linear regression allows us to create models to predict a continuous outcome using **two or more predictors (categorical or continuous)** or in the case of a **single categorical predictor with more** **than two levels.**
 
 We will look at examples of models with a combination of categorical and continuous predictor and the interpretation of its coefficients in each of the cases.
 

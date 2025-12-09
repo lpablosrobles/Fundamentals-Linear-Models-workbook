@@ -168,13 +168,13 @@ From the dataframe, we will select a subset of the data columns for the analysis
 -   **Agreement Morphology** – Factor/predictor indicating the nature of agreement with the following levels:
     -   Declarative – for target sentences that contained a complementizer with declarative morphology
     -   Partitive – for target sentences that contained a complementizer with partitive morphology
--   **RWRT** – Raw (recorded) Reading Time of the word
--   **InvRWRT** - Inverse Raw Reading Time
+-   **RWRT** – Raw (recorded) Reading Time of the word \[milliseconds\]
+-   **InvRWRT** - Inverse Raw Reading Time \[in seconds\]
 
 ```{r}
 dataBasque<-basquenpi_Ex5 %>% 
   select(Item, Subject, EmbeddedSubject, AgreementMorphology, RWRT) %>%
-  mutate(InvRWRT=1/RWRT)
+  mutate(InvRWRT=1/(RWRT/1000))
 ```
 
 Again, let's fit a model with interaction and a model without and compare them.
@@ -199,9 +199,11 @@ And now with the interaction:
 #| warning: false
 mbasque_2<-lm(InvRWRT~EmbeddedSubject*AgreementMorphology, data=dataBasque)
 summary(mbasque_2)
+confint(mbasque_2)
 
 emm_basque_2<-estimate_means(mbasque_2, by=c("EmbeddedSubject","AgreementMorphology"))
 emm_basque_2
+
 
 plot(emm_basque_2) + theme_classic()
 
@@ -211,7 +213,7 @@ As you can see, the "slopes" of the effect and coefficient values have change, a
 
 The fitted model is:
 
-$$ (1/RWRT)=(2.138\times10^{-3})-(2.422\times10^{-4})\times EmbeddedSubject_{NPI}-(2.202\times10^{-4})\times AgreementMorphology_{Partitive}+(1.331\times10^{-4})\times EmbeddedSubject_{NPI}\times AgreementMorphology_{Partitive}$$
+$$ (1/RWRT)=2.138-2.422\times EmbeddedSubject_{NPI}-2.220\times AgreementMorphology_{Partitive}+0.133\times EmbeddedSubject_{NPI}\times AgreementMorphology_{Partitive}$$
 
 Let's check what every coefficient means:
 
@@ -240,3 +242,48 @@ In general, in research what is of interest is the effect of a predictor [on the
 
 We look at how to evaluate main effects in the next section on Contrast Coding.
 :::
+
+### Model reporting
+
+------------------------------------------------------------------------
+
+Finally, to wrap-up we describe what should be included when reporting a model with interactions:
+
+-   **Report Overall Model:** State the model's significance and fit ($F, df, p, R^2,R^2_{adj}$)
+
+-   **Provide Table of Coefficients:** Use a table for detailed results.
+
+    -   **Columns:** Unstandardized Coefficients (*b*), Standard Error (*SE*), *t*, *p*, 95% Confidence Interval (*CI*).
+
+    -   **Rows:** Intercept, predictors, and the Interaction Terms
+
+    -   **Italics:** Italicize statistical symbols like *b*, *SE*, *t*, *p*, *M*, *SD*, *R²*.
+
+-   **Significant Interaction:** If the interaction *p*-value is significant (e.g., \< .05), explain that the effect.
+
+    -   Report the unstandardized coefficients for the interaction (*B*~interaction~) and the main effect it modifies (*B*~IV1~).
+
+-   **Explain effects:**
+
+    -   When including a continuous predictor and a categorical predictor as moderator describe and plot the slopes at meaningful predicted values to illustrate the interaction
+
+    -   With categorical predictors report the Estimated Marginal Means at the specific categories of the predictors.
+
+-   If using data transformation, report coefficients directly from the model in transformed units, but Marginal Means in back-transformed units.
+
+Example:
+
+> Multiple linear regression was performed to assess the relationship between the *Reading Time* measured in milliseconds and the nature of the *Embedded Subject* (NPI or NP) and the *Morphological Agreement* (Declarative or Partitive).
+>
+> Raw Reading Time (RWRT) data was transformed using an inverse transformation to address deviations from linear model assumptions observed after fit of RWRT. The model's intercept
+>
+> The model (formula: 1/RWRT \~ EmbeddedSubject \* AgreementMorphology), explains a statistically significant although weak proportion of the data variance ($F(3,764)=9.50,p<.001,R^2=0.03$). The model was fit using treatment coding, with the model's intercept corresponding to the reference condition *EmbeddedSubject = NP* and *AgreementMorphology = Declarative*.
+>
+> The table below summarizes the coefficients of the model:
+>
+> | term | b\* | SE | t | p | 95%CI |
+> |----------------------------------------|---------|--------|--------|--------|-------------|
+> | (Intercept) | 2.14 | 0.045 | 47.0 | \<.001 | \[2.05, 2.23\] |
+> | EmbeddedSubject_NPI | -0.24 | 0.064 | -3.77 | \<.001 | \[-0.37, -0.12\] |
+> | AgreementMorphology_Partitive | -0.22 | 0.064 | -3.43 | \<.001 | \[-0.35, -0.09\] |
+> | EmbeddedSubject_NPI:AgreementMorphology_Partitive | 0.13 | 0.09 | 1.45 | 0.144 | \[-0.05, 0.31\] |

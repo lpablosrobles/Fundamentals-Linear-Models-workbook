@@ -3,7 +3,7 @@ date: 18/11/2025
 editor: visual
 ---
 
-# Assignment #4 - Linear fitting with R II {.unnumbered}
+# Assignment #4 - Linear fitting with R II - Answer Key {.unnumbered}
 
 ------------------------------------------------------------------------
 
@@ -17,7 +17,7 @@ library(car) #used for the model assumptions checking
 
 ## Task#1 - Load and explore dataset
 
-For the analysis in this assignment we use again a subset of the real data from a Self-Paced Reading study on Negative Polarity Items and complementizer agreement in Basque (see Pablos, L., & Saddy, D. (2009). Negative polarity items and complementizer agreement in Basque. Brain Talk, 61.)
+For the analysis in this assignment we use again a subset of the real data from a Self-Paced Reading study on Negative Polarity Items and complementizer agreement in Basque (see Pablos, L., & Saddy, D. (2009)[@pablos2009negative]. Negative polarity items and complementizer agreement in Basque. Brain Talk, 61.)
 
 Load the data provided in the file `BasqueNPISampleEx5.Rda` :
 

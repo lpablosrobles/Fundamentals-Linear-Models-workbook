@@ -6,3 +6,28 @@ author: "Leticia Pablos Robles"
 ::: callout-note
 ## Workgroup 6 material to be published in the coming weeks
 :::
+
+This workgropu introduces:
+
+-   Interactions in multiple linear regression
+-   Interpretation of interaction coefficients
+-   Sum coding (a.k.a. deviation/effect coding)
+-   Marginal means and simple slopes (`emmeans`)
+
+In this session we will examine how to execute and interpret multiple linear regression models with interactions.
+
+We will look at examples of models with a combination of interactions between categorical and continuous predictor and the interpretation of its coefficients in each of the cases with two different types of dummy variable coding: treatment (dummy) coding and sum (deviation/effect) coding.
+
+# 🧠 Learning Objectives {.unnumbered}
+
+By the end of this lesson, you will be able to:
+
+-   Fit and interpret a multiple linear model with interactions using `lm()` .
+
+-   Review concept of marginal means in the presence of interactions.
+
+-   Visualize interactions in models.
+
+-   Understand concept of sum coding.
+
+-   Report interactions in multiple linear models.
