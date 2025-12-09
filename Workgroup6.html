@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./model_interactions.html" rel="next">
 <link href="./assignment5_key.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -328,8 +328,33 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Workgroup 6: Multiple Regression with R II</span></span>
+      <div class="sidebar-item-container"> 
+            <a href="./Workgroup6.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Workgroup 6: Multiple Regression with R II</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./model_interactions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multiple Linear Regression: Interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./model_contrasts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Treatment Coding vs.&nbsp;Sum Coding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./model_multicollinearity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Multicollinearity and Interaction Models</span></span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -342,8 +367,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">🧠 Learning Objectives</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -386,8 +417,28 @@ Workgroup 6 material to be published in the coming weeks
 
 </div>
 </div>
+<p>This workgropu introduces:</p>
+<ul>
+<li>Interactions in multiple linear regression</li>
+<li>Interpretation of interaction coefficients</li>
+<li>Sum coding (a.k.a. deviation/effect coding)</li>
+<li>Marginal means and simple slopes (<code>emmeans</code>)</li>
+</ul>
+<p>In this session we will examine how to execute and interpret multiple linear regression models with interactions.</p>
+<p>We will look at examples of models with a combination of interactions between categorical and continuous predictor and the interpretation of its coefficients in each of the cases with two different types of dummy variable coding: treatment (dummy) coding and sum (deviation/effect) coding.</p>
+<section id="learning-objectives" class="level1 unnumbered">
+<h1 class="unnumbered">🧠 Learning Objectives</h1>
+<p>By the end of this lesson, you will be able to:</p>
+<ul>
+<li><p>Fit and interpret a multiple linear model with interactions using <code>lm()</code> .</p></li>
+<li><p>Review concept of marginal means in the presence of interactions.</p></li>
+<li><p>Visualize interactions in models.</p></li>
+<li><p>Understand concept of sum coding.</p></li>
+<li><p>Report interactions in multiple linear models.</p></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -796,8 +847,8 @@ Workgroup 6 material to be published in the coming weeks
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./model_interactions.html" class="pagination-link" aria-label="Multiple Linear Regression: Interactions">
+        <span class="nav-page-text">Multiple Linear Regression: Interactions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

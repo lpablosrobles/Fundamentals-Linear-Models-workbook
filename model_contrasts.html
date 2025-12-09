@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
+<meta name="dcterms.date" content="2025-08-12">
 
-<title>Linear Models in R with lm() – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Treatment Coding vs.&nbsp;Sum Coding – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +67,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./assignment3_key.html" rel="next">
-<link href="./correlation.html" rel="prev">
+<link href="./model_multicollinearity.html" rel="next">
+<link href="./model_interactions.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -148,7 +149,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./lm_intro.html">Linear Models in R with <em>lm()</em></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_contrasts.html">Treatment Coding vs.&nbsp;Sum Coding</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -297,7 +298,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lm_intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./lm_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Models in R with <em>lm()</em></span></a>
   </div>
 </li>
@@ -408,7 +409,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_contrasts.html" class="sidebar-item-text sidebar-link">
+  <a href="./model_contrasts.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Treatment Coding vs.&nbsp;Sum Coding</span></a>
   </div>
 </li>
@@ -436,22 +437,18 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#formula-notation-in-r" id="toc-formula-notation-in-r" class="nav-link active" data-scroll-target="#formula-notation-in-r">Formula notation in R</a></li>
-  <li><a href="#interpreting-lm-output" id="toc-interpreting-lm-output" class="nav-link" data-scroll-target="#interpreting-lm-output">Interpreting <code>lm()</code> output</a>
-  <ul class="collapse">
-  <li><a href="#model-residuals" id="toc-model-residuals" class="nav-link" data-scroll-target="#model-residuals">Model residuals</a></li>
-  <li><a href="#model-coefficients" id="toc-model-coefficients" class="nav-link" data-scroll-target="#model-coefficients">Model coefficients</a></li>
-  <li><a href="#data-fit-quality" id="toc-data-fit-quality" class="nav-link" data-scroll-target="#data-fit-quality">Data fit quality</a></li>
-  </ul></li>
+  <li><a href="#setting-contrasts" id="toc-setting-contrasts" class="nav-link active" data-scroll-target="#setting-contrasts">Setting contrasts</a></li>
+  <li><a href="#recovering-cell-means" id="toc-recovering-cell-means" class="nav-link" data-scroll-target="#recovering-cell-means">Recovering Cell Means</a></li>
+  <li><a href="#apa-reporting-including-coding" id="toc-apa-reporting-including-coding" class="nav-link" data-scroll-target="#apa-reporting-including-coding">APA Reporting including coding</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./lm_intro.html">Linear Models in R with <em>lm()</em></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_contrasts.html">Treatment Coding vs.&nbsp;Sum Coding</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-lm-intro" class="quarto-section-identifier">Linear Models in R with <em>lm()</em></span></h1>
+<h1 class="title">Treatment Coding vs.&nbsp;Sum Coding</h1>
 </div>
 
 
@@ -459,6 +456,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 12, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -468,216 +471,175 @@ window.Quarto = {
 </header>
 
 
-<p>As explained in the lecture, a linear model of a dataset fits a line that minimizes the sum square errors between the predicted values and the data.</p>
-<p>The generic function in R used to calculate a linear model fit based on data is <code>lm()</code> with the main arguments <code>formula</code> and <code>data</code>.</p>
-<section id="formula-notation-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="formula-notation-in-r">Formula notation in R</h2>
+<p>We discussed briefly in Workgroup 5 the concept of <a href="https://lpablosrobles.github.io/Fundamentals-Linear-Models-workbook/model_multiple.html">contrast coding</a> of categorical variables.</p>
+<p>In all the work up to now we have looked at <strong>dummy or treatment coding</strong>, where categorical predictors are coded considering a <u>reference</u> value against which the others are compared.</p>
+<p>This coding is useful in many experimental designs where we have a control condition. It is however more difficult to assess <strong>main effects</strong> in the case of multiple predictors, i.e., the individual effect of a predictor independently from the value of other predictors. This can be done using <strong>Sum coding</strong> (also called <strong>effect coding</strong>).</p>
+<p>In <strong>Sum coding</strong>, categorical variables are encoded in such a way that the <u>intercept is the <strong>grand mean</strong></u> across all predictors, and comparisons between different levels of a given predictor are comparisons to the grand mean. This allows to interpret the coefficients directly as <strong>main effects.</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Coding system</th>
+<th>What comparisons represent</th>
+<th>Intercept represents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Treatment</td>
+<td>Each level vs reference</td>
+<td>Reference mean</td>
+</tr>
+<tr class="even">
+<td>Sum</td>
+<td>Level vs grand mean</td>
+<td>Grand mean</td>
+</tr>
+</tbody>
+</table>
 <hr>
-<p>A linear model with one predictor variable can be in general expressed as:</p>
-<p><span class="math display">\[
-Y_i = b_0 + b_1X_i+ \epsilon_i
-\]</span></p>
-<p>where <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are referred to as the <strong><em>coefficients</em></strong> of the model and <span class="math inline">\(\epsilon_i\)</span> is the <strong>error term</strong> of the fit.</p>
-<ul>
-<li><p><span class="math inline">\(b_0\)</span>: intercept - represents the value of the outcome variable Y, when X=0.</p></li>
-<li><p><span class="math inline">\(b_1\)</span>: slope - represents the change on the value of Y, due to a change of 1 unit of the value of X.</p></li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Nomenclature</strong>: Sometimes you will see a linear model with coefficients indicated with a “hat” notation (<span class="math inline">\(\hat{}\)</span>). This is to reflect that the model we build is an <em>estimation</em> of the real model. So <span class="math inline">\(b_0, b_1\)</span> would represent the <em>population</em> parameters while <span class="math inline">\(\hat{b}_0, \hat{b}_1\)</span> would be the estimated parameters based on our sample.</p>
-<p>This is equivalent to the difference between the population and sample means (<span class="math inline">\(\mu\)</span> and <span class="math inline">\(\bar{X}\)</span>) and standard deviation (<span class="math inline">\(\sigma\)</span> and <span class="math inline">\(s\)</span>).</p>
-<p>In the course for simplicity I will use the non-hat notation.</p>
-</div>
-</div>
-<p>In our running example:</p>
+<section id="setting-contrasts" class="level2">
+<h2 class="anchored" data-anchor-id="setting-contrasts">Setting contrasts</h2>
+<p>Treatment contrasts can be set using the function <code>contrasts()</code> together with the functions <code>contr.treatment()</code> and <code>contr.sum()</code> respectively for treatment and sum contrasts. The functions take as argument the number of levels fo the variables. You have to set the contrasts before model fitting.</p>
+<p>In the previous example based on the Basque NPI study:</p>
+<p>To set sum contrasts to the <code>EmbeddedSubject</code> and <code>AgreementMorphology</code> predictors we will do the following:</p>
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="lm_intro_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(dataBasque<span class="sc">$</span>EmbeddedSubject) <span class="ot">&lt;-</span> <span class="fu">contr.sum</span>(<span class="dv">2</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(dataBasque<span class="sc">$</span>AgreementMorphology) <span class="ot">&lt;-</span> <span class="fu">contr.sum</span>(<span class="dv">2</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(dataBasque<span class="sc">$</span>EmbeddedSubject)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    [,1]
+NP     1
+NPI   -1</code></pre>
 </div>
 </div>
-</div>
-<p>We would like to build a model as :</p>
+<p>This will code the dummy variables as follows:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 32%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Embedded Subject = NP</th>
+<th>Embedded Subject = NPI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EmbeddedSubjectNPI</td>
+<td>+1</td>
+<td>-1</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><strong>AgreementMorphology = Declarative</strong></td>
+<td><strong>AgreementMorphology = Partitive</strong></td>
+</tr>
+<tr class="odd">
+<td>AgreementMorphologyPartitive</td>
+<td>+1</td>
+<td>-1</td>
+</tr>
+</tbody>
+</table>
+<p>With that coding, a model as follows:</p>
 <p><span class="math display">\[
-RT_i = b_0+b_1Frequency_i+\epsilon_i
+1/RWRT = b_0+b_1\times EmbeddedSubject_{NPI}+b_2\times AgreementMorphology_{Partitive}+b_3\times EmbeddedSubject_{NPI}\times AgreementMorphology_{Partitive}
 \]</span></p>
-<p>Models in R are specified using a notation in the form <code>response~terms</code> where <code>response</code> is the (numeric) dependent variable and <code>terms</code> are the linear predictors. A few notes:</p>
-<ul>
-<li><p>Formulas have an implicit intercept, so it is not necessary to include it.</p></li>
-<li><p>Error is considered by the function and calculated and it is also not included in the definition</p></li>
-</ul>
-<p>So both formulas below are equivalent and can represent our model :</p>
-<p><code>RT ~ Frequency</code></p>
-<p><code>RT ~ 1 + Frequency</code></p>
-<p>The formula can be extended to add more predictors (workgroup #4):</p>
-<p><code>RT ~ 1 + Frequency + NativeLanguage</code></p>
-<p>or to include <strong>interactions</strong> between predictors, using the operator <code>:</code> (workgroup #5):</p>
-<p><code>RT ~ 1 + Frequency:Length + NativeLanguage</code></p>
-<p>For now, we will focus on a single predictor.</p>
-</section>
-<section id="interpreting-lm-output" class="level2">
-<h2 class="anchored" data-anchor-id="interpreting-lm-output">Interpreting <code>lm()</code> output</h2>
-<hr>
-<p>The function <code>lm()</code> has a simple nomenclature and usage. The data it returns is nevertheless extensive and we will focus on the interpretation of the output.</p>
-<p>Let’s look at out example:</p>
+<p>If now we fit a model and compare with the previous output:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Frequency, <span class="at">data=</span>lexdec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>m_sum <span class="ot">&lt;-</span> <span class="fu">lm</span>(InvRWRT<span class="sc">~</span>EmbeddedSubject<span class="sc">*</span>AgreementMorphology, <span class="at">data=</span>dataBasque)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = RT ~ 1 + Frequency, data = lexdec)
-
-Coefficients:
-(Intercept)    Frequency  
-    6.58878     -0.04287  </code></pre>
-</div>
-</div>
-<p>Running the <code>lm()</code> function returns a simple set of data, with the formula reflecting again and the value of the coefficients. This result means that our model would be written as</p>
-<p><span class="math display">\[
-RT_i = 6.59 -0.04\times Frequency_i+\epsilon_i
-\]</span></p>
-<p>The formula however calculates more elements. Instead, it is normally executed saving the output in a new variable.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Frequency, <span class="at">data =</span> lexdec)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "coefficients"  "residuals"     "effects"       "rank"         
- [5] "fitted.values" "assign"        "qr"            "df.residual"  
- [9] "xlevels"       "call"          "terms"         "model"        </code></pre>
-</div>
-</div>
-<p>As we can see, the function returns a dataframe with many elements and variables. We will go through them at different points in the course.</p>
-<p>A simple way to display the results is to call the <code>summary()</code> function on the dataframe returned by <code>lm()</code> :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = RT ~ 1 + Frequency, data = lexdec)
+lm(formula = InvRWRT ~ EmbeddedSubject * AgreementMorphology, 
+    data = dataBasque)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--0.55407 -0.16153 -0.03494  0.11699  1.08768 
+       Min         1Q     Median         3Q        Max 
+-1.694e-03 -4.445e-04  3.515e-05  3.968e-04  2.676e-03 
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  6.588778   0.022296 295.515   &lt;2e-16 ***
-Frequency   -0.042872   0.004533  -9.459   &lt;2e-16 ***
+                                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                           1.940e-03  2.273e-05  85.353  &lt; 2e-16 ***
+EmbeddedSubject1                      8.785e-05  2.273e-05   3.865 0.000121 ***
+AgreementMorphology1                  7.686e-05  2.273e-05   3.381 0.000759 ***
+EmbeddedSubject1:AgreementMorphology1 3.327e-05  2.273e-05   1.463 0.143754    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.2353 on 1657 degrees of freedom
-Multiple R-squared:  0.05123,   Adjusted R-squared:  0.05066 
-F-statistic: 89.47 on 1 and 1657 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 0.00063 on 764 degrees of freedom
+Multiple R-squared:  0.03597,   Adjusted R-squared:  0.03219 
+F-statistic: 9.503 on 3 and 764 DF,  p-value: 3.618e-06</code></pre>
 </div>
 </div>
-<p>Let’s look at each of the output values individually:</p>
-<section id="model-residuals" class="level3">
-<h3 class="anchored" data-anchor-id="model-residuals">Model residuals</h3>
-<hr>
-<p>The first output of the function recalls the formula used for the fit and provides the 5-point summary of the model residuals.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-1284915948.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
-</figure>
-</div>
-<p>We will see in the next lecture that one of the conditions for the validity of a linear model is the normality (normal distribution) of the model residuals, with a mean around 0. The 5-point summary provides an indication, nevertheless a check should be performed on the data. The residuals are included in the data structure as output of the model in a field called <code>residuals</code> . We can assess the normality of the residuals by for example using a Q-Q Plot as we described in workgroup #2.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(model1<span class="sc">$</span>residuals)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(model1<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="lm_intro_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The model residuals are still significantly deviating from normality. In Workgroup #4 we will explore in details the model assessment.</p>
-</section>
-<section id="model-coefficients" class="level3">
-<h3 class="anchored" data-anchor-id="model-coefficients">Model coefficients</h3>
-<hr>
-<p>The second part of the table, provides the <strong>coefficients</strong> :</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-1865298031.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
-</figure>
-</div>
-<p>The table provides the two coefficients (<span class="math inline">\(b_0\)</span> : intercept) and (<span class="math inline">\(b_1\)</span>: slope), and for each of them the following columns with the values and the results of a statistic test to check their significance.</p>
+<p>Interpretation of coefficients</p>
 <ul>
-<li><p><strong>Estimate</strong>: Coefficient value.</p></li>
-<li><p><strong>Std. Error:</strong> standard error of the coefficient estimate (<span class="math inline">\(\sigma_{b_i}\)</span>)</p></li>
-<li><p><strong>t-value:</strong> t-statistic calculated based on the value, to test the significance of the coefficient</p>
-<p><span class="math display">\[
-t=\frac{b_i}{\sigma_{b_i}}
-\]</span></p></li>
+<li><p><span class="math inline">\(b_0\)</span> - Intercept = grand mean across all four cells (NP-Declarative, NP-Partitive, NPI-Declarative, NPI-Partitive)</p></li>
+<li><p><span class="math inline">\(b_1\)</span> - EmbeddedSubject <strong>main effect</strong>= half the difference between two levels of EmbeddedSubject</p></li>
+<li><p><span class="math inline">\(b_2\)</span> - AgreementMorphology <strong>main effect</strong>= half the difference between two levels of AgreementMorphology</p></li>
+<li><p><span class="math inline">\(b_3\)</span> - Effect of interaction: 1/4th of the full interaction.</p></li>
 </ul>
-<p><span class="math display">\[
-H_0:b_i=0
-\]</span> <span class="math display">\[
-H_a:b_i \ne 0
-\]</span></p>
-<ul>
-<li><span class="math inline">\(Pr(&gt;|t|)\)</span> <strong>or</strong> <strong>p-value</strong>: probability of the t-value in case <span class="math inline">\(H_0\)</span> is true.</li>
-</ul>
-<p>From the above, in our example we can see that both coefficients are significantly different from 0, so the model is confirmed to be:</p>
-<p><span class="math display">\[
-RT_i = 6.59 -0.04\times Frequency_i+\epsilon_i
-\]</span></p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Model validity and Intercept interpretation</strong>:</p>
-<p>A model is always valid around the values used to generate them, and it is important to be careful to interpret the outcome.</p>
-<p>The intercept value of 6.59 means that a word with a lemma log Frequency value of 0, is expected to have a logarithmic reaction time of 6.59 (in <code>lexdec</code> dataset both RT and Frequency are logarithmically transformed values) This might not make sense, as at words with extremely low frequency, the reaction time might be even longer.</p>
-<p>Consider the range of the data used to fit the model:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(lexdec<span class="sc">$</span>Frequency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.791759</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(lexdec<span class="sc">$</span>Frequency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.77191</code></pre>
-</div>
-</div>
-<p>We should not use the model to <strong><em>predict</em></strong> values beyond this range.</p>
-</div>
-</div>
-</section>
-<section id="data-fit-quality" class="level3">
-<h3 class="anchored" data-anchor-id="data-fit-quality">Data fit quality</h3>
 <hr>
-<p>The statistical analysis shown before provides the significance assessment at <u><strong>individual coefficient</strong></u> level.</p>
-<p>The last section of the output on the other hand, provides the statistical assessment of the <u><strong>model as a whole</strong></u></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-3283260128.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
-</figure>
-</div>
-<p>We will describe these values in the next Lecture and Workgroup.</p>
+</section>
+<section id="recovering-cell-means" class="level2">
+<h2 class="anchored" data-anchor-id="recovering-cell-means">Recovering Cell Means</h2>
+<p>Predicted means can be calculated based on the encoding:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Condition</th>
+<th>Predicted Mean (Marginal Means)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NP (+1), Declarative (+1)</td>
+<td><span class="math inline">\(b_0+b_1+b_2+b_3\)</span></td>
+</tr>
+<tr class="even">
+<td>NP (+1), Partitive (−1)</td>
+<td><span class="math inline">\(b_0+b_1-b_2-b_3\)</span></td>
+</tr>
+<tr class="odd">
+<td>NPI (−1), Declarative (+1)</td>
+<td><span class="math inline">\(b_0-b_1+b_2-b_3\)</span></td>
+</tr>
+<tr class="even">
+<td>NPI (−1), Partitive (−1)</td>
+<td><span class="math inline">\(b_0-b_1-b_2+b_3\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>As per the table you can recover the interpretation of the coefficients:</p>
+<ul>
+<li><p>The grand mean is the average of the four means above is the sum of all, divided by 4:</p>
+<p><span class="math display">\[
+\frac{(b_0+b_1+b_2+b_3)+(b_0+b_1-b_2-b_3)+(b_0-b_1+b_2-b_3)+(b_0-b_1-b_2+b_3)}{4}=\frac{4b_0}{4}=b_0
+\]</span></p>
+<p>So this confirms the interpretation of the intercept.</p></li>
+<li><p>Similarly, if we want to see the effect of the EmbeddedSubject, we can calculate the difference between the means of NP conditions and NPI conditions:</p>
+<p><span class="math display">\[
+\frac{(b_0+b_1+b_2+b_3)+(b_0+b_1-b_2-b_3)}{2}-\frac{(b_0-b_1+b_2-b_3)+(b_0-b_1-b_2+b_3)}{2}=2b_1
+\]</span></p>
+<p>Again, that shows that <span class="math inline">\(b_1\)</span> is half the difference between the average of the two levels.</p></li>
+</ul>
+<p>A similar calculation can be done for the other elements.</p>
+<hr>
+</section>
+<section id="apa-reporting-including-coding" class="level1">
+<h1>APA Reporting including coding</h1>
+<p>In the reporting, in case of sum coding this should be reported, for example as:</p>
+<blockquote class="blockquote">
+<p>A linear regression was performed on the inverse transformed Raw Reading Time. Using sum coding, significant main effects of <em>EmbeddedSubject</em> (<em>b</em> = -2.422e-4, <em>SE=6.43e-5,</em> <em>p</em> &lt; .001) and <em>AgreementMorphology</em> (<em>b</em> = -2.202e-4, <em>SE=6.43e-5,</em> <em>p</em> &lt; .001) were observed.<br>
+The interaction between both predictors did not reach significance (<em>b</em> = <em>1.331e-4, SE= 9.093e-5,</em> <em>p</em> = 0.143).</p>
+</blockquote>
+<hr>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1082,13 +1044,13 @@ Important
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./correlation.html" class="pagination-link" aria-label="Correlation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Correlation</span>
+      <a href="./model_interactions.html" class="pagination-link" aria-label="Multiple Linear Regression: Interactions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Multiple Linear Regression: Interactions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./assignment3_key.html" class="pagination-link" aria-label="Assignment #3 Linear fitting with R - Answer Key">
-        <span class="nav-page-text">Assignment #3 Linear fitting with R - Answer Key</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./model_multicollinearity.html" class="pagination-link" aria-label="Multicollinearity and Interaction Models">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Multicollinearity and Interaction Models</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
+<meta name="dcterms.date" content="2025-08-12">
 
-<title>Linear Models in R with lm() – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Multiple Linear Regression: Interactions – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +57,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -66,8 +87,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./assignment3_key.html" rel="next">
-<link href="./correlation.html" rel="prev">
+<link href="./model_contrasts.html" rel="next">
+<link href="./Workgroup6.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -148,7 +169,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./lm_intro.html">Linear Models in R with <em>lm()</em></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_interactions.html">Multiple Linear Regression: Interactions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -297,7 +318,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lm_intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./lm_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Models in R with <em>lm()</em></span></a>
   </div>
 </li>
@@ -402,7 +423,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_interactions.html" class="sidebar-item-text sidebar-link">
+  <a href="./model_interactions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Multiple Linear Regression: Interactions</span></a>
   </div>
 </li>
@@ -436,22 +457,21 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#formula-notation-in-r" id="toc-formula-notation-in-r" class="nav-link active" data-scroll-target="#formula-notation-in-r">Formula notation in R</a></li>
-  <li><a href="#interpreting-lm-output" id="toc-interpreting-lm-output" class="nav-link" data-scroll-target="#interpreting-lm-output">Interpreting <code>lm()</code> output</a>
+  <li><a href="#interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous" id="toc-interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous" class="nav-link active" data-scroll-target="#interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous">Interaction with one categorical and one continuous predictor (Categorical*Continuous)</a>
   <ul class="collapse">
-  <li><a href="#model-residuals" id="toc-model-residuals" class="nav-link" data-scroll-target="#model-residuals">Model residuals</a></li>
-  <li><a href="#model-coefficients" id="toc-model-coefficients" class="nav-link" data-scroll-target="#model-coefficients">Model coefficients</a></li>
-  <li><a href="#data-fit-quality" id="toc-data-fit-quality" class="nav-link" data-scroll-target="#data-fit-quality">Data fit quality</a></li>
+  <li><a href="#centering-continuous-predictors" id="toc-centering-continuous-predictors" class="nav-link" data-scroll-target="#centering-continuous-predictors">Centering continuous predictors</a></li>
+  <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection">Model selection</a></li>
   </ul></li>
+  <li><a href="#interaction-with-two-categorical-predictors-categoricalcategorical" id="toc-interaction-with-two-categorical-predictors-categoricalcategorical" class="nav-link" data-scroll-target="#interaction-with-two-categorical-predictors-categoricalcategorical">Interaction with two categorical predictors (Categorical*Categorical)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup3.html">Workgroup 3: Simple Linear Regression with R</a></li><li class="breadcrumb-item"><a href="./lm_intro.html">Linear Models in R with <em>lm()</em></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_interactions.html">Multiple Linear Regression: Interactions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-lm-intro" class="quarto-section-identifier">Linear Models in R with <em>lm()</em></span></h1>
+<h1 class="title">Multiple Linear Regression: Interactions</h1>
 </div>
 
 
@@ -459,6 +479,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 12, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -468,174 +494,381 @@ window.Quarto = {
 </header>
 
 
-<p>As explained in the lecture, a linear model of a dataset fits a line that minimizes the sum square errors between the predicted values and the data.</p>
-<p>The generic function in R used to calculate a linear model fit based on data is <code>lm()</code> with the main arguments <code>formula</code> and <code>data</code>.</p>
-<section id="formula-notation-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="formula-notation-in-r">Formula notation in R</h2>
-<hr>
-<p>A linear model with one predictor variable can be in general expressed as:</p>
+<p>As described during the last lecture, interactions in a model reflect that the effect of one predictor depends on the level (categorical) or value (continuous) of one or more other predictors.</p>
+<p>With two predictors, we discussed a model including and interaction between two predictors <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> would look as follows:</p>
 <p><span class="math display">\[
-Y_i = b_0 + b_1X_i+ \epsilon_i
+Y=b_0+b_1X_1+b_2X_2+b_3X_1X_2
 \]</span></p>
-<p>where <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are referred to as the <strong><em>coefficients</em></strong> of the model and <span class="math inline">\(\epsilon_i\)</span> is the <strong>error term</strong> of the fit.</p>
-<ul>
-<li><p><span class="math inline">\(b_0\)</span>: intercept - represents the value of the outcome variable Y, when X=0.</p></li>
-<li><p><span class="math inline">\(b_1\)</span>: slope - represents the change on the value of Y, due to a change of 1 unit of the value of X.</p></li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Nomenclature</strong>: Sometimes you will see a linear model with coefficients indicated with a “hat” notation (<span class="math inline">\(\hat{}\)</span>). This is to reflect that the model we build is an <em>estimation</em> of the real model. So <span class="math inline">\(b_0, b_1\)</span> would represent the <em>population</em> parameters while <span class="math inline">\(\hat{b}_0, \hat{b}_1\)</span> would be the estimated parameters based on our sample.</p>
-<p>This is equivalent to the difference between the population and sample means (<span class="math inline">\(\mu\)</span> and <span class="math inline">\(\bar{X}\)</span>) and standard deviation (<span class="math inline">\(\sigma\)</span> and <span class="math inline">\(s\)</span>).</p>
-<p>In the course for simplicity I will use the non-hat notation.</p>
-</div>
-</div>
-<p>In our running example:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="lm_intro_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>We would like to build a model as :</p>
-<p><span class="math display">\[
-RT_i = b_0+b_1Frequency_i+\epsilon_i
-\]</span></p>
-<p>Models in R are specified using a notation in the form <code>response~terms</code> where <code>response</code> is the (numeric) dependent variable and <code>terms</code> are the linear predictors. A few notes:</p>
-<ul>
-<li><p>Formulas have an implicit intercept, so it is not necessary to include it.</p></li>
-<li><p>Error is considered by the function and calculated and it is also not included in the definition</p></li>
-</ul>
-<p>So both formulas below are equivalent and can represent our model :</p>
-<p><code>RT ~ Frequency</code></p>
-<p><code>RT ~ 1 + Frequency</code></p>
-<p>The formula can be extended to add more predictors (workgroup #4):</p>
-<p><code>RT ~ 1 + Frequency + NativeLanguage</code></p>
-<p>or to include <strong>interactions</strong> between predictors, using the operator <code>:</code> (workgroup #5):</p>
-<p><code>RT ~ 1 + Frequency:Length + NativeLanguage</code></p>
-<p>For now, we will focus on a single predictor.</p>
-</section>
-<section id="interpreting-lm-output" class="level2">
-<h2 class="anchored" data-anchor-id="interpreting-lm-output">Interpreting <code>lm()</code> output</h2>
+<p>with <span class="math inline">\(b_3\)</span> coefficient indicating the strength of the interaction.</p>
+<p>Let’s look at a few examples of two combinations of predictors.</p>
 <hr>
-<p>The function <code>lm()</code> has a simple nomenclature and usage. The data it returns is nevertheless extensive and we will focus on the interpretation of the output.</p>
-<p>Let’s look at out example:</p>
+<section id="interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous" class="level2">
+<h2 class="anchored" data-anchor-id="interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous">Interaction with one categorical and one continuous predictor (Categorical*Continuous)</h2>
+<p>To illustrate this, we use the Iconicity model as described in [<span class="citation" data-cites="winter2019statistics">Winter (<a href="references.html#ref-winter2019statistics" role="doc-biblioref">2019</a>)</span> Chapter 8.2, based on the study in <span class="citation" data-cites="winter2017words">(<a href="references.html#ref-winter2017words" role="doc-biblioref">Winter et al. 2017</a>)</span>. Read through the book chapters to see a similar analysis.</p>
+<p>Bodo Winter made all data used in the book available in an Open Source Foundation (OSF) directory, from which it can be downloaded directly from R.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Frequency, <span class="at">data=</span>lexdec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>iconicity<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">'https://osf.io/43btm/download'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Description of the dataset (see full details in Chapter 6 of <span class="citation" data-cites="winter2019statistics">(<a href="references.html#ref-winter2019statistics" role="doc-biblioref">Winter 2019</a>)</span>:</p>
+<ul>
+<li><p><strong>Iconicity</strong>: degree to which a word form resembles the meaning of a word, based on a rating scale. E.g: onomatopoeic words such as bang and beep are iconic because they imitate the sounds these words describe. This is the measured or outcome variable.</p></li>
+<li><p><strong>SER:</strong> Sensory experience rating for a particular word as extracted from a rating study.</p></li>
+<li><p><strong>POS (Part of Speech):</strong> Lexical categoryPosition in the sentence where the word was used.</p></li>
+</ul>
+<p>For the analysis we will look at a subset of Noun and Verb.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>icon<span class="ot">&lt;-</span>iconicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(POS <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Noun"</span>,<span class="st">"Verb"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If we fit a model with both <code>SER</code> and <code>POS</code> as predictors as a reference and look at the effects:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggeffects)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggiraphExtra)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>m1<span class="ot">&lt;-</span><span class="fu">lm</span>(Iconicity<span class="sc">~</span>POS<span class="sc">+</span>SER,<span class="at">data=</span>icon)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = RT ~ 1 + Frequency, data = lexdec)
-
-Coefficients:
-(Intercept)    Frequency  
-    6.58878     -0.04287  </code></pre>
-</div>
-</div>
-<p>Running the <code>lm()</code> function returns a simple set of data, with the formula reflecting again and the value of the coefficients. This result means that our model would be written as</p>
-<p><span class="math display">\[
-RT_i = 6.59 -0.04\times Frequency_i+\epsilon_i
-\]</span></p>
-<p>The formula however calculates more elements. Instead, it is normally executed saving the output in a new variable.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Frequency, <span class="at">data =</span> lexdec)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "coefficients"  "residuals"     "effects"       "rank"         
- [5] "fitted.values" "assign"        "qr"            "df.residual"  
- [9] "xlevels"       "call"          "terms"         "model"        </code></pre>
-</div>
-</div>
-<p>As we can see, the function returns a dataframe with many elements and variables. We will go through them at different points in the course.</p>
-<p>A simple way to display the results is to call the <code>summary()</code> function on the dataframe returned by <code>lm()</code> :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = RT ~ 1 + Frequency, data = lexdec)
+lm(formula = Iconicity ~ POS + SER, data = icon)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--0.55407 -0.16153 -0.03494  0.11699  1.08768 
+    Min      1Q  Median      3Q     Max 
+-3.0956 -0.7210 -0.1233  0.6146  3.6902 
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  6.588778   0.022296 295.515   &lt;2e-16 ***
-Frequency   -0.042872   0.004533  -9.459   &lt;2e-16 ***
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -0.11935    0.10040  -1.189    0.235    
+POSVerb      0.60159    0.06388   9.418   &lt;2e-16 ***
+SER          0.23319    0.02789   8.362   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.2353 on 1657 degrees of freedom
-Multiple R-squared:  0.05123,   Adjusted R-squared:  0.05066 
-F-statistic: 89.47 on 1 and 1657 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 1.045 on 1476 degrees of freedom
+  (782 observations deleted due to missingness)
+Multiple R-squared:  0.08226,   Adjusted R-squared:  0.08102 
+F-statistic: 66.15 on 2 and 1476 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-</div>
-<p>Let’s look at each of the output values individually:</p>
-<section id="model-residuals" class="level3">
-<h3 class="anchored" data-anchor-id="model-residuals">Model residuals</h3>
-<hr>
-<p>The first output of the function recalls the formula used for the fit and provides the 5-point summary of the model residuals.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-1284915948.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
-</figure>
-</div>
-<p>We will see in the next lecture that one of the conditions for the validity of a linear model is the normality (normal distribution) of the model residuals, with a mean around 0. The 5-point summary provides an indication, nevertheless a check should be performed on the data. The residuals are included in the data structure as output of the model in a field called <code>residuals</code> . We can assess the normality of the residuals by for example using a Q-Q Plot as we described in workgroup #2.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(model1<span class="sc">$</span>residuals)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(model1<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(m1, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">"POS"</span>,<span class="st">"SER"</span>),<span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="lm_intro_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="model_interactions_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The model residuals are still significantly deviating from normality. In Workgroup #4 we will explore in details the model assessment.</p>
-</section>
-<section id="model-coefficients" class="level3">
-<h3 class="anchored" data-anchor-id="model-coefficients">Model coefficients</h3>
-<hr>
-<p>The second part of the table, provides the <strong>coefficients</strong> :</p>
-<div class="quarto-figure quarto-figure-center">
+<p>Interpretation of the plot and coefficients are as per last lecture, with same slope (effect of <code>SER</code>) for both levels of <code>POS</code> but with a shift between them.</p>
+<p>Let’s look now at what happens if we introduce the interaction in the model:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>m2<span class="ot">&lt;-</span><span class="fu">lm</span>(Iconicity<span class="sc">~</span>POS<span class="sc">*</span>SER,<span class="at">data=</span>icon)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Iconicity ~ POS * SER, data = icon)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.8448 -0.7043 -0.1257  0.5864  3.5845 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.27394    0.11065   2.476  0.01341 *  
+POSVerb     -0.95542    0.20971  -4.556 5.65e-06 ***
+SER          0.11817    0.03108   3.801  0.00015 ***
+POSVerb:SER  0.50838    0.06535   7.780 1.36e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.025 on 1475 degrees of freedom
+  (782 observations deleted due to missingness)
+Multiple R-squared:  0.1184,    Adjusted R-squared:  0.1166 
+F-statistic: 66.05 on 3 and 1475 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(m2, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">"POS"</span>,<span class="st">"SER"</span>),<span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="images/clipboard-1865298031.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+<p><img src="model_interactions_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
-<p>The table provides the two coefficients (<span class="math inline">\(b_0\)</span> : intercept) and (<span class="math inline">\(b_1\)</span>: slope), and for each of them the following columns with the values and the results of a statistic test to check their significance.</p>
+</div>
+</div>
+<p>As you can see, allowing the model fit to account for an interaction allows a variability of the slope or effect of <code>SER</code> for each of the levels of the other predictor. The <strong>two lines are not parallel</strong> now. The sensory experience has a different impact on Iconicity for Nouns compared to Verbs.</p>
+<p>Ignoring a data interaction when present in the data leads to incorrect interpretation of the fit results.</p>
+<p>The fitted model is:</p>
+<p><span class="math display">\[ Iconicity=0.274-0.955\times POS_{Verb}+0.118\times SER+0.508\times POS_{Verb}\times SER\]</span></p>
+<p>Let’s check what every coefficient means:</p>
 <ul>
-<li><p><strong>Estimate</strong>: Coefficient value.</p></li>
-<li><p><strong>Std. Error:</strong> standard error of the coefficient estimate (<span class="math inline">\(\sigma_{b_i}\)</span>)</p></li>
-<li><p><strong>t-value:</strong> t-statistic calculated based on the value, to test the significance of the coefficient</p>
-<p><span class="math display">\[
-t=\frac{b_i}{\sigma_{b_i}}
-\]</span></p></li>
+<li><p><span class="math inline">\(b_0\)</span> - intercept: corresponds to the Iconicity for a <strong><em>Noun</em></strong> (POS=0) for a word with Sensory Experience Rating = 0. Note that this is not directly interpretable, since SER=0 is not even possible for this rating.</p></li>
+<li><p><span class="math inline">\(b_1\)</span> - slope coefficient for <em>POS</em>. Represents the effect in the Noun-Verb difference <strong><em>for words</em></strong> <strong><em>with SER=0</em></strong>. If you were to extend the plot above to the left to SER = 0, you can see that the lines for Verb would be below the line for Noun.</p></li>
+<li><p><span class="math inline">\(b_2\)</span> - slope coefficient for <em>SER</em>. Represents the slope of the SER <strong>only in the case that POS=0 (Noun)</strong>. So 0.118 is the slope of the red curve</p></li>
+<li><p><span class="math inline">\(b_3\)</span> - indicates the change in the slope of <em>SER</em> when <strong>POS=1 (Verb)</strong>, so the slope of the green curve is <span class="math inline">\(b_2+b_3=0.118+0.508=0.626\)</span>.</p></li>
 </ul>
-<p><span class="math display">\[
-H_0:b_i=0
-\]</span> <span class="math display">\[
-H_a:b_i \ne 0
-\]</span></p>
+<section id="centering-continuous-predictors" class="level3">
+<h3 class="anchored" data-anchor-id="centering-continuous-predictors">Centering continuous predictors</h3>
+<hr>
+<p>A simpler way to interpret intercepts when involving continuous predictors can be done if the predictors are <strong>centered.</strong></p>
+<p>Centering predictors involves substracting the mean from all the values. It does not affect the model fit quality, but the coefficients become directly interpretable. Let’s create a new variable centering <code>SER</code> called <code>SER_c</code> and fit a new model with the centered variable</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>icon<span class="ot">&lt;-</span>icon <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">SER_c=</span>SER<span class="sc">-</span><span class="fu">mean</span>(SER, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>m2_c<span class="ot">&lt;-</span><span class="fu">lm</span>(Iconicity<span class="sc">~</span>POS<span class="sc">*</span>SER_c, <span class="at">data=</span>icon)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Iconicity ~ POS * SER_c, data = icon)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.8448 -0.7043 -0.1257  0.5864  3.5845 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    0.66423    0.03102  21.414  &lt; 2e-16 ***
+POSVerb        0.72371    0.06456  11.209  &lt; 2e-16 ***
+SER_c          0.11817    0.03108   3.801  0.00015 ***
+POSVerb:SER_c  0.50838    0.06535   7.780 1.36e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.025 on 1475 degrees of freedom
+  (782 observations deleted due to missingness)
+Multiple R-squared:  0.1184,    Adjusted R-squared:  0.1166 
+F-statistic: 66.05 on 3 and 1475 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(m2_c, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">"POS"</span>,<span class="st">"SER"</span>),<span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="model_interactions_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The fitted model is:</p>
+<p><span class="math display">\[ Iconicity=0.664+0.724\times POS_{Verb}+0.118\times SER_c+0.508\times POS_{Verb}\times SER_c\]</span></p>
+<p>Let’s check what every coefficient means:</p>
 <ul>
-<li><span class="math inline">\(Pr(&gt;|t|)\)</span> <strong>or</strong> <strong>p-value</strong>: probability of the t-value in case <span class="math inline">\(H_0\)</span> is true.</li>
+<li><p><span class="math inline">\(b_0\)</span> - intercept: corresponds to the Iconicity for a <strong><em>Noun</em></strong> (POS=0) for a word with <strong>average SER</strong> (SER_c=0). This has not a direct interpretation.</p></li>
+<li><p><span class="math inline">\(b_1\)</span> - slope coefficient for <em>POS</em>. Represents the effect in the Noun-Verb difference <strong><em>for words</em></strong> <strong><em>with average SER</em></strong>.</p></li>
+<li><p><span class="math inline">\(b_2\)</span> - slope coefficient for <em>SER</em>. Represents the slope of the SER <strong>only in the case that POS=0 (Noun)</strong>. Same as before.</p></li>
+<li><p><span class="math inline">\(b_3\)</span> - indicates the change in the slope of <em>SER</em> when <strong>POS=1 (Verb)</strong>. Same as before.</p></li>
 </ul>
-<p>From the above, in our example we can see that both coefficients are significantly different from 0, so the model is confirmed to be:</p>
-<p><span class="math display">\[
-RT_i = 6.59 -0.04\times Frequency_i+\epsilon_i
-\]</span></p>
+</section>
+<section id="model-selection" class="level3">
+<h3 class="anchored" data-anchor-id="model-selection">Model selection</h3>
+<hr>
+<p>The model coefficients show significant <strong>simple effects</strong> and <strong>interactions</strong>, and it shows to improve the variance explained compared with a model without interactions.</p>
+<p>To compare them we can also perform a model comparison as shown in previous workgroups:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># model without interaction with centered variable</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>m1_c<span class="ot">&lt;-</span><span class="fu">lm</span>(Iconicity<span class="sc">~</span>POS<span class="sc">+</span>SER_c,<span class="at">data=</span>icon)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m1_c,m2_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: Iconicity ~ POS + SER_c
+Model 2: Iconicity ~ POS * SER_c
+  Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+1   1476 1611.9                                  
+2   1475 1548.3  1    63.533 60.523 1.358e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(m1_c,m2_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     df      AIC
+m1_c  4 4332.468
+m2_c  5 4274.993</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BIC</span>(m1_c,m2_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     df      BIC
+m1_c  4 4353.664
+m2_c  5 4301.488</code></pre>
+</div>
+</div>
+<p>All three test identify a significant improvement of the model fit including the interaction.</p>
+</section>
+</section>
+<section id="interaction-with-two-categorical-predictors-categoricalcategorical" class="level2">
+<h2 class="anchored" data-anchor-id="interaction-with-two-categorical-predictors-categoricalcategorical">Interaction with two categorical predictors (Categorical*Categorical)</h2>
+<hr>
+<p>For this example, we will use again the subset of the real data from a Self-Paced Reading study on Negative Polarity Items and complementizer agreement in Basque <span class="citation" data-cites="pablos2009negative">(<a href="references.html#ref-pablos2009negative" role="doc-biblioref">Pablos and Saddy 2009</a>)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">'./data/BasqueNPISampleEx5.Rda'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>basquenpi_Ex5</code> data frame contains only the data from Region Number 8 (complementizer position), which was considered the “critical region” for analysis in the experiment.</p>
+<p>From the dataframe, we will select a subset of the data columns for the analysis and introduce a transformation to inverse Reading Time (1/RWRT) to normalize the data as discussed in the assignment</p>
+<ul>
+<li><strong>Subject</strong> – Factor identifying the participant on the experiment (coded as a number from 1 to 32)</li>
+<li><strong>EmbeddedSubject</strong> – Factor/predictor indicating the nature of the embedded subject with the following levels:
+<ul>
+<li>NP – for target sentences with a Noun Phrase as subject</li>
+<li>NPI – for target sentences with a Negative Polarity Item as subject</li>
+</ul></li>
+<li><strong>Agreement Morphology</strong> – Factor/predictor indicating the nature of agreement with the following levels:
+<ul>
+<li>Declarative – for target sentences that contained a complementizer with declarative morphology</li>
+<li>Partitive – for target sentences that contained a complementizer with partitive morphology</li>
+</ul></li>
+<li><strong>RWRT</strong> – Raw (recorded) Reading Time of the word</li>
+<li><strong>InvRWRT</strong> - Inverse Raw Reading Time</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dataBasque<span class="ot">&lt;-</span>basquenpi_Ex5 <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Item, Subject, EmbeddedSubject, AgreementMorphology, RWRT) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">InvRWRT=</span><span class="dv">1</span><span class="sc">/</span>RWRT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Again, let’s fit a model with interaction and a model without and compare them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelbased)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>mbasque_1<span class="ot">&lt;-</span><span class="fu">lm</span>(InvRWRT<span class="sc">~</span>EmbeddedSubject<span class="sc">+</span>AgreementMorphology, <span class="at">data=</span>dataBasque)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mbasque_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = InvRWRT ~ EmbeddedSubject + AgreementMorphology, 
+    data = dataBasque)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-1.727e-03 -4.210e-04  1.369e-05  3.843e-04  2.709e-03 
+
+Coefficients:
+                               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                   0.0021049  0.0000394  53.422  &lt; 2e-16 ***
+EmbeddedSubjectNPI           -0.0001757  0.0000455  -3.862 0.000122 ***
+AgreementMorphologyPartitive -0.0001537  0.0000455  -3.378 0.000766 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.0006304 on 765 degrees of freedom
+Multiple R-squared:  0.03327,   Adjusted R-squared:  0.03074 
+F-statistic: 13.16 on 2 and 765 DF,  p-value: 2.394e-06</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>emm_basque_1<span class="ot">&lt;-</span><span class="fu">estimate_means</span>(mbasque_1, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"EmbeddedSubject"</span>,<span class="st">"AgreementMorphology"</span>))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>emm_basque_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Estimated Marginal Means
+
+EmbeddedSubject | AgreementMorphology |     Mean |       SE |       95% CI | t(765)
+-----------------------------------------------------------------------------------
+NP              | Declarative         | 2.10e-03 | 3.94e-05 | [0.00, 0.00] |  53.42
+NPI             | Declarative         | 1.93e-03 | 3.94e-05 | [0.00, 0.00] |  48.96
+NP              | Partitive           | 1.95e-03 | 3.94e-05 | [0.00, 0.00] |  49.52
+NPI             | Partitive           | 1.78e-03 | 3.94e-05 | [0.00, 0.00] |  45.06
+
+Variable predicted: InvRWRT
+Predictors modulated: EmbeddedSubject, AgreementMorphology</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(emm_basque_1) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="model_interactions_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And now with the interaction:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>mbasque_2<span class="ot">&lt;-</span><span class="fu">lm</span>(InvRWRT<span class="sc">~</span>EmbeddedSubject<span class="sc">*</span>AgreementMorphology, <span class="at">data=</span>dataBasque)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mbasque_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = InvRWRT ~ EmbeddedSubject * AgreementMorphology, 
+    data = dataBasque)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-1.694e-03 -4.445e-04  3.515e-05  3.968e-04  2.676e-03 
+
+Coefficients:
+                                                  Estimate Std. Error t value
+(Intercept)                                      2.138e-03  4.546e-05  47.031
+EmbeddedSubjectNPI                              -2.422e-04  6.430e-05  -3.768
+AgreementMorphologyPartitive                    -2.202e-04  6.430e-05  -3.426
+EmbeddedSubjectNPI:AgreementMorphologyPartitive  1.331e-04  9.093e-05   1.463
+                                                Pr(&gt;|t|)    
+(Intercept)                                      &lt; 2e-16 ***
+EmbeddedSubjectNPI                              0.000177 ***
+AgreementMorphologyPartitive                    0.000646 ***
+EmbeddedSubjectNPI:AgreementMorphologyPartitive 0.143754    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.00063 on 764 degrees of freedom
+Multiple R-squared:  0.03597,   Adjusted R-squared:  0.03219 
+F-statistic: 9.503 on 3 and 764 DF,  p-value: 3.618e-06</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>emm_basque_2<span class="ot">&lt;-</span><span class="fu">estimate_means</span>(mbasque_2, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"EmbeddedSubject"</span>,<span class="st">"AgreementMorphology"</span>))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>emm_basque_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Estimated Marginal Means
+
+EmbeddedSubject | AgreementMorphology |     Mean |       SE |       95% CI | t(764)
+-----------------------------------------------------------------------------------
+NP              | Declarative         | 2.14e-03 | 4.55e-05 | [0.00, 0.00] |  47.03
+NPI             | Declarative         | 1.90e-03 | 4.55e-05 | [0.00, 0.00] |  41.70
+NP              | Partitive           | 1.92e-03 | 4.55e-05 | [0.00, 0.00] |  42.19
+NPI             | Partitive           | 1.81e-03 | 4.55e-05 | [0.00, 0.00] |  39.79
+
+Variable predicted: InvRWRT
+Predictors modulated: EmbeddedSubject, AgreementMorphology</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(emm_basque_2) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="model_interactions_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As you can see, the “slopes” of the effect and coefficient values have change, and so is the interpretation.</p>
+<p>The fitted model is:</p>
+<p><span class="math display">\[ (1/RWRT)=(2.138\times10^{-3})-(2.422\times10^{-4})\times EmbeddedSubject_{NPI}-(2.202\times10^{-4})\times AgreementMorphology_{Partitive}+(1.331\times10^{-4})\times EmbeddedSubject_{NPI}\times AgreementMorphology_{Partitive}\]</span></p>
+<p>Let’s check what every coefficient means:</p>
+<ul>
+<li><p><span class="math inline">\(b_0\)</span> - intercept: corresponds to the Inverse Raw Reading Time for the reference cell in the design: <strong><em>EmbeddedSubject = NP</em></strong> (<code>EmbeddedSubjectNPI=0</code>) and <strong><em>AgreementMorphology = Declarative</em></strong> (<code>AgreementMorphologyPartitive=0</code>).</p></li>
+<li><p><span class="math inline">\(b_1\)</span> - slope coefficient for <em>EmbeddedSubject</em>. Represents the effect in the InvRWRT <strong><em>for EmbeddedSubject=NPI</em></strong> <u>compared with the reference</u> cell (NP, Declarative), while <strong><em>AgreementMorphology = Declarative</em></strong></p></li>
+<li><p><span class="math inline">\(b_2\)</span> - slope coefficient for <em>AgreementMorphology</em>. Represents the change in InvRWRT <strong><em>for AgreementMorphology = Partitive</em></strong> <u>compared with the reference</u> cell (NP, Declarative), while <strong><em>EmbeddedSubject = NP</em></strong></p></li>
+<li><p><span class="math inline">\(b_3\)</span> - indicates the change with respect to other coefficients when <strong><em>EmbeddedSubject=NPI and AgreementMorphology = Partitive</em></strong></p></li>
+</ul>
+<p>So the estimated values are the following:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><strong>Agreement Morphology = Declarative</strong></td>
+<td><strong>Agreement Morphology = Partitive</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Embedded Subject = NP</strong></td>
+<td><span class="math inline">\(b_0\)</span></td>
+<td><span class="math inline">\(b_0+b_2\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Embedded Subject = NPI</strong></td>
+<td><span class="math inline">\(b_0+b_1\)</span></td>
+<td><span class="math inline">\(b_0+b_1+b_2+b_3\)</span></td>
+</tr>
+</tbody>
+</table>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -646,38 +879,25 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Model validity and Intercept interpretation</strong>:</p>
-<p>A model is always valid around the values used to generate them, and it is important to be careful to interpret the outcome.</p>
-<p>The intercept value of 6.59 means that a word with a lemma log Frequency value of 0, is expected to have a logarithmic reaction time of 6.59 (in <code>lexdec</code> dataset both RT and Frequency are logarithmically transformed values) This might not make sense, as at words with extremely low frequency, the reaction time might be even longer.</p>
-<p>Consider the range of the data used to fit the model:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(lexdec<span class="sc">$</span>Frequency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.791759</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(lexdec<span class="sc">$</span>Frequency)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.77191</code></pre>
+<p><strong>Simple effects vs Main effects</strong></p>
+<p>The effects defined by <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span> are called <strong>simple effects</strong> as they represent the impact of a particular variable <u>for a specific level of the other predictor.</u></p>
+<p>In general, in research what is of interest is the effect of a predictor <u>on the average response</u> independently of the other predictors, which is referred to as <strong>main effects.</strong></p>
+<p>We look at how to evaluate main effects in the next section on Contrast Coding.</p>
 </div>
 </div>
-<p>We should not use the model to <strong><em>predict</em></strong> values beyond this range.</p>
-</div>
-</div>
-</section>
-<section id="data-fit-quality" class="level3">
-<h3 class="anchored" data-anchor-id="data-fit-quality">Data fit quality</h3>
-<hr>
-<p>The statistical analysis shown before provides the significance assessment at <u><strong>individual coefficient</strong></u> level.</p>
-<p>The last section of the output on the other hand, provides the statistical assessment of the <u><strong>model as a whole</strong></u></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-3283260128.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
-</figure>
-</div>
-<p>We will describe these values in the next Lecture and Workgroup.</p>
 
 
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-pablos2009negative" class="csl-entry" role="listitem">
+Pablos, Leticia, and Douglas Saddy. 2009. <span>“Negative Polarity Items and Complementizer Agreement in Basque.”</span> <em>Brain Talk</em>, 61.
+</div>
+<div id="ref-winter2019statistics" class="csl-entry" role="listitem">
+Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. Routledge.
+</div>
+<div id="ref-winter2017words" class="csl-entry" role="listitem">
+Winter, Bodo, Marcus Perlman, Lynn K Perry, and Gary Lupyan. 2017. <span>“Which Words Are Most Iconic? Iconicity in English Sensory Words.”</span> <em>Interaction Studies</em> 18 (3): 443–64.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1082,13 +1302,13 @@ Important
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./correlation.html" class="pagination-link" aria-label="Correlation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Correlation</span>
+      <a href="./Workgroup6.html" class="pagination-link" aria-label="Workgroup 6: Multiple Regression with R II">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Workgroup 6: Multiple Regression with R II</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./assignment3_key.html" class="pagination-link" aria-label="Assignment #3 Linear fitting with R - Answer Key">
-        <span class="nav-page-text">Assignment #3 Linear fitting with R - Answer Key</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./model_contrasts.html" class="pagination-link" aria-label="Treatment Coding vs. Sum Coding">
+        <span class="nav-page-text">Treatment Coding vs.&nbsp;Sum Coding</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
