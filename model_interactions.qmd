@@ -32,6 +32,7 @@ Bodo Winter made all data used in the book available in an Open Source Foundatio
 
 ```{r}
 library(tidyverse)
+
 iconicity<-read.csv('https://osf.io/43btm/download')
 ```
 
@@ -180,6 +181,8 @@ Again, let's fit a model with interaction and a model without and compare them.
 
 ```{r}
 #| warning: false
+library(modelbased)
+
 mbasque_1<-lm(InvRWRT~EmbeddedSubject+AgreementMorphology, data=dataBasque)
 summary(mbasque_1)
 
