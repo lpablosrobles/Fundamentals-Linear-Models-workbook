@@ -8,7 +8,7 @@ execute:
   message: false
 ---
 
-# Treatment Coding vs. Sum Coding
+# Treatment Coding vs. Sum Coding {.unnumbered}
 
 We discussed briefly in Workgroup 5 the concept of [contrast coding](https://lpablosrobles.github.io/Fundamentals-Linear-Models-workbook/model_multiple.html) of categorical variables.
 

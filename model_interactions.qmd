@@ -8,7 +8,7 @@ execute:
   message: false
 ---
 
-# Multiple Linear Regression: Interactions
+# Multiple Linear Regression: Interactions {.unnumbered}
 
 As described during the last lecture, interactions in a model reflect that the effect of one predictor depends on the level (categorical) or value (continuous) of one or more other predictors.
 
@@ -222,7 +222,7 @@ Let's check what every coefficient means:
 So the estimated values are the following:
 
 |  |  |  |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 |  | **Agreement Morphology = Declarative** | **Agreement Morphology = Partitive** |
 | **Embedded Subject = NP** | $b_0$ | $b_0+b_2$ |
 | **Embedded Subject = NPI** | $b_0+b_1$ | $b_0+b_1+b_2+b_3$ |
