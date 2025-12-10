@@ -1,0 +1,72 @@
+---
+editor: "visual"
+date: 08/12/2025
+bibliography: references.bib
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+# Spearman's rank correlation {.unnumbered}
+
+As we saw in the last lecture, when data does not have a linear relationship, the use of Pearson's correlation is not adequate.
+
+An alternative is to use **Spearman's rank correlation** or **Spearman's rho**, which assesses that two variables are **monotonically** related, meaning that there is a positive relationship (one variable increases corresponds to increase on the other) or negatively (two variables vary inversely) even though their relationship is not linear.
+
+![](images/clipboard-854944488.png)
+
+If we consider back the example in Workgroup #4 of \\data from a psycholinguistic study on the reading comprehension of words as a function of frequency part of the English Lexicon Project, described in the the @winter2019statistics textbook Chapter 4.1.
+
+```{r}
+#| warning: false
+library(tidyverse)
+
+elp_data <- read.csv("./data/ELP_full_length_frequency.csv")
+elp_data %>% ggplot(aes(x = Log10Freq, y = RT)) + 
+  geom_point(alpha=1/20) + 
+  geom_smooth(method="lm")
+
+```
+
+The Frequency and Reading Time have a non-linear relationship, however clearly are related. Looking at the residuals of a model fit on this data, they clearly violate the linear regression model assumptions.
+
+```{r}
+elp_model<-lm(RT~Log10Freq, data=elp_data)
+plot(elp_model, which=1)
+```
+
+For this data, we can use Spearman's rho to quantify the relationship.
+
+**Spearman’s rank correlation coefficient (ρ)** quantifies the **monotonic association** between two variables based on **ranked values**, not raw numeric magnitudes. It is therefore:
+
+-    Non-parametric (no assumption of normality or linearity).
+
+-   Robust to outliers and skewed distributions.
+
+-   Appropriate when the relationship is monotonic but not necessarily linear.
+
+-   Useful when variables are ordinal or continuous but violate Pearson’s assumptions.
+
+We can calculate it using the same function as the one used for the Pearson's correlation coefficient `cor.test()`
+
+```{r}
+cor.test(elp_data$Log10Freq,elp_data$RT)
+```
+
+## Interpretation of the output:
+
+-   **ρ = −0.62** indicates a **negative monotonic association**:\
+    As word frequency increases, reaction times tend to decrease (participants recognize more frequent words faster).
+
+-   The **p-value \< .001** indicates that the association is statistically significant.
+
+-   Because Spearman’s rho is rank-based, this finding is robust to the strong skew and occasional outliers typical of RT data.
+
+## APA-style reporting
+
+Results could be reported as follows:
+
+> Inspection of the scatterplot and residuals of a linear model fit suggested a monotonic but non-linear pattern relationship between the logarithmically transformed word frequency and the reading time of a lexical decision task in the English Lexicon Project.
+>
+> A Spearman rank-order correlation was conducted to assess the monotonic relationship. There was a **moderate, negative correlation** between the variables, **ρ = –.62, 95%CI\[-.626,.612\], p \< .001**, indicating that higher-frequency words were responded to more quickly.

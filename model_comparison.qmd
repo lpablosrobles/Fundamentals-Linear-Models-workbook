@@ -74,9 +74,7 @@ Details of the AIC mathematical basis are beyond the objectives of this course a
 
 -   A lower AIC indicates a model with less information loss, therefore a better fit to the data.
 
--   AIC balances goodness of fit and simplicity of the model, avoiding overfitting.
-
-We will come back to overfitting in the following lessons on Multiple Linear Regression.
+-   AIC balances goodness of fit and complexity of the model, but risks overfitting.
 
 To calculate the AIC value, we use the `AIC()` function (in capital letters). You can pass as arguments to the function more than one model, which will provide as output a table with the comparison of the values. In our running example:
 
@@ -100,7 +98,7 @@ A similar indicator to AIC is the Bayesian Information Criterion (BIC). Again th
 
 -   Lower BIC indicates a better model fit
 
--   Penalized strongly complex models, so it is more adequate to select the simplest possible model explaining the data.
+-   Penalized strongly complex models, so it is more adequate to select the simplest possible model explaining the data, avoiding overfitting.
 
 It is implemented in R by the `BIC()` function:
 

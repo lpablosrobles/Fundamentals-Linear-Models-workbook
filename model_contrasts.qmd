@@ -55,7 +55,7 @@ contrasts(dataBasque$EmbeddedSubject)
 This will code the dummy variables as follows:
 
 |   | Embedded Subject = NP | Embedded Subject = NPI |
-|------------------------|-----------------------------|------------------------------------|
+|----|----|----|
 | EmbeddedSubjectNPI | +1 | -1 |
 |  | **AgreementMorphology = Declarative** | **AgreementMorphology = Partitive** |
 | AgreementMorphologyPartitive | +1 | -1 |

@@ -228,7 +228,7 @@ Let's check what every coefficient means:
 So the estimated values are the following:
 
 |  |  |  |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 |  | **Agreement Morphology = Declarative** | **Agreement Morphology = Partitive** |
 | **Embedded Subject = NP** | $b_0$ | $b_0+b_2$ |
 | **Embedded Subject = NPI** | $b_0+b_1$ | $b_0+b_1+b_2+b_3$ |
@@ -282,7 +282,7 @@ Example:
 > The table below summarizes the coefficients of the model:
 >
 > | term | b\* | SE | t | p | 95%CI |
-> |----------------------------------------|---------|--------|--------|--------|-------------|
+> |----|----|----|----|----|----|
 > | (Intercept) | 2.14 | 0.045 | 47.0 | \<.001 | \[2.05, 2.23\] |
 > | EmbeddedSubject_NPI | -0.24 | 0.064 | -3.77 | \<.001 | \[-0.37, -0.12\] |
 > | AgreementMorphology_Partitive | -0.22 | 0.064 | -3.43 | \<.001 | \[-0.35, -0.09\] |
