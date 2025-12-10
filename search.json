@@ -787,7 +787,7 @@
     "href": "model_comparison.html#akaike-information-criterion-aic",
     "title": "Model selection",
     "section": "Akaike Information Criterion (AIC)",
-    "text": "Akaike Information Criterion (AIC)\n\nThe model comparison based on F-test using anova() allows us to evaluate if adding a predictor term changes the model fit.\nA mathematical indicator that can be used to evaluate a model performance is the Akaike Information Criterion (AIC).\nDetails of the AIC mathematical basis are beyond the objectives of this course and are not required for its use in model selection, but the basic ideas are the following:\n\nAIC estimates the prediction error of a model\nA lower AIC indicates a model with less information loss, therefore a better fit to the data.\nAIC balances goodness of fit and simplicity of the model, avoiding overfitting.\n\nWe will come back to overfitting in the following lessons on Multiple Linear Regression.\nTo calculate the AIC value, we use the AIC() function (in capital letters). You can pass as arguments to the function more than one model, which will provide as output a table with the comparison of the values. In our running example:\n\nAIC(null_model,mod)\n\n           df      AIC\nnull_model  2 6572.076\nmod         3 6209.858\n\n\nAs you can see, the model with the logFreqs predictor has a lower AIC (6209) that the null model (6572) confirming it is better explaining the data.\nNote that the absolute value of AIC has no practical significance, but it is used always as a relative comparison between two or more models.\nCriteria: a change in AIC between models &gt;2 is considered significant (corresponds to ~35% probability that the lower AIC model improves the explanatory power of the model).",
+    "text": "Akaike Information Criterion (AIC)\n\nThe model comparison based on F-test using anova() allows us to evaluate if adding a predictor term changes the model fit.\nA mathematical indicator that can be used to evaluate a model performance is the Akaike Information Criterion (AIC).\nDetails of the AIC mathematical basis are beyond the objectives of this course and are not required for its use in model selection, but the basic ideas are the following:\n\nAIC estimates the prediction error of a model\nA lower AIC indicates a model with less information loss, therefore a better fit to the data.\nAIC balances goodness of fit and complexity of the model, but risks overfitting.\n\nTo calculate the AIC value, we use the AIC() function (in capital letters). You can pass as arguments to the function more than one model, which will provide as output a table with the comparison of the values. In our running example:\n\nAIC(null_model,mod)\n\n           df      AIC\nnull_model  2 6572.076\nmod         3 6209.858\n\n\nAs you can see, the model with the logFreqs predictor has a lower AIC (6209) that the null model (6572) confirming it is better explaining the data.\nNote that the absolute value of AIC has no practical significance, but it is used always as a relative comparison between two or more models.\nCriteria: a change in AIC between models &gt;2 is considered significant (corresponds to ~35% probability that the lower AIC model improves the explanatory power of the model).",
     "crumbs": [
       "Workgroup 4: Simple Linear Regression II",
       "Model selection"
@@ -798,7 +798,7 @@
     "href": "model_comparison.html#bayesian-information-criterion-bic",
     "title": "Model selection",
     "section": "Bayesian Information Criterion (BIC)",
-    "text": "Bayesian Information Criterion (BIC)\n\nA similar indicator to AIC is the Bayesian Information Criterion (BIC). Again the details are beyond the scope of this course, but a few characteristics:\n\nBIC based on Bayesian framework\nLower BIC indicates a better model fit\nPenalized strongly complex models, so it is more adequate to select the simplest possible model explaining the data.\n\nIt is implemented in R by the BIC() function:\n\nBIC(null_model,mod)\n\n           df      BIC\nnull_model  2 6580.870\nmod         3 6223.049\n\n\nAgain in this case, the model with logFreqs predictor has a lower BIC than the null model.",
+    "text": "Bayesian Information Criterion (BIC)\n\nA similar indicator to AIC is the Bayesian Information Criterion (BIC). Again the details are beyond the scope of this course, but a few characteristics:\n\nBIC based on Bayesian framework\nLower BIC indicates a better model fit\nPenalized strongly complex models, so it is more adequate to select the simplest possible model explaining the data, avoiding overfitting.\n\nIt is implemented in R by the BIC() function:\n\nBIC(null_model,mod)\n\n           df      BIC\nnull_model  2 6580.870\nmod         3 6223.049\n\n\nAgain in this case, the model with logFreqs predictor has a lower BIC than the null model.",
     "crumbs": [
       "Workgroup 4: Simple Linear Regression II",
       "Model selection"
@@ -1229,6 +1229,39 @@
     "crumbs": [
       "Workgroup 6: Multiple Regression with R II",
       "Multicollinearity"
+    ]
+  },
+  {
+    "objectID": "model_spearman.html",
+    "href": "model_spearman.html",
+    "title": "Spearman’s rank correlation",
+    "section": "",
+    "text": "Interpretation of the output:\nAs we saw in the last lecture, when data does not have a linear relationship, the use of Pearson’s correlation is not adequate.\nAn alternative is to use Spearman’s rank correlation or Spearman’s rho, which assesses that two variables are monotonically related, meaning that there is a positive relationship (one variable increases corresponds to increase on the other) or negatively (two variables vary inversely) even though their relationship is not linear.\nIf we consider back the example in Workgroup #4 of \\data from a psycholinguistic study on the reading comprehension of words as a function of frequency part of the English Lexicon Project, described in the the Winter (2019) textbook Chapter 4.1.\nThe Frequency and Reading Time have a non-linear relationship, however clearly are related. Looking at the residuals of a model fit on this data, they clearly violate the linear regression model assumptions.\nFor this data, we can use Spearman’s rho to quantify the relationship.\nSpearman’s rank correlation coefficient (ρ) quantifies the monotonic association between two variables based on ranked values, not raw numeric magnitudes. It is therefore:\nWe can calculate it using the same function as the one used for the Pearson’s correlation coefficient cor.test()",
+    "crumbs": [
+      "Workgroup 6: Multiple Regression with R II",
+      "Spearman's rank correlation"
+    ]
+  },
+  {
+    "objectID": "model_spearman.html#interpretation-of-the-output",
+    "href": "model_spearman.html#interpretation-of-the-output",
+    "title": "Spearman’s rank correlation",
+    "section": "",
+    "text": "ρ = −0.62 indicates a negative monotonic association:\nAs word frequency increases, reaction times tend to decrease (participants recognize more frequent words faster).\nThe p-value &lt; .001 indicates that the association is statistically significant.\nBecause Spearman’s rho is rank-based, this finding is robust to the strong skew and occasional outliers typical of RT data.",
+    "crumbs": [
+      "Workgroup 6: Multiple Regression with R II",
+      "Spearman's rank correlation"
+    ]
+  },
+  {
+    "objectID": "model_spearman.html#apa-style-reporting",
+    "href": "model_spearman.html#apa-style-reporting",
+    "title": "Spearman’s rank correlation",
+    "section": "APA-style reporting",
+    "text": "APA-style reporting\nResults could be reported as follows:\n\nInspection of the scatterplot and residuals of a linear model fit suggested a monotonic but non-linear pattern relationship between the logarithmically transformed word frequency and the reading time of a lexical decision task in the English Lexicon Project.\nA Spearman rank-order correlation was conducted to assess the monotonic relationship. There was a moderate, negative correlation between the variables, ρ = –.62, 95%CI[-.626,.612], p &lt; .001, indicating that higher-frequency words were responded to more quickly.\n\n\n\n\n\nWinter, Bodo. 2019. Statistics for Linguists: An Introduction Using r. Routledge.",
+    "crumbs": [
+      "Workgroup 6: Multiple Regression with R II",
+      "Spearman's rank correlation"
     ]
   },
   {

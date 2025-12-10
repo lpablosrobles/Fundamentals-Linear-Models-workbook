@@ -418,6 +418,12 @@ window.Quarto = {
  <span class="menu-text">Multicollinearity</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./model_spearman.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spearman’s rank correlation</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -552,9 +558,8 @@ F-statistic: 499.3 on 1 and 598 DF,  p-value: &lt; 2.2e-16</code></pre>
 <ul>
 <li><p>AIC estimates the prediction error of a model</p></li>
 <li><p>A lower AIC indicates a model with less information loss, therefore a better fit to the data.</p></li>
-<li><p>AIC balances goodness of fit and simplicity of the model, avoiding overfitting.</p></li>
+<li><p>AIC balances goodness of fit and complexity of the model, but risks overfitting.</p></li>
 </ul>
-<p>We will come back to overfitting in the following lessons on Multiple Linear Regression.</p>
 <p>To calculate the AIC value, we use the <code>AIC()</code> function (in capital letters). You can pass as arguments to the function more than one model, which will provide as output a table with the comparison of the values. In our running example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(null_model,mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -575,7 +580,7 @@ mod         3 6209.858</code></pre>
 <ul>
 <li><p>BIC based on Bayesian framework</p></li>
 <li><p>Lower BIC indicates a better model fit</p></li>
-<li><p>Penalized strongly complex models, so it is more adequate to select the simplest possible model explaining the data.</p></li>
+<li><p>Penalized strongly complex models, so it is more adequate to select the simplest possible model explaining the data, avoiding overfitting.</p></li>
 </ul>
 <p>It is implemented in R by the <code>BIC()</code> function:</p>
 <div class="cell">
