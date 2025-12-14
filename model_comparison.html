@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
-
 <title>Model selection – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
@@ -58,7 +55,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -78,8 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -105,12 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -136,15 +126,11 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -155,13 +141,9 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
         <div class="sidebar-tools-main">
@@ -180,7 +162,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -200,8 +182,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">✍️ R Syntax</span></a>
@@ -238,7 +220,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup2.html" class="sidebar-item-text sidebar-link">
@@ -247,8 +229,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data organization and transformation</span></a>
@@ -273,7 +255,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup3.html" class="sidebar-item-text sidebar-link">
@@ -282,8 +264,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./plot_xy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plotting relationship between two variables</span></a>
@@ -308,7 +290,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup4.html" class="sidebar-item-text sidebar-link">
@@ -317,8 +299,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_fit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Model output</span></a>
@@ -355,7 +337,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup5.html" class="sidebar-item-text sidebar-link">
@@ -364,8 +346,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_multiple.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multiple Linear Regression with Categorical predictor with more than two levels</span></a>
@@ -390,7 +372,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup6.html" class="sidebar-item-text sidebar-link">
@@ -399,8 +381,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_interactions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multiple Linear Regression: Interactions</span></a>
@@ -420,12 +402,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_spearman.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spearman’s rank correlation</span></a>
+  <a href="./assignment6_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment #6 - An EEG Processing Pipeline II - Answer Key</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -433,26 +415,20 @@ window.Quarto = {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#model-comparison-based-on-f-test" id="toc-model-comparison-based-on-f-test" class="nav-link active" data-scroll-target="#model-comparison-based-on-f-test">Model comparison based on F-test</a></li>
+<li><a href="#model-comparison-based-on-f-test" id="toc-model-comparison-based-on-f-test" class="nav-link active" data-scroll-target="#model-comparison-based-on-f-test">Model comparison based on F-test</a></li>
   <li><a href="#akaike-information-criterion-aic" id="toc-akaike-information-criterion-aic" class="nav-link" data-scroll-target="#akaike-information-criterion-aic">Akaike Information Criterion (AIC)</a></li>
   <li><a href="#bayesian-information-criterion-bic" id="toc-bayesian-information-criterion-bic" class="nav-link" data-scroll-target="#bayesian-information-criterion-bic">Bayesian Information Criterion (BIC)</a></li>
-  </ul>
-</nav>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_comparison.html">Model selection</a></li></ol></nav>
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup4.html">Workgroup 4: Simple Linear Regression II</a></li><li class="breadcrumb-item"><a href="./model_comparison.html">Model selection</a></li></ol></nav><div class="quarto-title">
 <h1 class="title">Model selection</h1>
 </div>
 
@@ -467,36 +443,36 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>Up to now we have created a model fitting data with one predictor, trying to assess whether it explains the data “better” than a simpler model simply based on the mean of the data.</p>
+</header><p>Up to now we have created a model fitting data with one predictor, trying to assess whether it explains the data “better” than a simpler model simply based on the mean of the data.</p>
 <p>We can write the two models as:</p>
 <ul>
-<li><p><em>Null</em> model, or intercept only:</p>
-<p><span class="math inline">\(Y_i = b_0 + \epsilon_i\)</span></p></li>
-<li><p>Linear model with predictor X:</p>
-<p><span class="math inline">\(Y_i = b_0+b_1X_i+\epsilon_i\)</span></p></li>
+<li>
+<p><em>Null</em> model, or intercept only:</p>
+<p><span class="math inline">\(Y_i = b_0 + \epsilon_i\)</span></p>
+</li>
+<li>
+<p>Linear model with predictor X:</p>
+<p><span class="math inline">\(Y_i = b_0+b_1X_i+\epsilon_i\)</span></p>
+</li>
 </ul>
 <p>We can compare which models best fits the data by comparing the amount of residual variance explained by one or the other, as measured by the <span class="math inline">\(R^2\)</span> parameter. However, as explained in the previous section, the <span class="math inline">\(R^2\)</span> value tends to improve as we add more parameters to the model, while their explanation value is not improved.</p>
 <p>We will look in the following sections to three other methods: model comparison i) based on F-test, ii) based on Akaike’s Information Criterion (AIC) and iii) based on Bayesian Information Criterion (BIC).</p>
-<section id="model-comparison-based-on-f-test" class="level2">
-<h2 class="anchored" data-anchor-id="model-comparison-based-on-f-test">Model comparison based on F-test</h2>
+<section id="model-comparison-based-on-f-test" class="level2"><h2 class="anchored" data-anchor-id="model-comparison-based-on-f-test">Model comparison based on F-test</h2>
 <hr>
 <p>One approach to check if adding elements to a model improve the model fit is to make a F-test of the difference in residual Sum of Squares.</p>
-<p>This can be done using the <code>anova()</code> function.</p>
+<p>This can be done using the <code><a href="https://rdrr.io/r/stats/anova.html">anova()</a></code> function.</p>
 <p>As example, let’s again look at the data from Assignment 3 and create two models, one with only the intercept (null model), and one with our predictor (<code>logFreqs</code>)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dfVowel<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">'./data/extended_vowel_duration.csv'</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>null_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Duration<span class="sc">~</span><span class="dv">1</span>,<span class="at">data=</span>dfVowel)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Duration<span class="sc">~</span>logFreqs, <span class="at">data =</span> dfVowel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">dfVowel</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">'./data/extended_vowel_duration.csv'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">null_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Duration</span><span class="op">~</span><span class="fl">1</span>,data<span class="op">=</span><span class="va">dfVowel</span><span class="op">)</span></span>
+<span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Duration</span><span class="op">~</span><span class="va">logFreqs</span>, data <span class="op">=</span> <span class="va">dfVowel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can compare if there is a significant difference between the two models residual sum of squares.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(null_model, mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">null_model</span>, <span class="va">mod</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
@@ -509,7 +485,7 @@ Model 2: Duration ~ logFreqs
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>The output of the <code>anova()</code> function call, provides a F-test comparing the two models provided as input.</p>
+<p>The output of the <code><a href="https://rdrr.io/r/stats/anova.html">anova()</a></code> function call, provides a F-test comparing the two models provided as input.</p>
 <p>What we can observed in this case is that the F test value is <span class="math inline">\(F(1,598) = 499.31, p&lt;.01\)</span> indicating that there is a significant difference in the unexplained variance between both models. In other words, introducing the <code>logFreqs</code> predictor improved the model fit.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -521,9 +497,9 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Note that in this case, with a single predictor, the value of this test is the same as the F-value provided by <code>lm()</code> when fitting a model to data and explained in the previous section:</p>
+<p>Note that in this case, with a single predictor, the value of this test is the same as the F-value provided by <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> when fitting a model to data and explained in the previous section:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -548,11 +524,9 @@ F-statistic: 499.3 on 1 and 598 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>Although this might is a trivial example with a single predictor, as we will see in the next lessons, model comparison will be extensively used when evaluating the explanatory value of more than one variable in Multiple Regression models.</p>
-</section>
-<section id="akaike-information-criterion-aic" class="level2">
-<h2 class="anchored" data-anchor-id="akaike-information-criterion-aic">Akaike Information Criterion (AIC)</h2>
+</section><section id="akaike-information-criterion-aic" class="level2"><h2 class="anchored" data-anchor-id="akaike-information-criterion-aic">Akaike Information Criterion (AIC)</h2>
 <hr>
-<p>The model comparison based on F-test using <code>anova()</code> allows us to evaluate if adding a predictor term changes the model fit.</p>
+<p>The model comparison based on F-test using <code><a href="https://rdrr.io/r/stats/anova.html">anova()</a></code> allows us to evaluate if adding a predictor term changes the model fit.</p>
 <p>A mathematical indicator that can be used to evaluate a model performance is the Akaike Information Criterion (AIC).</p>
 <p>Details of the AIC mathematical basis are beyond the objectives of this course and are not required for its use in model selection, but the basic ideas are the following:</p>
 <ul>
@@ -560,9 +534,9 @@ F-statistic: 499.3 on 1 and 598 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li><p>A lower AIC indicates a model with less information loss, therefore a better fit to the data.</p></li>
 <li><p>AIC balances goodness of fit and complexity of the model, but risks overfitting.</p></li>
 </ul>
-<p>To calculate the AIC value, we use the <code>AIC()</code> function (in capital letters). You can pass as arguments to the function more than one model, which will provide as output a table with the comparison of the values. In our running example:</p>
+<p>To calculate the AIC value, we use the <code><a href="https://rdrr.io/r/stats/AIC.html">AIC()</a></code> function (in capital letters). You can pass as arguments to the function more than one model, which will provide as output a table with the comparison of the values. In our running example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(null_model,mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">AIC</a></span><span class="op">(</span><span class="va">null_model</span>,<span class="va">mod</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           df      AIC
 null_model  2 6572.076
@@ -572,9 +546,7 @@ mod         3 6209.858</code></pre>
 <p>As you can see, the model with the <code>logFreqs</code> predictor has a lower AIC (6209) that the null model (6572) confirming it is better explaining the data.</p>
 <p>Note that the absolute value of AIC has no practical significance, but it is used always as a <strong>relative</strong> comparison between two or more models.</p>
 <p><strong>Criteria:</strong> a change in AIC between models &gt;2 is considered significant (corresponds to ~35% probability that the lower AIC model improves the explanatory power of the model).</p>
-</section>
-<section id="bayesian-information-criterion-bic" class="level2">
-<h2 class="anchored" data-anchor-id="bayesian-information-criterion-bic">Bayesian Information Criterion (BIC)</h2>
+</section><section id="bayesian-information-criterion-bic" class="level2"><h2 class="anchored" data-anchor-id="bayesian-information-criterion-bic">Bayesian Information Criterion (BIC)</h2>
 <hr>
 <p>A similar indicator to AIC is the Bayesian Information Criterion (BIC). Again the details are beyond the scope of this course, but a few characteristics:</p>
 <ul>
@@ -582,9 +554,9 @@ mod         3 6209.858</code></pre>
 <li><p>Lower BIC indicates a better model fit</p></li>
 <li><p>Penalized strongly complex models, so it is more adequate to select the simplest possible model explaining the data, avoiding overfitting.</p></li>
 </ul>
-<p>It is implemented in R by the <code>BIC()</code> function:</p>
+<p>It is implemented in R by the <code><a href="https://rdrr.io/r/stats/AIC.html">BIC()</a></code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BIC</span>(null_model,mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">BIC</a></span><span class="op">(</span><span class="va">null_model</span>,<span class="va">mod</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           df      BIC
 null_model  2 6580.870
@@ -594,10 +566,7 @@ mod         3 6223.049</code></pre>
 <p>Again in this case, the model with <code>logFreqs</code> predictor has a lower BIC than the null model.</p>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -995,9 +964,7 @@ mod         3 6223.049</code></pre>
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./model_fit.html" class="pagination-link" aria-label="Linear Model output">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Linear Model output</span>
       </a>          
@@ -1009,8 +976,7 @@ mod         3 6223.049</code></pre>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Fundamentals of Linear Models Workbook was written by Dr.&nbsp;Leticia Pablos Robles</p>
 </div>   
@@ -1022,8 +988,6 @@ mod         3 6223.049</code></pre>
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 <meta name="dcterms.date" content="2025-08-12">
-
 <title>Treatment Coding vs.&nbsp;Sum Coding – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
@@ -59,7 +56,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -79,8 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -106,12 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -137,15 +127,11 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -156,13 +142,9 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
         <div class="sidebar-tools-main">
@@ -181,7 +163,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -201,8 +183,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">✍️ R Syntax</span></a>
@@ -239,7 +221,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup2.html" class="sidebar-item-text sidebar-link">
@@ -248,8 +230,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data organization and transformation</span></a>
@@ -274,7 +256,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup3.html" class="sidebar-item-text sidebar-link">
@@ -283,8 +265,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./plot_xy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plotting relationship between two variables</span></a>
@@ -309,7 +291,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup4.html" class="sidebar-item-text sidebar-link">
@@ -318,8 +300,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_fit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Model output</span></a>
@@ -356,7 +338,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup5.html" class="sidebar-item-text sidebar-link">
@@ -365,8 +347,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_multiple.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multiple Linear Regression with Categorical predictor with more than two levels</span></a>
@@ -391,7 +373,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup6.html" class="sidebar-item-text sidebar-link">
@@ -400,8 +382,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_interactions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multiple Linear Regression: Interactions</span></a>
@@ -421,12 +403,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_spearman.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spearman’s rank correlation</span></a>
+  <a href="./assignment6_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment #6 - An EEG Processing Pipeline II - Answer Key</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -434,26 +416,20 @@ window.Quarto = {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#setting-contrasts" id="toc-setting-contrasts" class="nav-link active" data-scroll-target="#setting-contrasts">Setting contrasts</a></li>
+<li><a href="#setting-contrasts" id="toc-setting-contrasts" class="nav-link active" data-scroll-target="#setting-contrasts">Setting contrasts</a></li>
   <li><a href="#recovering-cell-means" id="toc-recovering-cell-means" class="nav-link" data-scroll-target="#recovering-cell-means">Recovering Cell Means</a></li>
   <li><a href="#apa-reporting-including-coding" id="toc-apa-reporting-including-coding" class="nav-link" data-scroll-target="#apa-reporting-including-coding">APA Reporting including coding</a></li>
-  </ul>
-</nav>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_contrasts.html">Treatment Coding vs.&nbsp;Sum Coding</a></li></ol></nav>
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_contrasts.html">Treatment Coding vs.&nbsp;Sum Coding</a></li></ol></nav><div class="quarto-title">
 <h1 class="title">Treatment Coding vs.&nbsp;Sum Coding</h1>
 </div>
 
@@ -474,21 +450,16 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>We discussed briefly in Workgroup 5 the concept of <a href="https://lpablosrobles.github.io/Fundamentals-Linear-Models-workbook/model_multiple.html">contrast coding</a> of categorical variables.</p>
+</header><p>We discussed briefly in Workgroup 5 the concept of <a href="https://lpablosrobles.github.io/Fundamentals-Linear-Models-workbook/model_multiple.html">contrast coding</a> of categorical variables.</p>
 <p>In all the work up to now we have looked at <strong>dummy or treatment coding</strong>, where categorical predictors are coded considering a <u>reference</u> value against which the others are compared.</p>
 <p>This coding is useful in many experimental designs where we have a control condition. It is however more difficult to assess <strong>main effects</strong> in the case of multiple predictors, i.e., the individual effect of a predictor independently from the value of other predictors. This can be done using <strong>Sum coding</strong> (also called <strong>effect coding</strong>).</p>
 <p>In <strong>Sum coding</strong>, categorical variables are encoded in such a way that the <u>intercept is the <strong>grand mean</strong></u> across all predictors, and comparisons between different levels of a given predictor are comparisons to the grand mean. This allows to interpret the coefficients directly as <strong>main effects.</strong></p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Coding system</th>
 <th>What comparisons represent</th>
 <th>Intercept represents</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>Treatment</td>
@@ -503,15 +474,14 @@ window.Quarto = {
 </tbody>
 </table>
 <hr>
-<section id="setting-contrasts" class="level2">
-<h2 class="anchored" data-anchor-id="setting-contrasts">Setting contrasts</h2>
-<p>Treatment contrasts can be set using the function <code>contrasts()</code> together with the functions <code>contr.treatment()</code> and <code>contr.sum()</code> respectively for treatment and sum contrasts. The functions take as argument the number of levels fo the variables. You have to set the contrasts before model fitting.</p>
+<section id="setting-contrasts" class="level2"><h2 class="anchored" data-anchor-id="setting-contrasts">Setting contrasts</h2>
+<p>Treatment contrasts can be set using the function <code><a href="https://rdrr.io/r/stats/contrasts.html">contrasts()</a></code> together with the functions <code><a href="https://rdrr.io/r/stats/contrast.html">contr.treatment()</a></code> and <code><a href="https://rdrr.io/r/stats/contrast.html">contr.sum()</a></code> respectively for treatment and sum contrasts. The functions take as argument the number of levels fo the variables. You have to set the contrasts before model fitting.</p>
 <p>In the previous example based on the Basque NPI study:</p>
 <p>To set sum contrasts to the <code>EmbeddedSubject</code> and <code>AgreementMorphology</code> predictors we will do the following:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(dataBasque<span class="sc">$</span>EmbeddedSubject) <span class="ot">&lt;-</span> <span class="fu">contr.sum</span>(<span class="dv">2</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(dataBasque<span class="sc">$</span>AgreementMorphology) <span class="ot">&lt;-</span> <span class="fu">contr.sum</span>(<span class="dv">2</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(dataBasque<span class="sc">$</span>EmbeddedSubject)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/contrasts.html">contrasts</a></span><span class="op">(</span><span class="va">dataBasque</span><span class="op">$</span><span class="va">EmbeddedSubject</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/contrast.html">contr.sum</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/contrasts.html">contrasts</a></span><span class="op">(</span><span class="va">dataBasque</span><span class="op">$</span><span class="va">AgreementMorphology</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/contrast.html">contr.sum</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/contrasts.html">contrasts</a></span><span class="op">(</span><span class="va">dataBasque</span><span class="op">$</span><span class="va">EmbeddedSubject</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    [,1]
 NP     1
@@ -525,13 +495,11 @@ NPI   -1</code></pre>
 <col style="width: 33%">
 <col style="width: 33%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th></th>
 <th>Embedded Subject = NP</th>
 <th>Embedded Subject = NPI</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>EmbeddedSubjectNPI</td>
@@ -556,8 +524,8 @@ NPI   -1</code></pre>
 \]</span></p>
 <p>If now we fit a model and compare with the previous output:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>m_sum <span class="ot">&lt;-</span> <span class="fu">lm</span>(InvRWRT<span class="sc">~</span>EmbeddedSubject<span class="sc">*</span>AgreementMorphology, <span class="at">data=</span>dataBasque)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m_sum</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">InvRWRT</span><span class="op">~</span><span class="va">EmbeddedSubject</span><span class="op">*</span><span class="va">AgreementMorphology</span>, data<span class="op">=</span><span class="va">dataBasque</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">m_sum</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -589,18 +557,13 @@ F-statistic: 9.503 on 3 and 764 DF,  p-value: 3.618e-06</code></pre>
 <li><p><span class="math inline">\(b_2\)</span> - AgreementMorphology <strong>main effect</strong>= half the difference between two levels of AgreementMorphology</p></li>
 <li><p><span class="math inline">\(b_3\)</span> - Effect of interaction: 1/4th of the full interaction.</p></li>
 </ul>
-<hr>
-</section>
-<section id="recovering-cell-means" class="level2">
-<h2 class="anchored" data-anchor-id="recovering-cell-means">Recovering Cell Means</h2>
+<hr></section><section id="recovering-cell-means" class="level2"><h2 class="anchored" data-anchor-id="recovering-cell-means">Recovering Cell Means</h2>
 <p>Predicted means can be calculated based on the encoding:</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Condition</th>
 <th>Predicted Mean (Marginal Means)</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>NP (+1), Declarative (+1)</td>
@@ -622,22 +585,23 @@ F-statistic: 9.503 on 3 and 764 DF,  p-value: 3.618e-06</code></pre>
 </table>
 <p>As per the table you can recover the interpretation of the coefficients:</p>
 <ul>
-<li><p>The grand mean is the average of the four means above is the sum of all, divided by 4:</p>
+<li>
+<p>The grand mean is the average of the four means above is the sum of all, divided by 4:</p>
 <p><span class="math display">\[
 \frac{(b_0+b_1+b_2+b_3)+(b_0+b_1-b_2-b_3)+(b_0-b_1+b_2-b_3)+(b_0-b_1-b_2+b_3)}{4}=\frac{4b_0}{4}=b_0
 \]</span></p>
-<p>So this confirms the interpretation of the intercept.</p></li>
-<li><p>Similarly, if we want to see the effect of the EmbeddedSubject, we can calculate the difference between the means of NP conditions and NPI conditions:</p>
+<p>So this confirms the interpretation of the intercept.</p>
+</li>
+<li>
+<p>Similarly, if we want to see the effect of the EmbeddedSubject, we can calculate the difference between the means of NP conditions and NPI conditions:</p>
 <p><span class="math display">\[
 \frac{(b_0+b_1+b_2+b_3)+(b_0+b_1-b_2-b_3)}{2}-\frac{(b_0-b_1+b_2-b_3)+(b_0-b_1-b_2+b_3)}{2}=2b_1
 \]</span></p>
-<p>Again, that shows that <span class="math inline">\(b_1\)</span> is half the difference between the average of the two levels.</p></li>
+<p>Again, that shows that <span class="math inline">\(b_1\)</span> is half the difference between the average of the two levels.</p>
+</li>
 </ul>
 <p>A similar calculation can be done for the other elements.</p>
-<hr>
-</section>
-<section id="apa-reporting-including-coding" class="level1">
-<h1>APA Reporting including coding</h1>
+<hr></section><section id="apa-reporting-including-coding" class="level1"><h1>APA Reporting including coding</h1>
 <p>In the reporting, in case of sum coding this should be reported, for example as:</p>
 <blockquote class="blockquote">
 <p>A linear regression was performed on the inverse transformed Raw Reading Time. Using sum coding, significant main effects of <em>EmbeddedSubject</em> (<em>b</em> = -2.422e-4, <em>SE=6.43e-5,</em> <em>p</em> &lt; .001) and <em>AgreementMorphology</em> (<em>b</em> = -2.202e-4, <em>SE=6.43e-5,</em> <em>p</em> &lt; .001) were observed.<br>
@@ -646,10 +610,7 @@ The interaction between both predictors did not reach significance (<em>b</em> =
 <hr>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1047,9 +1008,7 @@ The interaction between both predictors did not reach significance (<em>b</em> =
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./model_interactions.html" class="pagination-link" aria-label="Multiple Linear Regression: Interactions">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Multiple Linear Regression: Interactions</span>
       </a>          
@@ -1061,8 +1020,7 @@ The interaction between both predictors did not reach significance (<em>b</em> =
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Fundamentals of Linear Models Workbook was written by Dr.&nbsp;Leticia Pablos Robles</p>
 </div>   
@@ -1074,8 +1032,6 @@ The interaction between both predictors did not reach significance (<em>b</em> =
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

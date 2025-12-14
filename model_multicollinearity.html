@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 <meta name="dcterms.date" content="2025-08-12">
-
 <title>Multicollinearity – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
@@ -59,7 +56,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -67,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./model_spearman.html" rel="next">
+<link href="./assignment6_key.html" rel="next">
 <link href="./model_contrasts.html" rel="prev">
 <link href="./images/Stats_Ling_Cover_1ed.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -79,8 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -107,16 +102,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -127,13 +117,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
         <div class="sidebar-tools-main">
@@ -152,7 +138,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -172,8 +158,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">✍️ R Syntax</span></a>
@@ -210,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup2.html" class="sidebar-item-text sidebar-link">
@@ -219,8 +205,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data organization and transformation</span></a>
@@ -245,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup3.html" class="sidebar-item-text sidebar-link">
@@ -254,8 +240,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./plot_xy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plotting relationship between two variables</span></a>
@@ -280,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup4.html" class="sidebar-item-text sidebar-link">
@@ -289,8 +275,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_fit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Model output</span></a>
@@ -327,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup5.html" class="sidebar-item-text sidebar-link">
@@ -336,8 +322,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_multiple.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multiple Linear Regression with Categorical predictor with more than two levels</span></a>
@@ -362,7 +348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup6.html" class="sidebar-item-text sidebar-link">
@@ -371,8 +357,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_interactions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multiple Linear Regression: Interactions</span></a>
@@ -392,12 +378,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_spearman.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spearman’s rank correlation</span></a>
+  <a href="./assignment6_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment #6 - An EEG Processing Pipeline II - Answer Key</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -405,27 +391,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#correlation-assessment-using-vif" id="toc-correlation-assessment-using-vif" class="nav-link active" data-scroll-target="#correlation-assessment-using-vif">Correlation assessment using VIF</a></li>
+<li><a href="#correlation-assessment-using-vif" id="toc-correlation-assessment-using-vif" class="nav-link active" data-scroll-target="#correlation-assessment-using-vif">Correlation assessment using VIF</a></li>
   <li><a href="#multicollinearity-in-interaction-models" id="toc-multicollinearity-in-interaction-models" class="nav-link" data-scroll-target="#multicollinearity-in-interaction-models">Multicollinearity in Interaction Models</a></li>
   <li><a href="#summary-of-best-practices" id="toc-summary-of-best-practices" class="nav-link" data-scroll-target="#summary-of-best-practices">Summary of best practices</a></li>
   <li><a href="#reporting-example" id="toc-reporting-example" class="nav-link" data-scroll-target="#reporting-example">Reporting Example</a></li>
-  </ul>
-</nav>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_multicollinearity.html">Multicollinearity</a></li></ol></nav>
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_multicollinearity.html">Multicollinearity</a></li></ol></nav><div class="quarto-title">
 <h1 class="title">Multicollinearity</h1>
 </div>
 
@@ -446,10 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header>
-
-
-<p>Multicollinearity occurs when predictors in a regression model are highly correlated. This is common in variables as for example Frequency, Word Length or Predictability (shorted words are less frequent and more predictable than long words).</p>
+</header><p>Multicollinearity occurs when predictors in a regression model are highly correlated. This is common in variables as for example Frequency, Word Length or Predictability (shorted words are less frequent and more predictable than long words).</p>
 <p>Fitting a model with two predictors that vary together creates problems</p>
 <ul>
 <li>Inflated standard errors</li>
@@ -459,11 +436,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Let’s examine examine relationships among using the <code>lexdec</code> dataset Frequency, FamilySize, WordLength, and logRT.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(languageR)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(lexdec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">languageR</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="correlation-assessment-using-vif" class="level2">
-<h2 class="anchored" data-anchor-id="correlation-assessment-using-vif">Correlation assessment using VIF</h2>
+<section id="correlation-assessment-using-vif" class="level2"><h2 class="anchored" data-anchor-id="correlation-assessment-using-vif">Correlation assessment using VIF</h2>
 <p>Variance Inflation Factor (VIF) quantifies how much variance of a coefficient is inflated due to correlation. The VIF is calculated trying to create a regression against other predictors <strong>VIF = 1 / (1 - R²)</strong>.</p>
 <ul>
 <li>A high R² for a predictor means it’s predictable by others (high multicollinearity), which inflates its VIF, making its coefficient unstable.&nbsp;</li>
@@ -475,27 +451,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>VIF &gt; 5:</strong> Potentially severe multicollinearity; coefficients and p-values may be unreliable, warranting investigation.</p></li>
 <li><p><strong>VIF &gt; 10:</strong> Serious multicollinearity; the model is likely unstable, and the predictor might need removal or transformation.&nbsp;</p></li>
 </ul>
-<p>We calculate it with the <code>vif()</code> function in the <code>car</code> model.</p>
+<p>We calculate it with the <code><a href="https://rdrr.io/pkg/car/man/vif.html">vif()</a></code> function in the <code>car</code> model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(RT <span class="sc">~</span> Frequency <span class="sc">+</span> FamilySize <span class="sc">+</span> Length, <span class="at">data =</span> lexdec)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mod1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">RT</span> <span class="op">~</span> <span class="va">Frequency</span> <span class="op">+</span> <span class="va">FamilySize</span> <span class="op">+</span> <span class="va">Length</span>, data <span class="op">=</span> <span class="va">lexdec</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/car/man/vif.html">vif</a></span><span class="op">(</span><span class="va">mod1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Frequency FamilySize     Length 
   2.002928   2.733769   1.675048 </code></pre>
 </div>
 </div>
-<hr>
-</section>
-<section id="multicollinearity-in-interaction-models" class="level2">
-<h2 class="anchored" data-anchor-id="multicollinearity-in-interaction-models">Multicollinearity in Interaction Models</h2>
+<hr></section><section id="multicollinearity-in-interaction-models" class="level2"><h2 class="anchored" data-anchor-id="multicollinearity-in-interaction-models">Multicollinearity in Interaction Models</h2>
 <p>Interaction terms are inherently correlated with their main components, and values would be higher.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mod2<span class="ot">&lt;-</span><span class="fu">lm</span>(RT<span class="sc">~</span>FamilySize<span class="sc">+</span>Frequency<span class="sc">*</span>Length, <span class="at">data=</span>lexdec)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mod2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mod2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">RT</span><span class="op">~</span><span class="va">FamilySize</span><span class="op">+</span><span class="va">Frequency</span><span class="op">*</span><span class="va">Length</span>, data<span class="op">=</span><span class="va">lexdec</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/car/man/vif.html">vif</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      FamilySize        Frequency           Length Frequency:Length 
         3.965852        22.759448        19.434428        23.051442 </code></pre>
@@ -503,38 +476,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>As the interactions are introduced, the variance inflation increases. In those cases, it is recommended to center all continuous variables. Centering removes the impact on the variance.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lexdec<span class="sc">$</span>Frequency_c <span class="ot">&lt;-</span> lexdec<span class="sc">$</span>Frequency <span class="sc">-</span> <span class="fu">mean</span>(lexdec<span class="sc">$</span>Frequency)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>lexdec<span class="sc">$</span>Length_c <span class="ot">&lt;-</span> lexdec<span class="sc">$</span>Length <span class="sc">-</span> <span class="fu">mean</span>(lexdec<span class="sc">$</span>Length)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(RT <span class="sc">~</span> Frequency_c <span class="sc">*</span> Length_c, <span class="at">data =</span> lexdec)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mod3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec</span><span class="op">$</span><span class="va">Frequency_c</span> <span class="op">&lt;-</span> <span class="va">lexdec</span><span class="op">$</span><span class="va">Frequency</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">Frequency</span><span class="op">)</span></span>
+<span><span class="va">lexdec</span><span class="op">$</span><span class="va">Length_c</span> <span class="op">&lt;-</span> <span class="va">lexdec</span><span class="op">$</span><span class="va">Length</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">$</span><span class="va">Length</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mod3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">RT</span> <span class="op">~</span> <span class="va">Frequency_c</span> <span class="op">*</span> <span class="va">Length_c</span>, data <span class="op">=</span> <span class="va">lexdec</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/car/man/vif.html">vif</a></span><span class="op">(</span><span class="va">mod3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         Frequency_c             Length_c Frequency_c:Length_c 
             1.234799             1.234283             1.010100 </code></pre>
 </div>
 </div>
-<hr>
-</section>
-<section id="summary-of-best-practices" class="level1">
-<h1>Summary of best practices</h1>
+<hr></section><section id="summary-of-best-practices" class="level1"><h1>Summary of best practices</h1>
 <ul>
-<li><strong>Center continuous predictors</strong> before interaction creation</li>
+<li>
+<strong>Center continuous predictors</strong> before interaction creation</li>
 <li><strong>Sum-code categorical variables</strong></li>
 <li>Report modeling decisions clearly</li>
 </ul>
-<hr>
-</section>
-<section id="reporting-example" class="level1">
-<h1>Reporting Example</h1>
+<hr></section><section id="reporting-example" class="level1"><h1>Reporting Example</h1>
 <blockquote class="blockquote">
 <p>Predictors were centered before computing the interaction. VIF values for main effects were below 2, and the interaction term showed also a low VIF = 1.01.</p>
 </blockquote>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -932,22 +897,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./model_contrasts.html" class="pagination-link" aria-label="Treatment Coding vs. Sum Coding">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Treatment Coding vs.&nbsp;Sum Coding</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./model_spearman.html" class="pagination-link" aria-label="Spearman's rank correlation">
-        <span class="nav-page-text">Spearman’s rank correlation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./assignment6_key.html" class="pagination-link" aria-label="Assignment #6 - An EEG Processing Pipeline II - Answer Key">
+        <span class="nav-page-text">Assignment #6 - An EEG Processing Pipeline II - Answer Key</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Fundamentals of Linear Models Workbook was written by Dr.&nbsp;Leticia Pablos Robles</p>
 </div>   
@@ -959,8 +921,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

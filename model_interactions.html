@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 <meta name="dcterms.date" content="2025-08-12">
-
 <title>Multiple Linear Regression: Interactions – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
@@ -79,7 +76,6 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -99,8 +95,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -126,12 +121,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -157,15 +147,11 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -176,13 +162,9 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
         <div class="sidebar-tools-main">
@@ -201,7 +183,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -221,8 +203,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">✍️ R Syntax</span></a>
@@ -259,7 +241,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup2.html" class="sidebar-item-text sidebar-link">
@@ -268,8 +250,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data organization and transformation</span></a>
@@ -294,7 +276,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup3.html" class="sidebar-item-text sidebar-link">
@@ -303,8 +285,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./plot_xy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plotting relationship between two variables</span></a>
@@ -329,7 +311,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup4.html" class="sidebar-item-text sidebar-link">
@@ -338,8 +320,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_fit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Model output</span></a>
@@ -376,7 +358,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup5.html" class="sidebar-item-text sidebar-link">
@@ -385,8 +367,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_multiple.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multiple Linear Regression with Categorical predictor with more than two levels</span></a>
@@ -411,7 +393,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup6.html" class="sidebar-item-text sidebar-link">
@@ -420,8 +402,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_interactions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Multiple Linear Regression: Interactions</span></a>
@@ -441,12 +423,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_spearman.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spearman’s rank correlation</span></a>
+  <a href="./assignment6_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment #6 - An EEG Processing Pipeline II - Answer Key</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -454,32 +436,30 @@ window.Quarto = {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous" id="toc-interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous" class="nav-link active" data-scroll-target="#interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous">Interaction with one categorical and one continuous predictor (Categorical*Continuous)</a>
+<li>
+<a href="#interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous" id="toc-interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous" class="nav-link active" data-scroll-target="#interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous">Interaction with one categorical and one continuous predictor (Categorical*Continuous)</a>
   <ul class="collapse">
-  <li><a href="#centering-continuous-predictors" id="toc-centering-continuous-predictors" class="nav-link" data-scroll-target="#centering-continuous-predictors">Centering continuous predictors</a></li>
+<li><a href="#centering-continuous-predictors" id="toc-centering-continuous-predictors" class="nav-link" data-scroll-target="#centering-continuous-predictors">Centering continuous predictors</a></li>
   <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection">Model selection</a></li>
-  </ul></li>
-  <li><a href="#interaction-with-two-categorical-predictors-categoricalcategorical" id="toc-interaction-with-two-categorical-predictors-categoricalcategorical" class="nav-link" data-scroll-target="#interaction-with-two-categorical-predictors-categoricalcategorical">Interaction with two categorical predictors (Categorical*Categorical)</a>
-  <ul class="collapse">
-  <li><a href="#model-reporting" id="toc-model-reporting" class="nav-link" data-scroll-target="#model-reporting">Model reporting</a></li>
-  </ul></li>
   </ul>
-</nav>
+</li>
+  <li>
+<a href="#interaction-with-two-categorical-predictors-categoricalcategorical" id="toc-interaction-with-two-categorical-predictors-categoricalcategorical" class="nav-link" data-scroll-target="#interaction-with-two-categorical-predictors-categoricalcategorical">Interaction with two categorical predictors (Categorical*Categorical)</a>
+  <ul class="collapse">
+<li><a href="#model-reporting" id="toc-model-reporting" class="nav-link" data-scroll-target="#model-reporting">Model reporting</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_interactions.html">Multiple Linear Regression: Interactions</a></li></ol></nav>
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup6.html">Workgroup 6: Multiple Regression with R II</a></li><li class="breadcrumb-item"><a href="./model_interactions.html">Multiple Linear Regression: Interactions</a></li></ol></nav><div class="quarto-title">
 <h1 class="title">Multiple Linear Regression: Interactions</h1>
 </div>
 
@@ -500,10 +480,7 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>As described during the last lecture, interactions in a model reflect that the effect of one predictor depends on the level (categorical) or value (continuous) of one or more other predictors.</p>
+</header><p>As described during the last lecture, interactions in a model reflect that the effect of one predictor depends on the level (categorical) or value (continuous) of one or more other predictors.</p>
 <p>With two predictors, we discussed a model including and interaction between two predictors <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> would look as follows:</p>
 <p><span class="math display">\[
 Y=b_0+b_1X_1+b_2X_2+b_3X_1X_2
@@ -511,14 +488,13 @@ Y=b_0+b_1X_1+b_2X_2+b_3X_1X_2
 <p>with <span class="math inline">\(b_3\)</span> coefficient indicating the strength of the interaction.</p>
 <p>Let’s look at a few examples of two combinations of predictors.</p>
 <hr>
-<section id="interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous" class="level2">
-<h2 class="anchored" data-anchor-id="interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous">Interaction with one categorical and one continuous predictor (Categorical*Continuous)</h2>
+<section id="interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous" class="level2"><h2 class="anchored" data-anchor-id="interaction-with-one-categorical-and-one-continuous-predictor-categoricalcontinuous">Interaction with one categorical and one continuous predictor (Categorical*Continuous)</h2>
 <p>To illustrate this, we use the Iconicity model as described in [<span class="citation" data-cites="winter2019statistics">Winter (<a href="references.html#ref-winter2019statistics" role="doc-biblioref">2019</a>)</span> Chapter 8.2, based on the study in <span class="citation" data-cites="winter2017words">(<a href="references.html#ref-winter2017words" role="doc-biblioref">Winter et al. 2017</a>)</span>. Read through the book chapters to see a similar analysis.</p>
 <p>Bodo Winter made all data used in the book available in an Open Source Foundation (OSF) directory, from which it can be downloaded directly from R.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>iconicity<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">'https://osf.io/43btm/download'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">iconicity</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">'https://osf.io/43btm/download'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Description of the dataset (see full details in Chapter 6 of <span class="citation" data-cites="winter2019statistics">(<a href="references.html#ref-winter2019statistics" role="doc-biblioref">Winter 2019</a>)</span>:</p>
 <ul>
@@ -528,15 +504,15 @@ Y=b_0+b_1X_1+b_2X_2+b_3X_1X_2
 </ul>
 <p>For the analysis we will look at a subset of Noun and Verb.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>icon<span class="ot">&lt;-</span>iconicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(POS <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Noun"</span>,<span class="st">"Verb"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">icon</span><span class="op">&lt;-</span><span class="va">iconicity</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">POS</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Noun"</span>,<span class="st">"Verb"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If we fit a model with both <code>SER</code> and <code>POS</code> as predictors as a reference and look at the effects:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggeffects)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggiraphExtra)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>m1<span class="ot">&lt;-</span><span class="fu">lm</span>(Iconicity<span class="sc">~</span>POS<span class="sc">+</span>SER,<span class="at">data=</span>icon)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://strengejacke.github.io/ggeffects/">ggeffects</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cardiomoon/ggiraphExtra">ggiraphExtra</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">m1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Iconicity</span><span class="op">~</span><span class="va">POS</span><span class="op">+</span><span class="va">SER</span>,data<span class="op">=</span><span class="va">icon</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">m1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -559,11 +535,10 @@ Residual standard error: 1.045 on 1476 degrees of freedom
 Multiple R-squared:  0.08226,   Adjusted R-squared:  0.08102 
 F-statistic: 66.15 on 2 and 1476 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(m1, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">"POS"</span>,<span class="st">"SER"</span>),<span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/ggiraphExtra/man/ggPredict.html">ggPredict</a></span><span class="op">(</span><span class="va">m1</span>, terms<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"POS"</span>,<span class="st">"SER"</span><span class="op">)</span>,se <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model_interactions_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="model_interactions_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -571,8 +546,8 @@ F-statistic: 66.15 on 2 and 1476 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Interpretation of the plot and coefficients are as per last lecture, with same slope (effect of <code>SER</code>) for both levels of <code>POS</code> but with a shift between them.</p>
 <p>Let’s look now at what happens if we introduce the interaction in the model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>m2<span class="ot">&lt;-</span><span class="fu">lm</span>(Iconicity<span class="sc">~</span>POS<span class="sc">*</span>SER,<span class="at">data=</span>icon)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Iconicity</span><span class="op">~</span><span class="va">POS</span><span class="op">*</span><span class="va">SER</span>,data<span class="op">=</span><span class="va">icon</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">m2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -596,11 +571,10 @@ Residual standard error: 1.025 on 1475 degrees of freedom
 Multiple R-squared:  0.1184,    Adjusted R-squared:  0.1166 
 F-statistic: 66.05 on 3 and 1475 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(m2, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">"POS"</span>,<span class="st">"SER"</span>),<span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/ggiraphExtra/man/ggPredict.html">ggPredict</a></span><span class="op">(</span><span class="va">m2</span>, terms<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"POS"</span>,<span class="st">"SER"</span><span class="op">)</span>,se <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model_interactions_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="model_interactions_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -616,17 +590,16 @@ F-statistic: 66.05 on 3 and 1475 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li><p><span class="math inline">\(b_2\)</span> - slope coefficient for <em>SER</em>. Represents the slope of the SER <strong>only in the case that POS=0 (Noun)</strong>. So 0.118 is the slope of the red curve</p></li>
 <li><p><span class="math inline">\(b_3\)</span> - indicates the change in the slope of <em>SER</em> when <strong>POS=1 (Verb)</strong>, so the slope of the green curve is <span class="math inline">\(b_2+b_3=0.118+0.508=0.626\)</span>.</p></li>
 </ul>
-<section id="centering-continuous-predictors" class="level3">
-<h3 class="anchored" data-anchor-id="centering-continuous-predictors">Centering continuous predictors</h3>
+<section id="centering-continuous-predictors" class="level3"><h3 class="anchored" data-anchor-id="centering-continuous-predictors">Centering continuous predictors</h3>
 <hr>
 <p>A simpler way to interpret intercepts when involving continuous predictors can be done if the predictors are <strong>centered.</strong></p>
 <p>Centering predictors involves substracting the mean from all the values. It does not affect the model fit quality, but the coefficients become directly interpretable. Let’s create a new variable centering <code>SER</code> called <code>SER_c</code> and fit a new model with the centered variable</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>icon<span class="ot">&lt;-</span>icon <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">SER_c=</span>SER<span class="sc">-</span><span class="fu">mean</span>(SER, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>m2_c<span class="ot">&lt;-</span><span class="fu">lm</span>(Iconicity<span class="sc">~</span>POS<span class="sc">*</span>SER_c, <span class="at">data=</span>icon)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">icon</span><span class="op">&lt;-</span><span class="va">icon</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>SER_c<span class="op">=</span><span class="va">SER</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">SER</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">m2_c</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Iconicity</span><span class="op">~</span><span class="va">POS</span><span class="op">*</span><span class="va">SER_c</span>, data<span class="op">=</span><span class="va">icon</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">m2_c</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -650,11 +623,10 @@ Residual standard error: 1.025 on 1475 degrees of freedom
 Multiple R-squared:  0.1184,    Adjusted R-squared:  0.1166 
 F-statistic: 66.05 on 3 and 1475 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(m2_c, <span class="at">terms=</span><span class="fu">c</span>(<span class="st">"POS"</span>,<span class="st">"SER"</span>),<span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/ggiraphExtra/man/ggPredict.html">ggPredict</a></span><span class="op">(</span><span class="va">m2_c</span>, terms<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"POS"</span>,<span class="st">"SER"</span><span class="op">)</span>,se <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model_interactions_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="model_interactions_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -667,18 +639,15 @@ F-statistic: 66.05 on 3 and 1475 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li><p><span class="math inline">\(b_1\)</span> - slope coefficient for <em>POS</em>. Represents the effect in the Noun-Verb difference <strong><em>for words</em></strong> <strong><em>with average SER</em></strong>.</p></li>
 <li><p><span class="math inline">\(b_2\)</span> - slope coefficient for <em>SER</em>. Represents the slope of the SER <strong>only in the case that POS=0 (Noun)</strong>. Same as before.</p></li>
 <li><p><span class="math inline">\(b_3\)</span> - indicates the change in the slope of <em>SER</em> when <strong>POS=1 (Verb)</strong>. Same as before.</p></li>
-</ul>
-</section>
-<section id="model-selection" class="level3">
-<h3 class="anchored" data-anchor-id="model-selection">Model selection</h3>
+</ul></section><section id="model-selection" class="level3"><h3 class="anchored" data-anchor-id="model-selection">Model selection</h3>
 <hr>
 <p>The model coefficients show significant <strong>simple effects</strong> and <strong>interactions</strong>, and it shows to improve the variance explained compared with a model without interactions.</p>
 <p>To compare them we can also perform a model comparison as shown in previous workgroups:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># model without interaction with centered variable</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>m1_c<span class="ot">&lt;-</span><span class="fu">lm</span>(Iconicity<span class="sc">~</span>POS<span class="sc">+</span>SER_c,<span class="at">data=</span>icon)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m1_c,m2_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># model without interaction with centered variable</span></span>
+<span><span class="va">m1_c</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Iconicity</span><span class="op">~</span><span class="va">POS</span><span class="op">+</span><span class="va">SER_c</span>,data<span class="op">=</span><span class="va">icon</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">m1_c</span>,<span class="va">m2_c</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
@@ -690,13 +659,13 @@ Model 2: Iconicity ~ POS * SER_c
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(m1_c,m2_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">AIC</a></span><span class="op">(</span><span class="va">m1_c</span>,<span class="va">m2_c</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     df      AIC
 m1_c  4 4332.468
 m2_c  5 4274.993</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BIC</span>(m1_c,m2_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">BIC</a></span><span class="op">(</span><span class="va">m1_c</span>,<span class="va">m2_c</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     df      BIC
 m1_c  4 4353.664
@@ -704,43 +673,47 @@ m2_c  5 4301.488</code></pre>
 </div>
 </div>
 <p>All three test identify a significant improvement of the model fit including the interaction.</p>
-</section>
-</section>
-<section id="interaction-with-two-categorical-predictors-categoricalcategorical" class="level2">
-<h2 class="anchored" data-anchor-id="interaction-with-two-categorical-predictors-categoricalcategorical">Interaction with two categorical predictors (Categorical*Categorical)</h2>
+</section></section><section id="interaction-with-two-categorical-predictors-categoricalcategorical" class="level2"><h2 class="anchored" data-anchor-id="interaction-with-two-categorical-predictors-categoricalcategorical">Interaction with two categorical predictors (Categorical*Categorical)</h2>
 <hr>
 <p>For this example, we will use again the subset of the real data from a Self-Paced Reading study on Negative Polarity Items and complementizer agreement in Basque <span class="citation" data-cites="pablos2009negative">(<a href="references.html#ref-pablos2009negative" role="doc-biblioref">Pablos and Saddy 2009</a>)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">'./data/BasqueNPISampleEx5.Rda'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">'./data/BasqueNPISampleEx5.Rda'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>basquenpi_Ex5</code> data frame contains only the data from Region Number 8 (complementizer position), which was considered the “critical region” for analysis in the experiment.</p>
 <p>From the dataframe, we will select a subset of the data columns for the analysis and introduce a transformation to inverse Reading Time (1/RWRT) to normalize the data as discussed in the assignment</p>
 <ul>
-<li><strong>Subject</strong> – Factor identifying the participant on the experiment (coded as a number from 1 to 32)</li>
-<li><strong>EmbeddedSubject</strong> – Factor/predictor indicating the nature of the embedded subject with the following levels:
+<li>
+<strong>Subject</strong> – Factor identifying the participant on the experiment (coded as a number from 1 to 32)</li>
+<li>
+<strong>EmbeddedSubject</strong> – Factor/predictor indicating the nature of the embedded subject with the following levels:
 <ul>
 <li>NP – for target sentences with a Noun Phrase as subject</li>
 <li>NPI – for target sentences with a Negative Polarity Item as subject</li>
-</ul></li>
-<li><strong>Agreement Morphology</strong> – Factor/predictor indicating the nature of agreement with the following levels:
+</ul>
+</li>
+<li>
+<strong>Agreement Morphology</strong> – Factor/predictor indicating the nature of agreement with the following levels:
 <ul>
 <li>Declarative – for target sentences that contained a complementizer with declarative morphology</li>
 <li>Partitive – for target sentences that contained a complementizer with partitive morphology</li>
-</ul></li>
-<li><strong>RWRT</strong> – Raw (recorded) Reading Time of the word [milliseconds]</li>
-<li><strong>InvRWRT</strong> - Inverse Raw Reading Time [in seconds]</li>
+</ul>
+</li>
+<li>
+<strong>RWRT</strong> – Raw (recorded) Reading Time of the word [milliseconds]</li>
+<li>
+<strong>InvRWRT</strong> - Inverse Raw Reading Time [in seconds]</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dataBasque<span class="ot">&lt;-</span>basquenpi_Ex5 <span class="sc">%&gt;%</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Item, Subject, EmbeddedSubject, AgreementMorphology, RWRT) <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">InvRWRT=</span><span class="dv">1</span><span class="sc">/</span>(RWRT<span class="sc">/</span><span class="dv">1000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dataBasque</span><span class="op">&lt;-</span><span class="va">basquenpi_Ex5</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Item</span>, <span class="va">Subject</span>, <span class="va">EmbeddedSubject</span>, <span class="va">AgreementMorphology</span>, <span class="va">RWRT</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>InvRWRT<span class="op">=</span><span class="fl">1</span><span class="op">/</span><span class="op">(</span><span class="va">RWRT</span><span class="op">/</span><span class="fl">1000</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Again, let’s fit a model with interaction and a model without and compare them.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelbased)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>mbasque_1<span class="ot">&lt;-</span><span class="fu">lm</span>(InvRWRT<span class="sc">~</span>EmbeddedSubject<span class="sc">+</span>AgreementMorphology, <span class="at">data=</span>dataBasque)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mbasque_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/modelbased/">modelbased</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mbasque_1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">InvRWRT</span><span class="op">~</span><span class="va">EmbeddedSubject</span><span class="op">+</span><span class="va">AgreementMorphology</span>, data<span class="op">=</span><span class="va">dataBasque</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mbasque_1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -763,8 +736,8 @@ Residual standard error: 0.6304 on 765 degrees of freedom
 Multiple R-squared:  0.03327,   Adjusted R-squared:  0.03074 
 F-statistic: 13.16 on 2 and 765 DF,  p-value: 2.394e-06</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>emm_basque_1<span class="ot">&lt;-</span><span class="fu">estimate_means</span>(mbasque_1, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"EmbeddedSubject"</span>,<span class="st">"AgreementMorphology"</span>))</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>emm_basque_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">emm_basque_1</span><span class="op">&lt;-</span><span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_means.html">estimate_means</a></span><span class="op">(</span><span class="va">mbasque_1</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"EmbeddedSubject"</span>,<span class="st">"AgreementMorphology"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">emm_basque_1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Estimated Marginal Means
 
@@ -778,19 +751,18 @@ NPI             | Partitive           | 1.78 | 0.04 | [1.70, 1.85] |  45.06
 Variable predicted: InvRWRT
 Predictors modulated: EmbeddedSubject, AgreementMorphology</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(emm_basque_1) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">emm_basque_1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model_interactions_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="model_interactions_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>And now with the interaction:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>mbasque_2<span class="ot">&lt;-</span><span class="fu">lm</span>(InvRWRT<span class="sc">~</span>EmbeddedSubject<span class="sc">*</span>AgreementMorphology, <span class="at">data=</span>dataBasque)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mbasque_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mbasque_2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">InvRWRT</span><span class="op">~</span><span class="va">EmbeddedSubject</span><span class="op">*</span><span class="va">AgreementMorphology</span>, data<span class="op">=</span><span class="va">dataBasque</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mbasque_2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -819,7 +791,7 @@ Residual standard error: 0.63 on 764 degrees of freedom
 Multiple R-squared:  0.03597,   Adjusted R-squared:  0.03219 
 F-statistic: 9.503 on 3 and 764 DF,  p-value: 3.618e-06</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mbasque_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">mbasque_2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                                      2.5 %      97.5 %
 (Intercept)                                      2.04897153  2.22747080
@@ -827,8 +799,8 @@ EmbeddedSubjectNPI                              -0.36846214 -0.11602605
 AgreementMorphologyPartitive                    -0.34646508 -0.09402899
 EmbeddedSubjectNPI:AgreementMorphologyPartitive -0.04542944  0.31156911</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>emm_basque_2<span class="ot">&lt;-</span><span class="fu">estimate_means</span>(mbasque_2, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"EmbeddedSubject"</span>,<span class="st">"AgreementMorphology"</span>))</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>emm_basque_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">emm_basque_2</span><span class="op">&lt;-</span><span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_means.html">estimate_means</a></span><span class="op">(</span><span class="va">mbasque_2</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"EmbeddedSubject"</span>,<span class="st">"AgreementMorphology"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">emm_basque_2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Estimated Marginal Means
 
@@ -842,11 +814,10 @@ NPI             | Partitive           | 1.81 | 0.05 | [1.72, 1.90] |  39.79
 Variable predicted: InvRWRT
 Predictors modulated: EmbeddedSubject, AgreementMorphology</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(emm_basque_2) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">emm_basque_2</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model_interactions_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="model_interactions_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -902,27 +873,32 @@ Important
 <p>We look at how to evaluate main effects in the next section on Contrast Coding.</p>
 </div>
 </div>
-<section id="model-reporting" class="level3">
-<h3 class="anchored" data-anchor-id="model-reporting">Model reporting</h3>
+<section id="model-reporting" class="level3"><h3 class="anchored" data-anchor-id="model-reporting">Model reporting</h3>
 <hr>
 <p>Finally, to wrap-up we describe what should be included when reporting a model with interactions:</p>
 <ul>
 <li><p><strong>Report Overall Model:</strong> State the model’s significance and fit (<span class="math inline">\(F, df, p, R^2,R^2_{adj}\)</span>)</p></li>
-<li><p><strong>Provide Table of Coefficients:</strong> Use a table for detailed results.</p>
+<li>
+<p><strong>Provide Table of Coefficients:</strong> Use a table for detailed results.</p>
 <ul>
 <li><p><strong>Columns:</strong> Unstandardized Coefficients (<em>b</em>), Standard Error (<em>SE</em>), <em>t</em>, <em>p</em>, 95% Confidence Interval (<em>CI</em>).</p></li>
 <li><p><strong>Rows:</strong> Intercept, predictors, and the Interaction Terms</p></li>
 <li><p><strong>Italics:</strong> Italicize statistical symbols like <em>b</em>, <em>SE</em>, <em>t</em>, <em>p</em>, <em>M</em>, <em>SD</em>, <em>R²</em>.</p></li>
-</ul></li>
-<li><p><strong>Significant Interaction:</strong> If the interaction <em>p</em>-value is significant (e.g., &lt; .05), explain that the effect.</p>
+</ul>
+</li>
+<li>
+<p><strong>Significant Interaction:</strong> If the interaction <em>p</em>-value is significant (e.g., &lt; .05), explain that the effect.</p>
 <ul>
 <li>Report the unstandardized coefficients for the interaction (<em>B</em><sub>interaction</sub>) and the main effect it modifies (<em>B</em><sub>IV1</sub>).</li>
-</ul></li>
-<li><p><strong>Explain effects:</strong></p>
+</ul>
+</li>
+<li>
+<p><strong>Explain effects:</strong></p>
 <ul>
 <li><p>When including a continuous predictor and a categorical predictor as moderator describe and plot the slopes at meaningful predicted values to illustrate the interaction</p></li>
 <li><p>With categorical predictors report the Estimated Marginal Means at the specific categories of the predictors.</p></li>
-</ul></li>
+</ul>
+</li>
 <li><p>If using data transformation, report coefficients directly from the model in transformed units, but Marginal Means in back-transformed units.</p></li>
 </ul>
 <p>Example:</p>
@@ -940,16 +916,14 @@ Important
 <col style="width: 16%">
 <col style="width: 16%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>term</th>
 <th>b*</th>
 <th>SE</th>
 <th>t</th>
 <th>p</th>
 <th>95%CI</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>(Intercept)</td>
@@ -999,11 +973,7 @@ Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. 
 Winter, Bodo, Marcus Perlman, Lynn K Perry, and Gary Lupyan. 2017. <span>“Which Words Are Most Iconic? Iconicity in English Sensory Words.”</span> <em>Interaction Studies</em> 18 (3): 443–64.
 </div>
 </div>
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1401,9 +1371,7 @@ Winter, Bodo, Marcus Perlman, Lynn K Perry, and Gary Lupyan. 2017. <span>“Whic
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./Workgroup6.html" class="pagination-link" aria-label="Workgroup 6: Multiple Regression with R II">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Workgroup 6: Multiple Regression with R II</span>
       </a>          
@@ -1415,8 +1383,7 @@ Winter, Bodo, Marcus Perlman, Lynn K Perry, and Gary Lupyan. 2017. <span>“Whic
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Fundamentals of Linear Models Workbook was written by Dr.&nbsp;Leticia Pablos Robles</p>
 </div>   
@@ -1428,8 +1395,6 @@ Winter, Bodo, Marcus Perlman, Lynn K Perry, and Gary Lupyan. 2017. <span>“Whic
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

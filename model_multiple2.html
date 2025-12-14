@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 <meta name="dcterms.date" content="2026-12-11">
-
 <title>Multiple Linear Regression with several predictors – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
@@ -79,7 +76,6 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -99,8 +95,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -126,12 +121,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -157,15 +147,11 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -176,13 +162,9 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
         <div class="sidebar-tools-main">
@@ -201,7 +183,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -221,8 +203,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">✍️ R Syntax</span></a>
@@ -259,7 +241,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup2.html" class="sidebar-item-text sidebar-link">
@@ -268,8 +250,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data organization and transformation</span></a>
@@ -294,7 +276,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup3.html" class="sidebar-item-text sidebar-link">
@@ -303,8 +285,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./plot_xy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plotting relationship between two variables</span></a>
@@ -329,7 +311,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup4.html" class="sidebar-item-text sidebar-link">
@@ -338,8 +320,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_fit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Model output</span></a>
@@ -376,7 +358,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup5.html" class="sidebar-item-text sidebar-link">
@@ -385,8 +367,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_multiple.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multiple Linear Regression with Categorical predictor with more than two levels</span></a>
@@ -411,7 +393,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup6.html" class="sidebar-item-text sidebar-link">
@@ -420,8 +402,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_interactions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multiple Linear Regression: Interactions</span></a>
@@ -441,12 +423,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_spearman.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spearman’s rank correlation</span></a>
+  <a href="./assignment6_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment #6 - An EEG Processing Pipeline II - Answer Key</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -454,30 +436,26 @@ window.Quarto = {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#multiple-linear-regression-with-continuous-predictors" id="toc-multiple-linear-regression-with-continuous-predictors" class="nav-link active" data-scroll-target="#multiple-linear-regression-with-continuous-predictors">Multiple Linear Regression with continuous predictors</a>
+<li>
+<a href="#multiple-linear-regression-with-continuous-predictors" id="toc-multiple-linear-regression-with-continuous-predictors" class="nav-link active" data-scroll-target="#multiple-linear-regression-with-continuous-predictors">Multiple Linear Regression with continuous predictors</a>
   <ul class="collapse">
-  <li><a href="#model-visualization-with-two-continuous-predictors" id="toc-model-visualization-with-two-continuous-predictors" class="nav-link" data-scroll-target="#model-visualization-with-two-continuous-predictors">Model visualization with two continuous predictors</a></li>
+<li><a href="#model-visualization-with-two-continuous-predictors" id="toc-model-visualization-with-two-continuous-predictors" class="nav-link" data-scroll-target="#model-visualization-with-two-continuous-predictors">Model visualization with two continuous predictors</a></li>
   <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection">Model Selection</a></li>
   <li><a href="#effect-size-and-standardized-coefficients" id="toc-effect-size-and-standardized-coefficients" class="nav-link" data-scroll-target="#effect-size-and-standardized-coefficients">Effect size and standardized coefficients</a></li>
-  </ul></li>
-  <li><a href="#multiple-linear-regression-with-continuous-and-categorical-predictors" id="toc-multiple-linear-regression-with-continuous-and-categorical-predictors" class="nav-link" data-scroll-target="#multiple-linear-regression-with-continuous-and-categorical-predictors">Multiple Linear Regression with continuous and categorical predictors</a></li>
   </ul>
-</nav>
+</li>
+  <li><a href="#multiple-linear-regression-with-continuous-and-categorical-predictors" id="toc-multiple-linear-regression-with-continuous-and-categorical-predictors" class="nav-link" data-scroll-target="#multiple-linear-regression-with-continuous-and-categorical-predictors">Multiple Linear Regression with continuous and categorical predictors</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup5.html">Workgroup 5: Multiple Regression with R</a></li><li class="breadcrumb-item"><a href="./model_multiple2.html">Multiple Linear Regression with several predictors</a></li></ol></nav>
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup5.html">Workgroup 5: Multiple Regression with R</a></li><li class="breadcrumb-item"><a href="./model_multiple2.html">Multiple Linear Regression with several predictors</a></li></ol></nav><div class="quarto-title">
 <h1 class="title">Multiple Linear Regression with several predictors</h1>
 </div>
 
@@ -498,17 +476,13 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>We look in the next sections at examples and outputs of different combinations of models with more than one predictor, still without considering interactions between them (interactions we will cover in Lecture 6 and Workgroup 6).</p>
-<section id="multiple-linear-regression-with-continuous-predictors" class="level2">
-<h2 class="anchored" data-anchor-id="multiple-linear-regression-with-continuous-predictors">Multiple Linear Regression with continuous predictors</h2>
+</header><p>We look in the next sections at examples and outputs of different combinations of models with more than one predictor, still without considering interactions between them (interactions we will cover in Lecture 6 and Workgroup 6).</p>
+<section id="multiple-linear-regression-with-continuous-predictors" class="level2"><h2 class="anchored" data-anchor-id="multiple-linear-regression-with-continuous-predictors">Multiple Linear Regression with continuous predictors</h2>
 <hr>
 <p>To illustrate the examples, let’s use the data file from <span class="citation" data-cites="winter2019statistics">Winter (<a href="references.html#ref-winter2019statistics" role="doc-biblioref">2019</a>)</span> “ELP_full_length_frequency.csv”</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dfELP<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">'./data/ELP_full_length_frequency.csv'</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dfELP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfELP</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">'./data/ELP_full_length_frequency.csv'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dfELP</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Word Log10Freq length     RT
 1 zenith  1.342423      5 753.69
@@ -521,8 +495,8 @@ window.Quarto = {
 </div>
 <p>We want to check if the Reading Time (<code>RT</code>) can be predicted based on the word length <strong>and</strong> word frequency, so we fit a model with two predictors:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>m_ex1<span class="ot">&lt;-</span><span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Log10Freq<span class="sc">+</span>length,<span class="at">data=</span>dfELP)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_ex1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m_ex1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">RT</span><span class="op">~</span><span class="fl">1</span><span class="op">+</span><span class="va">Log10Freq</span><span class="op">+</span><span class="va">length</span>,data<span class="op">=</span><span class="va">dfELP</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">m_ex1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -559,8 +533,8 @@ RT =748.43-68.02\times Log10Freq+19.46\times length
 <p><span class="math display">\[RT=748.43-68.02\times1.6+19.46\times 4=717.44\]</span></p>
 <p>The function <code>predict</code> can be used to predict values based on a model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>new <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Log10Freq=</span><span class="fu">c</span>(<span class="fl">1.6</span>),<span class="at">length=</span><span class="fu">c</span>(<span class="dv">4</span>))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(m_ex1,new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Log10Freq<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1.6</span><span class="op">)</span>,length<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">m_ex1</span>,<span class="va">new</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       1 
 717.4233 </code></pre>
@@ -568,14 +542,15 @@ RT =748.43-68.02\times Log10Freq+19.46\times length
 </div>
 <p>Which provides the same value<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>The model statistics are as per previous examples, where <span class="math inline">\(R^2_{adj} = 0.487\)</span>, indicates the model explains ~48% of the variance in the data, and the statistic <span class="math inline">\(F(2,33072)=15720,p&lt;.001\)</span> indicates that the model is significant compared with a null model with intercept only.</p>
-<section id="model-visualization-with-two-continuous-predictors" class="level3">
-<h3 class="anchored" data-anchor-id="model-visualization-with-two-continuous-predictors">Model visualization with two continuous predictors</h3>
+<section id="model-visualization-with-two-continuous-predictors" class="level3"><h3 class="anchored" data-anchor-id="model-visualization-with-two-continuous-predictors">Model visualization with two continuous predictors</h3>
 <p>A model as the one build without any interaction, is to be interpreted as follows:</p>
 <ul>
-<li><p>Given a certain value of one of the continuous predictors, we will have a curve predicting the change with the other predictor. E.g. if we consider words of lengths 2, 5 and 10, the model specifies the following fits:</p>
+<li>
+<p>Given a certain value of one of the continuous predictors, we will have a curve predicting the change with the other predictor. E.g. if we consider words of lengths 2, 5 and 10, the model specifies the following fits:</p>
 <p><span class="math display">\[
 RT_{length=2}=748.43-68.02\times Log10Freq+19.46\times2=787.35-68.02\times Log10Freq
-\]</span></p></li>
+\]</span></p>
+</li>
 </ul>
 <p><span class="math display">\[
 RT_{length=5}=748.43-68.02\times Log10Freq+19.46\times5=845.73-68.02\times Log10Freq
@@ -585,7 +560,7 @@ RT_{length=10} = 748.43-68.02\times Log10Freq+19.46\times10 =943.02-68.02\times 
 \]</span></p>
 <p>All the models above are lines with the same negative slope and with different intercepts.</p>
 <p>This can not be easily visualized using <code>ggplot()</code> , but there is a function in the package <code>ggiraphExtra</code> developed to do that. To try it, install the package first as:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggiraphExtra"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggiraphExtra"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -603,36 +578,24 @@ Note
 </div>
 <p>Then use the <code>ggPredict</code> function to plot the model with two variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggiraphExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggiraphExtra' was built under R version 4.5.2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(m_ex1,<span class="at">terms=</span><span class="fu">c</span>(<span class="st">"length"</span>,<span class="st">"Log10Freq"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
-ℹ Please use tidy evaluation idioms with `aes()`.
-ℹ See also `vignette("ggplot2-in-packages")` for more information.
-ℹ The deprecated feature was likely used in the ggiraphExtra package.
-  Please report the issue to the authors.</code></pre>
-</div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cardiomoon/ggiraphExtra">ggiraphExtra</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/ggiraphExtra/man/ggPredict.html">ggPredict</a></span><span class="op">(</span><span class="va">m_ex1</span>,terms<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"length"</span>,<span class="st">"Log10Freq"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model_multiple2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="model_multiple2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>As you can see, the plot represents the model at a number of values of <code>length</code>.</p>
-</section>
-<section id="model-selection" class="level3">
-<h3 class="anchored" data-anchor-id="model-selection">Model Selection</h3>
+</section><section id="model-selection" class="level3"><h3 class="anchored" data-anchor-id="model-selection">Model Selection</h3>
 <p>The coefficients statistiscs shows that both coefficients are significantly different from 0, indicating that the RT depends on both logarithmically transformed frequency and length.</p>
 <p>Let’s compare the model with simple linear regression models with only one of the predictors:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>m_1<span class="ot">&lt;-</span><span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>Log10Freq, <span class="at">data=</span>dfELP)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>m_2<span class="ot">&lt;-</span><span class="fu">lm</span>(RT<span class="sc">~</span><span class="dv">1</span><span class="sc">+</span>length,<span class="at">data=</span>dfELP)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m_1,m_ex1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m_1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">RT</span><span class="op">~</span><span class="fl">1</span><span class="op">+</span><span class="va">Log10Freq</span>, data<span class="op">=</span><span class="va">dfELP</span><span class="op">)</span></span>
+<span><span class="va">m_2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">RT</span><span class="op">~</span><span class="fl">1</span><span class="op">+</span><span class="va">length</span>,data<span class="op">=</span><span class="va">dfELP</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">m_1</span>,<span class="va">m_ex1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
@@ -644,7 +607,7 @@ Model 2: RT ~ 1 + Log10Freq + length
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m_2,m_ex1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">m_2</span>,<span class="va">m_ex1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
@@ -658,14 +621,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(m_1,m_2,m_ex1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">AIC</a></span><span class="op">(</span><span class="va">m_1</span>,<span class="va">m_2</span>,<span class="va">m_ex1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      df      AIC
 m_1    3 396955.8
 m_2    3 401904.9
 m_ex1  4 390855.7</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BIC</span>(m_1,m_2,m_ex1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">BIC</a></span><span class="op">(</span><span class="va">m_1</span>,<span class="va">m_2</span>,<span class="va">m_ex1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      df      BIC
 m_1    3 396981.1
@@ -673,16 +636,14 @@ m_2    3 401930.1
 m_ex1  4 390889.3</code></pre>
 </div>
 </div>
-<p>As we can see from the <code>anova()</code>, <code>BIC()</code> and <code>AIC()</code> results, the model with both predictors is preferable compared with with the simple linear models.</p>
-</section>
-<section id="effect-size-and-standardized-coefficients" class="level3">
-<h3 class="anchored" data-anchor-id="effect-size-and-standardized-coefficients">Effect size and standardized coefficients</h3>
+<p>As we can see from the <code><a href="https://rdrr.io/r/stats/anova.html">anova()</a></code>, <code><a href="https://rdrr.io/r/stats/AIC.html">BIC()</a></code> and <code><a href="https://rdrr.io/r/stats/AIC.html">AIC()</a></code> results, the model with both predictors is preferable compared with with the simple linear models.</p>
+</section><section id="effect-size-and-standardized-coefficients" class="level3"><h3 class="anchored" data-anchor-id="effect-size-and-standardized-coefficients">Effect size and standardized coefficients</h3>
 <p>One issue with the fitting of model with several predictors on different scales, is that is not possible to compare the relative effect of each of them. What affects more the Reading Time? the word frequency or the length? Frequency and length are variables in different scales and cannot be directly compared.</p>
 <p>To do that, we can use the concept of <strong>standardized coefficients</strong>. These coefficients are calculated by fitting a model to the standardized transformed predictors. For each predictor we calculate the z-score, by removing the mean and dividing by the standard deviation of the predictor. We do the same for the dependent variable.</p>
-<p>This can be done by the <code>scale()</code> function. If we do a fit as follows:</p>
+<p>This can be done by the <code><a href="https://rdrr.io/r/base/scale.html">scale()</a></code> function. If we do a fit as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>m_std<span class="ot">&lt;-</span><span class="fu">lm</span>(<span class="fu">scale</span>(RT)<span class="sc">~</span><span class="fu">scale</span>(Log10Freq)<span class="sc">+</span><span class="fu">scale</span>(length),<span class="at">data=</span>dfELP)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_std)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m_std</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">RT</span><span class="op">)</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">Log10Freq</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">length</span><span class="op">)</span>,data<span class="op">=</span><span class="va">dfELP</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">m_std</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -694,7 +655,7 @@ Residuals:
 
 Coefficients:
                    Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)       1.135e-15  3.937e-03    0.00        1    
+(Intercept)      -3.730e-14  3.937e-03    0.00        1    
 scale(Log10Freq) -4.873e-01  4.254e-03 -114.54   &lt;2e-16 ***
 scale(length)     3.482e-01  4.254e-03   81.86   &lt;2e-16 ***
 ---
@@ -704,7 +665,7 @@ Residual standard error: 0.7161 on 33072 degrees of freedom
 Multiple R-squared:  0.4873,    Adjusted R-squared:  0.4873 
 F-statistic: 1.572e+04 on 2 and 33072 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(m_std)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">m_std</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                        2.5 %       97.5 %
 (Intercept)      -0.007717201  0.007717201
@@ -735,20 +696,20 @@ Note
 <p>Ex: Reading time exhibited a significant relationship with both the logarithmically transformed Frequency (<span class="math inline">\(\beta=-0.49,t(33072)=-114.54,95\%CI[-0.496,-0.479], p&lt;.001\)</span>) and word length (<span class="math inline">\(\beta=0.35,t(33072)=81.86,95\%CI[0.340,0.357], p&lt;.001\)</span>).</p>
 </div>
 </div>
-</section>
-</section>
-<section id="multiple-linear-regression-with-continuous-and-categorical-predictors" class="level2">
-<h2 class="anchored" data-anchor-id="multiple-linear-regression-with-continuous-and-categorical-predictors">Multiple Linear Regression with continuous and categorical predictors</h2>
+</section></section><section id="multiple-linear-regression-with-continuous-and-categorical-predictors" class="level2"><h2 class="anchored" data-anchor-id="multiple-linear-regression-with-continuous-and-categorical-predictors">Multiple Linear Regression with continuous and categorical predictors</h2>
 <hr>
 <p>All the principles discussed in the sections below apply in the case of a continuous and a categorical predictor.</p>
 <p>In case of a categorical predictor, often the concept of <strong>discriminator predictor</strong> is used.</p>
 <p>Let’s look at an example with the <code>lexdec</code> dataframe in the <code>languageR</code> package and fit a model on the Reading Time as a function of <code>Frequency</code> and <code>NativeLanguage</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(languageR)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"lexdec"</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>m_ex2<span class="ot">&lt;-</span><span class="fu">lm</span>(RT<span class="sc">~</span>Frequency<span class="sc">+</span>NativeLanguage, <span class="at">data=</span>lexdec)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_ex2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">languageR</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'languageR' was built under R version 4.3.3</code></pre>
+</div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"lexdec"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">m_ex2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">RT</span><span class="op">~</span><span class="va">Frequency</span><span class="op">+</span><span class="va">NativeLanguage</span>, data<span class="op">=</span><span class="va">lexdec</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">m_ex2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -770,7 +731,7 @@ Residual standard error: 0.2224 on 1656 degrees of freedom
 Multiple R-squared:  0.1532,    Adjusted R-squared:  0.1522 
 F-statistic: 149.8 on 2 and 1656 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(m_ex2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">m_ex2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                         2.5 %      97.5 %
 (Intercept)          6.4796443  6.56435160
@@ -788,11 +749,10 @@ NativeLanguageOther  0.1341827  0.17745967</code></pre>
 </ul>
 <p>The interpretation is easier if we plot it again using <code>ggPredict</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggPredict</span>(m_ex2,<span class="at">terms=</span><span class="fu">c</span>(<span class="st">"Frequency"</span>,<span class="st">"NativeLanguage"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/ggiraphExtra/man/ggPredict.html">ggPredict</a></span><span class="op">(</span><span class="va">m_ex2</span>,terms<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Frequency"</span>,<span class="st">"NativeLanguage"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="model_multiple2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="model_multiple2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -809,16 +769,10 @@ NativeLanguageOther  0.1341827  0.17745967</code></pre>
 Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. Routledge.
 </div>
 </div>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
+</section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
 <li id="fn1"><p>actually not exactly the same, but very close. This is due to rounding in the model parameters above<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1216,9 +1170,7 @@ Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. 
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./model_posthoc.html" class="pagination-link" aria-label="Post-hoc testing based on Estimated Marginal Means">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Post-hoc testing based on Estimated Marginal Means</span>
       </a>          
@@ -1230,8 +1182,7 @@ Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. 
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Fundamentals of Linear Models Workbook was written by Dr.&nbsp;Leticia Pablos Robles</p>
 </div>   
@@ -1243,8 +1194,6 @@ Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. 
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

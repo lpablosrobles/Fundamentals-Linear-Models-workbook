@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 <meta name="dcterms.date" content="2025-08-12">
-
 <title>Assignment #5 - An EEG Processing Pipeline - Answer Key – Fundamentals of Linear Models 2025-2026: Workbook</title>
 <style>
 code{white-space: pre-wrap;}
@@ -59,7 +56,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -79,8 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -106,12 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -137,15 +127,11 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -156,13 +142,9 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
         <div class="sidebar-tools-main">
@@ -181,7 +163,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -201,8 +183,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro_to_r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">✍️ R Syntax</span></a>
@@ -239,7 +221,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup2.html" class="sidebar-item-text sidebar-link">
@@ -248,8 +230,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data_organization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data organization and transformation</span></a>
@@ -274,7 +256,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup3.html" class="sidebar-item-text sidebar-link">
@@ -283,8 +265,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./plot_xy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plotting relationship between two variables</span></a>
@@ -309,7 +291,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup4.html" class="sidebar-item-text sidebar-link">
@@ -318,8 +300,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_fit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Model output</span></a>
@@ -356,7 +338,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup5.html" class="sidebar-item-text sidebar-link">
@@ -365,8 +347,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_multiple.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multiple Linear Regression with Categorical predictor with more than two levels</span></a>
@@ -391,7 +373,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./Workgroup6.html" class="sidebar-item-text sidebar-link">
@@ -400,8 +382,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./model_interactions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multiple Linear Regression: Interactions</span></a>
@@ -421,12 +403,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model_spearman.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spearman’s rank correlation</span></a>
+  <a href="./assignment6_key.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment #6 - An EEG Processing Pipeline II - Answer Key</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -434,40 +416,38 @@ window.Quarto = {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#task-1-read-dataframe" id="toc-task-1-read-dataframe" class="nav-link active" data-scroll-target="#task-1-read-dataframe">Task #1: Read dataframe</a></li>
-  <li><a href="#task2-summarize-and-reorganize-the-data" id="toc-task2-summarize-and-reorganize-the-data" class="nav-link" data-scroll-target="#task2-summarize-and-reorganize-the-data"><strong>Task#2: Summarize and reorganize the data</strong></a>
+<li><a href="#task-1-read-dataframe" id="toc-task-1-read-dataframe" class="nav-link active" data-scroll-target="#task-1-read-dataframe">Task #1: Read dataframe</a></li>
+  <li>
+<a href="#task2-summarize-and-reorganize-the-data" id="toc-task2-summarize-and-reorganize-the-data" class="nav-link" data-scroll-target="#task2-summarize-and-reorganize-the-data"><strong>Task#2: Summarize and reorganize the data</strong></a>
   <ul class="collapse">
-  <li><a href="#task-2.1-subset-data" id="toc-task-2.1-subset-data" class="nav-link" data-scroll-target="#task-2.1-subset-data">Task #2.1: Subset data</a></li>
+<li><a href="#task-2.1-subset-data" id="toc-task-2.1-subset-data" class="nav-link" data-scroll-target="#task-2.1-subset-data">Task #2.1: Subset data</a></li>
   <li><a href="#task-2.2-rearrange-the-data-from-wide-to-long-format" id="toc-task-2.2-rearrange-the-data-from-wide-to-long-format" class="nav-link" data-scroll-target="#task-2.2-rearrange-the-data-from-wide-to-long-format">Task #2.2: Rearrange the data from wide to long format</a></li>
   <li><a href="#task-2.3-calculate-data-averages-in-the-n400-window" id="toc-task-2.3-calculate-data-averages-in-the-n400-window" class="nav-link" data-scroll-target="#task-2.3-calculate-data-averages-in-the-n400-window">Task #2.3: Calculate data averages in the N400 window</a></li>
-  </ul></li>
-  <li><a href="#task3-create-a-linear-model-of-the-average-voltage" id="toc-task3-create-a-linear-model-of-the-average-voltage" class="nav-link" data-scroll-target="#task3-create-a-linear-model-of-the-average-voltage">Task#3: Create a linear model of the Average Voltage</a>
+  </ul>
+</li>
+  <li>
+<a href="#task3-create-a-linear-model-of-the-average-voltage" id="toc-task3-create-a-linear-model-of-the-average-voltage" class="nav-link" data-scroll-target="#task3-create-a-linear-model-of-the-average-voltage">Task#3: Create a linear model of the Average Voltage</a>
   <ul class="collapse">
-  <li><a href="#task3.1-fz-electrode" id="toc-task3.1-fz-electrode" class="nav-link" data-scroll-target="#task3.1-fz-electrode">Task#3.1: Fz Electrode</a></li>
+<li><a href="#task3.1-fz-electrode" id="toc-task3.1-fz-electrode" class="nav-link" data-scroll-target="#task3.1-fz-electrode">Task#3.1: Fz Electrode</a></li>
   <li><a href="#task3.2-cz-electrode" id="toc-task3.2-cz-electrode" class="nav-link" data-scroll-target="#task3.2-cz-electrode">Task#3.2: Cz Electrode</a></li>
   <li><a href="#task-3.3-report-the-models-for-both-fz-and-cz" id="toc-task-3.3-report-the-models-for-both-fz-and-cz" class="nav-link" data-scroll-target="#task-3.3-report-the-models-for-both-fz-and-cz">Task #3.3: Report the models for both Fz and Cz:</a></li>
   <li><a href="#extra-credit-task-4-create-factor-encoding-region-of-interest." id="toc-extra-credit-task-4-create-factor-encoding-region-of-interest." class="nav-link" data-scroll-target="#extra-credit-task-4-create-factor-encoding-region-of-interest.">EXTRA CREDIT: Task #4 Create factor encoding Region of interest.</a></li>
   <li><a href="#task-4.1-create-new-factor" id="toc-task-4.1-create-new-factor" class="nav-link" data-scroll-target="#task-4.1-create-new-factor">Task 4.1: Create new factor</a></li>
   <li><a href="#task-4.2-multiple-linear-regression" id="toc-task-4.2-multiple-linear-regression" class="nav-link" data-scroll-target="#task-4.2-multiple-linear-regression">Task 4.2: Multiple linear regression</a></li>
-  </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul>
-</nav>
+</li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup5.html">Workgroup 5: Multiple Regression with R</a></li><li class="breadcrumb-item"><a href="./assignment5_key.html">Assignment #5 - An EEG Processing Pipeline - Answer Key</a></li></ol></nav>
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Workgroup5.html">Workgroup 5: Multiple Regression with R</a></li><li class="breadcrumb-item"><a href="./assignment5_key.html">Assignment #5 - An EEG Processing Pipeline - Answer Key</a></li></ol></nav><div class="quarto-title">
 <h1 class="title">Assignment #5 - An EEG Processing Pipeline - Answer Key</h1>
 </div>
 
@@ -488,19 +468,15 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>In this assignment we intended to emulate a full EEG data processing pipeline using the concepts introduced across the different workgroups.</p>
+</header><p>In this assignment we intended to emulate a full EEG data processing pipeline using the concepts introduced across the different workgroups.</p>
 <p>We load the required packages</p>
-<section id="task-1-read-dataframe" class="level2">
-<h2 class="anchored" data-anchor-id="task-1-read-dataframe">Task #1: Read dataframe</h2>
+<section id="task-1-read-dataframe" class="level2"><h2 class="anchored" data-anchor-id="task-1-read-dataframe">Task #1: Read dataframe</h2>
 <p>For the assignment we use a large file containing real EEG data from 17 subjects collected across 4 experimental conditions.</p>
 <p>The data is contained in the file <code>/data/eegSampleData.Rda</code> .</p>
-<p>Load the data into the environment using <code>readRDS()</code></p>
+<p>Load the data into the environment using <code><a href="https://rdrr.io/r/base/readRDS.html">readRDS()</a></code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>eegData<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">'./data/eegSampleData.Rda'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># read data</span></span>
+<span><span class="va">eegData</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">'./data/eegSampleData.Rda'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The data file contains the following columns:</p>
 <ul>
@@ -521,48 +497,45 @@ Important
 <div class="callout-body-container callout-body">
 <p>In the dataset uploaded in the Posit Cloud, Condition was coded as “11”, “22”,“23”,“24” instead of “CondA”, “CondB”, “CondC”, “CondD”.</p>
 <p>If you want to replicate this assignment key, run the following line to recode the levels before continuing.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(eegData<span class="sc">$</span>Condition)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"CondA"</span>,<span class="st">"CondB"</span>,<span class="st">"CondC"</span>,<span class="st">"CondD"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">eegData</span><span class="op">$</span><span class="va">Condition</span><span class="op">)</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CondA"</span>,<span class="st">"CondB"</span>,<span class="st">"CondC"</span>,<span class="st">"CondD"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section>
-<section id="task2-summarize-and-reorganize-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="task2-summarize-and-reorganize-the-data"><strong>Task#2: Summarize and reorganize the data</strong></h2>
+</section><section id="task2-summarize-and-reorganize-the-data" class="level2"><h2 class="anchored" data-anchor-id="task2-summarize-and-reorganize-the-data"><strong>Task#2: Summarize and reorganize the data</strong></h2>
 <p>We want to Evaluate the presence or absence of a N400 Event Related Potential (ERP) on the dataset. The N400 component appears in the range of 250 to 550ms after the stimulus onset, and it is considered a broad central-anterior component.</p>
 <p>In order to do that we have to perform the following:</p>
 <ul>
 <li><p>Calculate the average voltage in the time window 250-550ms for all Electrodes.</p></li>
-<li><p>Select the relevant Regions of Interest:</p>
+<li>
+<p>Select the relevant Regions of Interest:</p>
 <ul>
 <li><p><strong>Anterior:</strong> electrodes F1, F2, F3, F4, F5, F6, Fz</p></li>
 <li><p><strong>Central:</strong> electrodes C1, C2, C3, C4, C5, C6, Cz</p></li>
-</ul></li>
+</ul>
+</li>
 <li><p>Compare the average voltage across experimental conditions against the <strong>Control Condition</strong>, which in this case is <strong>Condition D</strong></p></li>
 </ul>
-<section id="task-2.1-subset-data" class="level3">
-<h3 class="anchored" data-anchor-id="task-2.1-subset-data">Task #2.1: Subset data</h3>
+<section id="task-2.1-subset-data" class="level3"><h3 class="anchored" data-anchor-id="task-2.1-subset-data">Task #2.1: Subset data</h3>
 <p>Select subset of the data for the analysis:</p>
 <ul>
 <li><p>Time in the range 0.250 to 0.550 s</p></li>
 <li><p>Electrodes for the Anterior and Central regions defined above.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>eegDataFiltered <span class="ot">&lt;-</span> eegData <span class="sc">%&gt;%</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(time,Subject,Condition,F1,F1,F3,F4,F5,F6,Fz,C1,C2,C3,C4,C5,C6,Cz) <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(time <span class="sc">&gt;=</span><span class="fl">0.250</span> <span class="sc">&amp;</span> time <span class="sc">&lt;=</span><span class="fl">0.550</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove from the memory the full data set now that we have filtered the data</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(eegData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eegDataFiltered</span> <span class="op">&lt;-</span> <span class="va">eegData</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">time</span>,<span class="va">Subject</span>,<span class="va">Condition</span>,<span class="va">F1</span>,<span class="va">F1</span>,<span class="va">F3</span>,<span class="va">F4</span>,<span class="va">F5</span>,<span class="va">F6</span>,<span class="va">Fz</span>,<span class="va">C1</span>,<span class="va">C2</span>,<span class="va">C3</span>,<span class="va">C4</span>,<span class="va">C5</span>,<span class="va">C6</span>,<span class="va">Cz</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">time</span> <span class="op">&gt;=</span><span class="fl">0.250</span> <span class="op">&amp;</span> <span class="va">time</span> <span class="op">&lt;=</span><span class="fl">0.550</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Remove from the memory the full data set now that we have filtered the data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">eegData</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="task-2.2-rearrange-the-data-from-wide-to-long-format" class="level3">
-<h3 class="anchored" data-anchor-id="task-2.2-rearrange-the-data-from-wide-to-long-format">Task #2.2: Rearrange the data from wide to long format</h3>
+</section><section id="task-2.2-rearrange-the-data-from-wide-to-long-format" class="level3"><h3 class="anchored" data-anchor-id="task-2.2-rearrange-the-data-from-wide-to-long-format">Task #2.2: Rearrange the data from wide to long format</h3>
 <p>We convert the data from wide to long format using the steps practiced in Workgroup 2: <a href="https://lpablosrobles.github.io/Fundamentals-Linear-Models-workbook/data_organization.html" class="uri">https://lpablosrobles.github.io/Fundamentals-Linear-Models-workbook/data_organization.html</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>eegDataFiltered_long<span class="ot">&lt;-</span><span class="fu">pivot_longer</span>(eegDataFiltered, </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">cols =</span> F1<span class="sc">:</span>Cz, </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">names_to =</span> <span class="st">"Electrode"</span>, </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">values_to =</span> <span class="st">"Voltage"</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(eegDataFiltered_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eegDataFiltered_long</span><span class="op">&lt;-</span><span class="fu">pivot_longer</span><span class="op">(</span><span class="va">eegDataFiltered</span>, </span>
+<span>                                   cols <span class="op">=</span> <span class="va">F1</span><span class="op">:</span><span class="va">Cz</span>, </span>
+<span>                                   names_to <span class="op">=</span> <span class="st">"Electrode"</span>, </span>
+<span>                                   values_to <span class="op">=</span> <span class="st">"Voltage"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">eegDataFiltered_long</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
    time Subject Condition Electrode Voltage
@@ -575,20 +548,18 @@ Important
 6 0.250 1       CondA     Fz          -2.54</code></pre>
 </div>
 </div>
-</section>
-<section id="task-2.3-calculate-data-averages-in-the-n400-window" class="level3">
-<h3 class="anchored" data-anchor-id="task-2.3-calculate-data-averages-in-the-n400-window">Task #2.3: Calculate data averages in the N400 window</h3>
+</section><section id="task-2.3-calculate-data-averages-in-the-n400-window" class="level3"><h3 class="anchored" data-anchor-id="task-2.3-calculate-data-averages-in-the-n400-window">Task #2.3: Calculate data averages in the N400 window</h3>
 <p>Calculate average of data in the N400 window by averaging all points from 250 to 550 ms (already selected before).</p>
 <p>We calculate the average in the window for each condition per subject</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>eegDataAveraged <span class="ot">&lt;-</span> eegDataFiltered_long <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Subject,Condition,Electrode) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">AvgVoltage =</span> <span class="fu">mean</span>(Voltage))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eegDataAveraged</span> <span class="op">&lt;-</span> <span class="va">eegDataFiltered_long</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">Subject</span>,<span class="va">Condition</span>,<span class="va">Electrode</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">summarize</span><span class="op">(</span>AvgVoltage <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Voltage</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'Subject', 'Condition'. You can override
 using the `.groups` argument.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(eegDataAveraged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">eegDataAveraged</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
 # Groups:   Subject, Condition [1]
@@ -602,20 +573,16 @@ using the `.groups` argument.</code></pre>
 6 1       CondA     C6            -2.57 </code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="task3-create-a-linear-model-of-the-average-voltage" class="level2">
-<h2 class="anchored" data-anchor-id="task3-create-a-linear-model-of-the-average-voltage">Task#3: Create a linear model of the Average Voltage</h2>
-<section id="task3.1-fz-electrode" class="level3">
-<h3 class="anchored" data-anchor-id="task3.1-fz-electrode">Task#3.1: Fz Electrode</h3>
+</section></section><section id="task3-create-a-linear-model-of-the-average-voltage" class="level2"><h2 class="anchored" data-anchor-id="task3-create-a-linear-model-of-the-average-voltage">Task#3: Create a linear model of the Average Voltage</h2>
+<section id="task3.1-fz-electrode" class="level3"><h3 class="anchored" data-anchor-id="task3.1-fz-electrode">Task#3.1: Fz Electrode</h3>
 <ul>
 <li><p>Select the data in the <strong>Fz electrode</strong></p></li>
 <li><p>Create a model to investigate if the AverageVoltage on the Fz electrode in the N400 window is related to the <strong>Condition</strong> factor.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>eegData_Fz <span class="ot">=</span> eegDataAveraged <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Electrode<span class="sc">==</span><span class="st">"Fz"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mFz <span class="ot">&lt;-</span> <span class="fu">lm</span>(AvgVoltage<span class="sc">~</span>Condition, <span class="at">data=</span>eegData_Fz)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mFz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eegData_Fz</span> <span class="op">=</span> <span class="va">eegDataAveraged</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Electrode</span><span class="op">==</span><span class="st">"Fz"</span><span class="op">)</span></span>
+<span><span class="va">mFz</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">AvgVoltage</span><span class="op">~</span><span class="va">Condition</span>, data<span class="op">=</span><span class="va">eegData_Fz</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mFz</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -647,9 +614,9 @@ F-statistic: 3.332 on 3 and 64 DF,  p-value: 0.02487</code></pre>
 </ul>
 <p>The exercise Task 3.3, however, asked to consider <strong>Condition D as a reference condition</strong>, while the model by default provides the results considering Condition A as the reference. To correct this, we relevel the Condition factor:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>eegData_Fz <span class="ot">&lt;-</span> eegData_Fz <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Condition=</span><span class="fu">relevel</span>(Condition,<span class="st">"CondD"</span>))</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mFz <span class="ot">&lt;-</span> <span class="fu">lm</span>(AvgVoltage<span class="sc">~</span>Condition, <span class="at">data=</span>eegData_Fz)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mFz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eegData_Fz</span> <span class="op">&lt;-</span> <span class="va">eegData_Fz</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>Condition<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/relevel.html">relevel</a></span><span class="op">(</span><span class="va">Condition</span>,<span class="st">"CondD"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">mFz</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">AvgVoltage</span><span class="op">~</span><span class="va">Condition</span>, data<span class="op">=</span><span class="va">eegData_Fz</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mFz</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -674,12 +641,11 @@ F-statistic: 3.332 on 3 and 64 DF,  p-value: 0.02487</code></pre>
 </div>
 </div>
 <p>Now, as you can see, the coefficients changes, and there is only a very marginally significant coefficient (<code>ConditionCondC</code> ), indicating that no Condition is significantly different from the control D.</p>
-<section id="marginal-means-calculation" class="level4">
-<h4 class="anchored" data-anchor-id="marginal-means-calculation">Marginal means calculation</h4>
+<section id="marginal-means-calculation" class="level4"><h4 class="anchored" data-anchor-id="marginal-means-calculation">Marginal means calculation</h4>
 <p>Let’s look at the marginal means using the <code>modelbased</code> library and plot them.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>emmFz <span class="ot">&lt;-</span> <span class="fu">estimate_means</span>(mFz, <span class="at">by=</span><span class="st">"Condition"</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>emmFz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">emmFz</span> <span class="op">&lt;-</span> <span class="fu">estimate_means</span><span class="op">(</span><span class="va">mFz</span>, by<span class="op">=</span><span class="st">"Condition"</span><span class="op">)</span></span>
+<span><span class="va">emmFz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Estimated Marginal Means
 
@@ -693,22 +659,19 @@ CondC     |  0.11 | 0.54 | [-0.98,  1.19] |  0.20
 Variable predicted: AvgVoltage
 Predictors modulated: Condition</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(emmFz) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">emmFz</span><span class="op">)</span> <span class="op">+</span> <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="assignment5_key_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="assignment5_key_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>As we can see from the marginal means and plot, it looks like Condition A and D are slightly different than condition A.</p>
-</section>
-<section id="post-hoc-analysis" class="level4">
-<h4 class="anchored" data-anchor-id="post-hoc-analysis">Post-hoc analysis</h4>
+</section><section id="post-hoc-analysis" class="level4"><h4 class="anchored" data-anchor-id="post-hoc-analysis">Post-hoc analysis</h4>
 <p>We understand the differences between all values, we run a post-hoc analysis with all pairwise comparisons. Let’s use for example Tukey correction (less strict than Bonferroni)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(mFz, <span class="at">contrast=</span><span class="st">"Condition"</span>, <span class="at">p_adjust =</span> <span class="st">"tukey"</span>, <span class="at">backend=</span><span class="st">"emmeans"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">estimate_contrasts</span><span class="op">(</span><span class="va">mFz</span>, contrast<span class="op">=</span><span class="st">"Condition"</span>, p_adjust <span class="op">=</span> <span class="st">"tukey"</span>, backend<span class="op">=</span><span class="st">"emmeans"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Marginal Contrasts Analysis
 
@@ -731,7 +694,7 @@ p-value adjustment method: Tukey</code></pre>
 <li>Only the contrast between condition C and Condition A seems to be significant, when applying the relevant correction for multiple comparisons. As a comparison, look at what would have been the result if the correction was not applied:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(mFz, <span class="at">contrast=</span><span class="st">"Condition"</span>, <span class="at">backend=</span><span class="st">"emmeans"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">estimate_contrasts</span><span class="op">(</span><span class="va">mFz</span>, contrast<span class="op">=</span><span class="st">"Condition"</span>, backend<span class="op">=</span><span class="st">"emmeans"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Marginal Contrasts Analysis
 
@@ -764,8 +727,8 @@ Analysis using <code>emmeans</code>
 <div class="callout-body-container callout-body">
 <p>Considering that the <code>modelbased</code> package is relatively new and the wide usage of <code>emmeans</code> , I include here the same calculation using <code>emmeans</code> for reference, as the nomenclature and output is a bit different. Remember though that <code>modelbased</code> is a wrapper that calls emmeans on the background.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>emmFz_alt <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(mFz,<span class="sc">~</span>Condition)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>emmFz_alt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">emmFz_alt</span> <span class="op">&lt;-</span> <span class="fu">emmeans</span><span class="op">(</span><span class="va">mFz</span>,<span class="op">~</span><span class="va">Condition</span><span class="op">)</span></span>
+<span><span class="va">emmFz_alt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Condition emmean    SE df lower.CL upper.CL
  CondD     -1.365 0.543 64   -2.450   -0.280
@@ -778,18 +741,17 @@ Confidence level used: 0.95 </code></pre>
 </div>
 <p>Using plot directly on the <code>emmeans</code> output produces the same plot in a different format but with the same information.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(emmFz_alt, <span class="at">horizontal =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">emmFz_alt</span>, horizontal <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="assignment5_key_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="assignment5_key_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Finally, to perform pairwise comparisons, the same function <code>emmeans</code> can be used, but using the pairwise word in the formula as below:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(mFz,pairwise<span class="sc">~</span>Condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">emmeans</span><span class="op">(</span><span class="va">mFz</span>,<span class="va">pairwise</span><span class="op">~</span><span class="va">Condition</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$emmeans
  Condition emmean    SE df lower.CL upper.CL
@@ -815,29 +777,25 @@ P value adjustment: tukey method for comparing a family of 4 estimates </code></
 <p>As you can see from the output, the function automatically applied a Tukey correction, without the need to specify it. Results are the same we obtained before</p>
 </div>
 </div>
-</section>
-<section id="model-assumption-checking" class="level4">
-<h4 class="anchored" data-anchor-id="model-assumption-checking">Model assumption checking</h4>
+</section><section id="model-assumption-checking" class="level4"><h4 class="anchored" data-anchor-id="model-assumption-checking">Model assumption checking</h4>
 <p>Finally, let’s check the model assumptions for validity. First on the linearity of the residuals</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(mFz<span class="sc">$</span>residuals)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(mFz<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">mFz</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">mFz</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="assignment5_key_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="assignment5_key_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mFz<span class="sc">$</span>residuals, <span class="at">breaks =</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mFz</span><span class="op">$</span><span class="va">residuals</span>, breaks <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="assignment5_key_files/figure-html/unnamed-chunk-14-2.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="assignment5_key_files/figure-html/unnamed-chunk-14-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(mFz<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">mFz</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -851,28 +809,24 @@ W = 0.93818, p-value = 0.002184</code></pre>
 </ul>
 <p>For the homogeneity of variance we use the test that confirms the model meets the assumptions</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncvTest</span>(mFz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ncvTest</span><span class="op">(</span><span class="va">mFz</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Non-constant Variance Score Test 
 Variance formula: ~ fitted.values 
 Chisquare = 0.6019959, Df = 1, p = 0.43782</code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="task3.2-cz-electrode" class="level3">
-<h3 class="anchored" data-anchor-id="task3.2-cz-electrode">Task#3.2: Cz Electrode</h3>
+</section></section><section id="task3.2-cz-electrode" class="level3"><h3 class="anchored" data-anchor-id="task3.2-cz-electrode">Task#3.2: Cz Electrode</h3>
 <p>We repeat the above process for the Cz electrode:</p>
-<section id="model-fit" class="level4">
-<h4 class="anchored" data-anchor-id="model-fit">Model fit</h4>
+<section id="model-fit" class="level4"><h4 class="anchored" data-anchor-id="model-fit">Model fit</h4>
 <ul>
 <li><p>Select the data in the <strong>Cz electrode</strong></p></li>
 <li><p>Create a model to investigate if the AverageVoltage on the Fz electrode in the N400 window is related to the <strong>Condition</strong> factor.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>eegData_Cz <span class="ot">=</span> eegDataAveraged <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Electrode<span class="sc">==</span><span class="st">"Cz"</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Condition=</span><span class="fu">relevel</span>(Condition,<span class="st">"CondD"</span>))</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>mCz <span class="ot">&lt;-</span> <span class="fu">lm</span>(AvgVoltage<span class="sc">~</span>Condition, <span class="at">data=</span>eegData_Cz)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mCz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eegData_Cz</span> <span class="op">=</span> <span class="va">eegDataAveraged</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Electrode</span><span class="op">==</span><span class="st">"Cz"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>Condition<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/relevel.html">relevel</a></span><span class="op">(</span><span class="va">Condition</span>,<span class="st">"CondD"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">mCz</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">AvgVoltage</span><span class="op">~</span><span class="va">Condition</span>, data<span class="op">=</span><span class="va">eegData_Cz</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mCz</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -895,7 +849,7 @@ Residual standard error: 2.111 on 64 degrees of freedom
 Multiple R-squared:  0.2263,    Adjusted R-squared:   0.19 
 F-statistic: 6.239 on 3 and 64 DF,  p-value: 0.0008772</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mCz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">mCz</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                    2.5 %     97.5 %
 (Intercept)    -3.0379764 -0.9921956
@@ -904,12 +858,10 @@ ConditionCondB  0.3863119  3.2794828
 ConditionCondC  0.8327691  3.7259401</code></pre>
 </div>
 </div>
-</section>
-<section id="marginal-means-calculation-and-post-hoc-analysis" class="level4">
-<h4 class="anchored" data-anchor-id="marginal-means-calculation-and-post-hoc-analysis">Marginal means calculation and post-hoc analysis</h4>
+</section><section id="marginal-means-calculation-and-post-hoc-analysis" class="level4"><h4 class="anchored" data-anchor-id="marginal-means-calculation-and-post-hoc-analysis">Marginal means calculation and post-hoc analysis</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>emmCz <span class="ot">&lt;-</span> <span class="fu">estimate_means</span>(mCz, <span class="at">by=</span><span class="st">"Condition"</span>)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>emmCz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">emmCz</span> <span class="op">&lt;-</span> <span class="fu">estimate_means</span><span class="op">(</span><span class="va">mCz</span>, by<span class="op">=</span><span class="st">"Condition"</span><span class="op">)</span></span>
+<span><span class="va">emmCz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Estimated Marginal Means
 
@@ -923,17 +875,16 @@ CondC     |  0.26 | 0.51 | [-0.76,  1.29] |  0.52
 Variable predicted: AvgVoltage
 Predictors modulated: Condition</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(emmCz) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">emmCz</span><span class="op">)</span> <span class="op">+</span> <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="assignment5_key_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="assignment5_key_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(mCz, <span class="at">contrast=</span><span class="st">"Condition"</span>, <span class="at">p_adjust =</span> <span class="st">"tukey"</span>, <span class="at">backend=</span><span class="st">"emmeans"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">estimate_contrasts</span><span class="op">(</span><span class="va">mCz</span>, contrast<span class="op">=</span><span class="st">"Condition"</span>, p_adjust <span class="op">=</span> <span class="st">"tukey"</span>, backend<span class="op">=</span><span class="st">"emmeans"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Marginal Contrasts Analysis
 
@@ -952,28 +903,24 @@ p-value adjustment method: Tukey</code></pre>
 </div>
 </div>
 <p>In this case, there are three significant comparisons: between Conditions A and B, A and C and also C and D.</p>
-</section>
-<section id="model-assumptions-checking" class="level4">
-<h4 class="anchored" data-anchor-id="model-assumptions-checking">Model assumptions checking</h4>
+</section><section id="model-assumptions-checking" class="level4"><h4 class="anchored" data-anchor-id="model-assumptions-checking">Model assumptions checking</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(mCz<span class="sc">$</span>residuals)</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(mCz<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">mCz</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">mCz</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="assignment5_key_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="assignment5_key_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mCz<span class="sc">$</span>residuals, <span class="at">breaks =</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mCz</span><span class="op">$</span><span class="va">residuals</span>, breaks <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="assignment5_key_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="assignment5_key_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(mCz<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">mCz</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -983,7 +930,7 @@ W = 0.9589, p-value = 0.02476</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncvTest</span>(mCz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ncvTest</span><span class="op">(</span><span class="va">mCz</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Non-constant Variance Score Test 
 Variance formula: ~ fitted.values 
@@ -991,10 +938,7 @@ Chisquare = 0.000360312, Df = 1, p = 0.98486</code></pre>
 </div>
 </div>
 <p>The results are similar to the Fz calculations, were the model failed on the assumption related to the normality of residuals due to a few outliers that would likely disappear when using the data of more subjects.</p>
-</section>
-</section>
-<section id="task-3.3-report-the-models-for-both-fz-and-cz" class="level3">
-<h3 class="anchored" data-anchor-id="task-3.3-report-the-models-for-both-fz-and-cz">Task #3.3: Report the models for both Fz and Cz:</h3>
+</section></section><section id="task-3.3-report-the-models-for-both-fz-and-cz" class="level3"><h3 class="anchored" data-anchor-id="task-3.3-report-the-models-for-both-fz-and-cz">Task #3.3: Report the models for both Fz and Cz:</h3>
 <p>Report the results of the analysis performed in the APA format described in the lecture including if necessary any post-hoc analysis performed if needed to compare against the <u><strong>reference Condition D.</strong></u></p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1018,21 +962,19 @@ Warning
 <p>The model did not reveal any significant effect of Condition with respect to the reference Condition D.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 14%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Coefficient</th>
 <th>beta</th>
 <th>Confidence Interval</th>
 <th>t</th>
 <th>p</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>Intercept (corresponding to Condition D)</td>
@@ -1070,27 +1012,19 @@ Warning
 <blockquote class="blockquote">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
+<col style="width: 22%">
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 22%">
+<col style="width: 19%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Coefficient</th>
 <th>beta</th>
 <th>Confidence Interval</th>
 <th>t</th>
 <th>p</th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>Intercept (corresponding to Condition D)</td>
@@ -1098,9 +1032,6 @@ Warning
 <td>[-3.04, -0.99]</td>
 <td>t(64) = -3.94</td>
 <td>p&lt;.001</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="even">
 <td>Condition A</td>
@@ -1108,9 +1039,6 @@ Warning
 <td>[-1.70, 1.19]</td>
 <td>t(64) = -0.36</td>
 <td>p = 0.723</td>
-<td>p = 0.723</td>
-<td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Condition B</td>
@@ -1118,9 +1046,6 @@ Warning
 <td>[0.39, 3.28]</td>
 <td>t(64) = 2.53</td>
 <td>p = 0.014</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr class="even">
 <td>Condition C</td>
@@ -1128,9 +1053,6 @@ Warning
 <td>[0.83, 3.73]</td>
 <td>t(64) = 3.15</td>
 <td>p = 0.002</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -1138,12 +1060,8 @@ Warning
 <p>Pairwise post-hoc comparisons were performed using Tukey correction to account for multiple comparisons.</p>
 <p>Model assumptions checking revealed deviations from the normality assumptions on both models that would require a more detailed look at the data outliers or likely an increase of the number of subjects in the study.</p>
 </blockquote>
-</section>
-<section id="extra-credit-task-4-create-factor-encoding-region-of-interest." class="level3">
-<h3 class="anchored" data-anchor-id="extra-credit-task-4-create-factor-encoding-region-of-interest.">EXTRA CREDIT: Task #4 Create factor encoding Region of interest.</h3>
-</section>
-<section id="task-4.1-create-new-factor" class="level3">
-<h3 class="anchored" data-anchor-id="task-4.1-create-new-factor">Task 4.1: Create new factor</h3>
+</section><section id="extra-credit-task-4-create-factor-encoding-region-of-interest." class="level3"><h3 class="anchored" data-anchor-id="extra-credit-task-4-create-factor-encoding-region-of-interest.">EXTRA CREDIT: Task #4 Create factor encoding Region of interest.</h3>
+</section><section id="task-4.1-create-new-factor" class="level3"><h3 class="anchored" data-anchor-id="task-4.1-create-new-factor">Task 4.1: Create new factor</h3>
 <p>Create a new variable with a factor to encode the <strong>Region of Interest called ROI</strong> based on the criteria defined above and two levels:</p>
 <ul>
 <li><p><strong>Anterior:</strong> electrodes F1, F2, F3, F4, F5, F6, Fz</p></li>
@@ -1151,23 +1069,21 @@ Warning
 </ul>
 <p>Tip: You can create a variable as a function of the value of another variable using <code>case_when()</code> . Read the following page for instructions : <a href="https://www.statology.org/conditional-mutating-r/" class="uri">https://www.statology.org/conditional-mutating-r/</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>eegDataAveraged<span class="ot">&lt;-</span> eegDataAveraged <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Condition=</span><span class="fu">relevel</span>(Condition,<span class="st">"CondD"</span>))</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>eegDataAveraged<span class="sc">$</span>roi <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  eegDataAveraged<span class="sc">$</span>Electrode <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"F1"</span>,<span class="st">"F2"</span>,<span class="st">"F3"</span>,<span class="st">"F4"</span>,<span class="st">"F5"</span>,<span class="st">"F6"</span>,<span class="st">"Fz"</span>) <span class="sc">~</span> <span class="st">"Anterior"</span>,</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  eegDataAveraged<span class="sc">$</span>Electrode <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"C1"</span>,<span class="st">"C2"</span>,<span class="st">"C3"</span>,<span class="st">"C4"</span>,<span class="st">"C5"</span>,<span class="st">"C6"</span>,<span class="st">"Cz"</span>) <span class="sc">~</span> <span class="st">"Central"</span></span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>eegDataAveraged<span class="sc">$</span>roi<span class="ot">&lt;-</span><span class="fu">as.factor</span>(eegDataAveraged<span class="sc">$</span>roi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">eegDataAveraged</span><span class="op">&lt;-</span> <span class="va">eegDataAveraged</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>Condition<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/relevel.html">relevel</a></span><span class="op">(</span><span class="va">Condition</span>,<span class="st">"CondD"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">eegDataAveraged</span><span class="op">$</span><span class="va">roi</span> <span class="op">&lt;-</span> <span class="fu">case_when</span><span class="op">(</span></span>
+<span>  <span class="va">eegDataAveraged</span><span class="op">$</span><span class="va">Electrode</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"F1"</span>,<span class="st">"F2"</span>,<span class="st">"F3"</span>,<span class="st">"F4"</span>,<span class="st">"F5"</span>,<span class="st">"F6"</span>,<span class="st">"Fz"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"Anterior"</span>,</span>
+<span>  <span class="va">eegDataAveraged</span><span class="op">$</span><span class="va">Electrode</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C1"</span>,<span class="st">"C2"</span>,<span class="st">"C3"</span>,<span class="st">"C4"</span>,<span class="st">"C5"</span>,<span class="st">"C6"</span>,<span class="st">"Cz"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"Central"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">eegDataAveraged</span><span class="op">$</span><span class="va">roi</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">eegDataAveraged</span><span class="op">$</span><span class="va">roi</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="task-4.2-multiple-linear-regression" class="level3">
-<h3 class="anchored" data-anchor-id="task-4.2-multiple-linear-regression">Task 4.2: Multiple linear regression</h3>
+</section><section id="task-4.2-multiple-linear-regression" class="level3"><h3 class="anchored" data-anchor-id="task-4.2-multiple-linear-regression">Task 4.2: Multiple linear regression</h3>
 <ul>
 <li>Create a model to investigate if the AverageVoltage in the N400 window is related to the <strong>Condition</strong> and <strong>ROI</strong> predictors.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>mCA <span class="ot">&lt;-</span><span class="fu">lm</span>(AvgVoltage<span class="sc">~</span>Condition<span class="sc">+</span>roi, <span class="at">data =</span> eegDataAveraged)</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mCA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mCA</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">AvgVoltage</span><span class="op">~</span><span class="va">Condition</span><span class="op">+</span><span class="va">roi</span>, data <span class="op">=</span> <span class="va">eegDataAveraged</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mCA</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1194,8 +1110,8 @@ F-statistic: 40.25 on 4 and 879 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>If we calculate the marginal means and plot we can see that there are no major differences between the two ROIs.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>emm<span class="ot">&lt;-</span><span class="fu">estimate_means</span>(mCA,<span class="at">by=</span><span class="fu">c</span>(<span class="st">"Condition"</span>,<span class="st">"roi"</span>))</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>emm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">emm</span><span class="op">&lt;-</span><span class="fu">estimate_means</span><span class="op">(</span><span class="va">mCA</span>,by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Condition"</span>,<span class="st">"roi"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">emm</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Estimated Marginal Means
 
@@ -1213,17 +1129,16 @@ CondC     | Central  |  0.13 | 0.15 | [-0.16,  0.43] |   0.87
 Variable predicted: AvgVoltage
 Predictors modulated: Condition, roi</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(emm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">emm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="assignment5_key_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="assignment5_key_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_contrasts</span>(mCA, <span class="st">"Condition"</span>, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"roi"</span>),<span class="at">p_adjust =</span> <span class="st">"tukey"</span>,<span class="at">backend =</span> <span class="st">"emmeans"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">estimate_contrasts</span><span class="op">(</span><span class="va">mCA</span>, <span class="st">"Condition"</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"roi"</span><span class="op">)</span>,p_adjust <span class="op">=</span> <span class="st">"tukey"</span>,backend <span class="op">=</span> <span class="st">"emmeans"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Marginal Contrasts Analysis
 
@@ -1251,8 +1166,8 @@ p-value adjustment method: Tukey</code></pre>
 <p>However, you can see that a number of comparisons that were not significant before are now that we have included more data (more sites). We can compare model with and without a parameter.</p>
 <p>Please note that a model with only the Region of Interest <code>roi</code> does not make theoretical sense in general, as it will imply that the activity is different independently of the manipulation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>mCA_0<span class="ot">&lt;-</span><span class="fu">lm</span>(AvgVoltage<span class="sc">~</span>Condition, <span class="at">data=</span>eegDataAveraged)</span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mCA_0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mCA_0</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">AvgVoltage</span><span class="op">~</span><span class="va">Condition</span>, data<span class="op">=</span><span class="va">eegDataAveraged</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mCA_0</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1275,7 +1190,7 @@ Residual standard error: 2.028 on 880 degrees of freedom
 Multiple R-squared:  0.1548,    Adjusted R-squared:  0.1519 
 F-statistic: 53.71 on 3 and 880 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mCA_0,mCA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">mCA_0</span>,<span class="va">mCA</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
@@ -1288,16 +1203,10 @@ Model 2: AvgVoltage ~ Condition + roi
 </div>
 <p>As expected, the region of interest does not improve the model.</p>
 <p>We will see that introducing an interaction between the two factors can change this interpretation after the Task#5 in Assignment #6.</p>
-</section>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+</section></section><section id="section" class="level2"><h2 class="anchored" data-anchor-id="section"></h2>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1695,9 +1604,7 @@ Model 2: AvgVoltage ~ Condition + roi
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./model_multiple2.html" class="pagination-link" aria-label="Multiple Linear Regression with several predictors">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Multiple Linear Regression with several predictors</span>
       </a>          
@@ -1709,8 +1616,7 @@ Model 2: AvgVoltage ~ Condition + roi
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Fundamentals of Linear Models Workbook was written by Dr.&nbsp;Leticia Pablos Robles</p>
 </div>   
@@ -1722,8 +1628,6 @@ Model 2: AvgVoltage ~ Condition + roi
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
