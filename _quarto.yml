@@ -82,6 +82,7 @@ book:
           - model_interactions.qmd
           - model_contrasts.qmd
           - model_multicollinearity.qmd
+          - assignment6_key.qmd
       #   - intro_to_r.qmd
       #   - using_libraries.qmd
       #   - tidyverse_intro.qmd
