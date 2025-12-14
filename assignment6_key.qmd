@@ -1,0 +1,215 @@
+---
+date: 14/12/2025
+editor: visual
+---
+
+# Assignment #6 - An EEG Processing Pipeline II - Answer Key {.unnumbered}
+
+In this key, we continue the exercise from assignment#5 with the final task to perform a model with interactions.
+
+For the steps to create the required data frame, see the [Assignment#5 key](https://lpablosrobles.github.io/Fundamentals-Linear-Models-workbook/assignment5_key.html).
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+
+# load required libraries 
+library(tidyverse)
+library(car)
+library(emmeans)
+library(modelbased)
+library(ggeffects)
+
+#recreate the steps from assignment 5
+eegData<-readRDS('./data/eegSampleData.Rda')
+
+eegDataFiltered <- eegData %>% 
+  select(time,Subject,Condition,F1,F1,F3,F4,F5,F6,Fz,C1,C2,C3,C4,C5,C6,Cz) %>%
+  filter(time >=0.250 & time <=0.550)
+
+# Remove from the memory the full data set now that we have filtered the data
+rm(eegData)
+
+eegDataFiltered_long<-pivot_longer(eegDataFiltered, 
+                                   cols = F1:Cz, 
+                                   names_to = "Electrode", 
+                                   values_to = "Voltage")
+
+eegDataAveraged <- eegDataFiltered_long %>%
+  group_by(Subject,Condition,Electrode) %>%
+  summarize(AvgVoltage = mean(Voltage))
+
+eegDataAveraged<- eegDataAveraged %>% mutate(Condition=relevel(Condition,"CondD"))
+
+eegDataAveraged$roi <- case_when(
+  eegDataAveraged$Electrode %in% c("F1","F2","F3","F4","F5","F6","Fz") ~ "Anterior",
+  eegDataAveraged$Electrode %in% c("C1","C2","C3","C4","C5","C6","Cz") ~ "Central"
+)
+eegDataAveraged$roi<-as.factor(eegDataAveraged$roi)
+eegDataAveraged$Electrode<-as.factor(eegDataAveraged$Electrode)
+mCA <-lm(AvgVoltage~Condition+roi, data = eegDataAveraged)
+```
+
+The data frame `eegDataAveraged` created in Assignment\$5 contains the following columns:
+
+-   **Subject**: Factor with 17 levels from "1" to "17" indicating the participant
+
+-   **Condition:** Factor with 4 levels: ("CondA", "CondB", "CondC" and "CondD") indicating the experimental condition.
+
+-   **Electrode**: Factor with 13 levels ("C1" ..."Cz", "F1" , ..." Fz") indicating the electrode of measure
+
+-   **roi:** Factor with 2 levels ("Anterior", "Central"), indicating a grouped electrodes region of interest
+
+-   **AvgVoltage:** Numerical variable with the voltage measured at each electrode on the EEG collection averaged in the time window 250 to 550ms to investigate the N400 ERP component.
+
+## Task #5 (Assignment#6 / [**After Workgroup 6**]{.underline}): Multiple Regression with two factors
+
+### **Task #5.1: Model with interactions**
+
+To model the N400 window average voltage from the previous tasks we include now the two predictors: **Condition** and **ROI** and their interaction.
+
+```{r}
+
+mEEG_interaction<-lm(AvgVoltage~Condition*roi,data=eegDataAveraged)
+summary(mEEG_interaction)
+
+```
+
+From the resulting model fit, we can make the following observations:
+
+-   The intercept represents the reference case: Condition D **in the Anterior region**.
+
+-   The coefficients for the Condition dummy variables represent the change from the reference Condition D in the Anterior Region.
+
+-   The coefficient for `roiCentral` represents the change of Condition D from the anterior to the central region.
+
+-   The interaction coefficients represent the additional change with respect to the Condition coefficients from the Anterior to the Central region.
+
+-   The values indicate a significant change between the Conditions and the reference, without a significant impact on whether it is in the anterior or central region, with the exception of Condition C, that shows a nearly significant difference.
+
+Let's visualize this interaction using the `ggeffects` package and the predict response function:
+
+```{r}
+library(ggeffects)
+
+# predict responses based on the fitted model:
+pred_voltage<-predict_response(mEEG_interaction,terms=c("Condition","roi"))
+plot(pred_voltage)
+```
+
+The plot shows that there are differences between conditions, mostly independent from the region although some larger differences are apparent in the reference Condition D and Condition C.
+
+To test these differences we perform post-hoc tests. I illustrate how to do it below with `emmeans` package:
+
+```{r}
+library(emmeans)
+
+emmeans(mEEG_interaction,pairwise~Condition,by="roi")
+
+```
+
+With this function, we asked `emmeans` to perform a pairwise comparison between the levels of condition (`pairwise~Condition)` at each of the levels of the `roi` variable.
+
+Considering only the comparisons to the reference level D, we can observe:
+
+-   There is a significant difference between Condition C and the control condition D both in Central and Anterior region.
+
+-   There is a significant difference between Condition B and the control condition D in both Central and Anterior region.
+
+-   The difference between Condition A and Condition D is only significant in the Anterior region ($D=0.84,SE=0.284,t(876)=2.957, p=.017$).
+
+The last contrast indicates a potential weak interaction between `roi` and `Condition` however, this is not clearly visible in the model.
+
+::: callout-important
+**What do we do in these cases, when we have a non-significant interaction, but potentially significant post-hoc test?**
+
+You should report the interaction as non-significant or nearly significant. Using the pairwise comparisons only as a justification for the effect will be considered inadequate, and probably more power will be required in the experiment to ensure the effect is real.
+:::
+
+To illustrate this last point, let's compare the model above with roi factor and a model considering only the `Condition`, independent from the region on the scalp.
+
+```{r}
+mCond<-lm(AvgVoltage~Condition, data=eegDataAveraged)
+
+anova(mEEG_interaction,mCond)
+AIC(mEEG_interaction,mCond)
+BIC(mEEG_interaction,mCond)
+```
+
+All three test favor the simple model with only Condition as a predictor, so no topological effect was present.
+
+Finally, we check the model assumptions:
+
+```{r}
+qqnorm(mEEG_interaction$residuals)
+qqline(mEEG_interaction$residuals)
+
+shapiro.test(mEEG_interaction$residuals)
+
+library(car)
+ncvTest(mEEG_interaction)
+```
+
+The qqplot indicates a violation of the normality of residuals. See below how you can visualize the residuals compared to a normal distribution with same mean and standard deviation.
+
+```{r}
+library(tidyverse)
+
+x<-mEEG_interaction$residuals
+ggplot(data.frame(x), aes(x=x)) +
+  geom_histogram(aes(y = after_stat(density)), 
+                 fill="grey", 
+                 color="black") +
+  stat_function(fun = dnorm, 
+                args = list(mean = mean(x), 
+                            sd = sd(x)), 
+                color = "red", 
+                size = 1) +
+  labs(title="ggplot2: Histogram with Normal Curve", 
+       x="AvgVoltage", 
+       y="Density")
+```
+
+::: callout-important
+The data is more peaked than a normal distribution and would likely require a data transformation data filtering to truncate outliers. Very often work performed to analyze data (even published) ignore or don't indicate a caveat on the model assumptions, which could lead to incorrect conclusions or invalid interpretation of the results.
+:::
+
+### Task #5.2: Report the analysis
+
+We could report the results as follows considering the confidence interval for the coefficients extracted with `confint(mEEG_interaction)`
+
+> We assessed the presence of a significant N400 ERP component in the manipulated experimental conditions (CondA, CondB and CondC) in comparison to a reference control (CondD). In order to do that we fitted a linear model to predict the measured voltage in mV averaged in the time window -250 to 450ms over a series of electrodes based on the Condition and including a topographical predictor encoding the Region of Interest (roi) to assess the location of the effect in the brain. roi factor was encoded with two levels: Anterior (corresponding to 6 frontal electrodes - F1, F3, F4, F5, F6, Fz) and Central (corresponding to 7 central electrodes - C1, C2, C3, C4, C5, C6, Cz).
+>
+> The model explains a statistical significant and moderate proportion of variance ($F(7,876)=23.65,p<.001,R^2=0.16,R^2_{adj}=0.15$). The variables were coded using treatment coding with the intercept corresponding to control Condition = D and roi = Anterior, and fitted at $b = -1.21,95\%CI[-1.61,-0.82], t(876)=-6.03,p<.001$.
+>
+> The table below lists the model parameters:
+>
+> Coefficient
+>
+> |   | beta | Confidence Interval | t | p |
+> |----------------------|-------------|---------------|---------------|------------|
+> | Intercept (corresponding to Condition D, roi = Anterior) | -1.21 | \[-1.61, -0.82\] | t(876) = -6.03 | p\<.001 |
+> | ConditionCondA | -0.84 | \[-1.40, -0.28\] | t(876) = -2.96 | p = .003 |
+> | ConditionCondB | 0.79 | \[0.23, 1.34\] | t(876) = 2.77 | p = .006 |
+> | ConditionCondC | 1.15 | \[0.59, 1.71\] | t(876) = 4.05 | p \<.001 |
+> | roiCentral | -0.42 | \[-0.95, 0.12\] | t(876) = -1.52 | p=.128 |
+> | ConditionCondA:roiCentral | 0.41 | \[-0.35, 1.17\] | t(876) = 1.06 | p=.287 |
+> | ConditionCondB:roiCentral | 0.63 | \[-0.12, 1.39\] | t(876) = 1.64 | p=.102 |
+> | ConditionCondC:roiCentral | 0.74 | \[-0.02, 1.50\] | t(876) = 1.92 | p=.054 |
+>
+> The model did not reveal a significant interaction between roi and Condition. Comparison with a model with only Condition as predictor, confirmed that the introduction of the roi predictor and interaction did not improve the model fit ($F(4,880)=1.10,p=.357, AIC_{ConditionOnlyModel} = 3764.44, AIC_{interactionModel}=3768.13$
+>
+> A main effect of Condition was identified with all three Conditions A ($M=-2.05ms,SE=0.14,95\%CI=[-2.3,-1.78]$), B ($M=-0.32ms,SE=0.14,95\%CI=[-0.58,-0.05]$), C ( $M=0.10ms,SE=0.14,95\%CI=[-0.16,0.37]$) showed a significant difference to the reference condition D ($M=-1.42ms,SE=0.14,95\%CI=[-1.69,-1.15]$) as verified by post-hoc t-tests corrected for multiple comparisons using Tukey correction.
+>
+> The nature of the effect, however displayed a different nature on the three conditions. While in Condition A was more negative than in the Control condition D, as expected for a N400 negativity, this was not the case in conditions B and C, where the data was more positive than in Condition A.
+>
+> |              | Difference | t              | p        |
+> |--------------|------------|----------------|----------|
+> | ConD - CondA | 0.63       | t(876) = 3.275 | p=.006   |
+> | ConD - CondB | -1.10      | t(876) = -5.70 | p \<.001 |
+> | ConD - CondC | -1.52      | t(876) = -7.87 | p \<.001 |
+>
+> ![](http://127.0.0.1:32529/chunk_output/s/BA4613C6/cje8hmwmhqule/000012.png?resize=6){width="500"}
+>
+> > Model assumptions checking revealed deviations from the normality assumptions on both models that would require a more detailed look at the data outliers or likely an increase of the number of subjects in the study.
