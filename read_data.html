@@ -2,11 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
-<title>Reading and Saving data in R – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Reading and Saving data in R – Fundamentals of Linear Models 2026-2027: Workbook</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -57,7 +60,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -91,10 +93,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -140,7 +142,7 @@ div.csl-indent {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
+      <a href="./">Fundamentals of Linear Models 2026-2027: Workbook</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -208,12 +210,6 @@ div.csl-indent {
  <span class="menu-text">Reproducible research using Scripts and Notebooks</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment1_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #1 - Answer key</span></a>
-  </div>
-</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -243,12 +239,6 @@ div.csl-indent {
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment2_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #2 Data Exploration with R - Answer Key</span></a>
-  </div>
-</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -276,12 +266,6 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./lm_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Models in R with <em>lm()</em></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment3_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #3 Linear fitting with R - Answer Key</span></a>
   </div>
 </li>
       </ul>
@@ -325,12 +309,6 @@ div.csl-indent {
  <span class="menu-text">Simple Linear Model reporting</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment4_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #4 - Linear fitting with R II - Answer Key</span></a>
-  </div>
-</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -360,12 +338,6 @@ div.csl-indent {
  <span class="menu-text">Multiple Linear Regression with several predictors</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment5_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #5 - An EEG Processing Pipeline - Answer Key</span></a>
-  </div>
-</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -393,12 +365,6 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./model_multicollinearity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multicollinearity</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment6_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #6 - An EEG Processing Pipeline II - Answer Key</span></a>
   </div>
 </li>
       </ul>
@@ -468,8 +434,8 @@ div.csl-indent {
 <p>The most generic function to read data from a text file is <code><a href="https://rdrr.io/r/utils/read.table.html">read.table()</a></code> . The arguments allow to define if the data includes a header (i.e.&nbsp;a first row with the names of the columns/variables) and the separator used.</p>
 <p>For example, let’s load a file in the <code>/data</code> directory containing the sample dataset from the previous exercise using the function below:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"./data/sample_wg1_text.txt"</span><span class="op">)</span></span>
-<span><span class="va">data_sample</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"./data/sample_wg1_text.txt"</span><span class="op">)</span></span>
+<span><span class="va">data_sample</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  NounAnimacy NounGender NounLength NounFrequency
 1     animate   feminine          6           638
@@ -484,10 +450,10 @@ div.csl-indent {
 <p>Many experimental data is saved in a text or CSV (Comma separated) file. The best method to read data from these files is to use the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> function in the <code>readr</code> package.</p>
 <p>Let’s see an example of usage loading the file in the <code>/data</code> directorate “<em>ELP_full_length_frequency.csv”</em> with data from a psycholinguistic study on the reading comprehension of words as a function of frequency part of the English Lexicon Project, described in the the <span class="citation" data-cites="winter2019statistics">Winter (<a href="references.html#ref-winter2019statistics" role="doc-biblioref">2019</a>)</span> textbook Chapter 4.1.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">data_sample_csv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"./data/ELP_full_length_frequency.csv"</span>,show_col_types <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_sample_csv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_sample_csv</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   Word   Log10Freq length    RT
@@ -503,18 +469,18 @@ div.csl-indent {
 <p>As you can see, the file was loaded with 33,057 observations!</p>
 <p>To free up memory, let’s remove the variable from the workspace using the <code><a href="https://rdrr.io/r/base/rm.html">rm()</a></code> function (remove):</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">data_sample_csv</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">data_sample_csv</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>If your data is tab-separated, you can use the function <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv()</a></code> . By default, the functions expect that the first row contains the names of the columns/variables to be read. If that is not the case, you should modify the argument <code>col_names = FALSE</code> .</p>
 </section><section id="data-from-excel-files" class="level3"><h3 class="anchored" data-anchor-id="data-from-excel-files">Data from Excel files</h3>
 <p>The best way to read Excel files is using the <code>readxl</code> package. If your file has several worksheets, you can use the <code>sheet</code> argument to specify either an index or the name of the worksheet to read.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load library</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load library</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Using readxl</span></span>
 <span><span class="va">data_sample_excel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"./data/sample_wg1_excel.xlsx"</span>, sheet <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">data_sample_excel</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">data_sample_excel</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   NounAnimacy NounGender NounLength NounFrequency
@@ -531,16 +497,16 @@ div.csl-indent {
 <p>Data can also be saved and loaded in <em>R format</em> directly. This is useful if you are performing your analysis in R to save data intermediate steps as it is a compact and efficient format, even though to share with other researchers and in open access journals you should export it to a more generic format.</p>
 <p>To illustrate again let’s load a file in the <code>/data</code> directory containing a sample real dataset from a Event Related Potential (ERP) study that we will use in some of the exercises in the course:</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_sample_r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"./data/eegSampleData.Rda"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_sample_r</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_sample_r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"./data/eegSampleData.Rda"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_sample_r</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       time Subject Condition       Fp1       Fpz       Fp2       AF3      AF4
-1 -0.200000       1        12 1.9596113 1.6237565 1.4964751 1.9707278 2.232514
-2 -0.198999       1        12 1.7536104 1.4013030 1.3669174 1.7740067 2.084792
-3 -0.197998       1        12 1.5272095 1.1631496 1.2091597 1.5532856 1.912671
-4 -0.196997       1        12 1.2834086 0.9148962 1.0254020 1.3115644 1.718250
-5 -0.195996       1        12 1.0260077 0.6621427 0.8183443 1.0523433 1.504029
-6 -0.194995       1        12 0.7589068 0.4100893 0.5914866 0.7800222 1.273008
+1 -0.200000       1     CondA 1.9596113 1.6237565 1.4964751 1.9707278 2.232514
+2 -0.198999       1     CondA 1.7536104 1.4013030 1.3669174 1.7740067 2.084792
+3 -0.197998       1     CondA 1.5272095 1.1631496 1.2091597 1.5532856 1.912671
+4 -0.196997       1     CondA 1.2834086 0.9148962 1.0254020 1.3115644 1.718250
+5 -0.195996       1     CondA 1.0260077 0.6621427 0.8183443 1.0523433 1.504029
+6 -0.194995       1     CondA 0.7589068 0.4100893 0.5914866 0.7800222 1.273008
           F7          F5        F3        F1        Fz        F2        F4
 1  0.9002055  0.97041392 1.6839135 1.8026822 1.7678664 1.8301742 1.8249546
 2  0.7315209  0.80466543 1.5461834 1.6655317 1.6480326 1.7056625 1.6921552
@@ -610,13 +576,13 @@ div.csl-indent {
 <p>The <code>haven</code> package can be used to read directly <code>.sav</code> files from SPSS.</p>
 <p>As an example again, let’s open a file saved in SPSS from another ERP (Event Related Potential) study of code-switching in Dutch.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># If not yet available, install the package using install.packages("haven")</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># If not yet available, install the package using install.packages("haven")</span></span>
 <span></span>
 <span><span class="co"># Load library</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">data_sample_spss</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_spss.html">read_sav</a></span><span class="op">(</span><span class="st">"./data/EEG_DataSet_LongFormat_pablos.sav"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_sample_spss</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_sample_spss</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 6
   Participant Language CS    Congruency Electrode Amplitude
@@ -631,7 +597,7 @@ div.csl-indent {
 </div>
 <p>Again to preserve memory, let’s clean the workspace by removing the variables we created using :</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">data_sample_spss</span>, <span class="va">data_sample_r</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">data_sample_spss</span>, <span class="va">data_sample_r</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="other-formats" class="level3"><h3 class="anchored" data-anchor-id="other-formats">Other formats</h3>
 <p>In your own research, if you have data in other specific formats, you may have to develop your own function to read it, although it is highly likely there is already a solution available. Always search first in the internet… For example, imagine you have data in a file saved in the software Matlab, typing “read Matlab files in R” in any search engine points to the R package <a href="https://cran.r-project.org/web/packages/R.matlab/refman/R.matlab.html" title="R.matlab package"><code>R.matlab</code></a> that offers the functions <code>readMat()</code> and <code>writeMat()</code> to read and write respectively Matlab files.</p>
@@ -671,7 +637,7 @@ div.csl-indent {
 </ul></section><section id="section" class="level1"><h1></h1>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-winter2019statistics" class="csl-entry" role="listitem">
 Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. Routledge.
 </div>
@@ -727,13 +693,14 @@ Winter, Bodo. 2019. <em>Statistics for Linguists: An Introduction Using r</em>. 
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
