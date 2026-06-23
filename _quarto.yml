@@ -9,7 +9,7 @@ lang: en
 
 
 book:
-  title: "Fundamentals of Linear Models 2025-2026: Workbook"
+  title: "Fundamentals of Linear Models 2026-2027: Workbook"
   subtitle: "Workbook"
   author: "Dr. Leticia Pablos Robles"
   reader-mode: true
@@ -22,7 +22,7 @@ book:
   
   cover-image: images/Stats_Ling_Cover_1ed.jpg
   favicon: images/Stats_Ling_Cover_1ed.jpg
-  date: "08/30/2025"
+  date: "06/30/2026"
   
   chapters:
     - index.qmd
@@ -37,14 +37,14 @@ book:
         - read_data.qmd
         - tidyverse_intro.qmd
         - using_notebooks.qmd
-        - assignment1_key.qmd 
+        #- assignment1_key.qmd 
         
     - part: Workgroup2.qmd
       chapters:
         - data_organization.qmd
         - data_visualization.qmd
         - descriptive_stats.qmd
-        - assignment2_key.qmd
+        #- assignment2_key.qmd
 
         
     - part: Workgroup3.qmd
@@ -52,7 +52,7 @@ book:
          - plot_xy.qmd
          - correlation.qmd
          - lm_intro.qmd
-         - assignment3_key.qmd
+         #- assignment3_key.qmd
 
         
     - part: Workgroup4.qmd
@@ -62,7 +62,7 @@ book:
          - model_assumptions.qmd
          - model_categorical.qmd
          - model_reporting1.qmd
-         - assignment4_key.qmd
+         #- assignment4_key.qmd
       #   - using_libraries.qmd
       #   - tidyverse_intro.qmd
       #   - read_data.qmd
@@ -72,7 +72,7 @@ book:
          - model_multiple.qmd
          - model_posthoc.qmd
          - model_multiple2.qmd
-         - assignment5_key.qmd
+         #- assignment5_key.qmd
       #   - using_libraries.qmd
       #   - tidyverse_intro.qmd
       #   - read_data.qmd
@@ -82,7 +82,7 @@ book:
           - model_interactions.qmd
           - model_contrasts.qmd
           - model_multicollinearity.qmd
-          - assignment6_key.qmd
+          #- assignment6_key.qmd
       #   - intro_to_r.qmd
       #   - using_libraries.qmd
       #   - tidyverse_intro.qmd
