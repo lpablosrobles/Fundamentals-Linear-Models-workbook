@@ -9,11 +9,11 @@ In this session we will familiarize with the basics on the R computing language 
 
 By the end of this lesson, you will be able to:
 
--   Understand what R and RStudio are.
--   Navigate the RStudio interface.
--   Understand the basics of R language syntax.
--   Write and run basic R code.
--   Create and use scripts and Notebooks to save your code.
+- Understand what R and RStudio are.
+- Navigate the RStudio interface.
+- Understand the basics of R language syntax.
+- Write and run basic R code.
+- Create and use scripts and Notebooks to save your code.
 
 # Introduction to R
 
@@ -25,15 +25,15 @@ It was created by statisticians Ross Ihaka and Robert Gentleman in the early 199
 
 ### **Key Features of R**
 
--   **Statistical Analysis**: R allows to perform analysis using a wide range of statistical techniques including linear and nonlinear modeling, time-series analysis, classification, clustering, bayesian methods.
+- **Statistical Analysis**: R allows to perform analysis using a wide range of statistical techniques including linear and nonlinear modeling, time-series analysis, classification, clustering, bayesian methods.
 
--   **Data Visualization**: R allows the creation of high-quality plots and graphics using specific packages (we will explain below what packages are) like `ggplot2`, `lattice`, and `plotly`.
+- **Data Visualization**: R allows the creation of high-quality plots and graphics using specific packages (we will explain below what packages are) like `ggplot2`, `lattice`, and `plotly`.
 
--   **Extensibility**: Thousands of community provided packages are available via CRAN (Comprehensive R Archive Network), covering several fields.
+- **Extensibility**: Thousands of community provided packages are available via CRAN (Comprehensive R Archive Network), covering several fields.
 
--   **Data Handling**: R includes robust tools for importing, cleaning, transforming, and manipulating data.
+- **Data Handling**: R includes robust tools for importing, cleaning, transforming, and manipulating data.
 
--   **Community Support**: A large and active user community contributes to its development and provides extensive documentation and tutorials.
+- **Community Support**: A large and active user community contributes to its development and provides extensive documentation and tutorials.
 
 ### Installing R
 
@@ -61,13 +61,13 @@ As with R, there are versions available for Windows, Mac and several Linux distr
 
 Once we launch RStudio, you can distinguish four different areas:
 
--   **Console**: Where R code is executed, you can type commands and see their output.
+- **Console**: Where R code is executed, you can type commands and see their output.
 
--   **Source**: Where you write and save scripts, Notebooks.
+- **Source**: Where you write and save scripts, Notebooks.
 
--   **Environments**: Includes tabs to inspect variables and inspect the command history as well as access tutorials.
+- **Environments**: Includes tabs to inspect variables and inspect the command history as well as access tutorials.
 
--   **Files/Plots/Packages/Help/Viewer**: Includes tabs for file navigation, plotting, package management, and help.
+- **Files/Plots/Packages/Help/Viewer**: Includes tabs for file navigation, plotting, package management, and help.
 
 ![RStudio Environment (extracted from [RStudio User Guide](https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html "RStudio User Guide"))](images/clipboard-4013327463.png)
 
@@ -87,7 +87,7 @@ All assignments will be performed in Posit Cloud where I can follow your progres
 
 In order to use Posit Cloud you need to register for this course following the link below.
 
-<https://posit.cloud/spaces/681791/join?access_code=Da9RyPvqyx7Jymq_aHZpKYwBuJJ-45h5bjS1Y7tq>
+<https://posit.cloud/spaces/797115/join?access_code=6GmF4WoMXnt5zWakRXgboJ6S12_LSvQFdmEYZDBO>
 
 You will be directed to the following page. Select the sign-up option and create your account.
 
