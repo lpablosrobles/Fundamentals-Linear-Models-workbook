@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 <meta name="dcterms.date" content="2026-12-11">
@@ -11,10 +11,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -94,10 +97,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -123,7 +126,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -457,12 +460,15 @@ Note
 <p>Load the library <code>modelbased</code>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/modelbased/">modelbased</a></span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'modelbased' was built under R version 4.3.3</code></pre>
+</div>
 </div>
 <section id="calculate-marginal-means" class="level2"><h2 class="anchored" data-anchor-id="calculate-marginal-means">Calculate marginal means</h2>
 <hr>
 <p>On our example based on the filtered <code>basquenpi_Ex5</code> data, we can calculate the marginal means for each level of the Condition factor using the function <code><a href="https://easystats.github.io/modelbased/reference/estimate_means.html">estimate_means()</a></code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">RWRT</span><span class="op">~</span><span class="fl">1</span><span class="op">+</span><span class="va">Condition</span>, data<span class="op">=</span><span class="va">dfFiltered</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">RWRT</span><span class="op">~</span><span class="fl">1</span><span class="op">+</span><span class="va">Condition</span>, data<span class="op">=</span><span class="va">dfFiltered</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">m1</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -489,7 +495,7 @@ F-statistic: 7.207 on 3 and 759 DF,  p-value: 8.973e-05</code></pre>
 </div>
 <p>We can calculate the marginal means as:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">means</span><span class="op">&lt;-</span><span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_means.html">estimate_means</a></span><span class="op">(</span><span class="va">m1</span>, by <span class="op">=</span> <span class="st">"Condition"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">means</span><span class="op">&lt;-</span><span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_means.html">estimate_means</a></span><span class="op">(</span><span class="va">m1</span>, by <span class="op">=</span> <span class="st">"Condition"</span><span class="op">)</span></span>
 <span><span class="va">means</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Estimated Marginal Means
@@ -508,7 +514,7 @@ Predictors modulated: Condition</code></pre>
 <p>As you can see, the values of the means are the same as we calculated based on the formula and the table also reports the confidence intervals. This is the case in this example, where the marginal means and observed means will be the same in the absence of other predictors.</p>
 <p>The library includes an implementation of graphical representation of the marginal means, that allows for a quick display using the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function on the object returned by <code><a href="https://easystats.github.io/modelbased/reference/estimate_means.html">estimate_means()</a></code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">means</span><span class="op">)</span> <span class="op">+</span> <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">means</span><span class="op">)</span> <span class="op">+</span> <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="model_posthoc_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
@@ -520,7 +526,7 @@ Predictors modulated: Condition</code></pre>
 <hr>
 <p>We can calculate the contrasts and significance between the different variables using the function <code><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html">estimate_contrasts()</a></code> from the same package.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">comparisons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html">estimate_contrasts</a></span><span class="op">(</span><span class="va">m1</span>, contrast<span class="op">=</span><span class="st">"Condition"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">comparisons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html">estimate_contrasts</a></span><span class="op">(</span><span class="va">m1</span>, contrast<span class="op">=</span><span class="st">"Condition"</span><span class="op">)</span></span>
 <span><span class="va">comparisons</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Marginal Contrasts Analysis
@@ -558,7 +564,7 @@ Warning
 <p>The <strong>Bonferroni correction</strong> changes the limit of significance based on the number of comparisons performed. If our significance <span class="math inline">\(\alpha=0.05\)</span>, and we perform 6 comparisons, we would consider a value significant only if <span class="math inline">\(p&lt;\alpha_{bonferroni}\text{, with } \alpha_{bonferroni}=\alpha / 6=0.05/6=0.008\)</span>.</p>
 <p>Equivalent to the above is to calculate an “adjusted” p-value, calculated by multiplying the uncorrected p-value by the number of comparisons. This is what the function does when specifying a correction:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">comparisons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html">estimate_contrasts</a></span><span class="op">(</span><span class="va">m1</span>, contrast<span class="op">=</span><span class="st">"Condition"</span>, p_adjust <span class="op">=</span> <span class="st">"bonferroni"</span>,backend <span class="op">=</span> <span class="st">"emmeans"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">comparisons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html">estimate_contrasts</a></span><span class="op">(</span><span class="va">m1</span>, contrast<span class="op">=</span><span class="st">"Condition"</span>, p_adjust <span class="op">=</span> <span class="st">"bonferroni"</span>,backend <span class="op">=</span> <span class="st">"emmeans"</span><span class="op">)</span></span>
 <span><span class="va">comparisons</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Marginal Contrasts Analysis
@@ -579,7 +585,7 @@ p-value adjustment method: Bonferroni</code></pre>
 </div>
 <p>Another approach to correcting for multiple comparisons is a <strong>Tukey’s adjusted p-value</strong> (referred to as Tukey’s Honestly Significant Difference Test HSD, or ‘Tukey test’). The idea is common to the Bonferroni t-tests but in this case it is done by using a modified t-test, with a t-distribution called the ‘studentised range distribution’.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">comparisons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html">estimate_contrasts</a></span><span class="op">(</span><span class="va">m1</span>, contrast<span class="op">=</span><span class="st">"Condition"</span>, p_adjust <span class="op">=</span> <span class="st">"tukey"</span>,backend <span class="op">=</span> <span class="st">"emmeans"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">comparisons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/modelbased/reference/estimate_contrasts.html">estimate_contrasts</a></span><span class="op">(</span><span class="va">m1</span>, contrast<span class="op">=</span><span class="st">"Condition"</span>, p_adjust <span class="op">=</span> <span class="st">"tukey"</span>,backend <span class="op">=</span> <span class="st">"emmeans"</span><span class="op">)</span></span>
 <span><span class="va">comparisons</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Marginal Contrasts Analysis
