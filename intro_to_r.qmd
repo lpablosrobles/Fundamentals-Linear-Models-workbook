@@ -2,7 +2,7 @@
 
 R is an **interpreted language**, which means that you can write *commands* to an interpreter in a console that will execute them and return the results. This is in comparison with **compiled languages** that require to *compile* the source code to translate it to a machine understandable code.
 
-In the RStudio console, you can see the symbol below. This is the **command prompt**, indicating that the system us ready to execute an instruction or command.
+In the RStudio console, you can see the symbol below. This is the **command prompt**, indicating that the system is ready to execute an instruction or command.
 
 ```         
 >
@@ -28,23 +28,23 @@ model <- lm(y ~ x)
 abline(model, col="blue")
 ```
 
-Before going forward, note that lines of code starting with the symbol `#` are not interpreted. This is use to introduce comments in your code for readability and documentation. We will come to that later when we talk about scripts and notebooks.
+Before going forward, note that lines of code starting with the symbol `#` are not interpreted. This is used to introduce comments in your code for readability and documentation. We will come to that later when we talk about scripts and notebooks.
 
 ::: callout-important
-**Note**: This course is not intended to be an in-depth R programming course. We will use the language to illustrate the concepts in the lectures and provide with simple examples so that you can perform basic data analysis.
+**Note**: This course is not intended to be an in-depth R programming course. We will use the language to illustrate the concepts in the lectures and provide you with simple examples so that you can perform basic data analysis.
 
-There are plenty of online guided resources for further self-study of R and its capabilities. If you would like to go beyond the basics in the course or familiarize with the language, I would suggest two starting pages:
+There are plenty of online guided resources for further self-study of R and its capabilities. If you would like to go beyond the basics in the course or familiarize further with the language, I would suggest two starting pages:
 
--   UMC Utrecht's R tutorial: <http://r-tutorial.nl/>
+- UMC Utrecht's R tutorial: <http://r-tutorial.nl/>
 
--   Book "*R for Data Science"*, available online at: <https://r4ds.hadley.nz/>
+- Book "*R for Data Science"*, available online at: <https://r4ds.hadley.nz/>
 :::
 
 ## Commands and operators
 
 Every instruction to enter in the ***command prompt*** is called a command.
 
-A simple command is to perform an arithmetic operations like for example:
+A simple command is to perform an arithmetic operations. For example:
 
 ```{r}
 1 + 2
@@ -99,7 +99,7 @@ Used for logical operations (return `TRUE`/`FALSE`):
 Used to assign values to variables:
 
 | Operator | Description | Example | **Comment** |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | `<-` | Preferred assignment | `x <- 5` | Most commonly used |
 | `=` | Alternative assignment | `x = 5` | Used in the assignment of values to function arguments (see function section below) |
 | `->` | Assign right to left | `5 -> x` | Although syntactically valid in R, not used often |
@@ -124,13 +124,13 @@ z <- x + y   # Add x and y
 print(z)     # Print the result 
 ```
 
-Variables naming in R can be anything, but follow a few rules:
+Variable names in R can be anything, but follow a few rules:
 
--   Must start with a letter
+- Must start with a letter
 
--   Can contain letters, numbers, underscores (`_`) or periods (`.`)
+- Can contain letters, numbers, underscores (`_`) or periods (`.`)
 
--   Are case-sensitive (`Name` and `name` are different)
+- Are case-sensitive (`Name` and `name` are different)
 
 ## Data types
 
@@ -138,13 +138,13 @@ Variables naming in R can be anything, but follow a few rules:
 
 R supports several basic data types. Some of the most common are:
 
--   **Numeric**: `x <- 3.14`
+- **Numeric**: `x <- 3.14`
 
--   **Integer**: `x <- 5L` (note the `L`)
+- **Integer**: `x <- 5L` (note the `L`)
 
--   **Character**: `name <- "Leticia"`
+- **Character**: `name <- "Leticia"`
 
--   **Logical**: `flag <- TRUE`
+- **Logical**: `flag <- TRUE`
 
 ### Vectors and lists
 
@@ -155,7 +155,7 @@ numbers <- c(1, 2, 3, 4)
 numbers
 ```
 
-You can also perform operations on vectors.
+You can perform operations on vectors.
 
 ```{r}
 numbers^2
@@ -163,7 +163,7 @@ numbers^2
 
 ### Dataframes
 
-structures can be thought of as sets of data organized in a table format in rows and columns. They can be created using the `dataframe()` function.
+Structures or dataframes can be thought of as sets of data organized in a table format in rows and columns. They can be created using the `dataframe()` function.
 
 ```{r}
 df <- data.frame(
@@ -197,7 +197,7 @@ Or, more useful, we can provide a variable containing values:
 mean(numbers)
 ```
 
-The parameters of a function and normally called *arguments.* You can either manually specify a function’s arguments or use the function’s *default values*. In the examples above `mean()` and `sum()` are simple functions with not many arguments, but this is not normally the case.
+The parameters of a function are normally called *arguments.* You can either manually specify a function’s arguments or use the function’s *default values*. In the examples above `mean()` and `sum()` are simple functions with not many arguments, but this is not normally the case.
 
 To know the arguments of a function you can use the R help. There are two ways to access the help pages for a function:
 
@@ -209,7 +209,9 @@ To know the arguments of a function you can use the R help. There are two ways t
 
 2.  You can of course directly open the Help tab and search for the function of interest.
 
-As you can see above, `mean()` actually has two other arguments, `trim` and `na.rm` . The arguments have a default value, so if we don't explicitly include them in the function call, they will use that value. Let's look at an example using `na.rm` :
+As you can see above, `mean()` actually has two other arguments, `trim` and `na.rm` . The arguments have a default value, so if we don't explicitly include them when calling the function, they will use that value.
+
+Let's look at an example using `na.rm` :
 
 R has a special value called `NA` , which means "Not Available" and it is used to represent missing values on the data. In experimental work is often the case that some data point is lost or corrupted and we have incomplete datasets. Let's assume you had performed an online experiment that computed the reaction time in miliseconds of 10 participants, and one value was not available as per the vector below:
 
@@ -223,17 +225,17 @@ Let's try to calculate the average reaction time of your data using `mean()`:
 mean(rt)
 ```
 
-The function tries to calculate the average, but when one value is not available (`NA`) the result is also `NA` . In the help in the image below we see there is an argument `na.rm` that we can use to ignore the missing elements in the data:
+The function tries to calculate the average, but when one value is not available (`NA`) the result is also `NA` . In the help page for `mean()` function in the image above we see there is an argument `na.rm` that we can use to instruct the function to ignore the missing elements in the data for the calculation:
 
 ```{r}
 mean(rt, na.rm = TRUE)
 ```
 
-Now the function worked and summed all the numbers and divided them by 9, ignoring the missing data, in the calculation of the average.
+Now the function worked and summed all the numbers and divided them by 9, ignoring the missing data point in the calculation of the average.
 
-We’ll work with functions a lot throughout this book and you’ll get lots of practice in understanding their behaviors, so don't panic.
+We will work with functions a lot throughout this book and you’ll get lots of practice in understanding their behavior, so don't panic.
 
-Finally an advanced note to make you aware that you can define your own functions. The following code defines a new function called `add()` that, well, adds two numbers:
+Finally an advanced note to make you aware that you can define your own functions. The following code defines a new function called `add()` that, adds two numbers:
 
 ```{r}
 add <- function(a, b) {
@@ -298,17 +300,17 @@ Dataexample
 
 A few useful functions when working with dataframes:
 
--   `nrow()` : returns the number of rows of a dataframe. Normally corresponding to observations in experimental data files.
+- `nrow()` : returns the number of rows of a dataframe. Normally corresponding to observations in experimental data files.
 
--   `ncol()`: returns the number of columns of a dataframe.
+- `ncol()`: returns the number of columns of a dataframe.
 
--   `head()` : displays the first rows of a dataframe or vector. By default, it displays the first 6 items, but you can specify how many rows to show with the argument `n` . Useful when displaying on the screen large datasets.
+- `head()` : displays the first rows of a dataframe or vector. By default, it displays the first 6 items, but you can specify how many rows to show with the argument `n` . Useful when displaying on the screen large datasets.
 
--   `View()`: Opens the dataset in a excel-like data viewer in RStudio. Same can be done clicking the name of the variable in the Environment window in RStudio.
+- `View()`: Opens the dataset in a excel-like data viewer in RStudio. Same can be done clicking the name of the variable in the Environment window in RStudio.
 
--   `str()` : can be used to display the structure of the dataframe.
+- `str()` : can be used to display the structure of the dataframe.
 
--   `colnames()`: returns the names of the columns/variables in a dataframe.
+- `colnames()`: returns the names of the columns/variables in a dataframe.
 
 Let's look at a few examples with the dataframe we just created.
 
@@ -340,18 +342,18 @@ head(Dataexample, n = 4)
 
 **Basics on R programming:**
 
--   Chapter 1, Introduction to R, from Bodo Winter’s book ([@winter2019statistics]).
+- Chapter 1, Introduction to R, from Bodo Winter’s book ([@winter2019statistics]).
 
--   Sections 2 to 8 on [R basic Tutorial by UMC Utrecht](http://r-tutorial.nl/)
+- Sections 2 to 8 on [R basic Tutorial by UMC Utrecht](http://r-tutorial.nl/)
 
--   A good starters reference for R is the book “R for Data Science” ([@wickham2024r]) ). The book is available online freely at [R for Data Science](https://r4ds.hadley.nz/)
+- A good starters reference for R is the book “R for Data Science” ([@wickham2024r]) . The book is available online freely at [R for Data Science](https://r4ds.hadley.nz/)
 
--   Excellent eBook to learn R Basics ([@grolemund2014hands]) [Hands On Programming with R](https://rstudio-education.github.io/hopr/)
+- Excellent eBook to learn R Basics ([@grolemund2014hands]) [Hands On Programming with R](https://rstudio-education.github.io/hopr/)
 
 **Dataframes:**
 
--   YouTube Videos by DataCamp:
+- YouTube Videos by DataCamp:
 
-    -   <https://www.youtube.com/watch?v=9f2g7RN5N0I>
+  - <https://www.youtube.com/watch?v=9f2g7RN5N0I>
 
-    -   <https://youtu.be/Nh6tSD4i4qs?feature=shared>
+  - <https://youtu.be/Nh6tSD4i4qs?feature=shared>
