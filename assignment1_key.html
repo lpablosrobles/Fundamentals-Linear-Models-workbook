@@ -2,16 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Dr.&nbsp;Leticia Pablos Robles">
 <meta name="dcterms.date" content="2027-02-09">
-<title>Assignment #1 - Answer key – Fundamentals of Linear Models 2025-2026: Workbook</title>
+<title>Assignment #1 - Answer key – Fundamentals of Linear Models 2026-2027: Workbook</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -72,10 +78,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-485d01fc63b59abcd3ee1bf1e8e2748d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -121,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Fundamentals of Linear Models 2025-2026: Workbook</a> 
+      <a href="./">Fundamentals of Linear Models 2026-2027: Workbook</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -224,12 +230,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Descriptive Statistics</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment2_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #2 Data Exploration with R - Answer Key</span></a>
-  </div>
-</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -257,12 +257,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./lm_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Models in R with <em>lm()</em></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment3_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #3 Linear fitting with R - Answer Key</span></a>
   </div>
 </li>
       </ul>
@@ -306,12 +300,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Simple Linear Model reporting</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment4_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #4 - Linear fitting with R II - Answer Key</span></a>
-  </div>
-</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -341,12 +329,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Multiple Linear Regression with several predictors</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment5_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #5 - An EEG Processing Pipeline - Answer Key</span></a>
-  </div>
-</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -374,12 +356,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./model_multicollinearity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Multicollinearity</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment6_key.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Assignment #6 - An EEG Processing Pipeline II - Answer Key</span></a>
   </div>
 </li>
       </ul>
@@ -452,16 +428,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="create-variables-with-the-data." class="level3"><h3 class="anchored" data-anchor-id="create-variables-with-the-data.">1.1. Create variables with the data.</h3>
 <p>As you were asked to create 6 observations, every variable contains six entries.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">NounAnimacy</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"animate"</span>,<span class="st">"inanimate"</span>,<span class="st">"inanimate"</span>,<span class="st">"animate"</span>,<span class="st">"animate"</span>,<span class="st">"animate"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">NounAnimacy</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"animate"</span>,<span class="st">"inanimate"</span>,<span class="st">"inanimate"</span>,<span class="st">"animate"</span>,<span class="st">"animate"</span>,<span class="st">"animate"</span><span class="op">)</span></span>
 <span><span class="va">NounGender</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"feminine"</span>,<span class="st">"masculine"</span>,<span class="st">"neuter"</span>,<span class="st">"masculine"</span>,<span class="st">"feminine"</span>,<span class="st">"feminine"</span><span class="op">)</span></span>
 <span><span class="va">NounLength</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">8</span>,<span class="fl">6</span><span class="op">)</span></span>
-<span><span class="va">NounFrequency</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">638</span>,<span class="fl">799</span>,<span class="fl">390</span>,<span class="fl">569</span>,<span class="fl">567</span>,<span class="fl">665</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">NounFrequency</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">638</span>,<span class="fl">799</span>,<span class="fl">390</span>,<span class="fl">569</span>,<span class="fl">567</span>,<span class="fl">665</span><span class="op">)</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="create-factors" class="level3"><h3 class="anchored" data-anchor-id="create-factors">1.2. Create factors</h3>
 <p>The variables created above with categorical entries are considered as character vectors. We should convert them into <em>factors</em> using the function <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code> .</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">NounAnimacy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">NounAnimacy</span><span class="op">)</span></span>
-<span><span class="va">NounGender</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">NounGender</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">NounAnimacy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">NounAnimacy</span><span class="op">)</span></span>
+<span><span class="va">NounGender</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">NounGender</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -474,15 +450,15 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>The following could be performed in a single step by <em>nesting</em> functions as in the code below:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">NounAnimacy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"animate"</span>,<span class="st">"inanimate"</span>,<span class="st">"inanimate"</span>,<span class="st">"animate"</span>,<span class="st">"animate"</span>,<span class="st">"animate"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">NounGender</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"feminine"</span>,<span class="st">"masculine"</span>,<span class="st">"neuter"</span>,<span class="st">"masculine"</span>,<span class="st">"feminine"</span>,<span class="st">"feminine"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">NounAnimacy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"animate"</span>,<span class="st">"inanimate"</span>,<span class="st">"inanimate"</span>,<span class="st">"animate"</span>,<span class="st">"animate"</span>,<span class="st">"animate"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">NounGender</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"feminine"</span>,<span class="st">"masculine"</span>,<span class="st">"neuter"</span>,<span class="st">"masculine"</span>,<span class="st">"feminine"</span>,<span class="st">"feminine"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section><section id="create-a-dataframe" class="level3"><h3 class="anchored" data-anchor-id="create-a-dataframe">1.3. Create a dataframe</h3>
 <p>We can define a dataframe based on the variables we created as:</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_example</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">NounAnimacy</span>,<span class="va">NounGender</span>,<span class="va">NounLength</span>,<span class="va">NounFrequency</span><span class="op">)</span></span>
-<span><span class="va">df_example</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_example</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">NounAnimacy</span>,<span class="va">NounGender</span>,<span class="va">NounLength</span>,<span class="va">NounFrequency</span><span class="op">)</span></span>
+<span><span class="va">df_example</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  NounAnimacy NounGender NounLength NounFrequency
 1     animate   feminine          6           638
@@ -507,7 +483,7 @@ Important
 <div class="callout-body-container callout-body">
 <p>Note that when creating the dataset using the <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> function it builds a copy of the data. Modifying the original variables will not change <code>df_example</code> . You can remove the variables to clean up the workspace using <code><a href="https://rdrr.io/r/base/rm.html">rm()</a></code></p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">NounAnimacy</span>,<span class="va">NounFrequency</span>, <span class="va">NounGender</span>, <span class="va">NounLength</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">NounAnimacy</span>,<span class="va">NounFrequency</span>, <span class="va">NounGender</span>, <span class="va">NounLength</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -515,7 +491,7 @@ Important
 <p><img src="images/clipboard-729095383.png" class="img-fluid"></p>
 <p>and you can access the individual columns in the dataframe using the <code>$</code> operator. For example to see the column NounGender</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_example</span><span class="op">$</span><span class="va">NounGender</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_example</span><span class="op">$</span><span class="va">NounGender</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] feminine  masculine neuter    masculine feminine  feminine 
 Levels: feminine masculine neuter</code></pre>
@@ -525,12 +501,12 @@ Levels: feminine masculine neuter</code></pre>
 <p>Looking at the content of the assignment tasks, we will use data from the <code>languageR</code> package and functions from the <code>dyplr</code> package, which is part of the <code>tidyverse</code> environment.</p>
 <p>To use both of them we have to load the libraries first</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add code to load the required libraries</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">languageR</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add code to load the required libraries</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">languageR</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'languageR' was built under R version 4.3.3</code></pre>
 </div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'ggplot2' was built under R version 4.3.3</code></pre>
 </div>
@@ -558,19 +534,19 @@ Levels: feminine masculine neuter</code></pre>
 <section id="load-dataset-in-the-environment" class="level3"><h3 class="anchored" data-anchor-id="load-dataset-in-the-environment">3.1. Load dataset in the environment</h3>
 <p>To use the <code>lexdec</code> dataset, we load it in the environment using the function <code><a href="https://rdrr.io/r/utils/data.html">data()</a></code> . Although this step is not needed to access the data, it conveniently includes is as any other variable in the Environment window, so that it is possible to inspect it.</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><img src="images/clipboard-1068450891.png" class="img-fluid"></p>
 <p>You can browse the information on the dataset in the documentation included with the package. You can do that with the <code><a href="https://rdrr.io/r/utils/help.html">help()</a></code> function, using <code>?</code> or searching in the help tab.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span>
-<span><span class="op">?</span><span class="va">lexdec</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span>
+<span><span class="op">?</span><span class="va">lexdec</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The help tab shows the description of each of the variables in the dataset</p>
 <p><img src="images/clipboard-4085058704.png" class="img-fluid"></p>
 </section><section id="explore-contents-of-the-dataset" class="level3"><h3 class="anchored" data-anchor-id="explore-contents-of-the-dataset">3.2. Explore contents of the dataset</h3>
 <p>You were asked to show the first rows of the dataset.</p>
 <p>Typing the name of the dataset will show you the full contents, which is not too handy. Instead you can use <code>View(lexdec)</code> to load it in the RStudio Viewer, or, just to inspect he first rows, you can use the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function as follows:</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Subject       RT Trial Sex NativeLanguage Correct PrevType PrevCorrect
 1      A1 6.340359    23   F        English correct     word     correct
@@ -604,7 +580,7 @@ Levels: feminine masculine neuter</code></pre>
 </div>
 <p>As can be seen from the output, by default it displays 6 rows. Looking at the documentation of the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function, it describes that the function can take an <em>argument</em> <code>n</code> specifying how many rows to display.</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec</span>, n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec</span>, n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Subject       RT Trial Sex NativeLanguage Correct PrevType PrevCorrect   Word
 1      A1 6.340359    23   F        English correct     word     correct    owl
@@ -631,7 +607,7 @@ Levels: feminine masculine neuter</code></pre>
 </section><section id="extract-the-column-names-from-the-dataframe." class="level3"><h3 class="anchored" data-anchor-id="extract-the-column-names-from-the-dataframe.">3.3 Extract the column names from the dataframe.</h3>
 <p>As per the workgroup notes, the names of the variables in the dataframe can be extracted using the <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code> function.</p>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Subject"        "RT"             "Trial"          "Sex"           
  [5] "NativeLanguage" "Correct"        "PrevType"       "PrevCorrect"   
@@ -645,8 +621,8 @@ Levels: feminine masculine neuter</code></pre>
 </section><section id="sort-dataframe" class="level3"><h3 class="anchored" data-anchor-id="sort-dataframe">3.4. Sort dataframe</h3>
 <p>You were asked to sort the dataframe by the <em>reaction time</em> (RT variable). Sorting can be done in several ways, but we will use the tidyverse <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> function as described in the workgroup.</p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec_ordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">lexdec</span>,<span class="va">RT</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_ordered</span>, n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec_ordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">lexdec</span>,<span class="va">RT</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_ordered</span>, n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Subject       RT Trial Sex NativeLanguage   Correct PrevType PrevCorrect
 542      A2 5.828946   159   M        English incorrect  nonword     correct
@@ -672,8 +648,8 @@ Levels: feminine masculine neuter</code></pre>
 </div>
 <p>To instead arrange in reducing order:</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec_ordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">lexdec</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">RT</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_ordered</span>, n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec_ordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">lexdec</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">RT</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_ordered</span>, n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Subject       RT Trial Sex NativeLanguage   Correct PrevType PrevCorrect
 1194      T2 7.587311    44   F          Other incorrect  nonword     correct
@@ -699,8 +675,8 @@ Levels: feminine masculine neuter</code></pre>
 </div>
 <p>As an example, the previous can also be done using <em>pipes</em>. It does not make much difference in this task but it makes the code more readable when you perform several steps:</p>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec_ordered</span> <span class="op">&lt;-</span> <span class="va">lexdec</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">RT</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_ordered</span>, n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec_ordered</span> <span class="op">&lt;-</span> <span class="va">lexdec</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">RT</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_ordered</span>, n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Subject       RT Trial Sex NativeLanguage   Correct PrevType PrevCorrect
 542      A2 5.828946   159   M        English incorrect  nonword     correct
@@ -735,7 +711,7 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <p>Note that on these examples, we saved the output in a new variable. If we were just calling the function as:</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">lexdec</span>, <span class="va">RT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">lexdec</span>, <span class="va">RT</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>it would display on the console the output which is rather long and not easy to see.</p>
 </div>
 </div>
@@ -745,10 +721,10 @@ Important
 <p>As described in the workgroup materials, two functions are used to select the data, one selecting the variables/columns of interest (<code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>) and another selecting the observations/rows based on a criteria (<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>)</p>
 <p>Let’s see below how to do the same operation with and without using pipes.</p>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Without pipes</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Without pipes</span></span>
 <span></span>
 <span><span class="va">lexdec_reduced</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">lexdec</span>,<span class="va">Subject</span><span class="op">:</span><span class="va">Frequency</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Subject       RT Trial Sex NativeLanguage Correct PrevType PrevCorrect   Word
 1      A1 6.340359    23   F        English correct     word     correct    owl
@@ -764,7 +740,7 @@ Important
 </div>
 <p>With this first command, we have selected a few columns from the original dataset. We can check that using for example <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code></p>
 <div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lexdec</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Subject"        "RT"             "Trial"          "Sex"           
  [5] "NativeLanguage" "Correct"        "PrevType"       "PrevCorrect"   
@@ -776,7 +752,7 @@ Important
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lexdec_reduced</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">lexdec_reduced</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Subject"        "RT"             "Trial"          "Sex"           
  [5] "NativeLanguage" "Correct"        "PrevType"       "PrevCorrect"   
@@ -786,8 +762,8 @@ Important
 <p>As you can see only the first columns (from Subject to Frequency) are retained in <code>lexdec_reduced</code></p>
 <p>To now select only the English native speakers, we use the function <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> :</p>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec_filtered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>,<span class="va">NativeLanguage</span><span class="op">==</span><span class="st">"English"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_filtered</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lexdec_filtered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>,<span class="va">NativeLanguage</span><span class="op">==</span><span class="st">"English"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_filtered</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Subject       RT Trial Sex NativeLanguage Correct PrevType PrevCorrect   Word
 1      A1 6.340359    23   F        English correct     word     correct    owl
@@ -803,7 +779,7 @@ Important
 </div>
 <p>To check we can use the function unique() that tells us how many unique values are in a variable. The output below shows that <code>NativeLanguage</code> is a factor with two levels and both are present in the dataframe <code>lexdec_reduced</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">lexdec_reduced</span><span class="op">$</span><span class="va">NativeLanguage</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">lexdec_reduced</span><span class="op">$</span><span class="va">NativeLanguage</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] English Other  
 Levels: English Other</code></pre>
@@ -811,7 +787,7 @@ Levels: English Other</code></pre>
 </div>
 <p>If we looked at the <code>lexdec_filtered</code> dataframe, it specifies that the variable is still a factor with two levels, but only “English” is present in the data.</p>
 <div class="cell">
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">lexdec_filtered</span><span class="op">$</span><span class="va">NativeLanguage</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">lexdec_filtered</span><span class="op">$</span><span class="va">NativeLanguage</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] English
 Levels: English Other</code></pre>
@@ -819,12 +795,12 @@ Levels: English Other</code></pre>
 </div>
 <p>The steps above could be performed using <em>pipes</em>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Using pipes</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Using pipes</span></span>
 <span></span>
 <span><span class="va">lexdec_filtered</span> <span class="op">&lt;-</span> <span class="va">lexdec</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>                  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Subject</span><span class="op">:</span><span class="va">Frequency</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>                  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NativeLanguage</span> <span class="op">==</span> <span class="st">"English"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_filtered</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lexdec_filtered</span>, n<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Subject       RT Trial Sex NativeLanguage Correct PrevType PrevCorrect   Word
 1      A1 6.340359    23   F        English correct     word     correct    owl
@@ -843,13 +819,13 @@ Levels: English Other</code></pre>
 <p>Finally you were asked to save the filtered dataframe into a file in the /data directorate.</p>
 <p>Let’s save the data for example in text format using the <code><a href="https://rdrr.io/r/utils/write.table.html">write.table()</a></code> function:</p>
 <div class="cell">
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>,file <span class="op">=</span> <span class="st">"./data/reduced_data.txt"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>,file <span class="op">=</span> <span class="st">"./data/reduced_data.txt"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>This command creates a file in the <code>/data</code> directory called <code>reduced_data.txt</code></p>
 <p><img src="images/clipboard-78236926.png" class="img-fluid"></p>
 <p>We can also save a copy in R format using <code><a href="https://rdrr.io/r/base/readRDS.html">saveRDS()</a></code> if using R for further analysis.</p>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>,<span class="st">"./data/reduced_data.Rda"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">lexdec_reduced</span>,<span class="st">"./data/reduced_data.Rda"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><img src="images/clipboard-3249453368.png" class="img-fluid"></p>
 <hr>
@@ -907,13 +883,14 @@ Levels: English Other</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
